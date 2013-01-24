@@ -1,0 +1,29 @@
+# -*- encoding: utf-8 -*-
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'constantcontact/version'
+
+Gem::Specification.new do |s|
+  s.name = "constantcontact"
+  s.version = ConstantContact::SDK::VERSION
+  s.platform = Gem::Platform::RUBY
+  s.authors = ["ConstantContact"]
+  s.homepage = "http://www.constantcontact.com"
+  s.summary = %q{Constant Contact SDK for Ruby}
+  s.description = s.summary
+
+  s.files = [
+    '.rspec',
+    'constantcontact.gemspec',
+    'README.md'
+  ]
+  s.files += Dir['lib/**/*.rb']
+  s.files += Dir['spec/**/*.rb']
+  s.executables = []
+  s.require_paths = [ "lib", "spec" ]
+
+  s.add_dependency("rest-client")
+  s.add_dependency("json")
+  s.add_development_dependency("rspec")
+end

@@ -1,0 +1,29 @@
+{
+    "id":3,
+    "status":"REMOVED",
+    "fax":"",
+    "addresses":[],
+    "notes":[],
+    "confirmed":false,
+    "lists":[],
+    "source":"",
+    "email_addresses":[
+        {
+            "status":"REMOVED",
+            "confirm_status":"NO_CONFIRMATION_REQUIRED",
+            "opt_in_source":"ACTION_BY_OWNER",
+            "opt_in_date":"2012-01-08T23:10:07.890Z",
+            "opt_out_date":"2012-03-29T14:59:25.427Z",
+            "email_address":"john.smith@gmail.com"
+         }
+     ],
+     "prefix_name":"Mr",
+     "first_name":"John",
+     "middle_name":"S",
+     "last_name":"Smith",
+     "job_title":"Software Engineer",
+     "company_name":"Constant Contact",
+     "custom_fields":[],
+     "source_details":"",
+     "action_by":"ACTION_BY_OWNER"
+}
