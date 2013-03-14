@@ -10,7 +10,7 @@ describe ConstantContact::Components::Contact do
 	describe "#from_list" do
 		it "should return a contact" do
 			json = load_json('contact.json')
-			contact = ConstantContact::Components::Contact.from_array(JSON.parse(json))
+			contact = ConstantContact::Components::Contact.create(JSON.parse(json))
 
 			contact.last_name.should eq('Smith')
 		end

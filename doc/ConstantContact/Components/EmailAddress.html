@@ -96,7 +96,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb</dd>
+    <dd class="r2 last">lib/constantcontact/components/contacts/email_address.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -158,6 +158,34 @@ Returns the value of attribute confirm_status.
   
     <span class="summary_desc"><div class='inline'><p>
 Returns the value of attribute email_address.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id-instance_method" title="#id (instance method)">- (Object) <strong>id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute id.
 </p>
 </div></span>
   
@@ -292,7 +320,7 @@ Returns the value of attribute status.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#from_array-class_method" title="from_array (class method)">+ (EmailAddress) <strong>from_array</strong>(props) </a>
+      <a href="#create-class_method" title="create (class method)">+ (EmailAddress) <strong>create</strong>(props) </a>
     
 
     
@@ -326,7 +354,7 @@ Factory method to create an EmailAddress object from a json string.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(email_address = nil) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (EmailAddress) <strong>initialize</strong>(email_address = nil) </a>
     
 
     
@@ -365,7 +393,7 @@ Class constructor.
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt>Object</tt>) <strong>initialize</strong>(email_address = nil) 
+    - (<tt><span class='object_link'><a href="" title="ConstantContact::Components::EmailAddress (class)">EmailAddress</a></span></tt>) <strong>initialize</strong>(email_address = nil) 
   
 
   
@@ -411,7 +439,7 @@ Class constructor
 17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 15</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_email_address identifier id'>email_address</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_@email_address ivar id'>@email_address</span> <span class='assign token'>=</span> <span class='rubyid_email_address identifier id'>email_address</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_email_address identifier id'>email_address</span>
@@ -461,7 +489,7 @@ Returns the value of attribute confirm_status
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_confirm_status identifier id'>confirm_status</span>
   <span class='rubyid_@confirm_status ivar id'>@confirm_status</span>
@@ -506,10 +534,55 @@ Returns the value of attribute email_address
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_email_address identifier id'>email_address</span>
   <span class='rubyid_@email_address ivar id'>@email_address</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="id=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>id</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute id
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_id identifier id'>id</span>
+  <span class='rubyid_@id ivar id'>@id</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -551,7 +624,7 @@ Returns the value of attribute opt_in_date
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_opt_in_date identifier id'>opt_in_date</span>
   <span class='rubyid_@opt_in_date ivar id'>@opt_in_date</span>
@@ -596,7 +669,7 @@ Returns the value of attribute opt_in_source
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_opt_in_source identifier id'>opt_in_source</span>
   <span class='rubyid_@opt_in_source ivar id'>@opt_in_source</span>
@@ -641,7 +714,7 @@ Returns the value of attribute opt_out_date
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_opt_out_date identifier id'>opt_out_date</span>
   <span class='rubyid_@opt_out_date ivar id'>@opt_out_date</span>
@@ -686,7 +759,7 @@ Returns the value of attribute status
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_status identifier id'>status</span>
   <span class='rubyid_@status ivar id'>@status</span>
@@ -705,9 +778,9 @@ Returns the value of attribute status
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="from_array-class_method">
+  <h3 class="signature first" id="create-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="ConstantContact::Components::EmailAddress (class)">EmailAddress</a></span></tt>) <strong>from_array</strong>(props) 
+    + (<tt><span class='object_link'><a href="" title="ConstantContact::Components::EmailAddress (class)">EmailAddress</a></span></tt>) <strong>create</strong>(props) 
   
 
   
@@ -775,20 +848,18 @@ Factory method to create an EmailAddress object from a json string
 27
 28
 29
-30
-31</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/email_address.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/email_address.rb', line 22</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_from_array identifier id'>from_array</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='rparen token'>)</span>
   <span class='rubyid_email_address identifier id'>email_address</span> <span class='assign token'>=</span> <span class='rubyid_EmailAddress constant id'>EmailAddress</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
-  <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_status identifier id'>status</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'status'</span><span class='rparen token'>)</span>
-  <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_confirm_status identifier id'>confirm_status</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'confirm_status'</span><span class='rparen token'>)</span>
-  <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_opt_in_source identifier id'>opt_in_source</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'opt_in_source'</span><span class='rparen token'>)</span>
-  <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_opt_in_date identifier id'>opt_in_date</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'opt_in_date'</span><span class='rparen token'>)</span>
-  <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_opt_out_date identifier id'>opt_out_date</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'opt_out_date'</span><span class='rparen token'>)</span>
-  <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_email_address identifier id'>email_address</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'email_address'</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_props identifier id'>props</span>
+    <span class='rubyid_props identifier id'>props</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='bitor op'>|</span>
+      <span class='rubyid_email_address identifier id'>email_address</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{key}=&quot;</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_email_address identifier id'>email_address</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -802,7 +873,7 @@ Factory method to create an EmailAddress object from a json string
 </div>
 
     <div id="footer">
-  Generated on 01/22/13 11:38:47 by
+  Generated on 03/08/13 09:58:56 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

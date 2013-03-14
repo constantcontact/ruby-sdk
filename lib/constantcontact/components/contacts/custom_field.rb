@@ -12,10 +12,13 @@ module ConstantContact
 			# Factory method to create a CustomField object from a json string
 			# @param [Hash] props - array of properties to create object from
 			# @return [CustomField]
-			def self.from_array(props)
+			def self.create(props)
 				custom_field = CustomField.new
-				custom_field.name = get_value(props, 'name')
-				custom_field.value = get_value(props, 'value')
+				if props
+					props.each do |key, value|
+						custom_field.send("#{key}=", value)
+					end
+				end
 				custom_field
 			end
 

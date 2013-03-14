@@ -12,13 +12,13 @@ module ConstantContact
 			# Factory method to create a ContactList object from a json string
 			# @param [Hash] props - array of properties to create object from
 			# @return [ContactList]
-			def self.from_array(props)
+			def self.create(props)
 				contact_list = ContactList.new
-				contact_list.id = get_value(props, 'id')
-				contact_list.name = get_value(props, 'name')
-				contact_list.status = get_value(props, 'status')
-				contact_list.contact_count = get_value(props, 'contact_count')
-				contact_list.opt_in_default = get_value(props, 'opt_in_default')
+				if props
+					props.each do |key, value|
+						contact_list.send("#{key}=", value)
+					end
+				end
 				contact_list
 			end
 

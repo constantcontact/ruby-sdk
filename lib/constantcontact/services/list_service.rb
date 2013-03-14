@@ -17,7 +17,7 @@ module ConstantContact
 					response = RestClient.get(url, get_headers(access_token))
 					lists = []
 					JSON.parse(response.body).each do |contact|
-						lists << Components::ContactList.from_array(contact)
+						lists << Components::ContactList.create(contact)
 					end
 					lists
 				end
@@ -29,9 +29,21 @@ module ConstantContact
 				# @return [ContactList]
 				def add_list(access_token, list)
 					url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.lists')
-					json = list.to_json.gsub('"contact_count":false', '"contact_count":null')
-					response = RestClient.post(url, json, get_headers(access_token))
-					Components::ContactList.from_array(JSON.parse(response.body))
+					payload = list.to_json
+					response = RestClient.post(url, payload, get_headers(access_token))
+					Components::ContactList.create(JSON.parse(response.body))
+				end
+
+
+				# Update a Contact List
+				# @param [String] access_token - Constant Contact OAuth2 access token
+				# @param [ContactList] list - ContactList to be updated
+				# @return [ContactList]
+				def update_list(access_token, list)
+					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.list'), list.id)
+					payload = list.to_json
+					response = RestClient.put(url, payload, get_headers(access_token))
+					Components::ContactList.create(JSON.parse(response.body))
 				end
 
 
@@ -42,7 +54,7 @@ module ConstantContact
 				def get_list(access_token, list_id)
 					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.list'), list_id)
 					response = RestClient.get(url, get_headers(access_token))
-					Components::ContactList.from_array(JSON.parse(response.body))
+					Components::ContactList.create(JSON.parse(response.body))
 				end
 
 
@@ -54,10 +66,11 @@ module ConstantContact
 					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.list_contacts'), list_id)
 					response = RestClient.get(url, get_headers(access_token))
 					contacts = []
-					JSON.parse(response.body).each do |contact|
-						contacts << Components::Contact.from_array(contact)
+					body = JSON.parse(response.body)
+					body['results'].each do |contact|
+						contacts << Components::Contact.create(contact)
 					end
-					contacts
+					Components::ResultSet.new(contacts, body['meta'])
 				end
 
 			end

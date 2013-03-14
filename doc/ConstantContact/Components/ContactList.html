@@ -96,7 +96,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb</dd>
+    <dd class="r2 last">lib/constantcontact/components/contacts/contact_list.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -264,7 +264,7 @@ Returns the value of attribute status.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#from_array-class_method" title="from_array (class method)">+ (ContactList) <strong>from_array</strong>(props) </a>
+      <a href="#create-class_method" title="create (class method)">+ (ContactList) <strong>create</strong>(props) </a>
     
 
     
@@ -333,7 +333,7 @@ Returns the value of attribute contact_count
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_contact_count identifier id'>contact_count</span>
   <span class='rubyid_@contact_count ivar id'>@contact_count</span>
@@ -378,7 +378,7 @@ Returns the value of attribute id
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_id identifier id'>id</span>
   <span class='rubyid_@id ivar id'>@id</span>
@@ -423,7 +423,7 @@ Returns the value of attribute name
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_name identifier id'>name</span>
   <span class='rubyid_@name ivar id'>@name</span>
@@ -468,7 +468,7 @@ Returns the value of attribute opt_in_default
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_opt_in_default identifier id'>opt_in_default</span>
   <span class='rubyid_@opt_in_default ivar id'>@opt_in_default</span>
@@ -513,7 +513,7 @@ Returns the value of attribute status
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_status identifier id'>status</span>
   <span class='rubyid_@status ivar id'>@status</span>
@@ -532,9 +532,9 @@ Returns the value of attribute status
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="from_array-class_method">
+  <h3 class="signature first" id="create-class_method">
   
-    + (<tt><span class='object_link'><a href="" title="ConstantContact::Components::ContactList (class)">ContactList</a></span></tt>) <strong>from_array</strong>(props) 
+    + (<tt><span class='object_link'><a href="" title="ConstantContact::Components::ContactList (class)">ContactList</a></span></tt>) <strong>create</strong>(props) 
   
 
   
@@ -605,15 +605,15 @@ Factory method to create a ContactList object from a json string
 23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/components/contacts/contact_list.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 15</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_from_array identifier id'>from_array</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_list identifier id'>contact_list</span> <span class='assign token'>=</span> <span class='rubyid_ContactList constant id'>ContactList</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
-  <span class='rubyid_contact_list identifier id'>contact_list</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'id'</span><span class='rparen token'>)</span>
-  <span class='rubyid_contact_list identifier id'>contact_list</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'name'</span><span class='rparen token'>)</span>
-  <span class='rubyid_contact_list identifier id'>contact_list</span><span class='dot token'>.</span><span class='rubyid_status identifier id'>status</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'status'</span><span class='rparen token'>)</span>
-  <span class='rubyid_contact_list identifier id'>contact_list</span><span class='dot token'>.</span><span class='rubyid_contact_count identifier id'>contact_count</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'contact_count'</span><span class='rparen token'>)</span>
-  <span class='rubyid_contact_list identifier id'>contact_list</span><span class='dot token'>.</span><span class='rubyid_opt_in_default identifier id'>opt_in_default</span> <span class='assign token'>=</span> <span class='rubyid_get_value identifier id'>get_value</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='comma token'>,</span> <span class='string val'>'opt_in_default'</span><span class='rparen token'>)</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_props identifier id'>props</span>
+    <span class='rubyid_props identifier id'>props</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='bitor op'>|</span>
+      <span class='rubyid_contact_list identifier id'>contact_list</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{key}=&quot;</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
   <span class='rubyid_contact_list identifier id'>contact_list</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
@@ -627,7 +627,7 @@ Factory method to create a ContactList object from a json string
 </div>
 
     <div id="footer">
-  Generated on 01/22/13 11:38:47 by
+  Generated on 03/08/13 09:58:56 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

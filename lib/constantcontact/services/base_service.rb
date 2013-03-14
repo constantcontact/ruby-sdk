@@ -23,22 +23,6 @@ module ConstantContact
 					}
 				end
 
-
-				# Helper function to build a url depending on the offset and limit
-				# @param [String] url
-				# @param [Integer] offset
-				# @param [Integer] limit
-				# @return [String] - resulting url
-				def paginate_url(url, offset = nil, limit = nil)
-					params = {}
-					params[:offset] = offset if offset
-					params[:limit] = limit if limit
-					unless params.empty?
-						url = url + '?' + Util::Helpers.http_build_query(params)
-					end
-					url
-				end
-
 			end
 		end
 	end

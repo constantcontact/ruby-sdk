@@ -10,7 +10,7 @@ describe ConstantContact::Components::Address do
 	describe "#from_list" do
 		it "should return an address" do
 			json = load_json('address.json')
-			address = ConstantContact::Components::Address.from_array(JSON.parse(json))
+			address = ConstantContact::Components::Address.create(JSON.parse(json))
 
 			address.line1.should eq('6 Main Street')
 		end

@@ -42,7 +42,7 @@ describe ConstantContact::Services::ListService do
 
 			response = RestClient::Response.create(json, net_http_resp, {})
 			RestClient.stub(:post).and_return(response)
-			list = ConstantContact::Components::ContactList.from_array(JSON.parse(json))
+			list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 			added = ConstantContact::Services::ListService.add_list('token', list)
 
 			added.should respond_to(:status)
@@ -58,11 +58,11 @@ describe ConstantContact::Services::ListService do
 
 			response = RestClient::Response.create(json_contacts, net_http_resp, {})
 			RestClient.stub(:get).and_return(response)
-			list = ConstantContact::Components::ContactList.from_array(JSON.parse(json_list))
+			list = ConstantContact::Components::ContactList.create(JSON.parse(json_list))
 			contacts = ConstantContact::Services::ListService.get_contacts_from_list('token', list)
-			contact = contacts[0]
+			contact = contacts.results[0]
 
-			contacts.should be_kind_of(Array)
+			contacts.should be_kind_of(ConstantContact::Components::ResultSet)
 			contact.should be_kind_of(ConstantContact::Components::Contact)
 		end
 	end

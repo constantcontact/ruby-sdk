@@ -11,19 +11,20 @@ module ConstantContact
 
 
 			# Class constructor
-			# @param [String] client_id - Constant Contact API Key
-			# @param [String] client_secret - Constant Contact secret key
-			# @param [String] redirect_uri - URL where Constact Contact is returning  the authorization code
+			# @param [Hash] opts - the options to create an OAuth2 object with
+			# @option opts [String] :api_key - the Constant Contact API Key
+			# @option opts [String] :api_secret - the Constant Contact secret key
+			# @option opts [String] :redirect_url - the URL where Constact Contact is returning the authorization code
 			# @return
-			def initialize(client_id, client_secret, redirect_uri)
-				@client_id = client_id
-				@client_secret = client_secret
-				@redirect_uri = redirect_uri
+			def initialize(opts)
+				@client_id = opts[:api_key]
+				@client_secret = opts[:api_secret]
+				@redirect_uri = opts[:redirect_url]
 			end
 
 
 			# Get the URL at which the user can authenticate and authorize the requesting application
-			# @param [Boolean] server - Whether or not to use OAuth2 server flow, alternative is client flow
+			# @param [Boolean] server - whether or not to use OAuth2 server flow, alternative is client flow
 			# @return [String] the authorization URL
 			def get_authorization_url(server = true)
 				response_type = server ? Util::Config.get('auth.response_type_code') : Util::Config.get('auth.response_type_token')
@@ -41,9 +42,9 @@ module ConstantContact
 			end
 
 
-			# Obtain an access token 
-			# @param [String] code - code returned from Constant Contact after a user has granted access to their account
-			# @return [String] access token
+			# Obtain an access token
+			# @param [String] code - the code returned from Constant Contact after a user has granted access to his account
+			# @return [String] the access token
 			def get_access_token(code)
 				params = {
 					:grant_type    => Util::Config.get('auth.authorization_code_grant_type'),
@@ -62,14 +63,12 @@ module ConstantContact
 				begin
 					response = RestClient.post(url, params)
 					response_body = JSON.parse(response)
-					if response_body['error']
-						raise Exceptions::OAuth2Exception, response_body['error'] + ': ' + response_body['error_description']
-					end
 				rescue => e
 					response_body = JSON.parse(e.response)
-					if response_body['error']
-						raise Exceptions::OAuth2Exception, response_body['error'] + ': ' + response_body['error_description']
-					end
+				end
+
+				if response_body['error']
+					raise Exceptions::OAuth2Exception, response_body['error'] + ': ' + response_body['error_description']
 				end
 
 				response_body

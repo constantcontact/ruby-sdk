@@ -94,7 +94,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">e:/phpapp/constantcontact/ruby/lib/constantcontact/util/config.rb</dd>
+    <dd class="r2 last">lib/constantcontact/util/config.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -238,13 +238,13 @@ Config::get(&#8216;auth.token_endpoint&#8217;)
       <pre class="lines">
 
 
-52
-53
-54
-55</pre>
+118
+119
+120
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/util/config.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/util/config.rb', line 118</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_index identifier id'>index</span><span class='rparen token'>)</span>
   <span class='rubyid_properties identifier id'>properties</span> <span class='assign token'>=</span> <span class='rubyid_index identifier id'>index</span><span class='dot token'>.</span><span class='rubyid_split identifier id'>split</span><span class='lparen token'>(</span><span class='string val'>'.'</span><span class='rparen token'>)</span>
@@ -336,25 +336,122 @@ Return a hash of configuration strings
 44
 45
 46
-47</pre>
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/util/config.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/util/config.rb', line 15</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_props identifier id'>props</span>
   <span class='lbrace token'>{</span>
     <span class='comment val'># REST endpoints</span>
     <span class='symbol val'>:endpoints</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span>
-      <span class='symbol val'>:base_url</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'https://api.constantcontact.com/v2/'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:contact</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:contacts</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:lists</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'lists'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:list</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'lists/%s'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:list_contacts</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'lists/%s/contacts'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:contact_lists</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/lists'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:contact_list</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/lists/%s'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaigns</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'campaigns'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_id</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'campaigns/%s'</span>
+      <span class='symbol val'>:base_url</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'https://api.constantcontact.com/v2/'</span><span class='comma token'>,</span>
+
+      <span class='symbol val'>:activity</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:activities</span>                     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:export_contacts_activity</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/exportcontacts'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:clear_lists_activity</span>           <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/clearlists'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:remove_from_lists_activity</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/removefromlists'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:add_contacts_activity</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/addcontacts'</span><span class='comma token'>,</span>
+
+      <span class='symbol val'>:verified_email_addresses</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'account/verifiedemailaddresses'</span><span class='comma token'>,</span>
+
+      <span class='symbol val'>:contact</span>                        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contacts</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:lists</span>                          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'lists'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:list</span>                           <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'lists/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:list_contacts</span>                  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'lists/%s/contacts'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_lists</span>                  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/lists'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_list</span>                   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/lists/%s'</span><span class='comma token'>,</span>
+
+      <span class='symbol val'>:campaigns</span>                      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_schedules</span>             <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/schedules'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_schedule</span>              <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/schedules/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_test_sends</span>            <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tests'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_summary</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/reports/summary'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_bounces</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/bounces'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_clicks</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/clicks'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_forwards</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/forwards'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_opens</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/opens'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_sends</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/sends'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_unsubscribes</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/unsubscribes'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_link</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/clicks/%s'</span><span class='comma token'>,</span>
+
+      <span class='symbol val'>:contact_tracking_summary</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/reports/summary'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_bounces</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/bounces'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_clicks</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/clicks'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_forwards</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/forwards'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_opens</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/opens'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_sends</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/sends'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_unsubscribes</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/unsubscribes'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:contact_tracking_link</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/clicks/%s'</span>
     <span class='rbrace token'>}</span><span class='comma token'>,</span>
 
     <span class='comment val'># OAuth2 Authorization related configuration options</span>
@@ -367,10 +464,45 @@ Return a hash of configuration strings
       <span class='symbol val'>:token_endpoint</span>                <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'oauth/token'</span>
     <span class='rbrace token'>}</span><span class='comma token'>,</span>
 
+    <span class='comment val'># Column names used with bulk activities</span>
+    <span class='symbol val'>:activities_columns</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span>
+      <span class='symbol val'>:email</span>            <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'EMAIL'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:first_name</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'FIRST NAME'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:middle_name</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'MIDDLE NAME'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:last_name</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'LAST NAME'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:job_title</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'JOB TITLE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:company_name</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'COMPANY NAME'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:work_phone</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'WORK PHONE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:home_phone</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'HOME PHONE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:address1</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ADDRESS LINE 1'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:address2</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ADDRESS LINE 2'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:address3</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ADDRESS LINE 3'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:city</span>             <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CITY'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:state</span>            <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'STATE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:state_province</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'US STATE/CA PROVINCE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:country</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'COUNTRY'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:postal_code</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'ZIP/POSTAL CODE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:sub_postal_code</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'SUB ZIP/POSTAL CODE'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_1</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 1'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_2</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 2'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_3</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 3'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_4</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 4'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_5</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 5'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_6</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 6'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_7</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 7'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_8</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 8'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_9</span>   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 9'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_10</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 10'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_11</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 11'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_12</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 12'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_13</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 13'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_14</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 14'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:custom_field_15</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'CUSTOM FIELD 15'</span>
+    <span class='rbrace token'>}</span><span class='comma token'>,</span>
+
     <span class='comment val'># Errors to be returned for various exceptions</span>
     <span class='symbol val'>:errors</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span>
-      <span class='symbol val'>:contact_or_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Only an interger or Contact are allowed for this method.'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:list_or_id</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Only an interger or ContactList are allowed for this method.'</span>
+      <span class='symbol val'>:id_or_object</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Only an id or %s object are allowed for this method.'</span>
     <span class='rbrace token'>}</span>
   <span class='rbrace token'>}</span>
 <span class='rubyid_end end kw'>end</span>
@@ -385,7 +517,7 @@ Return a hash of configuration strings
 </div>
 
     <div id="footer">
-  Generated on 01/22/13 11:38:48 by
+  Generated on 03/08/13 09:58:52 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

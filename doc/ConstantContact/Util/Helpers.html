@@ -94,7 +94,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">e:/phpapp/constantcontact/ruby/lib/constantcontact/util/helpers.rb</dd>
+    <dd class="r2 last">lib/constantcontact/util/helpers.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -220,7 +220,7 @@ Escape special characters
 23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/util/helpers.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/util/helpers.rb', line 21</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_encode identifier id'>encode</span><span class='lparen token'>(</span><span class='rubyid_str identifier id'>str</span><span class='rparen token'>)</span>
   <span class='rubyid_CGI constant id'>CGI</span><span class='dot token'>.</span><span class='rubyid_escape identifier id'>escape</span><span class='lparen token'>(</span><span class='rubyid_str identifier id'>str</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'.'</span><span class='comma token'>,</span> <span class='string val'>'%2E'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'-'</span><span class='comma token'>,</span> <span class='string val'>'%2D'</span><span class='rparen token'>)</span>
@@ -297,7 +297,7 @@ query string
 17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/util/helpers.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/util/helpers.rb', line 15</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_http_build_query identifier id'>http_build_query</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
   <span class='rubyid_params identifier id'>params</span><span class='dot token'>.</span><span class='rubyid_collect identifier id'>collect</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='rubyid_k identifier id'>k</span><span class='comma token'>,</span><span class='rubyid_v identifier id'>v</span><span class='bitor op'>|</span> <span class='dstring node'>&quot;#{k.to_s}=#{encode(v.to_s)}&quot;</span> <span class='rbrace token'>}</span><span class='dot token'>.</span><span class='rubyid_reverse identifier id'>reverse</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span><span class='lparen token'>(</span><span class='string val'>'&amp;'</span><span class='rparen token'>)</span>
@@ -313,7 +313,7 @@ query string
 </div>
 
     <div id="footer">
-  Generated on 01/22/13 11:38:48 by
+  Generated on 03/08/13 09:58:52 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

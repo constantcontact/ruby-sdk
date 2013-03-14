@@ -14,16 +14,18 @@ describe ConstantContact::Auth::OAuth2 do
 			}.should raise_error(ArgumentError)
 		end
 
-		it "takes three arguments" do
+		it "takes one argument" do
+			opts = {:api_key => 'api key', :api_secret => 'secret', :redirect_url => 'redirect url'}
 			lambda {
-				ConstantContact::Auth::OAuth2.new('api key', 'secret', 'redirect uri')
+				ConstantContact::Auth::OAuth2.new(opts)
 			}.should_not raise_error(ArgumentError)
 		end
 	end
 
 	describe "#get_authorization_url" do
 		before(:each) do
-			@auth = ConstantContact::Auth::OAuth2.new('api key', 'secret', 'redirect uri')
+			opts = {:api_key => 'api key', :api_secret => 'secret', :redirect_url => 'redirect url'}
+			@auth = ConstantContact::Auth::OAuth2.new(opts)
 		end
 
 		it "returns a string" do
@@ -33,7 +35,8 @@ describe ConstantContact::Auth::OAuth2 do
 
 	describe "#get_access_token" do
 		before(:each) do
-			@auth = ConstantContact::Auth::OAuth2.new('api key', 'secret', 'redirect uri')
+			opts = {:api_key => 'api key', :api_secret => 'secret', :redirect_url => 'redirect url'}
+			@auth = ConstantContact::Auth::OAuth2.new(opts)
 		end
 
 		it "returns a Hash" do

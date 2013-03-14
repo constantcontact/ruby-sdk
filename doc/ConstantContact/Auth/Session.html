@@ -94,7 +94,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb</dd>
+    <dd class="r2 last">lib/constantcontact/auth/session_data_store.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -348,7 +348,7 @@ Create and initialize the session
 26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 13</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span>
   <span class='rubyid_cgi identifier id'>cgi</span> <span class='assign token'>=</span> <span class='rubyid_CGI constant id'>CGI</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'html4'</span><span class='rparen token'>)</span>
@@ -409,7 +409,7 @@ Returns the value of attribute session
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 10</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_session identifier id'>session</span>
   <span class='rubyid_@session ivar id'>@session</span>
@@ -514,7 +514,7 @@ Add a new user to the data store
 34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 32</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_user identifier id'>add_user</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
   <span class='rubyid_@session ivar id'>@session</span><span class='lbrack token'>[</span><span class='string val'>'datastore'</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_username identifier id'>username</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span>
@@ -570,7 +570,7 @@ Close current session
 64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 62</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_close identifier id'>close</span>
   <span class='rubyid_@session ivar id'>@session</span><span class='dot token'>.</span><span class='rubyid_close identifier id'>close</span>
@@ -649,7 +649,7 @@ Delete an existing user from the data store
 58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 56</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_user identifier id'>delete_user</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
   <span class='rubyid_@session ivar id'>@session</span><span class='lbrack token'>[</span><span class='string val'>'datastore'</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_username identifier id'>username</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span>
@@ -734,7 +734,7 @@ The username value
 41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 39</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_user identifier id'>get_user</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
   <span class='rubyid_@session ivar id'>@session</span><span class='lbrack token'>[</span><span class='string val'>'datastore'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span> <span class='question op'>?</span> <span class='rubyid_@session ivar id'>@session</span><span class='lbrack token'>[</span><span class='string val'>'datastore'</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='rubyid_username identifier id'>username</span><span class='rbrack token'>]</span> <span class='colon op'>:</span> <span class='rubyid_false false kw'>false</span>
@@ -834,7 +834,7 @@ Update an existing user in the data store
 51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'e:/phpapp/constantcontact/ruby/lib/constantcontact/auth/session_data_store.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/session_data_store.rb', line 47</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_user identifier id'>update_user</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
   <span class='rubyid_if if kw'>if</span> <span class='rubyid_@session ivar id'>@session</span><span class='lbrack token'>[</span><span class='string val'>'datastore'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_has_key? fid id'>has_key?</span><span class='lparen token'>(</span><span class='rubyid_username identifier id'>username</span><span class='rparen token'>)</span>
@@ -852,7 +852,7 @@ Update an existing user in the data store
 </div>
 
     <div id="footer">
-  Generated on 01/22/13 11:38:45 by
+  Generated on 03/08/13 09:58:53 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

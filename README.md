@@ -16,10 +16,14 @@ A. Rails example :
             config.gem "constantcontact"
             ...
         end
+        
+or add the following in your .Gemfile :
+
+        gem 'constantcontact'
 
 3. Create a new action and add the following code:
 
-        @oauth = ConstantContact::Auth::OAuth2.new('your api key', 'your secret key', 'your redirect url')
+        @oauth = ConstantContact::Auth::OAuth2.new(:api_key => 'your api key', :api_secret => 'your secret key', :redirect_url => 'your redirect url')
 
         @error = params[:error]
         @user = params[:username]
@@ -70,10 +74,15 @@ B. Sinatra example :
         gem install constantcontact
 
 2. Add the following code in myapp.rb (just an example):
+        require 'active_support'
         require 'constantcontact'
 
         get '/my_url' do
-            @oauth = ConstantContact::Auth::OAuth2.new('your api key', 'your secret key', 'your redirect url')
+            @oauth = ConstantContact::Auth::OAuth2.new(
+                :api_key => 'your api key',
+                :api_secret => 'your secret key',
+                :redirect_url => 'your redirect url'
+            )
 
             @error = params[:error]
             @user = params[:username]
@@ -83,7 +92,11 @@ B. Sinatra example :
                 response = @oauth.get_access_token(@code)
                 if response
                     token = response['access_token']
-                    cc = ConstantContact::Api.new('your api key')
+                    cc = ConstantContact::Api.new(
+                        :api_key => 'your api key',
+                        :api_secret => 'your secret key',
+                        :redirect_url => 'your redirect url'
+                    )
                     @contacts = cc.get_contacts(token, 0, 10)
                 end
             end

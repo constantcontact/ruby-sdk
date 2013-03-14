@@ -19,9 +19,9 @@ describe ConstantContact::Api do
 			response = RestClient::Response.create(json, net_http_resp, {})
 			RestClient.stub(:get).and_return(response)
 			contacts = @api.get_contacts('token')
-			contact = contacts[0]
+			contact = contacts.results[0]
 
-			contacts.should be_kind_of(Array)
+			contacts.should be_kind_of(ConstantContact::Components::ResultSet)
 			contact.should be_kind_of(ConstantContact::Components::Contact)
 		end
 	end
@@ -41,13 +41,13 @@ describe ConstantContact::Api do
 
 	describe "#get_contact_by_email" do
 		it "returns a contact" do
-			json = load_json('contact.json')
+			json = load_json('contacts.json')
 			net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
 			response = RestClient::Response.create(json, net_http_resp, {})
 			RestClient.stub(:get).and_return(response)
 			contacts = @api.get_contact_by_email('token', 'john.smith@gmail.com')
-			contact = contacts[0]
+			contact = contacts.results[0]
 
 			contact.should be_kind_of(ConstantContact::Components::Contact)
 		end
@@ -60,7 +60,7 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create(json, net_http_resp, {})
 			RestClient.stub(:post).and_return(response)
-			contact = ConstantContact::Components::Contact.from_array(JSON.parse(json))
+			contact = ConstantContact::Components::Contact.create(JSON.parse(json))
 			added = @api.add_contact('token', contact)
 
 			added.should respond_to(:status)
@@ -75,7 +75,7 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create('', net_http_resp, {})
 			RestClient.stub(:delete).and_return(response)
-			contact = ConstantContact::Components::Contact.from_array(JSON.parse(json))
+			contact = ConstantContact::Components::Contact.create(JSON.parse(json))
 			@api.delete_contact('token', contact).should be_true
 		end
 	end
@@ -87,7 +87,7 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create('', net_http_resp, {})
 			RestClient.stub(:delete).and_return(response)
-			contact = ConstantContact::Components::Contact.from_array(JSON.parse(json))
+			contact = ConstantContact::Components::Contact.create(JSON.parse(json))
 			@api.delete_contact_from_lists('token', contact).should be_true
 		end
 	end
@@ -100,8 +100,8 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create('', net_http_resp, {})
 			RestClient.stub(:delete).and_return(response)
-			contact = ConstantContact::Components::Contact.from_array(JSON.parse(contact_json))
-			list = ConstantContact::Components::ContactList.from_array(JSON.parse(list_json))
+			contact = ConstantContact::Components::Contact.create(JSON.parse(contact_json))
+			list = ConstantContact::Components::ContactList.create(JSON.parse(list_json))
 			@api.delete_contact_from_list('token', contact, list).should be_true
 		end
 	end
@@ -113,7 +113,7 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create(json, net_http_resp, {})
 			RestClient.stub(:put).and_return(response)
-			contact = ConstantContact::Components::Contact.from_array(JSON.parse(json))
+			contact = ConstantContact::Components::Contact.create(JSON.parse(json))
 			added = @api.update_contact('token', contact)
 
 			added.should respond_to(:status)
@@ -156,7 +156,7 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create(json, net_http_resp, {})
 			RestClient.stub(:post).and_return(response)
-			list = ConstantContact::Components::ContactList.from_array(JSON.parse(json))
+			list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 			added = @api.add_list('token', list)
 
 			added.should respond_to(:status)
@@ -172,11 +172,11 @@ describe ConstantContact::Api do
 
 			response = RestClient::Response.create(json_contacts, net_http_resp, {})
 			RestClient.stub(:get).and_return(response)
-			list = ConstantContact::Components::ContactList.from_array(JSON.parse(json_list))
+			list = ConstantContact::Components::ContactList.create(JSON.parse(json_list))
 			contacts = @api.get_contacts_from_list('token', list)
-			contact = contacts[0]
+			contact = contacts.results[0]
 
-			contacts.should be_kind_of(Array)
+			contacts.should be_kind_of(ConstantContact::Components::ResultSet)
 			contact.should be_kind_of(ConstantContact::Components::Contact)
 		end
 	end

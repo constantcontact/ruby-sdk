@@ -10,7 +10,7 @@ describe ConstantContact::Components::CustomField do
 	describe "#from_list" do
 		it "should return a custom field" do
 			json = '{"name":"Property", "value":"Private"}'
-			field = ConstantContact::Components::CustomField.from_array(JSON.parse(json))
+			field = ConstantContact::Components::CustomField.create(JSON.parse(json))
 
 			field.name.should eq('Property')
 		end
