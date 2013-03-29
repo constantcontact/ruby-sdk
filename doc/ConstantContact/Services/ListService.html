@@ -144,7 +144,7 @@ Add a new list to the Constant Contact account.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_contacts_from_list-class_method" title="get_contacts_from_list (class method)">+ (Array&lt;Contact&gt;) <strong>get_contacts_from_list</strong>(access_token, list_id) </a>
+      <a href="#get_contacts_from_list-class_method" title="get_contacts_from_list (class method)">+ (Array&lt;Contact&gt;) <strong>get_contacts_from_list</strong>(access_token, list_id, param = nil) </a>
     
 
     
@@ -330,18 +330,20 @@ Add a new list to the Constant Contact account
       <pre class="lines">
 
 
-30
 31
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 31</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_list identifier id'>add_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.lists'</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_payload identifier id'>payload</span> <span class='assign token'>=</span> <span class='rubyid_list identifier id'>list</span><span class='dot token'>.</span><span class='rubyid_to_json identifier id'>to_json</span>
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_post identifier id'>post</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_payload identifier id'>payload</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_ContactList constant id'>ContactList</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -355,7 +357,7 @@ Add a new list to the Constant Contact account
       <div class="method_details ">
   <h3 class="signature " id="get_contacts_from_list-class_method">
   
-    + (<tt>Array&lt;Contact&gt;</tt>) <strong>get_contacts_from_list</strong>(access_token, list_id) 
+    + (<tt>Array&lt;Contact&gt;</tt>) <strong>get_contacts_from_list</strong>(access_token, list_id, param = nil) 
   
 
   
@@ -412,6 +414,27 @@ Get all contacts from an individual list
       
     </li>
   
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>query parameters to attach to request
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
 </ul>
 
 <p class="tag_title">Returns:</p>
@@ -434,22 +457,24 @@ Get all contacts from an individual list
       <pre class="lines">
 
 
-65
-66
-67
-68
-69
 70
 71
 72
 73
-74</pre>
+74
+75
+76
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 70</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contacts_from_list identifier id'>get_contacts_from_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contacts_from_list identifier id'>get_contacts_from_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.list_contacts'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_contacts identifier id'>contacts</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
   <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
@@ -546,17 +571,19 @@ Get an individual contact list
       <pre class="lines">
 
 
-54
-55
-56
 57
-58</pre>
+58
+59
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 57</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_list identifier id'>get_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.list'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_ContactList constant id'>ContactList</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
@@ -637,13 +664,15 @@ Get lists within an account
 20
 21
 22
-23</pre>
+23
+24</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 15</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_lists identifier id'>get_lists</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.lists'</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_lists identifier id'>lists</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
   <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_contact identifier id'>contact</span><span class='bitor op'>|</span>
@@ -739,18 +768,20 @@ Update a Contact List
       <pre class="lines">
 
 
-42
-43
 44
 45
 46
-47</pre>
+47
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/list_service.rb', line 44</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_list identifier id'>update_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.list'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_payload identifier id'>payload</span> <span class='assign token'>=</span> <span class='rubyid_list identifier id'>list</span><span class='dot token'>.</span><span class='rubyid_to_json identifier id'>to_json</span>
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_put identifier id'>put</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_payload identifier id'>payload</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_ContactList constant id'>ContactList</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
@@ -766,7 +797,7 @@ Update a Contact List
 </div>
 
     <div id="footer">
-  Generated on 03/08/13 09:58:53 by
+  Generated on 03/29/13 09:33:21 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

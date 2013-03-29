@@ -103,41 +103,6 @@
 
 
 
-  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
-  <ul class="summary">
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#api_key-instance_method" title="#api_key (instance method)">- (Object) <strong>api_key</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-      <span class="note title readonly">readonly</span>
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute api_key.
-</p>
-</div></span>
-  
-</li>
-
-    
-  </ul>
-
 
 
 
@@ -168,56 +133,6 @@ Returns the value of attribute api_key.
   
     <span class="summary_desc"><div class='inline'><p>
 Add an AddContacts activity to add contacts in bulk.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#add_campaign-instance_method" title="#add_campaign (instance method)">- (EmailCampaign) <strong>add_campaign</strong>(access_token, campaign) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Create a new campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#add_campaign_schedule-instance_method" title="#add_campaign_schedule (instance method)">- (EmailCampaign) <strong>add_campaign_schedule</strong>(access_token, campaign, schedule) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Schedule a campaign to be sent.
 </p>
 </div></span>
   
@@ -268,6 +183,56 @@ Add a ClearLists Activity to remove all contacts from the provided lists.
   
     <span class="summary_desc"><div class='inline'><p>
 Add a new contact to an account.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_email_campaign-instance_method" title="#add_email_campaign (instance method)">- (Campaign) <strong>add_email_campaign</strong>(access_token, campaign) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_email_campaign_schedule-instance_method" title="#add_email_campaign_schedule (instance method)">- (Campaign) <strong>add_email_campaign_schedule</strong>(access_token, campaign, schedule) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Schedule a campaign to be sent.
 </p>
 </div></span>
   
@@ -352,56 +317,6 @@ Add a Remove Contacts From Lists Activity.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_campaign-instance_method" title="#delete_campaign (instance method)">- (Boolean) <strong>delete_campaign</strong>(access_token, campaign) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Delete an individual campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#delete_campaign_schedule-instance_method" title="#delete_campaign_schedule (instance method)">- (Boolean) <strong>delete_campaign_schedule</strong>(access_token, campaign, schedule) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Delete a specific schedule associated with a given campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#delete_contact-instance_method" title="#delete_contact (instance method)">- (Boolean) <strong>delete_contact</strong>(access_token, contact) </a>
     
 
@@ -477,6 +392,56 @@ Delete a contact from all contact lists.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#delete_email_campaign-instance_method" title="#delete_email_campaign (instance method)">- (Boolean) <strong>delete_email_campaign</strong>(access_token, campaign) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Delete an individual campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#delete_email_campaign_schedule-instance_method" title="#delete_email_campaign_schedule (instance method)">- (Boolean) <strong>delete_email_campaign_schedule</strong>(access_token, campaign, schedule) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Delete a specific schedule associated with a given campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_activities-instance_method" title="#get_activities (instance method)">- (Array&lt;Activity&gt;) <strong>get_activities</strong>(access_token) </a>
     
 
@@ -518,281 +483,6 @@ Get an array of activities.
   
     <span class="summary_desc"><div class='inline'><p>
 Get a single activity by id.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign-instance_method" title="#get_campaign (instance method)">- (EmailCampaign) <strong>get_campaign</strong>(access_token, campaign_id) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get an individual campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_bounces-instance_method" title="#get_campaign_bounces (instance method)">- (ResultSet&lt;BounceActivity&gt;) <strong>get_campaign_bounces</strong>(access_token, campaign, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get bounces for a campaign an initial request.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_clicks-instance_method" title="#get_campaign_clicks (instance method)">- (ResultSet&lt;ClickActivity&gt;) <strong>get_campaign_clicks</strong>(access_token, campaign, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get clicks for a campaign an initial request.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_forwards-instance_method" title="#get_campaign_forwards (instance method)">- (ResultSet&lt;ForwardActivity&gt;) <strong>get_campaign_forwards</strong>(access_token, campaign, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get forwards for a campaign an initial request.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_opens-instance_method" title="#get_campaign_opens (instance method)">- (ResultSet&lt;OpenActivity&gt;) <strong>get_campaign_opens</strong>(access_token, campaign, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get opens for a campaign an initial request.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_opt_outs-instance_method" title="#get_campaign_opt_outs (instance method)">- (ResultSet&lt;OptOutActivity&gt;) <strong>get_campaign_opt_outs</strong>(access_token, campaign, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get opt outs for a campaign an initial request.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_schedule-instance_method" title="#get_campaign_schedule (instance method)">- (Schedule) <strong>get_campaign_schedule</strong>(access_token, campaign, schedule) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get a specific schedule associated with a given campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_schedules-instance_method" title="#get_campaign_schedules (instance method)">- (Array&lt;Schedule&gt;) <strong>get_campaign_schedules</strong>(access_token, campaign) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get an array of schedules associated with a given campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_sends-instance_method" title="#get_campaign_sends (instance method)">- (ResultSet&lt;SendActivity&gt;) <strong>get_campaign_sends</strong>(access_token, campaign, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get sends for a campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaign_summary_report-instance_method" title="#get_campaign_summary_report (instance method)">- (TrackingSummary) <strong>get_campaign_summary_report</strong>(access_token, campaign) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get a reporting summary for a campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#get_campaigns-instance_method" title="#get_campaigns (instance method)">- (ResultSet&lt;EmailCampaign&gt;) <strong>get_campaigns</strong>(access_token, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get a set of campaigns from a previous call.
 </p>
 </div></span>
   
@@ -952,31 +642,6 @@ Get opens for a Contact an initial request.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_contact_opt_outs-instance_method" title="#get_contact_opt_outs (instance method)">- (ResultSet&lt;OptOutActivity&gt;) <strong>get_contact_opt_outs</strong>(access_token, contact, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get opt outs for a Contact an initial request.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#get_contact_sends-instance_method" title="#get_contact_sends (instance method)">- (ResultSet&lt;SendActivity&gt;) <strong>get_contact_sends</strong>(access_token, contact, param = nil) </a>
     
 
@@ -1018,6 +683,31 @@ Get sends for a Contact an initial request.
   
     <span class="summary_desc"><div class='inline'><p>
 Get a reporting summary for a Contact.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_contact_unsubscribes-instance_method" title="#get_contact_unsubscribes (instance method)">- (UnsubscribeActivity) <strong>get_contact_unsubscribes</strong>(access_token, contact, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get unsubscribes for a Contact an initial request.
 </p>
 </div></span>
   
@@ -1077,6 +767,281 @@ Get contact that belong to a specific list.
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_email_campaign-instance_method" title="#get_email_campaign (instance method)">- (Campaign) <strong>get_email_campaign</strong>(access_token, campaign_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get an individual campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_bounces-instance_method" title="#get_email_campaign_bounces (instance method)">- (ResultSet&lt;BounceActivity&gt;) <strong>get_email_campaign_bounces</strong>(access_token, campaign, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get bounces for a campaign an initial request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_clicks-instance_method" title="#get_email_campaign_clicks (instance method)">- (ResultSet&lt;ClickActivity&gt;) <strong>get_email_campaign_clicks</strong>(access_token, campaign, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get clicks for a campaign an initial request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_forwards-instance_method" title="#get_email_campaign_forwards (instance method)">- (ResultSet&lt;ForwardActivity&gt;) <strong>get_email_campaign_forwards</strong>(access_token, campaign, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get forwards for a campaign an initial request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_opens-instance_method" title="#get_email_campaign_opens (instance method)">- (ResultSet&lt;OpenActivity&gt;) <strong>get_email_campaign_opens</strong>(access_token, campaign, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get opens for a campaign an initial request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_schedule-instance_method" title="#get_email_campaign_schedule (instance method)">- (Schedule) <strong>get_email_campaign_schedule</strong>(access_token, campaign, schedule) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get a specific schedule associated with a given campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_schedules-instance_method" title="#get_email_campaign_schedules (instance method)">- (Array&lt;Schedule&gt;) <strong>get_email_campaign_schedules</strong>(access_token, campaign) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get an array of schedules associated with a given campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_sends-instance_method" title="#get_email_campaign_sends (instance method)">- (ResultSet&lt;SendActivity&gt;) <strong>get_email_campaign_sends</strong>(access_token, campaign, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get sends for a campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_summary_report-instance_method" title="#get_email_campaign_summary_report (instance method)">- (TrackingSummary) <strong>get_email_campaign_summary_report</strong>(access_token, campaign) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get a reporting summary for a campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaign_unsubscribes-instance_method" title="#get_email_campaign_unsubscribes (instance method)">- (ResultSet&lt;UnsubscribeActivity&gt;) <strong>get_email_campaign_unsubscribes</strong>(access_token, campaign, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get unsubscribes for a campaign an initial request.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_email_campaigns-instance_method" title="#get_email_campaigns (instance method)">- (ResultSet&lt;Campaign&gt;) <strong>get_email_campaigns</strong>(access_token, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get a set of campaigns from a previous call.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_list-instance_method" title="#get_list (instance method)">- (ContactList) <strong>get_list</strong>(access_token, list_id) </a>
     
 
@@ -1127,7 +1092,7 @@ Get lists.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_verified-instance_method" title="#get_verified (instance method)">- (Array&lt;EmailAddress&gt;) <strong>get_verified</strong>(access_token) </a>
+      <a href="#get_verified_email_addresses-instance_method" title="#get_verified_email_addresses (instance method)">- (Array&lt;VerifiedEmailAddress&gt;) <strong>get_verified_email_addresses</strong>(access_token) </a>
     
 
     
@@ -1142,7 +1107,7 @@ Get lists.
 
   
     <span class="summary_desc"><div class='inline'><p>
-Get a list of verified email addresses.
+Get verified addresses for the account.
 </p>
 </div></span>
   
@@ -1179,7 +1144,7 @@ Class constructor.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#send_campaign_test-instance_method" title="#send_campaign_test (instance method)">- (TestSend) <strong>send_campaign_test</strong>(access_token, campaign, test_send) </a>
+      <a href="#send_email_campaign_test-instance_method" title="#send_email_campaign_test (instance method)">- (TestSend) <strong>send_email_campaign_test</strong>(access_token, campaign, test_send) </a>
     
 
     
@@ -1195,56 +1160,6 @@ Class constructor.
   
     <span class="summary_desc"><div class='inline'><p>
 Send a test send of a campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update_campaign-instance_method" title="#update_campaign (instance method)">- (EmailCampaign) <strong>update_campaign</strong>(access_token, campaign) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Update a specific campaign.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#update_campaign_schedule-instance_method" title="#update_campaign_schedule (instance method)">- (Schedule) <strong>update_campaign_schedule</strong>(access_token, campaign, schedule) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Update a specific schedule associated with a given campaign.
 </p>
 </div></span>
   
@@ -1270,6 +1185,56 @@ Update a specific schedule associated with a given campaign.
   
     <span class="summary_desc"><div class='inline'><p>
 Update an individual contact.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_email_campaign-instance_method" title="#update_email_campaign (instance method)">- (Campaign) <strong>update_email_campaign</strong>(access_token, campaign) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Update a specific campaign.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_email_campaign_schedule-instance_method" title="#update_email_campaign_schedule (instance method)">- (Schedule) <strong>update_email_campaign_schedule</strong>(access_token, campaign, schedule) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Update a specific schedule associated with a given campaign.
 </p>
 </div></span>
   
@@ -1357,15 +1322,15 @@ Class constructor
       <pre class="lines">
 
 
-15
-16
-17</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 13</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_api_key identifier id'>api_key</span><span class='rparen token'>)</span>
-  <span class='rubyid_@api_key ivar id'>@api_key</span> <span class='assign token'>=</span> <span class='rubyid_api_key identifier id'>api_key</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_BaseService constant id'>BaseService</span><span class='dot token'>.</span><span class='rubyid_api_key identifier id'>api_key</span> <span class='assign token'>=</span> <span class='rubyid_api_key identifier id'>api_key</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1374,56 +1339,6 @@ Class constructor
 </div>
   
 </div>
-
-  <div id="instance_attr_details" class="attr_details">
-    <h2>Instance Attribute Details</h2>
-    
-      
-      <span id=""></span>
-      <div class="method_details first">
-  <h3 class="signature first" id="api_key-instance_method">
-  
-    - (<tt>Object</tt>) <strong>api_key</strong>  <span class="extras">(readonly)</span>
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Returns the value of attribute api_key
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-9
-10
-11</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 9</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_api_key identifier id'>api_key</span>
-  <span class='rubyid_@api_key ivar id'>@api_key</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -1512,248 +1427,15 @@ Add an AddContacts activity to add contacts in bulk
       <pre class="lines">
 
 
-470
-471
-472</pre>
+468
+469
+470</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 470</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 468</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_add_contacts_activity identifier id'>add_add_contacts_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_add_contacts identifier id'>add_contacts</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ActivityService constant id'>ActivityService</span><span class='dot token'>.</span><span class='rubyid_create_add_contacts_activity identifier id'>create_add_contacts_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_add_contacts identifier id'>add_contacts</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="add_campaign-instance_method">
-  
-    - (<tt>EmailCampaign</tt>) <strong>add_campaign</strong>(access_token, campaign) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Create a new campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>EmailCampaign</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign to be created
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>EmailCampaign</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>created campaign
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-193
-194
-195</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 193</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_add_campaign identifier id'>add_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailCampaignService constant id'>EmailCampaignService</span><span class='dot token'>.</span><span class='rubyid_add_campaign identifier id'>add_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="add_campaign_schedule-instance_method">
-  
-    - (<tt>EmailCampaign</tt>) <strong>add_campaign_schedule</strong>(access_token, campaign, schedule) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Schedule a campaign to be sent
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Id of a campaign or a Campaign object
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>schedule</span>
-      
-      
-        <span class='type'>(<tt>Schedule</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Schedule to be associated with the provided campaign
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>EmailCampaign</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>updated campaign
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-212
-213
-214
-215</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 212</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_add_campaign_schedule identifier id'>add_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_add_schedule identifier id'>add_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1843,12 +1525,12 @@ Add a ClearLists Activity to remove all contacts from the provided lists
       <pre class="lines">
 
 
-479
-480
-481</pre>
+477
+478
+479</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 479</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 477</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_clear_lists_activity identifier id'>add_clear_lists_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_lists identifier id'>lists</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ActivityService constant id'>ActivityService</span><span class='dot token'>.</span><span class='rubyid_add_clear_lists_activity identifier id'>add_clear_lists_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_lists identifier id'>lists</span><span class='rparen token'>)</span>
@@ -1962,15 +1644,248 @@ Add a new contact to an account
       <pre class="lines">
 
 
-62
-63
-64</pre>
+60
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 60</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_contact identifier id'>add_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_action_by_visitor identifier id'>action_by_visitor</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactService constant id'>ContactService</span><span class='dot token'>.</span><span class='rubyid_add_contact identifier id'>add_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_action_by_visitor identifier id'>action_by_visitor</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_email_campaign-instance_method">
+  
+    - (<tt>Campaign</tt>) <strong>add_email_campaign</strong>(access_token, campaign) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Campaign</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign to be created
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Campaign</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>created campaign
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 191</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_add_email_campaign identifier id'>add_email_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailMarketingService constant id'>EmailMarketingService</span><span class='dot token'>.</span><span class='rubyid_add_campaign identifier id'>add_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_email_campaign_schedule-instance_method">
+  
+    - (<tt>Campaign</tt>) <strong>add_email_campaign_schedule</strong>(access_token, campaign, schedule) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Schedule a campaign to be sent
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Id of a campaign or a Campaign object
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>schedule</span>
+      
+      
+        <span class='type'>(<tt>Schedule</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Schedule to be associated with the provided campaign
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Campaign</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>updated campaign
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 210</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_add_email_campaign_schedule identifier id'>add_email_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_add_schedule identifier id'>add_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -2060,12 +1975,12 @@ Create an Export Contacts Activity
       <pre class="lines">
 
 
-498
-499
-500</pre>
+496
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 498</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 496</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_export_contacts_activity identifier id'>add_export_contacts_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_export_contacts identifier id'>export_contacts</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ActivityService constant id'>ActivityService</span><span class='dot token'>.</span><span class='rubyid_add_export_contacts_activity identifier id'>add_export_contacts_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_export_contacts identifier id'>export_contacts</span><span class='rparen token'>)</span>
@@ -2158,12 +2073,12 @@ Add a new list to an account
       <pre class="lines">
 
 
-133
-134
-135</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 131</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_list identifier id'>add_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ListService constant id'>ListService</span><span class='dot token'>.</span><span class='rubyid_add_list identifier id'>add_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
@@ -2275,275 +2190,15 @@ Add a Remove Contacts From Lists Activity
       <pre class="lines">
 
 
-489
-490
-491</pre>
+487
+488
+489</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 489</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 487</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_add_remove_contacts_from_lists_activity identifier id'>add_remove_contacts_from_lists_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_email_addresses identifier id'>email_addresses</span><span class='comma token'>,</span> <span class='rubyid_lists identifier id'>lists</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ActivityService constant id'>ActivityService</span><span class='dot token'>.</span><span class='rubyid_add_remove_contacts_from_lists_activity identifier id'>add_remove_contacts_from_lists_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_email_addresses identifier id'>email_addresses</span><span class='comma token'>,</span> <span class='rubyid_lists identifier id'>lists</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="delete_campaign-instance_method">
-  
-    - (<tt>Boolean</tt>) <strong>delete_campaign</strong>(access_token, campaign) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Delete an individual campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Id of a campaign or a Campaign object
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        
-        <div class='inline'><p>
-IllegalArgumentException - if a Campaign object or campaign id is not
-passed
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-183
-184
-185
-186</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 183</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_campaign identifier id'>delete_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailCampaignService constant id'>EmailCampaignService</span><span class='dot token'>.</span><span class='rubyid_delete_campaign identifier id'>delete_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="delete_campaign_schedule-instance_method">
-  
-    - (<tt>Boolean</tt>) <strong>delete_campaign_schedule</strong>(access_token, campaign, schedule) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Delete a specific schedule associated with a given campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>schedule</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Schedule id or Schedule object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        
-        <div class='inline'><p>
-IllegalArgumentException
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-258
-259
-260
-261
-262</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 258</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_campaign_schedule identifier id'>delete_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_schedule_id identifier id'>schedule_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_schedule identifier id'>schedule</span><span class='comma token'>,</span> <span class='string val'>'Schedule'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_delete_schedule identifier id'>delete_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -2652,13 +2307,13 @@ If contact is not an integer or a Contact object
       <pre class="lines">
 
 
+70
+71
 72
-73
-74
-75</pre>
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 70</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_contact identifier id'>delete_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
@@ -2790,14 +2445,14 @@ If contact is not an integer or a Contact object
       <pre class="lines">
 
 
+93
+94
 95
 96
-97
-98
-99</pre>
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 93</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_contact_from_list identifier id'>delete_contact_from_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
@@ -2911,17 +2566,277 @@ If contact is not an integer or a Contact object
       <pre class="lines">
 
 
+81
+82
 83
-84
-85
-86</pre>
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 81</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_contact_from_lists identifier id'>delete_contact_from_lists</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactService constant id'>ContactService</span><span class='dot token'>.</span><span class='rubyid_delete_contact_from_lists identifier id'>delete_contact_from_lists</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_email_campaign-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>delete_email_campaign</strong>(access_token, campaign) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Delete an individual campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Id of a campaign or a Campaign object
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>
+IllegalArgumentException - if a Campaign object or campaign id is not
+passed
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 181</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_email_campaign identifier id'>delete_email_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailMarketingService constant id'>EmailMarketingService</span><span class='dot token'>.</span><span class='rubyid_delete_campaign identifier id'>delete_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="delete_email_campaign_schedule-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>delete_email_campaign_schedule</strong>(access_token, campaign, schedule) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Delete a specific schedule associated with a given campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>schedule</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Schedule id or Schedule object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>
+IllegalArgumentException
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258
+259
+260</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 256</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_email_campaign_schedule identifier id'>delete_email_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_schedule_id identifier id'>schedule_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_schedule identifier id'>schedule</span><span class='comma token'>,</span> <span class='string val'>'Schedule'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_delete_schedule identifier id'>delete_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -2992,12 +2907,12 @@ Get an array of activities
       <pre class="lines">
 
 
-452
-453
-454</pre>
+450
+451
+452</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 452</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 450</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_activities identifier id'>get_activities</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ActivityService constant id'>ActivityService</span><span class='dot token'>.</span><span class='rubyid_get_activities identifier id'>get_activities</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
@@ -3090,1299 +3005,15 @@ Get a single activity by id
       <pre class="lines">
 
 
-461
-462
-463</pre>
+459
+460
+461</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 461</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 459</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_activity identifier id'>get_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_activity_id identifier id'>activity_id</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ActivityService constant id'>ActivityService</span><span class='dot token'>.</span><span class='rubyid_get_activity identifier id'>get_activity</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_activity_id identifier id'>activity_id</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign-instance_method">
-  
-    - (<tt>EmailCampaign</tt>) <strong>get_campaign</strong>(access_token, campaign_id) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get an individual campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign_id</span>
-      
-      
-        <span class='type'>(<tt>Integer</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Valid campaign id
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>EmailCampaign</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-173
-174
-175</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 173</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign identifier id'>get_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailCampaignService constant id'>EmailCampaignService</span><span class='dot token'>.</span><span class='rubyid_get_campaign identifier id'>get_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_bounces-instance_method">
-  
-    - (<tt>ResultSet&lt;BounceActivity&gt;</tt>) <strong>get_campaign_bounces</strong>(access_token, campaign, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get bounces for a campaign an initial request
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>either the next link from a previous request, or a limit or restrict the
-page size of
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;BounceActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-294
-295
-296
-297
-298</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 294</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_bounces identifier id'>get_campaign_bounces</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_bounces identifier id'>get_bounces</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_clicks-instance_method">
-  
-    - (<tt>ResultSet&lt;ClickActivity&gt;</tt>) <strong>get_campaign_clicks</strong>(access_token, campaign, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get clicks for a campaign an initial request
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>either the next link from a previous request, or a limit or restrict the
-page size of
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;ClickActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-307
-308
-309
-310
-311</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 307</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_clicks identifier id'>get_campaign_clicks</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_clicks identifier id'>get_clicks</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_forwards-instance_method">
-  
-    - (<tt>ResultSet&lt;ForwardActivity&gt;</tt>) <strong>get_campaign_forwards</strong>(access_token, campaign, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get forwards for a campaign an initial request
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>either the next link from a previous request, or a limit or restrict the
-page size of
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;ForwardActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-333
-334
-335
-336
-337</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 333</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_forwards identifier id'>get_campaign_forwards</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_forwards identifier id'>get_forwards</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_opens-instance_method">
-  
-    - (<tt>ResultSet&lt;OpenActivity&gt;</tt>) <strong>get_campaign_opens</strong>(access_token, campaign, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get opens for a campaign an initial request
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>either the next link from a previous request, or a limit or restrict the
-page size of
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;OpenActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-320
-321
-322
-323
-324</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 320</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_opens identifier id'>get_campaign_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_opens identifier id'>get_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_opt_outs-instance_method">
-  
-    - (<tt>ResultSet&lt;OptOutActivity&gt;</tt>) <strong>get_campaign_opt_outs</strong>(access_token, campaign, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get opt outs for a campaign an initial request
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>either the next link from a previous request, or a limit or restrict the
-page size of
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;OptOutActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-346
-347
-348
-349
-350</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 346</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_opt_outs identifier id'>get_campaign_opt_outs</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_opt_outs identifier id'>get_opt_outs</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_schedule-instance_method">
-  
-    - (<tt>Schedule</tt>) <strong>get_campaign_schedule</strong>(access_token, campaign, schedule) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get a specific schedule associated with a given campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>schedule</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Schedule id or Schedule object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Schedule</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-<p class="tag_title">Raises:</p>
-<ul class="raise">
-  
-    <li>
-      
-      
-        <span class='type'></span>
-      
-      
-      
-        
-        <div class='inline'><p>
-IllegalArgumentException
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-234
-235
-236
-237
-238</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 234</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_schedule identifier id'>get_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_schedule_id identifier id'>schedule_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_schedule identifier id'>schedule</span><span class='comma token'>,</span> <span class='string val'>'Schedule'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_get_schedule identifier id'>get_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_schedules-instance_method">
-  
-    - (<tt>Array&lt;Schedule&gt;</tt>) <strong>get_campaign_schedules</strong>(access_token, campaign) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get an array of schedules associated with a given campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array&lt;Schedule&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-222
-223
-224
-225</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 222</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_schedules identifier id'>get_campaign_schedules</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_get_schedules identifier id'>get_schedules</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_sends-instance_method">
-  
-    - (<tt>ResultSet&lt;SendActivity&gt;</tt>) <strong>get_campaign_sends</strong>(access_token, campaign, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get sends for a campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>next value returned from a previous request (used in pagination)
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;SendActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-281
-282
-283
-284
-285</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 281</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_sends identifier id'>get_campaign_sends</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_sends identifier id'>get_sends</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaign_summary_report-instance_method">
-  
-    - (<tt>TrackingSummary</tt>) <strong>get_campaign_summary_report</strong>(access_token, campaign) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get a reporting summary for a campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>TrackingSummary</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-357
-358
-359
-360</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 357</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaign_summary_report identifier id'>get_campaign_summary_report</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_summary identifier id'>get_summary</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_campaigns-instance_method">
-  
-    - (<tt>ResultSet&lt;EmailCampaign&gt;</tt>) <strong>get_campaigns</strong>(access_token, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get a set of campaigns from a previous call
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>denotes the number of results per set, limited to 50, or a next parameter
-provided
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;EmailCampaign&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-163
-164
-165
-166</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 163</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_campaigns identifier id'>get_campaigns</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailCampaignService constant id'>EmailCampaignService</span><span class='dot token'>.</span><span class='rubyid_get_campaigns identifier id'>get_campaigns</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -4472,12 +3103,12 @@ Get an individual contact
       <pre class="lines">
 
 
-43
-44
-45</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 41</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact identifier id'>get_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactService constant id'>ContactService</span><span class='dot token'>.</span><span class='rubyid_get_contact identifier id'>get_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
@@ -4592,13 +3223,13 @@ page size of
       <pre class="lines">
 
 
+379
+380
 381
-382
-383
-384</pre>
+382</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 381</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 379</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_bounces identifier id'>get_contact_bounces</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
@@ -4698,15 +3329,15 @@ a ResultSet of Contacts
       <pre class="lines">
 
 
-52
-53
-54</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 50</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_by_email identifier id'>get_contact_by_email</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_email identifier id'>email</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactService constant id'>ContactService</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='dstring node'>&quot;?email=#{email}&quot;</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactService constant id'>ContactService</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>'email'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_email identifier id'>email</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -4818,14 +3449,14 @@ page size of
       <pre class="lines">
 
 
+391
+392
 393
 394
-395
-396
-397</pre>
+395</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 393</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 391</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_clicks identifier id'>get_contact_clicks</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
@@ -4942,14 +3573,14 @@ page size of
       <pre class="lines">
 
 
+417
+418
 419
 420
-421
-422
-423</pre>
+421</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 419</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 417</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_forwards identifier id'>get_contact_forwards</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
@@ -5066,143 +3697,19 @@ page size of
       <pre class="lines">
 
 
+404
+405
 406
 407
-408
-409
-410</pre>
+408</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 406</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 404</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_opens identifier id'>get_contact_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
   <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactTrackingService constant id'>ContactTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_opens identifier id'>get_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_contact_opt_outs-instance_method">
-  
-    - (<tt>ResultSet&lt;OptOutActivity&gt;</tt>) <strong>get_contact_opt_outs</strong>(access_token, contact, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get opt outs for a Contact an initial request
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>contact</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Contact id or Contact object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>either the next link from a previous request, or a limit or restrict the
-page size of
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;OptOutActivity&gt;</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-432
-433
-434
-435
-436</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 432</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_opt_outs identifier id'>get_contact_opt_outs</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
-  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactTrackingService constant id'>ContactTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_opt_outs identifier id'>get_opt_outs</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -5314,13 +3821,13 @@ page size of
       <pre class="lines">
 
 
+367
+368
 369
-370
-371
-372</pre>
+370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 369</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 367</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_sends identifier id'>get_contact_sends</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
@@ -5414,17 +3921,149 @@ Get a reporting summary for a Contact
       <pre class="lines">
 
 
+441
+442
 443
-444
-445
-446</pre>
+444</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 443</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 441</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_summary_report identifier id'>get_contact_summary_report</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='rparen token'>)</span>
   <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactTrackingService constant id'>ContactTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_summary identifier id'>get_summary</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_contact_unsubscribes-instance_method">
+  
+    - (<tt>UnsubscribeActivity</tt>) <strong>get_contact_unsubscribes</strong>(access_token, contact, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get unsubscribes for a Contact an initial request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>contact</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Contact id or Contact object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>either the next link from a previous request, or a limit or restrict the
+page size of
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>UnsubscribeActivity</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Containing a results array of UnsubscribeActivity
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+430
+431
+432
+433
+434</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 430</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contact_unsubscribes identifier id'>get_contact_unsubscribes</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_contact_id identifier id'>contact_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='string val'>'Contact'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactTrackingService constant id'>ContactTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_unsubscribes identifier id'>get_unsubscribes</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -5522,13 +4161,13 @@ a ResultSet of Contacts
       <pre class="lines">
 
 
+31
+32
 33
-34
-35
-36</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 31</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
@@ -5647,17 +4286,1309 @@ If contact is not an integer or contact
       <pre class="lines">
 
 
+150
+151
 152
-153
-154
-155</pre>
+153</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 150</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_contacts_from_list identifier id'>get_contacts_from_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
   <span class='rubyid_list_id identifier id'>list_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_list identifier id'>list</span><span class='comma token'>,</span> <span class='string val'>'ContactList'</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ListService constant id'>ListService</span><span class='dot token'>.</span><span class='rubyid_get_contacts_from_list identifier id'>get_contacts_from_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign-instance_method">
+  
+    - (<tt>Campaign</tt>) <strong>get_email_campaign</strong>(access_token, campaign_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get an individual campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Valid campaign id
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Campaign</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+171
+172
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 171</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign identifier id'>get_email_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailMarketingService constant id'>EmailMarketingService</span><span class='dot token'>.</span><span class='rubyid_get_campaign identifier id'>get_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_bounces-instance_method">
+  
+    - (<tt>ResultSet&lt;BounceActivity&gt;</tt>) <strong>get_email_campaign_bounces</strong>(access_token, campaign, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get bounces for a campaign an initial request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>either the next link from a previous request, or a limit or restrict the
+page size of
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;BounceActivity&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+292
+293
+294
+295
+296</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 292</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_bounces identifier id'>get_email_campaign_bounces</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_bounces identifier id'>get_bounces</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_clicks-instance_method">
+  
+    - (<tt>ResultSet&lt;ClickActivity&gt;</tt>) <strong>get_email_campaign_clicks</strong>(access_token, campaign, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get clicks for a campaign an initial request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>either the next link from a previous request, or a limit or restrict the
+page size of
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;ClickActivity&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+305
+306
+307
+308
+309</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 305</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_clicks identifier id'>get_email_campaign_clicks</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_clicks identifier id'>get_clicks</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_forwards-instance_method">
+  
+    - (<tt>ResultSet&lt;ForwardActivity&gt;</tt>) <strong>get_email_campaign_forwards</strong>(access_token, campaign, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get forwards for a campaign an initial request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>either the next link from a previous request, or a limit or restrict the
+page size of
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;ForwardActivity&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+331
+332
+333
+334
+335</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 331</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_forwards identifier id'>get_email_campaign_forwards</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_forwards identifier id'>get_forwards</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_opens-instance_method">
+  
+    - (<tt>ResultSet&lt;OpenActivity&gt;</tt>) <strong>get_email_campaign_opens</strong>(access_token, campaign, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get opens for a campaign an initial request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>either the next link from a previous request, or a limit or restrict the
+page size of
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;OpenActivity&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+318
+319
+320
+321
+322</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 318</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_opens identifier id'>get_email_campaign_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_opens identifier id'>get_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_schedule-instance_method">
+  
+    - (<tt>Schedule</tt>) <strong>get_email_campaign_schedule</strong>(access_token, campaign, schedule) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get a specific schedule associated with a given campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>schedule</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Schedule id or Schedule object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Schedule</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'><p>
+IllegalArgumentException
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+232
+233
+234
+235
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 232</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_schedule identifier id'>get_email_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_schedule_id identifier id'>schedule_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_schedule identifier id'>schedule</span><span class='comma token'>,</span> <span class='string val'>'Schedule'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_get_schedule identifier id'>get_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_schedules-instance_method">
+  
+    - (<tt>Array&lt;Schedule&gt;</tt>) <strong>get_email_campaign_schedules</strong>(access_token, campaign) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get an array of schedules associated with a given campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Schedule&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+220
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 220</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_schedules identifier id'>get_email_campaign_schedules</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_get_schedules identifier id'>get_schedules</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_sends-instance_method">
+  
+    - (<tt>ResultSet&lt;SendActivity&gt;</tt>) <strong>get_email_campaign_sends</strong>(access_token, campaign, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get sends for a campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>next value returned from a previous request (used in pagination)
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;SendActivity&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+279
+280
+281
+282
+283</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 279</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_sends identifier id'>get_email_campaign_sends</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_sends identifier id'>get_sends</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_summary_report-instance_method">
+  
+    - (<tt>TrackingSummary</tt>) <strong>get_email_campaign_summary_report</strong>(access_token, campaign) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get a reporting summary for a campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>TrackingSummary</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+355
+356
+357
+358</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 355</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_summary_report identifier id'>get_email_campaign_summary_report</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_summary identifier id'>get_summary</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaign_unsubscribes-instance_method">
+  
+    - (<tt>ResultSet&lt;UnsubscribeActivity&gt;</tt>) <strong>get_email_campaign_unsubscribes</strong>(access_token, campaign, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get unsubscribes for a campaign an initial request
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>either the next link from a previous request, or a limit or restrict the
+page size of
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;UnsubscribeActivity&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Containing a results array of UnsubscribeActivity
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+344
+345
+346
+347
+348</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 344</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaign_unsubscribes identifier id'>get_email_campaign_unsubscribes</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignTrackingService constant id'>CampaignTrackingService</span><span class='dot token'>.</span><span class='rubyid_get_unsubscribes identifier id'>get_unsubscribes</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_email_campaigns-instance_method">
+  
+    - (<tt>ResultSet&lt;Campaign&gt;</tt>) <strong>get_email_campaigns</strong>(access_token, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get a set of campaigns from a previous call
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>denotes the number of results per set, limited to 50, or a next parameter
+provided
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;Campaign&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163
+164</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 161</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_email_campaigns identifier id'>get_email_campaigns</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_determine_param identifier id'>determine_param</span><span class='lparen token'>(</span><span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailMarketingService constant id'>EmailMarketingService</span><span class='dot token'>.</span><span class='rubyid_get_campaigns identifier id'>get_campaigns</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -5747,12 +5678,12 @@ Get an individual list
       <pre class="lines">
 
 
-124
-125
-126</pre>
+122
+123
+124</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 124</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 122</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_list identifier id'>get_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ListService constant id'>ListService</span><span class='dot token'>.</span><span class='rubyid_get_list identifier id'>get_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list_id identifier id'>list_id</span><span class='rparen token'>)</span>
@@ -5832,12 +5763,12 @@ Array of ContactList objects
       <pre class="lines">
 
 
-115
-116
-117</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 113</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_lists identifier id'>get_lists</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ListService constant id'>ListService</span><span class='dot token'>.</span><span class='rubyid_get_lists identifier id'>get_lists</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
@@ -5849,9 +5780,9 @@ Array of ContactList objects
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="get_verified-instance_method">
+  <h3 class="signature " id="get_verified_email_addresses-instance_method">
   
-    - (<tt>Array&lt;EmailAddress&gt;</tt>) <strong>get_verified</strong>(access_token) 
+    - (<tt>Array&lt;VerifiedEmailAddress&gt;</tt>) <strong>get_verified_email_addresses</strong>(access_token) 
   
 
   
@@ -5860,7 +5791,7 @@ Array of ContactList objects
 </h3><div class="docstring">
   <div class="discussion">
     <p>
-Get a list of verified email addresses
+Get verified addresses for the account
 </p>
 
 
@@ -5897,7 +5828,7 @@ Get a list of verified email addresses
     <li>
       
       
-        <span class='type'>(<tt>Array&lt;EmailAddress&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;VerifiedEmailAddress&gt;</tt>)</span>
       
       
       
@@ -5917,15 +5848,15 @@ an array of email addresses
       <pre class="lines">
 
 
-23
-24
-25</pre>
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 21</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_verified identifier id'>get_verified</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailAddressService constant id'>EmailAddressService</span><span class='dot token'>.</span><span class='rubyid_get_verified identifier id'>get_verified</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_verified_email_addresses identifier id'>get_verified_email_addresses</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_AccountService constant id'>AccountService</span><span class='dot token'>.</span><span class='rubyid_get_verified_email_addresses identifier id'>get_verified_email_addresses</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -5934,9 +5865,9 @@ an array of email addresses
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="send_campaign_test-instance_method">
+  <h3 class="signature " id="send_email_campaign_test-instance_method">
   
-    - (<tt>TestSend</tt>) <strong>send_campaign_test</strong>(access_token, campaign, test_send) 
+    - (<tt>TestSend</tt>) <strong>send_email_campaign_test</strong>(access_token, campaign, test_send) 
   
 
   
@@ -6034,242 +5965,17 @@ Send a test send of a campaign
       <pre class="lines">
 
 
+268
+269
 270
-271
-272
-273</pre>
+271</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 270</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 268</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_send_campaign_test identifier id'>send_campaign_test</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_test_send identifier id'>test_send</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_send_email_campaign_test identifier id'>send_email_campaign_test</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_test_send identifier id'>test_send</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_send_test identifier id'>send_test</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_test_send identifier id'>test_send</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update_campaign-instance_method">
-  
-    - (<tt>EmailCampaign</tt>) <strong>update_campaign</strong>(access_token, campaign) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Update a specific campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>EmailCampaign</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign to be updated
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>EmailCampaign</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>updated campaign
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-202
-203
-204</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 202</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_campaign identifier id'>update_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailCampaignService constant id'>EmailCampaignService</span><span class='dot token'>.</span><span class='rubyid_update_campaign identifier id'>update_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="update_campaign_schedule-instance_method">
-  
-    - (<tt>Schedule</tt>) <strong>update_campaign_schedule</strong>(access_token, campaign, schedule) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Update a specific schedule associated with a given campaign
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>campaign</span>
-      
-      
-        <span class='type'>(<tt>Mixed</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Campaign id or Campaign object itself
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>schedule</span>
-      
-      
-        <span class='type'>(<tt>Schedule</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Schedule to be updated
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Schedule</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-246
-247
-248
-249</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 246</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_campaign_schedule identifier id'>update_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'EmailCampaign'</span><span class='rparen token'>)</span>
-  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_update_schedule identifier id'>update_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -6380,15 +6086,240 @@ Update an individual contact
       <pre class="lines">
 
 
-107
-108
-109</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 105</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_contact identifier id'>update_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_action_by_visitor identifier id'>action_by_visitor</span> <span class='assign token'>=</span> <span class='rubyid_false false kw'>false</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ContactService constant id'>ContactService</span><span class='dot token'>.</span><span class='rubyid_update_contact identifier id'>update_contact</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact identifier id'>contact</span><span class='comma token'>,</span> <span class='rubyid_action_by_visitor identifier id'>action_by_visitor</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_email_campaign-instance_method">
+  
+    - (<tt>Campaign</tt>) <strong>update_email_campaign</strong>(access_token, campaign) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Update a specific campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Campaign</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign to be updated
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Campaign</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>updated campaign
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200
+201
+202</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 200</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_email_campaign identifier id'>update_email_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_EmailMarketingService constant id'>EmailMarketingService</span><span class='dot token'>.</span><span class='rubyid_update_campaign identifier id'>update_campaign</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update_email_campaign_schedule-instance_method">
+  
+    - (<tt>Schedule</tt>) <strong>update_email_campaign_schedule</strong>(access_token, campaign, schedule) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Update a specific schedule associated with a given campaign
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>campaign</span>
+      
+      
+        <span class='type'>(<tt>Mixed</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Campaign id or Campaign object itself
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>schedule</span>
+      
+      
+        <span class='type'>(<tt>Schedule</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Schedule to be updated
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Schedule</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+244
+245
+246
+247</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 244</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_email_campaign_schedule identifier id'>update_email_campaign_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
+  <span class='rubyid_campaign_id identifier id'>campaign_id</span> <span class='assign token'>=</span> <span class='rubyid_get_argument_id identifier id'>get_argument_id</span><span class='lparen token'>(</span><span class='rubyid_campaign identifier id'>campaign</span><span class='comma token'>,</span> <span class='string val'>'Campaign'</span><span class='rparen token'>)</span>
+  <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_CampaignScheduleService constant id'>CampaignScheduleService</span><span class='dot token'>.</span><span class='rubyid_update_schedule identifier id'>update_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -6478,12 +6409,12 @@ Update a contact list
       <pre class="lines">
 
 
-142
-143
-144</pre>
+140
+141
+142</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 142</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 140</span>
 
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_update_list identifier id'>update_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
   <span class='rubyid_Services constant id'>Services</span><span class='colon2 op'>::</span><span class='rubyid_ListService constant id'>ListService</span><span class='dot token'>.</span><span class='rubyid_update_list identifier id'>update_list</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_list identifier id'>list</span><span class='rparen token'>)</span>
@@ -6499,7 +6430,7 @@ Update a contact list
 </div>
 
     <div id="footer">
-  Generated on 03/08/13 09:58:52 by
+  Generated on 03/29/13 09:33:20 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

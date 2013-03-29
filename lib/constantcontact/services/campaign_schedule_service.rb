@@ -17,6 +17,7 @@ module ConstantContact
 				def add_schedule(access_token, campaign_id, schedule)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign_schedules'), campaign_id)
+					url = build_url(url)
 					payload = schedule.to_json
 					response = RestClient.post(url, payload, get_headers(access_token))
 					Components::Schedule.create(JSON.parse(response.body))
@@ -30,7 +31,7 @@ module ConstantContact
 				def get_schedules(access_token, campaign_id)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign_schedules'), campaign_id)
-
+					url = build_url(url)
 					response = RestClient.get(url, get_headers(access_token))
 					body = JSON.parse(response.body)
 
@@ -51,6 +52,7 @@ module ConstantContact
 				def get_schedule(access_token, campaign_id, schedule_id)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign_schedule'), campaign_id, schedule_id)
+					url = build_url(url)
 					response = RestClient.get(url, get_headers(access_token))
 					Components::Schedule.create(JSON.parse(response.body))
 				end
@@ -64,6 +66,7 @@ module ConstantContact
 				def delete_schedule(access_token, campaign_id, schedule_id)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign_schedule'), campaign_id, schedule_id)
+					url = build_url(url)
 					response = RestClient.delete(url, get_headers(access_token))
 					response.code == 204
 				end
@@ -77,6 +80,7 @@ module ConstantContact
 				def update_schedule(access_token, campaign_id, schedule)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign_schedule'), campaign_id, schedule.id)
+					url = build_url(url)
 					payload = schedule.to_json
 					response = RestClient.put(url, payload, get_headers(access_token))
 					Components::Schedule.create(JSON.parse(response.body))
@@ -91,6 +95,7 @@ module ConstantContact
 				def send_test(access_token, campaign_id, test_send)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign_test_sends'), campaign_id)
+					url = build_url(url)
 					payload = test_send.to_json
 					response = RestClient.post(url, payload, get_headers(access_token))
 					Components::TestSend.create(JSON.parse(response.body))

@@ -6,22 +6,20 @@
 
 module ConstantContact
 	class Api
-		attr_reader :api_key
-
 
 		# Class constructor
 		# @param [String] api_key - Constant Contact API Key
 		# @return
 		def initialize(api_key)
-			@api_key = api_key
+			Services::BaseService.api_key = api_key
 		end
 
 
-		# Get a list of verified email addresses
+		# Get verified addresses for the account
 		# @param [String] access_token - Valid access token
-		# @return [Array<EmailAddress>] an array of email addresses
-		def get_verified(access_token)
-			Services::EmailAddressService.get_verified(access_token)
+		# @return [Array<VerifiedEmailAddress>] an array of email addresses
+		def get_verified_email_addresses(access_token)
+			Services::AccountService.get_verified_email_addresses(access_token)
 		end
 
 
@@ -50,7 +48,7 @@ module ConstantContact
 		# @param [String] email - contact email address to search for
 		# @return [ResultSet<Contact>] a ResultSet of Contacts
 		def get_contact_by_email(access_token, email)
-			Services::ContactService.get_contacts(access_token, "?email=#{email}")
+			Services::ContactService.get_contacts(access_token, {'email' => email})
 		end
 
 
@@ -159,19 +157,19 @@ module ConstantContact
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [String] param - denotes the number of results per set, limited to 50, or a next parameter provided
 		# from a previous call
-		# @return [ResultSet<EmailCampaign>]
-		def get_campaigns(access_token, param = nil)
+		# @return [ResultSet<Campaign>]
+		def get_email_campaigns(access_token, param = nil)
 			param = determine_param(param)
-			Services::EmailCampaignService.get_campaigns(access_token, param)
+			Services::EmailMarketingService.get_campaigns(access_token, param)
 		end
 
 
 		# Get an individual campaign
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [Integer] campaign_id - Valid campaign id
-		# @return [EmailCampaign]
-		def get_campaign(access_token, campaign_id)
-			Services::EmailCampaignService.get_campaign(access_token, campaign_id)
+		# @return [Campaign]
+		def get_email_campaign(access_token, campaign_id)
+			Services::EmailMarketingService.get_campaign(access_token, campaign_id)
 		end
 
 
@@ -180,27 +178,27 @@ module ConstantContact
 		# @param [Mixed] campaign - Id of a campaign or a Campaign object
 		# @raise IllegalArgumentException - if a Campaign object or campaign id is not passed
 		# @return [Boolean]
-		def delete_campaign(access_token, campaign)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
-			Services::EmailCampaignService.delete_campaign(access_token, campaign_id)
+		def delete_email_campaign(access_token, campaign)
+			campaign_id = get_argument_id(campaign, 'Campaign')
+			Services::EmailMarketingService.delete_campaign(access_token, campaign_id)
 		end
 
 
 		# Create a new campaign
 		# @param [String] access_token - Constant Contact OAuth2 access token
-		# @param [EmailCampaign] campaign - Campaign to be created
-		# @return [EmailCampaign] - created campaign
-		def add_campaign(access_token, campaign)
-			Services::EmailCampaignService.add_campaign(access_token, campaign)
+		# @param [Campaign] campaign - Campaign to be created
+		# @return [Campaign] - created campaign
+		def add_email_campaign(access_token, campaign)
+			Services::EmailMarketingService.add_campaign(access_token, campaign)
 		end
 
 
 		# Update a specific campaign
 		# @param [String] access_token - Constant Contact OAuth2 access token
-		# @param [EmailCampaign] campaign - Campaign to be updated
-		# @return [EmailCampaign] - updated campaign
-		def update_campaign(access_token, campaign)
-			Services::EmailCampaignService.update_campaign(access_token, campaign)
+		# @param [Campaign] campaign - Campaign to be updated
+		# @return [Campaign] - updated campaign
+		def update_email_campaign(access_token, campaign)
+			Services::EmailMarketingService.update_campaign(access_token, campaign)
 		end
 
 
@@ -208,9 +206,9 @@ module ConstantContact
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [Mixed] campaign - Id of a campaign or a Campaign object
 		# @param [Schedule] schedule - Schedule to be associated with the provided campaign
-		# @return [EmailCampaign] - updated campaign
-		def add_campaign_schedule(access_token, campaign, schedule)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		# @return [Campaign] - updated campaign
+		def add_email_campaign_schedule(access_token, campaign, schedule)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			Services::CampaignScheduleService.add_schedule(access_token, campaign_id, schedule)
 		end
 
@@ -219,8 +217,8 @@ module ConstantContact
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [Mixed] campaign - Campaign id or Campaign object itself
 		# @return [Array<Schedule>]
-		def get_campaign_schedules(access_token, campaign)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_schedules(access_token, campaign)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			Services::CampaignScheduleService.get_schedules(access_token, campaign_id)
 		end
 
@@ -231,8 +229,8 @@ module ConstantContact
 		# @param [Mixed] schedule - Schedule id or Schedule object itself
 		# @raise IllegalArgumentException
 		# @return [Schedule]
-		def get_campaign_schedule(access_token, campaign, schedule)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_schedule(access_token, campaign, schedule)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			schedule_id = get_argument_id(schedule, 'Schedule')
 			Services::CampaignScheduleService.get_schedule(access_token, campaign_id, schedule_id)
 		end
@@ -243,8 +241,8 @@ module ConstantContact
 		# @param [Mixed] campaign - Campaign id or Campaign object itself
 		# @param [Schedule] schedule - Schedule to be updated
 		# @return [Schedule]
-		def update_campaign_schedule(access_token, campaign, schedule)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def update_email_campaign_schedule(access_token, campaign, schedule)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			Services::CampaignScheduleService.update_schedule(access_token, campaign_id, schedule)
 		end
 
@@ -255,8 +253,8 @@ module ConstantContact
 		# @param [Mixed] schedule - Schedule id or Schedule object itself
 		# @raise IllegalArgumentException
 		# @return [Boolean]
-		def delete_campaign_schedule(access_token, campaign, schedule)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def delete_email_campaign_schedule(access_token, campaign, schedule)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			schedule_id = get_argument_id(schedule, 'Schedule')
 			Services::CampaignScheduleService.delete_schedule(access_token, campaign_id, schedule_id)
 		end
@@ -267,8 +265,8 @@ module ConstantContact
 		# @param [Mixed] campaign - Campaign id or Campaign object itself
 		# @param [TestSend] test_send - test send details
 		# @return [TestSend]
-		def send_campaign_test(access_token, campaign, test_send)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def send_email_campaign_test(access_token, campaign, test_send)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			Services::CampaignScheduleService.send_test(access_token, campaign_id, test_send)
 		end
 
@@ -278,8 +276,8 @@ module ConstantContact
 		# @param [Mixed] campaign - Campaign id or Campaign object itself
 		# @param [String] param - next value returned from a previous request (used in pagination)
 		# @return [ResultSet<SendActivity>]
-		def get_campaign_sends(access_token, campaign, param = nil)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_sends(access_token, campaign, param = nil)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			param = determine_param(param)
 			Services::CampaignTrackingService.get_sends(access_token, campaign_id, param)
 		end
@@ -291,8 +289,8 @@ module ConstantContact
 		# @param [Mixed] param - either the next link from a previous request, or a limit or restrict the page size of
 		# an initial request
 		# @return [ResultSet<BounceActivity>]
-		def get_campaign_bounces(access_token, campaign, param = nil)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_bounces(access_token, campaign, param = nil)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			param = determine_param(param)
 			Services::CampaignTrackingService.get_bounces(access_token, campaign_id, param)
 		end
@@ -304,8 +302,8 @@ module ConstantContact
 		# @param [Mixed] param - either the next link from a previous request, or a limit or restrict the page size of
 		# an initial request
 		# @return [ResultSet<ClickActivity>]
-		def get_campaign_clicks(access_token, campaign, param = nil)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_clicks(access_token, campaign, param = nil)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			param = determine_param(param)
 			Services::CampaignTrackingService.get_clicks(access_token, campaign_id, param)
 		end
@@ -317,8 +315,8 @@ module ConstantContact
 		# @param [Mixed] param - either the next link from a previous request, or a limit or restrict the page size of
 		# an initial request
 		# @return [ResultSet<OpenActivity>]
-		def get_campaign_opens(access_token, campaign, param = nil)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_opens(access_token, campaign, param = nil)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			param = determine_param(param)
 			Services::CampaignTrackingService.get_opens(access_token, campaign_id, param)
 		end
@@ -330,23 +328,23 @@ module ConstantContact
 		# @param [Mixed] param - either the next link from a previous request, or a limit or restrict the page size of
 		# an initial request
 		# @return [ResultSet<ForwardActivity>]
-		def get_campaign_forwards(access_token, campaign, param = nil)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_forwards(access_token, campaign, param = nil)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			param = determine_param(param)
 			Services::CampaignTrackingService.get_forwards(access_token, campaign_id, param)
 		end
 
 
-		# Get opt outs for a campaign
+		# Get unsubscribes for a campaign
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [Mixed] campaign - Campaign id or Campaign object itself
 		# @param [Mixed] param - either the next link from a previous request, or a limit or restrict the page size of
 		# an initial request
-		# @return [ResultSet<OptOutActivity>]
-		def get_campaign_opt_outs(access_token, campaign, param = nil)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		# @return [ResultSet<UnsubscribeActivity>] - Containing a results array of UnsubscribeActivity
+		def get_email_campaign_unsubscribes(access_token, campaign, param = nil)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			param = determine_param(param)
-			Services::CampaignTrackingService.get_opt_outs(access_token, campaign_id, param)
+			Services::CampaignTrackingService.get_unsubscribes(access_token, campaign_id, param)
 		end
 
 
@@ -354,8 +352,8 @@ module ConstantContact
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [Mixed] campaign  - Campaign id or Campaign object itself
 		# @return [TrackingSummary]
-		def get_campaign_summary_report(access_token, campaign)
-			campaign_id = get_argument_id(campaign, 'EmailCampaign')
+		def get_email_campaign_summary_report(access_token, campaign)
+			campaign_id = get_argument_id(campaign, 'Campaign')
 			Services::CampaignTrackingService.get_summary(access_token, campaign_id)
 		end
 
@@ -423,16 +421,16 @@ module ConstantContact
 		end
 
 
-		# Get opt outs for a Contact
+		# Get unsubscribes for a Contact
 		# @param [String] access_token - Constant Contact OAuth2 access token
 		# @param [Mixed] contact - Contact id or Contact object itself
-		# @param [Mixed] param - either the next link from a previous request, or a limit or restrict the page size of
+		# @param [Hash] param - either the next link from a previous request, or a limit or restrict the page size of
 		# an initial request
-		# @return [ResultSet<OptOutActivity>]
-		def get_contact_opt_outs(access_token, contact, param = nil)
+		# @return [UnsubscribeActivity] - Containing a results array of UnsubscribeActivity
+		def get_contact_unsubscribes(access_token, contact, param = nil)
 			contact_id = get_argument_id(contact, 'Contact')
 			param = determine_param(param)
-			Services::ContactTrackingService.get_opt_outs(access_token, contact_id, param)
+			Services::ContactTrackingService.get_unsubscribes(access_token, contact_id, param)
 		end
 
 
@@ -524,12 +522,19 @@ module ConstantContact
 
 		# Append the limit parameter, if the value is an integer
 		# @param [String] param - parameter value
-		# @return [String] the query part of the URL
+		# @return [Hash] the parameters as a hash object
 		def determine_param(param)
-			if param and param.to_i.to_s == param.to_s
-				param = "?limit=#{param}"
+			params = {}
+			if param
+				param = param.to_s
+				if param[0, 1] == '?'
+					hash_params = CGI::parse(param[1..-1])
+					params = Hash[*hash_params.collect {|key, value| [key, value.first] }.flatten]
+				else
+					params['limit'] = param
+				end
 			end
-			param
+			params
 		end
 
 	end

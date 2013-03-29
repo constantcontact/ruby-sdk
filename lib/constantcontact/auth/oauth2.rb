@@ -64,11 +64,14 @@ module ConstantContact
 					response = RestClient.post(url, params)
 					response_body = JSON.parse(response)
 				rescue => e
-					response_body = JSON.parse(e.response)
+					response_body = e.respond_to?(:response) ?
+						JSON.parse(e.response) :
+						{'error' => '', 'error_description' => e.message}
 				end
 
-				if response_body['error']
-					raise Exceptions::OAuth2Exception, response_body['error'] + ': ' + response_body['error_description']
+				if response_body['error_description']
+					error = response_body['error_description']
+					raise Exceptions::OAuth2Exception, error
 				end
 
 				response_body

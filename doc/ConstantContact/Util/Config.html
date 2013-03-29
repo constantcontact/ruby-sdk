@@ -420,7 +420,7 @@ Return a hash of configuration strings
       <span class='symbol val'>:remove_from_lists_activity</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/removefromlists'</span><span class='comma token'>,</span>
       <span class='symbol val'>:add_contacts_activity</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'activities/addcontacts'</span><span class='comma token'>,</span>
 
-      <span class='symbol val'>:verified_email_addresses</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'account/verifiedemailaddresses'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:account_verified_addresses</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'account/verifiedemailaddresses'</span><span class='comma token'>,</span>
 
       <span class='symbol val'>:contact</span>                        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s'</span><span class='comma token'>,</span>
       <span class='symbol val'>:contacts</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts'</span><span class='comma token'>,</span>
@@ -430,19 +430,19 @@ Return a hash of configuration strings
       <span class='symbol val'>:contact_lists</span>                  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/lists'</span><span class='comma token'>,</span>
       <span class='symbol val'>:contact_list</span>                   <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/lists/%s'</span><span class='comma token'>,</span>
 
-      <span class='symbol val'>:campaigns</span>                      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_schedules</span>             <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/schedules'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_schedule</span>              <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/schedules/%s'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_test_sends</span>            <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tests'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_summary</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/reports/summary'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_bounces</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/bounces'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_clicks</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/clicks'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_forwards</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/forwards'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_opens</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/opens'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_sends</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/sends'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_unsubscribes</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/unsubscribes'</span><span class='comma token'>,</span>
-      <span class='symbol val'>:campaign_tracking_link</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailcampaigns/%s/tracking/clicks/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaigns</span>                      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign</span>                       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_schedules</span>             <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/schedules'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_schedule</span>              <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/schedules/%s'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_test_sends</span>            <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tests'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_summary</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/reports/summary'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_bounces</span>      <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/bounces'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_clicks</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/clicks'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_forwards</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/forwards'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_opens</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/opens'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_sends</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/sends'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_unsubscribes</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/unsubscribes'</span><span class='comma token'>,</span>
+      <span class='symbol val'>:campaign_tracking_link</span>         <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'emailmarketing/campaigns/%s/tracking/clicks/%s'</span><span class='comma token'>,</span>
 
       <span class='symbol val'>:contact_tracking_summary</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/reports/summary'</span><span class='comma token'>,</span>
       <span class='symbol val'>:contact_tracking_bounces</span>       <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'contacts/%s/tracking/bounces'</span><span class='comma token'>,</span>
@@ -517,7 +517,7 @@ Return a hash of configuration strings
 </div>
 
     <div id="footer">
-  Generated on 03/08/13 09:58:52 by
+  Generated on 03/29/13 09:33:20 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

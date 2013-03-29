@@ -1,40 +1,41 @@
 #
-# email_campaign_service.rb
+# email_marketing_service.rb
 # ConstantContact
 #
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
 	module Services
-		class EmailCampaignService < BaseService
+		class EmailMarketingService < BaseService
 			class << self
 
 				# Create a new campaign
 				# @param [String] access_token - Constant Contact OAuth2 access token
-				# @param [EmailCampaign] campaign - Campaign to be created
-				# @return [EmailCampaign]
+				# @param [Campaign] campaign - Campaign to be created
+				# @return [Campaign]
 				def add_campaign(access_token, campaign)
 					url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.campaigns')
+					url = build_url(url)
 					payload = campaign.to_json
 					response = RestClient.post(url, payload, get_headers(access_token))
-					Components::EmailCampaign.create(JSON.parse(response.body))
+					Components::Campaign.create(JSON.parse(response.body))
 				end
 
 
 				# Get a set of campaigns
 				# @param [String] access_token - Constant Contact OAuth2 access token
-				# @param [String] param - query param to be appended to the request
-				# @return [ResultSet<EmailCampaign>]
+				# @param [Hash] param - query parameters to be appended to the request
+				# @return [ResultSet<Campaign>]
 				def get_campaigns(access_token, param = nil)
 					url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.campaigns')
-					url += param if param
+					url = build_url(url, param)
 
 					response = RestClient.get(url, get_headers(access_token))
 					body = JSON.parse(response.body)
 
 					campaigns = []
 					body['results'].each do |campaign|
-						campaigns << Components::EmailCampaign.create_summary(campaign)
+						campaigns << Components::Campaign.create_summary(campaign)
 					end
 
 					Components::ResultSet.new(campaigns, body['meta'])
@@ -44,12 +45,13 @@ module ConstantContact
 				# Get campaign details for a specific campaign
 				# @param [String] access_token - Constant Contact OAuth2 access token
 				# @param [Integer] campaign_id - Valid campaign id
-				# @return [EmailCampaign]
+				# @return [Campaign]
 				def get_campaign(access_token, campaign_id)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign'), campaign_id)
+					url = build_url(url)
 					response = RestClient.get(url, get_headers(access_token))
-					Components::EmailCampaign.create(JSON.parse(response.body))
+					Components::Campaign.create(JSON.parse(response.body))
 				end
 
 
@@ -60,6 +62,7 @@ module ConstantContact
 				def delete_campaign(access_token, campaign_id)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign'), campaign_id)
+					url = build_url(url)
 					response = RestClient.delete(url, get_headers(access_token))
 					response.code == 204
 				end
@@ -67,14 +70,15 @@ module ConstantContact
 
 				# Update a specific email campaign
 				# @param [String] access_token - Constant Contact OAuth2 access token
-				# @param [EmailCampaign] campaign - Campaign to be updated
-				# @return [EmailCampaign]
+				# @param [Campaign] campaign - Campaign to be updated
+				# @return [Campaign]
 				def update_campaign(access_token, campaign)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.campaign'), campaign.id)
+					url = build_url(url)
 					payload = campaign.to_json
 					response = RestClient.put(url, payload, get_headers(access_token))
-					Components::EmailCampaign.create(JSON.parse(response.body))
+					Components::Campaign.create(JSON.parse(response.body))
 				end
 
 			end

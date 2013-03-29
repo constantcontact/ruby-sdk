@@ -11,11 +11,11 @@ module ConstantContact
 
 				# Get an array of contacts
 				# @param [String] access_token - Constant Contact OAuth2 access token
-				# @param [String] param - query param to be appended to the request
+				# @param [Hash] param - query parameters to be appended to the request
 				# @return [ResultSet<Contact>]
 				def get_contacts(access_token, param = nil)
 					url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.contacts')
-					url += param if param
+					url = build_url(url, param)
 
 					response = RestClient.get(url, get_headers(access_token))
 					body = JSON.parse(response.body)
@@ -36,6 +36,7 @@ module ConstantContact
 				def get_contact(access_token, contact_id)
 					url = Util::Config.get('endpoints.base_url') + 
 								sprintf(Util::Config.get('endpoints.contact'), contact_id)
+					url = build_url(url)
 					response = RestClient.get(url, get_headers(access_token))
 					Components::Contact.create(JSON.parse(response.body))
 				end
@@ -48,7 +49,8 @@ module ConstantContact
 				# @return [Contact]
 				def add_contact(access_token, contact, action_by_visitor = false)
 					url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.contacts')
-					url += action_by_visitor ? '?action_by=ACTION_BY_VISITOR' : ''
+					param = action_by_visitor ? {'action_by' => 'ACTION_BY_VISITOR'} : nil
+					url = build_url(url, param)
 					payload = contact.to_json
 					response = RestClient.post(url, payload, get_headers(access_token))
 					Components::Contact.create(JSON.parse(response.body))
@@ -61,6 +63,7 @@ module ConstantContact
 				# @return [Boolean]
 				def delete_contact(access_token, contact_id)
 					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.contact'), contact_id)
+					url = build_url(url)
 					response = RestClient.delete(url, get_headers(access_token))
 					response.code == 204
 				end
@@ -72,6 +75,7 @@ module ConstantContact
 				# @return [Boolean]
 				def delete_contact_from_lists(access_token, contact_id)
 					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.contact_lists'), contact_id)
+					url = build_url(url)
 					response = RestClient.delete(url, get_headers(access_token))
 					response.code == 204
 				end
@@ -84,6 +88,7 @@ module ConstantContact
 				# @return [Boolean]
 				def delete_contact_from_list(access_token, contact_id, list_id)
 					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.contact_list'), contact_id, list_id)
+					url = build_url(url)
 					response = RestClient.delete(url, get_headers(access_token))
 					response.code == 204
 				end
@@ -96,7 +101,8 @@ module ConstantContact
 				# @return [Contact]
 				def update_contact(access_token, contact, action_by_visitor = false)
 					url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.contact'), contact.id)
-					url += action_by_visitor ? '?action_by=ACTION_BY_VISITOR' : ''
+					param = action_by_visitor ? {'action_by' => 'ACTION_BY_VISITOR'} : nil
+					url = build_url(url, param)
 					payload = contact.to_json
 					response = RestClient.put(url, payload, get_headers(access_token))
 					Components::Contact.create(JSON.parse(response.body))

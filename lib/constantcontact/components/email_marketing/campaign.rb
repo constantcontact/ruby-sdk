@@ -6,10 +6,10 @@
 
 module ConstantContact
 	module Components
-		class EmailCampaign < Component
-			attr_accessor :id, :name, :subject, :status, :from_name, :from_email, :reply_to_email, :campaign_type,
-										:created_date, :modified_date, :last_send_date, :last_edit_date, :last_run_date, :next_run_date,
-										:share_page_url, :is_permission_reminder_enabled, :permission_reminder_text,
+		class Campaign < Component
+			attr_accessor :id, :name, :subject, :status, :from_name, :from_email, :reply_to_email, :template_type,
+										:created_date, :modified_date, :last_run_date, :next_run_date,
+										:is_permission_reminder_enabled, :permission_reminder_text,
 										:is_view_as_webpage_enabled, :view_as_web_page_text, :view_as_web_page_link_text,
 										:greeting_salutations, :greeting_name, :greeting_string, :email_content, :text_content,
 										:message_footer, :tracking_summary, :email_content_format, :style_sheet, :sent_to_contact_lists,
@@ -18,9 +18,9 @@ module ConstantContact
 
 			# Factory method to create an EmailCampaign object from an array
 			# @param [Hash] props - hash of properties to create object from
-			# @return [EmailCampaign]
+			# @return [Campaign]
 			def self.create(props)
-				campaign = EmailCampaign.new
+				campaign = Campaign.new
 				if props
 					props.each do |key, value|
 						if key == 'message_footer'
@@ -52,9 +52,9 @@ module ConstantContact
 
 			# Factory method to create a Campaign object from an array
 			# @param [Hash] props - hash of initial properties to set
-			# @return [EmailCampaign]
+			# @return [Campaign]
 			def self.create_summary(props)
-				campaign = EmailCampaign.new
+				campaign = Campaign.new
 				if props
 					props.each do |key, value|
 						campaign.send("#{key}=", value)

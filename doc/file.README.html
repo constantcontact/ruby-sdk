@@ -91,7 +91,11 @@
 <ol>
 <li><p>Create a new action and add the following code:</p>
 
-<pre class="code ruby"><code> <span class='rubyid_@oauth ivar id'>@oauth</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Auth constant id'>Auth</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2 constant id'>OAuth2</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='symbol val'>:api_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your api key'</span><span class='comma token'>,</span> <span class='symbol val'>:api_secret</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your secret key'</span><span class='comma token'>,</span> <span class='symbol val'>:redirect_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your redirect url'</span><span class='rparen token'>)</span>
+<pre class="code ruby"><code> <span class='rubyid_@oauth ivar id'>@oauth</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Auth constant id'>Auth</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2 constant id'>OAuth2</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span>
+     <span class='symbol val'>:api_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your api key'</span><span class='comma token'>,</span>
+     <span class='symbol val'>:api_secret</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your secret key'</span><span class='comma token'>,</span>
+     <span class='symbol val'>:redirect_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your redirect url'</span>
+ <span class='rparen token'>)</span>
 
  <span class='rubyid_@error ivar id'>@error</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:error</span><span class='rbrack token'>]</span>
  <span class='rubyid_@user ivar id'>@user</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span>
@@ -102,7 +106,7 @@
      <span class='rubyid_if if kw'>if</span> <span class='rubyid_response identifier id'>response</span>
          <span class='rubyid_token identifier id'>token</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>'access_token'</span><span class='rbrack token'>]</span>
          <span class='rubyid_cc identifier id'>cc</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Api constant id'>Api</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'your api key'</span><span class='rparen token'>)</span>
-         <span class='rubyid_@contacts ivar id'>@contacts</span> <span class='assign token'>=</span> <span class='rubyid_cc identifier id'>cc</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_token identifier id'>token</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='comma token'>,</span> <span class='integer val'>10</span><span class='rparen token'>)</span>
+         <span class='rubyid_@contacts ivar id'>@contacts</span> <span class='assign token'>=</span> <span class='rubyid_cc identifier id'>cc</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_token identifier id'>token</span><span class='rparen token'>)</span>
      <span class='rubyid_end end kw'>end</span>
  <span class='rubyid_end end kw'>end</span>
 </code></pre>
@@ -161,12 +165,8 @@ and then you will be redirected back to your action and you should see the list 
          <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_@oauth ivar id'>@oauth</span><span class='dot token'>.</span><span class='rubyid_get_access_token identifier id'>get_access_token</span><span class='lparen token'>(</span><span class='rubyid_@code ivar id'>@code</span><span class='rparen token'>)</span>
          <span class='rubyid_if if kw'>if</span> <span class='rubyid_response identifier id'>response</span>
              <span class='rubyid_token identifier id'>token</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>'access_token'</span><span class='rbrack token'>]</span>
-             <span class='rubyid_cc identifier id'>cc</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Api constant id'>Api</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span>
-                 <span class='symbol val'>:api_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your api key'</span><span class='comma token'>,</span>
-                 <span class='symbol val'>:api_secret</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your secret key'</span><span class='comma token'>,</span>
-                 <span class='symbol val'>:redirect_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your redirect url'</span>
-             <span class='rparen token'>)</span>
-             <span class='rubyid_@contacts ivar id'>@contacts</span> <span class='assign token'>=</span> <span class='rubyid_cc identifier id'>cc</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_token identifier id'>token</span><span class='comma token'>,</span> <span class='integer val'>0</span><span class='comma token'>,</span> <span class='integer val'>10</span><span class='rparen token'>)</span>
+             <span class='rubyid_cc identifier id'>cc</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Api constant id'>Api</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'your api key'</span><span class='rparen token'>)</span>
+             <span class='rubyid_@contacts ivar id'>@contacts</span> <span class='assign token'>=</span> <span class='rubyid_cc identifier id'>cc</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_token identifier id'>token</span><span class='rparen token'>)</span>
          <span class='rubyid_end end kw'>end</span>
      <span class='rubyid_end end kw'>end</span>
 
@@ -203,7 +203,7 @@ and then you will be redirected back to your action and you should see the list 
 </div></div>
 
     <div id="footer">
-  Generated on 03/08/13 09:58:50 by
+  Generated on 03/29/13 09:33:18 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

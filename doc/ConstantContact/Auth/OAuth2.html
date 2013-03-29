@@ -731,7 +731,10 @@ the access token
 72
 73
 74
-75</pre>
+75
+76
+77
+78</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 48</span>
@@ -755,11 +758,14 @@ the access token
     <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_post identifier id'>post</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
     <span class='rubyid_response_body identifier id'>response_body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='rparen token'>)</span>
   <span class='rubyid_rescue rescue kw'>rescue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
-    <span class='rubyid_response_body identifier id'>response_body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_response identifier id'>response</span><span class='rparen token'>)</span>
+    <span class='rubyid_response_body identifier id'>response_body</span> <span class='assign token'>=</span> <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:response</span><span class='rparen token'>)</span> <span class='question op'>?</span>
+      <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_response identifier id'>response</span><span class='rparen token'>)</span> <span class='colon op'>:</span>
+      <span class='lbrace token'>{</span><span class='string val'>'error'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span> <span class='string val'>'error_description'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_message identifier id'>message</span><span class='rbrace token'>}</span>
   <span class='rubyid_end end kw'>end</span>
 
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error'</span><span class='rbrack token'>]</span>
-    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Exceptions constant id'>Exceptions</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2Exception constant id'>OAuth2Exception</span><span class='comma token'>,</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error'</span><span class='rbrack token'>]</span> <span class='plus op'>+</span> <span class='string val'>': '</span> <span class='plus op'>+</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error_description'</span><span class='rbrack token'>]</span>
+  <span class='rubyid_if if kw'>if</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error_description'</span><span class='rbrack token'>]</span>
+    <span class='rubyid_error identifier id'>error</span> <span class='assign token'>=</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error_description'</span><span class='rbrack token'>]</span>
+    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Exceptions constant id'>Exceptions</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2Exception constant id'>OAuth2Exception</span><span class='comma token'>,</span> <span class='rubyid_error identifier id'>error</span>
   <span class='rubyid_end end kw'>end</span>
 
   <span class='rubyid_response_body identifier id'>response_body</span>
@@ -885,7 +891,7 @@ the authorization URL
 </div>
 
     <div id="footer">
-  Generated on 03/08/13 09:58:52 by
+  Generated on 03/29/13 09:33:20 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

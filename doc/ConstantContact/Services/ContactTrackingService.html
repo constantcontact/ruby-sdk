@@ -219,31 +219,6 @@ Get opens for a given contact.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_opt_outs-class_method" title="get_opt_outs (class method)">+ (ResultSet&lt;OptOutActivity&gt;) <strong>get_opt_outs</strong>(access_token, contact_id, param = nil) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Get opt outs for a given contact.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#get_sends-class_method" title="get_sends (class method)">+ (ResultSet&lt;SendActivity&gt;) <strong>get_sends</strong>(access_token, contact_id, param = nil) </a>
     
 
@@ -285,6 +260,31 @@ Get sends for a given contact.
   
     <span class="summary_desc"><div class='inline'><p>
 Get a summary of reporting data for a given contact.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_unsubscribes-class_method" title="get_unsubscribes (class method)">+ (ResultSet&lt;UnsubscribeActivity&gt;) <strong>get_unsubscribes</strong>(access_token, contact_id, param = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Get unsubscribes for a given contact.
 </p>
 </div></span>
   
@@ -371,7 +371,7 @@ Get a result set of bounces for a given contact
         <span class='name'>param</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -379,7 +379,7 @@ Get a result set of bounces for a given contact
       
         &mdash;
         <div class='inline'><ul>
-<li>query param to be appended to request
+<li>query parameters to be appended to request
 
 </li>
 </ul>
@@ -439,7 +439,7 @@ Get a result set of bounces for a given contact
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_bounces identifier id'>get_bounces</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
         <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_bounces'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='opasgn op'>+=</span> <span class='rubyid_param identifier id'>param</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_param identifier id'>param</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
@@ -522,7 +522,7 @@ Get clicks for a given contact
         <span class='name'>param</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -530,7 +530,7 @@ Get clicks for a given contact
       
         &mdash;
         <div class='inline'><ul>
-<li>query param to be appended to request
+<li>query parameters to be appended to request
 
 </li>
 </ul>
@@ -590,7 +590,7 @@ Get clicks for a given contact
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_clicks identifier id'>get_clicks</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
         <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_clicks'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='opasgn op'>+=</span> <span class='rubyid_param identifier id'>param</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_param identifier id'>param</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
@@ -673,7 +673,7 @@ Get forwards for a given contact
         <span class='name'>param</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -681,7 +681,7 @@ Get forwards for a given contact
       
         &mdash;
         <div class='inline'><ul>
-<li>query param to be appended to request
+<li>query parameters to be appended to request
 
 </li>
 </ul>
@@ -741,7 +741,7 @@ Get forwards for a given contact
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_forwards identifier id'>get_forwards</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
         <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_forwards'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='opasgn op'>+=</span> <span class='rubyid_param identifier id'>param</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_param identifier id'>param</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
@@ -824,7 +824,7 @@ Get opens for a given contact
         <span class='name'>param</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -832,7 +832,7 @@ Get opens for a given contact
       
         &mdash;
         <div class='inline'><ul>
-<li>query param to be appended to request
+<li>query parameters to be appended to request
 
 </li>
 </ul>
@@ -892,7 +892,7 @@ Get opens for a given contact
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_opens identifier id'>get_opens</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
         <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_opens'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='opasgn op'>+=</span> <span class='rubyid_param identifier id'>param</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_param identifier id'>param</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
@@ -903,157 +903,6 @@ Get opens for a given contact
   <span class='rubyid_end end kw'>end</span>
 
   <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_ResultSet constant id'>ResultSet</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_opens identifier id'>opens</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='lbrack token'>[</span><span class='string val'>'meta'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="get_opt_outs-class_method">
-  
-    + (<tt>ResultSet&lt;OptOutActivity&gt;</tt>) <strong>get_opt_outs</strong>(access_token, contact_id, param = nil) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    <p>
-Get opt outs for a given contact
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>contact_id</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Contact id
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>param</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>query param to be appended to request
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>ResultSet&lt;OptOutActivity&gt;</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul>
-<li>Containing a results array of OptOutActivity
-
-</li>
-</ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_tracking_service.rb', line 127</span>
-
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_opt_outs identifier id'>get_opt_outs</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_unsubscribes'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='opasgn op'>+=</span> <span class='rubyid_param identifier id'>param</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_param identifier id'>param</span>
-
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
-
-  <span class='rubyid_opt_outs identifier id'>opt_outs</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-  <span class='rubyid_body identifier id'>body</span><span class='lbrack token'>[</span><span class='string val'>'results'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_opt_out_activity identifier id'>opt_out_activity</span><span class='bitor op'>|</span>
-    <span class='rubyid_opt_outs identifier id'>opt_outs</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_OptOutActivity constant id'>OptOutActivity</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_opt_out_activity identifier id'>opt_out_activity</span><span class='rparen token'>)</span>
-  <span class='rubyid_end end kw'>end</span>
-
-  <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_ResultSet constant id'>ResultSet</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_opt_outs identifier id'>opt_outs</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='lbrack token'>[</span><span class='string val'>'meta'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1126,7 +975,7 @@ Get sends for a given contact
         <span class='name'>param</span>
       
       
-        <span class='type'>(<tt>String</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
         <em class="default">(defaults to: <tt>nil</tt>)</em>
@@ -1134,7 +983,7 @@ Get sends for a given contact
       
         &mdash;
         <div class='inline'><ul>
-<li>query param to be appended to request
+<li>query parameters to be appended to request
 
 </li>
 </ul>
@@ -1194,7 +1043,7 @@ Get sends for a given contact
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_sends identifier id'>get_sends</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
         <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_sends'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='opasgn op'>+=</span> <span class='rubyid_param identifier id'>param</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_param identifier id'>param</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
 
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
@@ -1258,7 +1107,7 @@ Get a summary of reporting data for a given contact
         <span class='name'>contact_id</span>
       
       
-        <span class='type'>(<tt>Integer</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -1299,7 +1148,8 @@ Get a summary of reporting data for a given contact
 150
 151
 152
-153</pre>
+153
+154</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_tracking_service.rb', line 148</span>
@@ -1307,8 +1157,160 @@ Get a summary of reporting data for a given contact
 <span class='rubyid_def def kw'>def</span> <span class='rubyid_get_summary identifier id'>get_summary</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
   <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
         <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_summary'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
   <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
   <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_TrackingSummary constant id'>TrackingSummary</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_unsubscribes-class_method">
+  
+    + (<tt>ResultSet&lt;UnsubscribeActivity&gt;</tt>) <strong>get_unsubscribes</strong>(access_token, contact_id, param = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Get unsubscribes for a given contact
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>access_token</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Constant Contact OAuth2 access token
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>contact_id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Contact id
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>param</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>query parameters to be appended to request
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>ResultSet&lt;UnsubscribeActivity&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul>
+<li>Containing a results array of UnsubscribeActivity
+
+</li>
+</ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_tracking_service.rb', line 127</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_unsubscribes identifier id'>get_unsubscribes</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span> <span class='assign token'>=</span> <span class='rubyid_nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span>
+        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.contact_tracking_unsubscribes'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_contact_id identifier id'>contact_id</span><span class='rparen token'>)</span>
+  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_param identifier id'>param</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
+
+  <span class='rubyid_unsubscribes identifier id'>unsubscribes</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='rubyid_body identifier id'>body</span><span class='lbrack token'>[</span><span class='string val'>'results'</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_unsubscribe_activity identifier id'>unsubscribe_activity</span><span class='bitor op'>|</span>
+    <span class='rubyid_unsubscribes identifier id'>unsubscribes</span><span class='lbrack token'>[</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_UnsubscribeActivity constant id'>UnsubscribeActivity</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_unsubscribe_activity identifier id'>unsubscribe_activity</span><span class='rparen token'>)</span>
+  <span class='rubyid_end end kw'>end</span>
+
+  <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_ResultSet constant id'>ResultSet</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_unsubscribes identifier id'>unsubscribes</span><span class='comma token'>,</span> <span class='rubyid_body identifier id'>body</span><span class='lbrack token'>[</span><span class='string val'>'meta'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
 <span class='rubyid_end end kw'>end</span>
 </pre>
     </td>
@@ -1321,7 +1323,7 @@ Get a summary of reporting data for a given contact
 </div>
 
     <div id="footer">
-  Generated on 03/08/13 09:58:56 by
+  Generated on 03/29/13 09:33:25 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.8.6).
 </div>

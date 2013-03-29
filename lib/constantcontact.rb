@@ -34,11 +34,11 @@ module ConstantContact
 		autoload :CustomField, "constantcontact/components/contacts/custom_field"
 		autoload :EmailAddress, "constantcontact/components/contacts/email_address"
 		autoload :Note, "constantcontact/components/contacts/note"
-		autoload :ClickThroughDetails, "constantcontact/components/email_campaigns/click_through_details"
-		autoload :EmailCampaign, "constantcontact/components/email_campaigns/email_campaign"
-		autoload :MessageFooter, "constantcontact/components/email_campaigns/message_footer"
-		autoload :Schedule, "constantcontact/components/email_campaigns/schedule"
-		autoload :TestSend, "constantcontact/components/email_campaigns/test_send"
+		autoload :ClickThroughDetails, "constantcontact/components/email_marketing/click_through_details"
+		autoload :Campaign, "constantcontact/components/email_marketing/campaign"
+		autoload :MessageFooter, "constantcontact/components/email_marketing/message_footer"
+		autoload :Schedule, "constantcontact/components/email_marketing/schedule"
+		autoload :TestSend, "constantcontact/components/email_marketing/test_send"
 		autoload :BounceActivity, "constantcontact/components/tracking/bounce_activity"
 		autoload :ClickActivity, "constantcontact/components/tracking/click_activity"
 		autoload :ForwardActivity, "constantcontact/components/tracking/forward_activity"
@@ -47,6 +47,7 @@ module ConstantContact
 		autoload :SendActivity, "constantcontact/components/tracking/send_activity"
 		autoload :TrackingActivity, "constantcontact/components/tracking/tracking_activity"
 		autoload :TrackingSummary, "constantcontact/components/tracking/tracking_summary"
+		autoload :VerifiedEmailAddress, "constantcontact/components/account/verified_email_address"
 	end
 
 	module Exceptions
@@ -62,9 +63,9 @@ module ConstantContact
 		autoload :CampaignTrackingService, "constantcontact/services/campaign_tracking_service"
 		autoload :ContactService, "constantcontact/services/contact_service"
 		autoload :ContactTrackingService, "constantcontact/services/contact_tracking_service"
-		autoload :EmailCampaignService, "constantcontact/services/email_campaign_service"
+		autoload :EmailMarketingService, "constantcontact/services/email_marketing_service"
 		autoload :ListService, "constantcontact/services/list_service"
-		autoload :EmailAddressService, "constantcontact/services/email_address_service"
+		autoload :AccountService, "constantcontact/services/account_service"
 	end
 
 	module Util

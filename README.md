@@ -23,7 +23,11 @@ or add the following in your .Gemfile :
 
 3. Create a new action and add the following code:
 
-        @oauth = ConstantContact::Auth::OAuth2.new(:api_key => 'your api key', :api_secret => 'your secret key', :redirect_url => 'your redirect url')
+        @oauth = ConstantContact::Auth::OAuth2.new(
+            :api_key => 'your api key',
+            :api_secret => 'your secret key',
+            :redirect_url => 'your redirect url'
+        )
 
         @error = params[:error]
         @user = params[:username]
@@ -34,7 +38,7 @@ or add the following in your .Gemfile :
             if response
                 token = response['access_token']
                 cc = ConstantContact::Api.new('your api key')
-                @contacts = cc.get_contacts(token, 0, 10)
+                @contacts = cc.get_contacts(token)
             end
         end
 
@@ -92,12 +96,8 @@ B. Sinatra example :
                 response = @oauth.get_access_token(@code)
                 if response
                     token = response['access_token']
-                    cc = ConstantContact::Api.new(
-                        :api_key => 'your api key',
-                        :api_secret => 'your secret key',
-                        :redirect_url => 'your redirect url'
-                    )
-                    @contacts = cc.get_contacts(token, 0, 10)
+                    cc = ConstantContact::Api.new('your api key')
+                    @contacts = cc.get_contacts(token)
                 end
             end
 
