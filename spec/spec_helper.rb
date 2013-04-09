@@ -9,5 +9,5 @@ require 'constantcontact'
 
 
 def load_json(file_name)
-	json = File.read(File.join(File.dirname(__FILE__), 'fixtures', file_name))
+  json = File.read(File.join(File.dirname(__FILE__), 'fixtures', file_name))
 end

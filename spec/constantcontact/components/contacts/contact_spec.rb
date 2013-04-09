@@ -7,12 +7,12 @@
 require 'spec_helper'
 
 describe ConstantContact::Components::Contact do
-	describe "#from_list" do
-		it "should return a contact" do
-			json = load_json('contact.json')
-			contact = ConstantContact::Components::Contact.create(JSON.parse(json))
+  describe "#from_list" do
+    it "should return a contact" do
+      json = load_json('contact.json')
+      contact = ConstantContact::Components::Contact.create(JSON.parse(json))
 
-			contact.last_name.should eq('Smith')
-		end
-	end
+      contact.last_name.should eq('Smith')
+    end
+  end
 end
