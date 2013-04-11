@@ -2,9 +2,9 @@ Constant Contact Ruby SDK
 =========================
 [![Build Status](https://travis-ci.org/constantcontact/ruby-sdk.png?branch=master)](https://travis-ci.org/constantcontact/ruby-sdk)
 
-In order to use the Constant Contact SDK you have to follow these steps:
+In order to use the Constant Contact SDK follow these steps:
 
-A. Rails example :
+A. Rails example to retrieve your list of contacts:
 
 1. Install the gem :
 
@@ -22,7 +22,7 @@ or add the following in your .Gemfile :
 
         gem 'constantcontact'
 
-3. Create a new action and add the following code:
+3. Create a new action and add the following code, entering your API key, client secret, and redirect URL:
 
         @oauth = ConstantContact::Auth::OAuth2.new(
             :api_key => 'your api key',
@@ -46,7 +46,7 @@ or add the following in your .Gemfile :
 
     Note: 'your redirect url' is the URL of the action you just created.
 
-4. Create a view for the above mentioned action with the following code:
+4. Create a view for the above mentioned action with the following code that retrieves your list of contacts:
 
         <% if @error %>
             <p>
@@ -67,11 +67,11 @@ or add the following in your .Gemfile :
         <% end %>
 
 5. The first time you access the action in browser you should see the "Click to authorize" link.
-Follow the link, go through all the Constant Contact steps required 
+Follow the link, go through all the Constant Contact steps required,
 and then you will be redirected back to your action and you should see the list of contacts.
 
 
-B. Sinatra example :
+B. Sinatra example to retrieve list of contacts:
 
 
 1. Install the gem :
@@ -128,6 +128,6 @@ B. Sinatra example :
             <a href="<%=@oauth.get_authorization_url%>">Click to authorize</a>
         <% end %>
 
-5. The first time you access the action in browser you should see the "Click to authorize" link.
-Follow the link, go through all the Constant Contact steps required 
+5. The first time you access the action in a browser you should see the "Click to authorize" link.
+Follow the link, go through all the Constant Contact steps required,
 and then you will be redirected back to your action and you should see the list of contacts.
