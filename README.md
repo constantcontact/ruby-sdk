@@ -56,7 +56,7 @@ or add the following in your .Gemfile :
 
         <% if @code %>
             <% if @contacts %>
-                <% for contact in @contacts %>
+                <% for contact in @contacts.results %>
                     <p>
                         Contact name: <%= contact.first_name + contact.last_name %>
                     </p>
@@ -118,7 +118,7 @@ B. Sinatra example to retrieve list of contacts:
 
         <% if @code %>
             <% if @contacts %>
-                <% for contact in @contacts %>
+                <% for contact in @contacts.results %>
                     <p>
                         Contact name: <%= contact.first_name + contact.last_name %>
                     </p>
