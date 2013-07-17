@@ -70,6 +70,13 @@ Follow the link, go through all the Constant Contact steps required
 and then you will be redirected back to your action and you should see the list of contacts.
 
 
+6. Add config initializer (optional)
+````ruby
+    ConstantContact::Util::Config.configure do |config|
+      config[:auth][:api_key] = 'foobar'
+      config[:auth][:api_secret] = 'foobar'
+    end
+
 B. Sinatra example :
 
 
