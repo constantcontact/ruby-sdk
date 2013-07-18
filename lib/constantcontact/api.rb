@@ -11,8 +11,8 @@ module ConstantContact
 		# @return
 		def initialize(api_key = nil)
 			Services::BaseService.api_key = api_key || Util::Config.get('auth.api_key')
-			if Services::BaseService.api_key.empty?
-				raise IllegalArgument.new("api_key required either implicitly or in configuration.")
+			if Services::BaseService.api_key.nil? || Services::BaseService.api_key == ''
+				raise ArgumentError.new("api_key required either explicitly or in configuration.")
 			end
 		end
 
