@@ -5,7 +5,7 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Exceptions
-		class IllegalArgumentException < Exception; end
-	end
+  module Exceptions
+    class IllegalArgumentException < Exception; end
+  end
 end
