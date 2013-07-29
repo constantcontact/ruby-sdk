@@ -14,22 +14,22 @@ module ConstantContact
 			# @param [Hash] props - hash of properties to create object from
 			# @return [TestSend]
 			def self.create(props)
-				test_send = TestSend.new
+				obj = TestSend.new
 				if props
 					props.each do |key, value|
 						if key == 'email_addresses'
 							if value
-								test_send.email_addresses = []
+								obj.email_addresses = []
 								value.each do |email_address|
-									test_send.email_addresses << email_address
+									obj.email_addresses << email_address
 								end
 							end
 						else
-							test_send.send("#{key}=", value)
+							obj.send("#{key}=", value) if obj.respond_to? key
 						end
 					end
 				end
-				test_send
+				obj
 			end
 
 

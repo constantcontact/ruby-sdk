@@ -16,10 +16,13 @@ module ConstantContact
 			# @option opts [String] :api_secret - the Constant Contact secret key
 			# @option opts [String] :redirect_url - the URL where Constact Contact is returning the authorization code
 			# @return
-			def initialize(opts)
-				@client_id = opts[:api_key]
-				@client_secret = opts[:api_secret]
-				@redirect_uri = opts[:redirect_url]
+			def initialize(opts = {})
+				@client_id = opts[:api_key] || Util::Config.get('auth.api_key')
+				@client_secret = opts[:api_secret] || Util::Config.get('auth.api_secret')
+				@redirect_uri = opts[:redirect_url] || Util::Config.get('auth.redirect_uri')
+				if @client_id.nil? || @client_id == '' || @client_secret.nil? || @client_secret.nil? || @redirect_uri.nil? || @redirect_uri == ''
+					raise ArgumentError.new "Either api_key, api_secret or redirect_uri is missing in explicit call or configuration."
+				end
 			end
 
 

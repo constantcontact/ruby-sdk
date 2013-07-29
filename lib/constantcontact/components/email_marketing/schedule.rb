@@ -14,16 +14,15 @@ module ConstantContact
 			# @param [Hash] props - hash of properties to create object from
 			# @return [Schedule]
 			def self.create(props)
-				schedule = Schedule.new
+				obj = Schedule.new
 				if props
 					props = props.first if props.is_a?(Array)
 					props.each do |key, value|
-						schedule.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				schedule
+				obj
 			end
-
 		end
 	end
 end

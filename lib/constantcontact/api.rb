@@ -6,12 +6,14 @@
 
 module ConstantContact
 	class Api
-
 		# Class constructor
 		# @param [String] api_key - Constant Contact API Key
 		# @return
-		def initialize(api_key)
-			Services::BaseService.api_key = api_key
+		def initialize(api_key = nil)
+			Services::BaseService.api_key = api_key || Util::Config.get('auth.api_key')
+			if Services::BaseService.api_key.nil? || Services::BaseService.api_key == ''
+				raise ArgumentError.new("api_key required either explicitly or in configuration.")
+			end
 		end
 
 

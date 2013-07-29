@@ -13,15 +13,14 @@ module ConstantContact
 			# @param [Hash] props - array of properties to create object from
 			# @return [VerifiedEmailAddress]
 			def self.create(props)
-				email_address = VerifiedEmailAddress.new
+				obj = VerifiedEmailAddress.new
 				if props
 					props.each do |key, value|
-						email_address.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				email_address
+				obj
 			end
-
 		end
 	end
 end
