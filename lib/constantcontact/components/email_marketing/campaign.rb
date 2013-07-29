@@ -13,7 +13,7 @@ module ConstantContact
 										:is_view_as_webpage_enabled, :view_as_web_page_text, :view_as_web_page_link_text,
 										:greeting_salutations, :greeting_name, :greeting_string, :email_content, :text_content,
 										:message_footer, :tracking_summary, :email_content_format, :style_sheet, :sent_to_contact_lists,
-										:click_through_details, :include_forward_email, :is_visible_in_ui
+										:click_through_details, :include_forward_email, :is_visible_in_ui, :permalink_url
 
 
 			# Factory method to create an EmailCampaign object from an array
@@ -41,8 +41,8 @@ module ConstantContact
 									campaign.click_through_details << Components::ClickThroughDetails.create(click_through_details)
 								end
 							end
-						else
-							campaign.send("#{key}=", value)
+            else
+							campaign.send("#{key}=", value) if campaign.respond_to? key
 						end
 					end
 				end

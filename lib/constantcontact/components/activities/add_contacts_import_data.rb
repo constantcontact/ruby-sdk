@@ -16,7 +16,7 @@ module ConstantContact
 			# @return [AddContactsImportData]
 			def initialize(props = {})
 				instance_variables.each do |property, value|
-					send("#{property}=", get_value(props, property))
+					send("#{property}=", get_value(props, property)) if obj.respond_to? property
 				end
 			end
 
@@ -39,7 +39,6 @@ module ConstantContact
 				@email_addresses = [] if @email_addresses.nil?
 				@email_addresses << email_address
 			end
-
 		end
 	end
 end

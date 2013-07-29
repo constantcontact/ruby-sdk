@@ -14,13 +14,13 @@ module ConstantContact
 			# @param [Hash] props - array of properties to create object from
 			# @return [Address]
 			def self.create(props)
-				address = Address.new
+				obj = Address.new
 				if props
 					props.each do |key, value|
-						address.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				address
+				obj
 			end
 
 		end

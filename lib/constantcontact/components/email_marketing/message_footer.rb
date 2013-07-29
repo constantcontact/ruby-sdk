@@ -16,15 +16,14 @@ module ConstantContact
 			# @param [Hash] props - hash of properties to create object from
 			# @return [MessageFooter]
 			def self.create(props)
-				message_footer = MessageFooter.new
+				obj = MessageFooter.new
 				if props
 					props.each do |key, value|
-						message_footer.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				message_footer
+				obj
 			end
-
 		end
 	end
 end

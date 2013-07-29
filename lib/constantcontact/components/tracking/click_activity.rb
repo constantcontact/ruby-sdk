@@ -14,15 +14,14 @@ module ConstantContact
 			# @param [Hash] props - hash of properties to create object from
 			# @return [ClickActivity]
 			def self.create(props)
-				click_activity = ClickActivity.new
+				obj = ClickActivity.new
 				if props
 					props.each do |key, value|
-						click_activity.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				click_activity
+				obj
 			end
-
 		end
 	end
 end

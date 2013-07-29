@@ -13,15 +13,14 @@ module ConstantContact
 			# @param [Hash] props - array of properties to create object from
 			# @return [CustomField]
 			def self.create(props)
-				custom_field = CustomField.new
+				obj = CustomField.new
 				if props
 					props.each do |key, value|
-						custom_field.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				custom_field
+				obj
 			end
-
 		end
 	end
 end

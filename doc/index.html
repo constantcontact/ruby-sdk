@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
 <title>
   File: README
   
@@ -70,142 +70,144 @@
 <ol>
 <li><p>Install the gem :</p>
 
-<pre class="code ruby"><code> <span class='rubyid_gem identifier id'>gem</span> <span class='rubyid_install identifier id'>install</span> <span class='rubyid_constantcontact identifier id'>constantcontact</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_constantcontact'>constantcontact</span>
 </code></pre></li>
 <li><p>Configure Rails to load the gem :</p>
 
-<pre class="code ruby"><code> <span class='rubyid_Rails constant id'>Rails</span><span class='colon2 op'>::</span><span class='rubyid_Initializer constant id'>Initializer</span><span class='dot token'>.</span><span class='rubyid_run identifier id'>run</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_config identifier id'>config</span><span class='bitor op'>|</span>
-     <span class='dot3 op'>...</span>
-     <span class='rubyid_config identifier id'>config</span><span class='dot token'>.</span><span class='rubyid_gem identifier id'>gem</span> <span class='string val'>&quot;constantcontact&quot;</span>
-     <span class='dot3 op'>...</span>
- <span class='rubyid_end end kw'>end</span>
+<pre class="code ruby"><code>Rails::Initializer.run do |config|
+    ...
+    config.gem &quot;constantcontact&quot;
+    ...
+end
 </code></pre></li>
 </ol>
 
-
 <p>or add the following in your .Gemfile :</p>
 
-<pre class="code ruby"><code>    <span class='rubyid_gem identifier id'>gem</span> <span class='string val'>'constantcontact'</span>
+<pre class="code ruby"><code>    <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>constantcontact</span><span class='tstring_end'>'</span></span>
 </code></pre>
 
 <ol>
 <li><p>Create a new action and add the following code:</p>
 
-<pre class="code ruby"><code> <span class='rubyid_@oauth ivar id'>@oauth</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Auth constant id'>Auth</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2 constant id'>OAuth2</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span>
-     <span class='symbol val'>:api_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your api key'</span><span class='comma token'>,</span>
-     <span class='symbol val'>:api_secret</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your secret key'</span><span class='comma token'>,</span>
-     <span class='symbol val'>:redirect_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your redirect url'</span>
- <span class='rparen token'>)</span>
+<pre class="code ruby"><code><span class='ivar'>@oauth</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Auth</span><span class='op'>::</span><span class='const'>OAuth2</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+    <span class='symbol'>:api_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your api key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+    <span class='symbol'>:api_secret</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your secret key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+    <span class='symbol'>:redirect_url</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your redirect url</span><span class='tstring_end'>'</span></span>
+<span class='rparen'>)</span>
 
- <span class='rubyid_@error ivar id'>@error</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:error</span><span class='rbrack token'>]</span>
- <span class='rubyid_@user ivar id'>@user</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span>
- <span class='rubyid_@code ivar id'>@code</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:code</span><span class='rbrack token'>]</span>
+<span class='ivar'>@error</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span>
+<span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
+<span class='ivar'>@code</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:code</span><span class='rbracket'>]</span>
 
- <span class='rubyid_if if kw'>if</span> <span class='rubyid_@code ivar id'>@code</span>
-     <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_@oauth ivar id'>@oauth</span><span class='dot token'>.</span><span class='rubyid_get_access_token identifier id'>get_access_token</span><span class='lparen token'>(</span><span class='rubyid_@code ivar id'>@code</span><span class='rparen token'>)</span>
-     <span class='rubyid_if if kw'>if</span> <span class='rubyid_response identifier id'>response</span>
-         <span class='rubyid_token identifier id'>token</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>'access_token'</span><span class='rbrack token'>]</span>
-         <span class='rubyid_cc identifier id'>cc</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Api constant id'>Api</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'your api key'</span><span class='rparen token'>)</span>
-         <span class='rubyid_@contacts ivar id'>@contacts</span> <span class='assign token'>=</span> <span class='rubyid_cc identifier id'>cc</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_token identifier id'>token</span><span class='rparen token'>)</span>
-     <span class='rubyid_end end kw'>end</span>
- <span class='rubyid_end end kw'>end</span>
+<span class='kw'>if</span> <span class='ivar'>@code</span>
+    <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@oauth</span><span class='period'>.</span><span class='id identifier rubyid_get_access_token'>get_access_token</span><span class='lparen'>(</span><span class='ivar'>@code</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span>
+        <span class='id identifier rubyid_token'>token</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>access_token</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_cc'>cc</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Api</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your api key</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+        <span class='ivar'>@contacts</span> <span class='op'>=</span> <span class='id identifier rubyid_cc'>cc</span><span class='period'>.</span><span class='id identifier rubyid_get_contacts'>get_contacts</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+<span class='kw'>end</span>
 </code></pre>
 
-<p> Note: 'your redirect url' is the URL of the action you just created.</p></li>
+<p>Note: &#39;your redirect url&#39; is the URL of the action you just created.</p></li>
 <li><p>Create a view for the above mentioned action with the following code:</p>
 
-<pre class="code ruby"><code> <span class='lt op'>&lt;</span><span class='string val'>% if </span><span class='rubyid_@error ivar id'>@error</span> <span class='mod op'>%</span><span class='gt op'>&gt;</span>
-     <span class='lt op'>&lt;</span><span class='rubyid_p identifier id'>p</span><span class='gt op'>&gt;</span>
-         <span class='lt op'>&lt;</span><span class='string val'>%=@error%&gt;
-     &lt;/p&gt;
- &lt;% end %&gt;
+<pre class="code ruby"><code>&lt;% if @error %&gt;
+    &lt;p&gt;
+        &lt;%=@error%&gt;
+    &lt;/p&gt;
+&lt;% end %&gt;
 
- &lt;% if @code %&gt;
-     &lt;% if @contacts %&gt;
-         &lt;% for contact in @contacts %&gt;
-             &lt;p&gt;
-                 Contact name: &lt;%=</span> <span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_first_name identifier id'>first_name</span> <span class='plus op'>+</span> <span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_last_name identifier id'>last_name</span> <span class='string val'>%&gt;
-             &lt;/p&gt;</span>
-         <span class='lt op'>&lt;</span><span class='string val'>% end </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
-     <span class='lt op'>&lt;</span><span class='string val'>% end </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
- <span class='lt op'>&lt;</span><span class='string val'>% else </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
-     <span class='lt op'>&lt;</span><span class='rubyid_a identifier id'>a</span> <span class='rubyid_href identifier id'>href</span><span class='assign token'>=</span><span class='string val'>&quot;&lt;%=@oauth.get_authorization_url%&gt;&quot;</span><span class='gt op'>&gt;</span><span class='rubyid_Click constant id'>Click</span> <span class='rubyid_to identifier id'>to</span> <span class='rubyid_authorize identifier id'>authorize</span><span class='lt op'>&lt;</span><span class='regexp val'>/a&gt;
- &lt;% end %&gt;
-</span></code></pre></li>
-<li><p>The first time you access the action in browser you should see the "Click to authorize" link.
-Follow the link, go through all the Constant Contact steps required
+&lt;% if @code %&gt;
+    &lt;% if @contacts %&gt;
+        &lt;% for contact in @contacts %&gt;
+            &lt;p&gt;
+                Contact name: &lt;%= contact.first_name + contact.last_name %&gt;
+            &lt;/p&gt;
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% else %&gt;
+    &lt;a href=&quot;&lt;%=@oauth.get_authorization_url%&gt;&quot;&gt;Click to authorize&lt;/a&gt;
+&lt;% end %&gt;
+</code></pre></li>
+<li><p>The first time you access the action in browser you should see the &quot;Click to authorize&quot; link.
+Follow the link, go through all the Constant Contact steps required 
 and then you will be redirected back to your action and you should see the list of contacts.</p></li>
+<li><p>Add config initializer (optional)
+````ruby
+ConstantContact::Util::Config.configure do |config|
+  config[:auth][:api_key] = &#39;foobar&#39;
+  config[:auth][:api_secret] = &#39;foobar&#39;
+end</p></li>
 </ol>
-
 
 <p>B. Sinatra example :</p>
 
 <ol>
 <li><p>Install the gem :</p>
 
-<pre class="code ruby"><code> <span class='rubyid_gem identifier id'>gem</span> <span class='rubyid_install identifier id'>install</span> <span class='rubyid_constantcontact identifier id'>constantcontact</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_constantcontact'>constantcontact</span>
 </code></pre></li>
-<li><p>Add the following code in myapp.rb (just an example):</p>
+<li><p>Add the following code in myapp.rb (just an example):
+    require &#39;active_support&#39;
+    require &#39;constantcontact&#39;</p>
 
-<pre class="code ruby"><code> <span class='rubyid_require identifier id'>require</span> <span class='string val'>'active_support'</span>
- <span class='rubyid_require identifier id'>require</span> <span class='string val'>'constantcontact'</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/my_url</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+    <span class='ivar'>@oauth</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Auth</span><span class='op'>::</span><span class='const'>OAuth2</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+        <span class='symbol'>:api_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your api key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+        <span class='symbol'>:api_secret</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your secret key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+        <span class='symbol'>:redirect_url</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your redirect url</span><span class='tstring_end'>'</span></span>
+    <span class='rparen'>)</span>
 
- <span class='rubyid_get identifier id'>get</span> <span class='string val'>'/my_url'</span> <span class='rubyid_do do kw'>do</span>
-     <span class='rubyid_@oauth ivar id'>@oauth</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Auth constant id'>Auth</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2 constant id'>OAuth2</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span>
-         <span class='symbol val'>:api_key</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your api key'</span><span class='comma token'>,</span>
-         <span class='symbol val'>:api_secret</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your secret key'</span><span class='comma token'>,</span>
-         <span class='symbol val'>:redirect_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'your redirect url'</span>
-     <span class='rparen token'>)</span>
+    <span class='ivar'>@error</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:error</span><span class='rbracket'>]</span>
+    <span class='ivar'>@user</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:username</span><span class='rbracket'>]</span>
+    <span class='ivar'>@code</span> <span class='op'>=</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:code</span><span class='rbracket'>]</span>
 
-     <span class='rubyid_@error ivar id'>@error</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:error</span><span class='rbrack token'>]</span>
-     <span class='rubyid_@user ivar id'>@user</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span>
-     <span class='rubyid_@code ivar id'>@code</span> <span class='assign token'>=</span> <span class='rubyid_params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:code</span><span class='rbrack token'>]</span>
+    <span class='kw'>if</span> <span class='ivar'>@code</span>
+        <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='ivar'>@oauth</span><span class='period'>.</span><span class='id identifier rubyid_get_access_token'>get_access_token</span><span class='lparen'>(</span><span class='ivar'>@code</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_response'>response</span>
+            <span class='id identifier rubyid_token'>token</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>access_token</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+            <span class='id identifier rubyid_cc'>cc</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Api</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your api key</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+            <span class='ivar'>@contacts</span> <span class='op'>=</span> <span class='id identifier rubyid_cc'>cc</span><span class='period'>.</span><span class='id identifier rubyid_get_contacts'>get_contacts</span><span class='lparen'>(</span><span class='id identifier rubyid_token'>token</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+    <span class='kw'>end</span>
 
-     <span class='rubyid_if if kw'>if</span> <span class='rubyid_@code ivar id'>@code</span>
-         <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_@oauth ivar id'>@oauth</span><span class='dot token'>.</span><span class='rubyid_get_access_token identifier id'>get_access_token</span><span class='lparen token'>(</span><span class='rubyid_@code ivar id'>@code</span><span class='rparen token'>)</span>
-         <span class='rubyid_if if kw'>if</span> <span class='rubyid_response identifier id'>response</span>
-             <span class='rubyid_token identifier id'>token</span> <span class='assign token'>=</span> <span class='rubyid_response identifier id'>response</span><span class='lbrack token'>[</span><span class='string val'>'access_token'</span><span class='rbrack token'>]</span>
-             <span class='rubyid_cc identifier id'>cc</span> <span class='assign token'>=</span> <span class='rubyid_ConstantContact constant id'>ConstantContact</span><span class='colon2 op'>::</span><span class='rubyid_Api constant id'>Api</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'your api key'</span><span class='rparen token'>)</span>
-             <span class='rubyid_@contacts ivar id'>@contacts</span> <span class='assign token'>=</span> <span class='rubyid_cc identifier id'>cc</span><span class='dot token'>.</span><span class='rubyid_get_contacts identifier id'>get_contacts</span><span class='lparen token'>(</span><span class='rubyid_token identifier id'>token</span><span class='rparen token'>)</span>
-         <span class='rubyid_end end kw'>end</span>
-     <span class='rubyid_end end kw'>end</span>
-
-     <span class='rubyid_erb identifier id'>erb</span> <span class='symbol val'>:my_view</span>
- <span class='rubyid_end end kw'>end</span>
+    <span class='id identifier rubyid_erb'>erb</span> <span class='symbol'>:my_view</span>
+<span class='kw'>end</span>
 </code></pre>
 
-<p> Note: 'your redirect url' is the URL of the route you just created ( get '/my_url' ).</p></li>
+<p>Note: &#39;your redirect url&#39; is the URL of the route you just created ( get &#39;/my_url&#39; ).</p></li>
 <li><p>Create a my_view.rhtml (or my_view.erb) with the following code:</p>
 
-<pre class="code ruby"><code> <span class='lt op'>&lt;</span><span class='string val'>% if </span><span class='rubyid_@error ivar id'>@error</span> <span class='mod op'>%</span><span class='gt op'>&gt;</span>
-     <span class='lt op'>&lt;</span><span class='rubyid_p identifier id'>p</span><span class='gt op'>&gt;</span>
-         <span class='lt op'>&lt;</span><span class='string val'>%=@error%&gt;
-     &lt;/p&gt;
- &lt;% end %&gt;
+<pre class="code ruby"><code>&lt;% if @error %&gt;
+    &lt;p&gt;
+        &lt;%=@error%&gt;
+    &lt;/p&gt;
+&lt;% end %&gt;
 
- &lt;% if @code %&gt;
-     &lt;% if @contacts %&gt;
-         &lt;% for contact in @contacts %&gt;
-             &lt;p&gt;
-                 Contact name: &lt;%=</span> <span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_first_name identifier id'>first_name</span> <span class='plus op'>+</span> <span class='rubyid_contact identifier id'>contact</span><span class='dot token'>.</span><span class='rubyid_last_name identifier id'>last_name</span> <span class='string val'>%&gt;
-             &lt;/p&gt;</span>
-         <span class='lt op'>&lt;</span><span class='string val'>% end </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
-     <span class='lt op'>&lt;</span><span class='string val'>% end </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
- <span class='lt op'>&lt;</span><span class='string val'>% else </span><span class='mod op'>%</span><span class='gt op'>&gt;</span>
-     <span class='lt op'>&lt;</span><span class='rubyid_a identifier id'>a</span> <span class='rubyid_href identifier id'>href</span><span class='assign token'>=</span><span class='string val'>&quot;&lt;%=@oauth.get_authorization_url%&gt;&quot;</span><span class='gt op'>&gt;</span><span class='rubyid_Click constant id'>Click</span> <span class='rubyid_to identifier id'>to</span> <span class='rubyid_authorize identifier id'>authorize</span><span class='lt op'>&lt;</span><span class='regexp val'>/a&gt;
- &lt;% end %&gt;
-</span></code></pre></li>
-<li><p>The first time you access the action in browser you should see the "Click to authorize" link.
-Follow the link, go through all the Constant Contact steps required
+&lt;% if @code %&gt;
+    &lt;% if @contacts %&gt;
+        &lt;% for contact in @contacts %&gt;
+            &lt;p&gt;
+                Contact name: &lt;%= contact.first_name + contact.last_name %&gt;
+            &lt;/p&gt;
+        &lt;% end %&gt;
+    &lt;% end %&gt;
+&lt;% else %&gt;
+    &lt;a href=&quot;&lt;%=@oauth.get_authorization_url%&gt;&quot;&gt;Click to authorize&lt;/a&gt;
+&lt;% end %&gt;
+</code></pre></li>
+<li><p>The first time you access the action in browser you should see the &quot;Click to authorize&quot; link.
+Follow the link, go through all the Constant Contact steps required 
 and then you will be redirected back to your action and you should see the list of contacts.</p></li>
 </ol>
-
 </div></div>
 
     <div id="footer">
-  Generated on 03/29/13 09:33:18 by
+  Generated on Mon Jul 29 14:48:32 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.8.6).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

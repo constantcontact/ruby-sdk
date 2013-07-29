@@ -19,43 +19,43 @@ module ConstantContact
 			# @param [Hash] props - JSON string representing a contact
 			# @return [Contact]
 			def self.create(props)
-				contact = Contact.new
+				obj = Contact.new
 				if props
 					props.each do |key, value|
 						if key == 'email_addresses'
 							if value
-								contact.email_addresses = []
+								obj.email_addresses = []
 								value.each do |email_address|
-									contact.email_addresses << Components::EmailAddress.create(email_address)
+									obj.email_addresses << Components::EmailAddress.create(email_address)
 								end
 							end
 						elsif key == 'addresses'
 							if value
-								contact.addresses = []
+								obj.addresses = []
 								value.each do |address|
-									contact.addresses << Components::Address.create(address)
+									obj.addresses << Components::Address.create(address)
 								end
 							end
 						elsif key == 'custom_fields'
 							if value
-								contact.custom_fields = []
+								obj.custom_fields = []
 								value.each do |custom_field|
-									contact.custom_fields << Components::CustomField.create(custom_field)
+									obj.custom_fields << Components::CustomField.create(custom_field)
 								end
 							end
 						elsif key == 'lists'
 							if value
-								contact.lists = []
+								obj.lists = []
 								value.each do |contact_list|
-									contact.lists << Components::ContactList.create(contact_list)
+									obj.lists << Components::ContactList.create(contact_list)
 								end
 							end
 						else
-							contact.send("#{key}=", value)
+							obj.send("#{key}=", value) if obj.respond_to? key
 						end
 					end
 				end
-				contact
+				obj
 			end
 
 			# Setter

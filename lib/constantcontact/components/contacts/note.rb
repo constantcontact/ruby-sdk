@@ -10,7 +10,7 @@ module ConstantContact
 			attr_accessor :id, :note, :created_date
 
 			# Factory method to create a Note object from a json string
-			# @param props - JSON string representing a contact
+			# @param [String] props - JSON string representing a contact
 			# @return Note
 			def self.create(props)
 				note = Note.new
@@ -20,6 +20,7 @@ module ConstantContact
 					end
 				end
 				note
-		end
+		  end
+    end
 	end
 end

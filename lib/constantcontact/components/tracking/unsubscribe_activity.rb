@@ -15,15 +15,14 @@ module ConstantContact
 			# @param [Hash] props - hash of properties to create object from
 			# @return [UnsubscribeActivity]
 			def self.create(props)
-				unsubscribe_activity = UnsubscribeActivity.new
+				obj = UnsubscribeActivity.new
 				if props
 					props.each do |key, value|
-						unsubscribe_activity.send("#{key}=", value)
+						obj.send("#{key}=", value) if obj.respond_to? key
 					end
 				end
-				unsubscribe_activity
+				obj
 			end
-
 		end
 	end
 end

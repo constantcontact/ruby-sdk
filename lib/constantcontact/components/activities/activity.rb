@@ -14,31 +14,30 @@ module ConstantContact
 			# @param [Hash] props - hash of properties to create object from
 			# @return [Activity]
 			def self.create(props)
-				activity = Activity.new
+				obj = Activity.new
 				if props
 					props.each do |key, value|
 						if key == 'errors'
 							if value
-								activity.errors = []
+								obj.errors = []
 								value.each do |error|
-									activity.errors << Components::ActivityError.create(error)
+									obj.errors << Components::ActivityError.create(error)
 								end
 							end
 						elsif key == 'warnings'
 							if value
-								activity.warnings = []
+								obj.warnings = []
 								value.each do |error|
-									activity.warnings << Components::ActivityError.create(error)
+									obj.warnings << Components::ActivityError.create(error)
 								end
 							end
 						else
-							activity.send("#{key}=", value)
+							obj.send("#{key}=", value) if obj.respond_to? key
 						end
 					end
 				end
-				activity
+				obj
 			end
-
 		end
 	end
 end
