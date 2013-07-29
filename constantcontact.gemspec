@@ -13,7 +13,6 @@ Gem::Specification.new do |s|
   s.summary = %q{Constant Contact SDK for Ruby}
   s.email = "apisupport@constantcontact.com"
   s.description = "Ruby library for interactions with Constant Contact v2 API"
-  s.version = "1.0.0"
   s.license = "MIT"
 
   s.files = [
