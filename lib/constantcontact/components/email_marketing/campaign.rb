@@ -50,34 +50,34 @@ module ConstantContact
 			end
 
 
-			# Factory method to create a Campaign object from an array
-			# @param [Hash] props - hash of initial properties to set
-			# @return [Campaign]
-			def self.create_summary(props)
-				campaign = Campaign.new
-				if props
-					props.each do |key, value|
-						campaign.send("#{key}=", value)
-					end
-				end
-				campaign
-			end
+      # Factory method to create a Campaign object from an array
+      # @param [Hash] props - hash of initial properties to set
+      # @return [Campaign]
+      def self.create_summary(props)
+        campaign = Campaign.new
+        if props
+          props.each do |key, value|
+            campaign.send("#{key}=", value)
+          end
+        end
+        campaign
+      end
 
 
-			# Add a contact list to set of lists associated with this email
-			# @param [Mixed] contact_list - Contact list id, or ContactList object
-			def add_list(contact_list)
-				if contact_list.instance_of?(ContactList)
-					list = contact_list
-				elsif contact_list.to_i.to_s == contact_list
-					list = ContactList.new(contact_list)
-				else
-					raise Exceptions::IllegalArgumentException, sprintf(Util::Config.get('errors.id_or_object'), 'ContactList')
-				end
+      # Add a contact list to set of lists associated with this email
+      # @param [Mixed] contact_list - Contact list id, or ContactList object
+      def add_list(contact_list)
+        if contact_list.instance_of?(ContactList)
+          list = contact_list
+        elsif contact_list.to_i.to_s == contact_list
+          list = ContactList.new(contact_list)
+        else
+          raise Exceptions::IllegalArgumentException, sprintf(Util::Config.get('errors.id_or_object'), 'ContactList')
+        end
 
-				@sent_to_contact_lists << list
-			end
+        @sent_to_contact_lists << list
+      end
 
-		end
-	end
+    end
+  end
 end

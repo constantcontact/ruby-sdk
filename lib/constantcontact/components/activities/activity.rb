@@ -5,10 +5,10 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class Activity < Component
-			attr_accessor :id, :type, :status, :start_date, :finish_date, :file_name, :created_date,
-										:error_count, :errors, :warnings, :contact_count
+  module Components
+    class Activity < Component
+      attr_accessor :id, :type, :status, :start_date, :finish_date, :file_name, :created_date,
+                    :error_count, :errors, :warnings, :contact_count
 
 			# Factory method to create an Activity object from a json string
 			# @param [Hash] props - hash of properties to create object from

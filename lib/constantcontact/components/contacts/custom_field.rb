@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class CustomField < Component
-			attr_accessor :name, :value
+  module Components
+    class CustomField < Component
+      attr_accessor :name, :value
 
 			# Factory method to create a CustomField object from a json string
 			# @param [Hash] props - array of properties to create object from

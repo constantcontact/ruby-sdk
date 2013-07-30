@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class Note < Component
-			attr_accessor :id, :note, :created_date
+  module Components
+    class Note < Component
+      attr_accessor :id, :note, :created_date
 
 			# Factory method to create a Note object from a json string
 			# @param [String] props - JSON string representing a contact

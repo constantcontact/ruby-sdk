@@ -5,11 +5,11 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class ContactList < Component
-			attr_accessor :id, :name, :status, :contact_count, :opt_in_default
+  module Components
+    class ContactList < Component
+      attr_accessor :id, :name, :status, :created_date, :modified_date, :contact_count
 
-			# Factory method to create a ContactList object from a json string
+      # Factory method to create a ContactList object from a json string
 			# @param [Hash] props - array of properties to create object from
 			# @return [ContactList]
 			def self.create(props)
@@ -21,7 +21,6 @@ module ConstantContact
 				end
 				obj
 			end
-
-		end
-	end
+    end
+  end
 end

@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class ClickThroughDetails < Component
-			attr_accessor :url, :url_uid, :click_count
+  module Components
+    class ClickThroughDetails < Component
+      attr_accessor :url, :url_uid, :click_count
 
 
 			# Factory method to create an ClickThroughDetails object from an array

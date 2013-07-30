@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class VerifiedEmailAddress < Component
-			attr_accessor :status, :email_address
+  module Components
+    class VerifiedEmailAddress < Component
+      attr_accessor :status, :email_address
 
 			# Factory method to create a VerifiedEmailAddress object from a json string
 			# @param [Hash] props - array of properties to create object from

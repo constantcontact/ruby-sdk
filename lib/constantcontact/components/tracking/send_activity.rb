@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class SendActivity < Component
-			attr_accessor :activity_type, :campaign_id, :email_address, :contact_id, :send_date
+  module Components
+    class SendActivity < Component
+      attr_accessor :activity_type, :campaign_id, :email_address, :contact_id, :send_date
 
 
 			# Factory method to create a SendActivity object from an array

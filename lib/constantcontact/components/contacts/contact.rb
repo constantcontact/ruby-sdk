@@ -5,14 +5,14 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class Contact < Component
+  module Components
+    class Contact < Component
 
-			attr_accessor :id, :status, :first_name, :middle_name, :last_name, :confirmed, :email_addresses,
-										:prefix_name, :job_title, :addresses, :company_name, :home_phone,
-										:work_phone, :cell_phone, :fax, :custom_fields, :lists,
-										:source_details, :source_is_url, :web_url, :modified_date,
-										:created_date, :notes, :source
+      attr_accessor :id, :status, :first_name, :middle_name, :last_name, :confirmed, :email_addresses,
+                    :prefix_name, :job_title, :addresses, :company_name, :home_phone,
+                    :work_phone, :cell_phone, :fax, :custom_fields, :lists,
+                    :source_details, :source_is_url, :web_url, :modified_date,
+                    :created_date, :notes, :source
 
 
 			# Factory method to create a Contact object from a json string
@@ -58,29 +58,29 @@ module ConstantContact
 				obj
 			end
 
-			# Setter
-			# @param [ContactList] contact_list
-			def add_list(contact_list)
-				@lists = [] if @lists.nil?
-				@lists << contact_list
-			end
+      # Setter
+      # @param [ContactList] contact_list
+      def add_list(contact_list)
+        @lists = [] if @lists.nil?
+        @lists << contact_list
+      end
 
 
-			# Setter
-			# @param [EmailAddress] email_address
-			def add_email(email_address)
-				@email_addresses = [] if @email_addresses.nil?
-				@email_addresses << email_address
-			end
+      # Setter
+      # @param [EmailAddress] email_address
+      def add_email(email_address)
+        @email_addresses = [] if @email_addresses.nil?
+        @email_addresses << email_address
+      end
 
 
-			# Setter
-			# @param [Address] address
-			def add_address(address)
-				@addresses = [] if @addresses.nil?
-				@addresses << address
-			end
+      # Setter
+      # @param [Address] address
+      def add_address(address)
+        @addresses = [] if @addresses.nil?
+        @addresses << address
+      end
 
-		end
-	end
+    end
+  end
 end

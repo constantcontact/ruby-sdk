@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class ActivityError < Component
-			attr_accessor :message, :line_number, :email_address
+  module Components
+    class ActivityError < Component
+      attr_accessor :message, :line_number, :email_address
 
 			# Factory method to create an ActivityError object from an array
 			# @param [Hash] props - hash of properties to create object from

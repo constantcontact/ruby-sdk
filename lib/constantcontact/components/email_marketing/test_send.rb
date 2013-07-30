@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class TestSend < Component
-			attr_accessor :format, :personal_message, :email_addresses
+  module Components
+    class TestSend < Component
+      attr_accessor :format, :personal_message, :email_addresses
 
 
 			# Factory method to create a TestSend object from an array
@@ -33,13 +33,13 @@ module ConstantContact
 			end
 
 
-			# Add an email address to the set of addresses to send the test send too
-			# @param [String] email_address
-			def add_email(email_address)
-				@email_addresses = [] if @email_addresses.nil?
-				@email_addresses << email_address
-			end
+      # Add an email address to the set of addresses to send the test send too
+      # @param [String] email_address
+      def add_email(email_address)
+        @email_addresses = [] if @email_addresses.nil?
+        @email_addresses << email_address
+      end
 
-		end
-	end
+    end
+  end
 end

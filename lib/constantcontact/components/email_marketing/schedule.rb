@@ -5,9 +5,9 @@
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-	module Components
-		class Schedule < Component
-			attr_accessor :id, :scheduled_date
+  module Components
+    class Schedule < Component
+      attr_accessor :id, :scheduled_date
 
 
 			# Factory method to create a Schedule object from an array

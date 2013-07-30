@@ -63,7 +63,7 @@ describe ConstantContact::Auth::OAuth2 do
         config[:auth][:redirect_uri] = "config_redirect_uri"
       end
     end
-		let(:proc) { lambda { ConstantContact::Auth::OAuth2.new api_key: 'explicit_api_key', api_secret: 'explicit_api_secret', redirect_url: 'explicit_redirect_uri' } }
+		let(:proc) { lambda { ConstantContact::Auth::OAuth2.new :api_key => 'explicit_api_key', :api_secret => 'explicit_api_secret', :redirect_url => 'explicit_redirect_uri' } }
     it "without error" do
 		  proc.should_not raise_error
     end
@@ -81,7 +81,7 @@ describe ConstantContact::Auth::OAuth2 do
 
 	it "with explicit arguments and no configuration" do
 		lambda {
-			ConstantContact::Auth::OAuth2.new  api_key: "api_key", api_secret: "api_secret", redirect_uri: "redirect_uri" 
+			ConstantContact::Auth::OAuth2.new  :api_key => "api_key", :api_secret => "api_secret", :redirect_uri => "redirect_uri"
 		}.should raise_error(ArgumentError)
 	end
 
