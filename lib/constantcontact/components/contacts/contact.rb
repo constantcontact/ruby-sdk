@@ -15,48 +15,48 @@ module ConstantContact
                     :created_date, :notes, :source
 
 
-      # Factory method to create a Contact object from a json string
-      # @param [Hash] props - JSON string representing a contact
-      # @return [Contact]
-      def self.create(props)
-        contact = Contact.new
-        if props
-          props.each do |key, value|
-            if key == 'email_addresses'
-              if value
-                contact.email_addresses = []
-                value.each do |email_address|
-                  contact.email_addresses << Components::EmailAddress.create(email_address)
-                end
-              end
-            elsif key == 'addresses'
-              if value
-                contact.addresses = []
-                value.each do |address|
-                  contact.addresses << Components::Address.create(address)
-                end
-              end
-            elsif key == 'custom_fields'
-              if value
-                contact.custom_fields = []
-                value.each do |custom_field|
-                  contact.custom_fields << Components::CustomField.create(custom_field)
-                end
-              end
-            elsif key == 'lists'
-              if value
-                contact.lists = []
-                value.each do |contact_list|
-                  contact.lists << Components::ContactList.create(contact_list)
-                end
-              end
-            else
-              contact.send("#{key}=", value)
-            end
-          end
-        end
-        contact
-      end
+			# Factory method to create a Contact object from a json string
+			# @param [Hash] props - JSON string representing a contact
+			# @return [Contact]
+			def self.create(props)
+				obj = Contact.new
+				if props
+					props.each do |key, value|
+						if key == 'email_addresses'
+							if value
+								obj.email_addresses = []
+								value.each do |email_address|
+									obj.email_addresses << Components::EmailAddress.create(email_address)
+								end
+							end
+						elsif key == 'addresses'
+							if value
+								obj.addresses = []
+								value.each do |address|
+									obj.addresses << Components::Address.create(address)
+								end
+							end
+						elsif key == 'custom_fields'
+							if value
+								obj.custom_fields = []
+								value.each do |custom_field|
+									obj.custom_fields << Components::CustomField.create(custom_field)
+								end
+							end
+						elsif key == 'lists'
+							if value
+								obj.lists = []
+								value.each do |contact_list|
+									obj.lists << Components::ContactList.create(contact_list)
+								end
+							end
+						else
+							obj.send("#{key}=", value) if obj.respond_to? key
+						end
+					end
+				end
+				obj
+			end
 
       # Setter
       # @param [ContactList] contact_list

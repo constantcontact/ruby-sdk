@@ -1,0 +1,73 @@
+{
+    "id": "1234567890123",
+    "name": "Campaign Name",
+    "subject": "Campaign Subject",
+    "from_name": "My Organization",
+    "from_email": "fromemail@example.com",
+    "reply_to_email": "replytoemail@example.com",
+    "template_type": "CUSTOM",
+	"created_date":"2012-02-09T11:07:43.626Z",
+	"modified_date": "2012-02-09T11:07:43.626Z",
+    "last_sent_date": "2012-02-10T11:07:43.626Z",
+    "modified_date": "2012-02-10T11:07:42.626Z",
+    "last_run_date": "2012-02-10T11:07:43.626Z",
+    "next_run_date": "2012-02-11T11:07:43.626Z",
+    "permalink_url": "http://myemail.constantcontact.com/Campaign-Subject.html?soid=1100325770405&aid=pXOr2wq4W5U",
+    "status": "SENT",
+    "permission_reminder_text": "Hi, just a reminder that you're receiving this email because you have expressed an interest in MyCompany. Don't forget to add from_email@example.com to your address book so we'll be sure to land in your inbox. You may unsubscribe if you no longer wish to receive our emails.",
+    "view_as_web_page_text": "View this message as a webpage",
+    "view_as_web_page_link_text": "Click here",
+    "greeting_salutations": "Hello",
+    "greeting_name": "FIRST_NAME",
+    "greeting_string": "Dear",
+    "email_content": "<html><body><p>This is text of the email message.</p></body></html>",
+    "text_content": "This is the text of the email message.",
+    "email_content_format": "HTML",
+    "style_sheet": "",
+    "message_footer": {
+        "organization_name": "My Organization",
+        "address_line_1": "123 Maple Street",
+        "address_line_2": "Suite 999",
+        "address_line_3": " ",
+        "city": "Anytown",
+        "state": "MA",
+        "international_state": "",
+        "postal_code": "01245",
+        "country": "US",
+        "include_forward_email": true,
+        "forward_email_link_text": "Click here to forward this email",
+        "include_subscribe_link": true,
+        "subscribe_link_text": "Subscribe to Our Newsletter!"
+    },
+    "tracking_summary": {
+        "sends": 1363,
+        "opens": 789,
+        "clicks": 327,
+        "forwards": 39,
+        "unsubscribes": 0,
+        "bounces": 12,
+        "spam_count": 6
+    },
+    "sent_to_contact_lists": [
+        {
+            "id": "1"
+        }
+    ],
+	"click_through_details": [
+		{
+		"url": "http://www.facebook.com/my.organization",
+		"url_uid": "1100397796080",
+		"click_count": 83
+		},
+		{
+		"url": "http://www.myorganizaton.net/mypage.html?utm_source=Email+Created+2013%2F01%2F15%2C+5%3A16+PM&utm_campaign=Campaign+Subject&utm_medium=email",
+		"url_uid": "1100397796081",
+		"click_count": 64
+		},
+		{
+		"url": "http://www.linkedin.com/in/my.profile/",
+		"url_uid": "1100397796079",
+		"click_count": 24
+		}
+	]
+}

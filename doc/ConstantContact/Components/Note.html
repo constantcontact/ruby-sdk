@@ -128,9 +128,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute created_date.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute created_date.</p>
 </div></span>
   
 </li>
@@ -156,9 +155,8 @@ Returns the value of attribute created_date.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute id.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute id.</p>
 </div></span>
   
 </li>
@@ -184,9 +182,8 @@ Returns the value of attribute id.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute note.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute note.</p>
 </div></span>
   
 </li>
@@ -222,9 +219,8 @@ Returns the value of attribute note.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Factory method to create a Note object from a json string.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Factory method to create a Note object from a json string.</p>
 </div></span>
   
 </li>
@@ -256,9 +252,8 @@ Factory method to create a Note object from a json string.
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute created_date
-</p>
+    
+<p>Returns the value of attribute created_date</p>
 
 
   </div>
@@ -279,10 +274,9 @@ Returns the value of attribute created_date
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/note.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_created_date identifier id'>created_date</span>
-  <span class='rubyid_@created_date ivar id'>@created_date</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_created_date'>created_date</span>
+  <span class='ivar'>@created_date</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -301,9 +295,8 @@ Returns the value of attribute created_date
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute id
-</p>
+    
+<p>Returns the value of attribute id</p>
 
 
   </div>
@@ -324,10 +317,9 @@ Returns the value of attribute id
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/note.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_id identifier id'>id</span>
-  <span class='rubyid_@id ivar id'>@id</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_id'>id</span>
+  <span class='ivar'>@id</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -346,9 +338,8 @@ Returns the value of attribute id
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute note
-</p>
+    
+<p>Returns the value of attribute note</p>
 
 
   </div>
@@ -369,10 +360,9 @@ Returns the value of attribute note
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/note.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_note identifier id'>note</span>
-  <span class='rubyid_@note ivar id'>@note</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_note'>note</span>
+  <span class='ivar'>@note</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -396,9 +386,8 @@ Returns the value of attribute note
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Factory method to create a Note object from a json string
-</p>
+    
+<p>Factory method to create a Note object from a json string</p>
 
 
   </div>
@@ -412,16 +401,14 @@ Factory method to create a Note object from a json string
         <span class='name'>props</span>
       
       
-        <span class='type'></span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>JSON string representing a contact
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>JSON string representing a contact</p>
+</li></ul>
 </div>
       
     </li>
@@ -439,9 +426,8 @@ Factory method to create a Note object from a json string
       
       
         
-        <div class='inline'><p>
-Note
-</p>
+        <div class='inline'>
+<p>Note</p>
 </div>
       
     </li>
@@ -467,16 +453,15 @@ Note
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/note.rb', line 15</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_props identifier id'>props</span><span class='rparen token'>)</span>
-    <span class='rubyid_note identifier id'>note</span> <span class='assign token'>=</span> <span class='rubyid_Note constant id'>Note</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span>
-    <span class='rubyid_if if kw'>if</span> <span class='rubyid_props identifier id'>props</span>
-      <span class='rubyid_props identifier id'>props</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_key identifier id'>key</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='bitor op'>|</span>
-        <span class='rubyid_note identifier id'>note</span><span class='dot token'>.</span><span class='rubyid_send identifier id'>send</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{key}=&quot;</span><span class='comma token'>,</span> <span class='rubyid_value identifier id'>value</span><span class='rparen token'>)</span>
-      <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_end end kw'>end</span>
-    <span class='rubyid_note identifier id'>note</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_props'>props</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_note'>note</span> <span class='op'>=</span> <span class='const'>Note</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>if</span> <span class='id identifier rubyid_props'>props</span>
+	<span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+		<span class='id identifier rubyid_note'>note</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span>
+<span class='id identifier rubyid_note'>note</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -487,9 +472,9 @@ Note
 </div>
 
     <div id="footer">
-  Generated on 03/29/13 09:33:22 by
+  Generated on Mon Jul 29 14:48:33 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.8.6).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>
