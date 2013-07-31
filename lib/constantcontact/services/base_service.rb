@@ -26,7 +26,17 @@ module ConstantContact
 
         # Build a url from the base url and query parameters hash
         def build_url(url, params = nil)
-          params = {} if !params
+          if params.respond_to? :each
+            params.each do |key, value|
+              # Convert dates to CC date dormat.
+              if value.respond_to? :iso8601
+                params[key] = value.iso8601
+              end
+            end
+          else
+            params = {} if params.blank?
+          end
+          
           params['api_key'] = BaseService.api_key
           url += '?' + Util::Helpers.http_build_query(params)
         end
