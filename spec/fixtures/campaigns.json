@@ -1,0 +1,21 @@
+{
+    "meta": {
+        "pagination": {
+            "next_link": "/v2/emailmarketing/campaigns?next=cGFnZU51bT0yJnBhZ2VTaXplPTI"
+        }
+    },
+    "results": [
+        {
+            "id": "1100395494220",
+            "name": "1357157252225",
+            "status": "SENT",
+            "modified_date": "2013-01-07T18:51:35.975Z"
+        },
+        {
+            "id": "1100395673356",
+            "name": "Update1357593398565",
+            "status": "DRAFT",
+            "modified_date": "2013-01-07T16:16:43.768Z"
+        }
+        ]
+}

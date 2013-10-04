@@ -133,9 +133,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Get the verified emails from account.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get the verified emails from account.</p>
 </div></span>
   
 </li>
@@ -167,9 +166,8 @@ Get the verified emails from account.
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Get the verified emails from account
-</p>
+    
+<p>Get the verified emails from account</p>
 
 
   </div>
@@ -188,11 +186,9 @@ Get the verified emails from account
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -233,17 +229,16 @@ Get the verified emails from account
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/account_service.rb', line 15</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_verified_email_addresses identifier id'>get_verified_email_addresses</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.account_verified_addresses'</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_email_addresses identifier id'>email_addresses</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-  <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_email_address identifier id'>email_address</span><span class='bitor op'>|</span>
-    <span class='rubyid_email_addresses identifier id'>email_addresses</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_VerifiedEmailAddress constant id'>VerifiedEmailAddress</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_email_address identifier id'>email_address</span><span class='rparen token'>)</span>
-  <span class='rubyid_end end kw'>end</span>
-  <span class='rubyid_email_addresses identifier id'>email_addresses</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_verified_email_addresses'>get_verified_email_addresses</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.account_verified_addresses</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_email_addresses'>email_addresses</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+	<span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_email_address'>email_address</span><span class='op'>|</span>
+		<span class='id identifier rubyid_email_addresses'>email_addresses</span> <span class='op'>&lt;&lt;</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>VerifiedEmailAddress</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_email_address'>email_address</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
+	<span class='id identifier rubyid_email_addresses'>email_addresses</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -254,9 +249,9 @@ Get the verified emails from account
 </div>
 
     <div id="footer">
-  Generated on 03/29/13 09:33:21 by
+  Generated on Mon Jul 29 14:48:33 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.8.6).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>
