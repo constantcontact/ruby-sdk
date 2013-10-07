@@ -1,0 +1,15 @@
+[{
+    "id": "kpBUYrcxLws4iVGJ-cSivYPJUvBGM9P1V53KQcYO8Aw",
+    "label": "Basic",
+    "fee": 0.0,
+    "fee_scope": "BOTH",
+    "early_fee": 0.0,
+    "late_fee": 0.0
+}, {
+    "id": "kpBUYrcxLws4iVGJ-cSivbIwqpZ7nzW2Y09fUs00t3Q",
+    "label": "Super",
+    "fee": 20.0,
+    "fee_scope": "BOTH",
+    "early_fee": 0.0,
+    "late_fee": 0.0
+}]

@@ -1,0 +1,17 @@
+{
+    "meta": {
+        "pagination": {}
+    },
+    "results": [{
+        "id": "0017-XkGHPW8bWTZg0gaDKu9a8nxjRRypuSq2zHndFdCLNownHSZ3OcJqc-UyyT2OfGME6VVs4BNwY=",
+        "email": "registrant@example.com",
+        "first_name": "Foo",
+        "last_name": "Bar",
+        "guest_count": 1,
+        "payment_status": "NA",
+        "registration_status": "REGISTERED",
+        "registration_date": "2013-10-05T17:42:53.000Z",
+        "updated_date": "2013-10-05T17:42:53.000Z",
+        "ticket_id": "EXNATS6Y8"
+    }]
+}

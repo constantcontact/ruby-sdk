@@ -22,6 +22,17 @@ module ConstantContact
             :authorization  => "Bearer #{access_token}"
           }
         end
+        
+        # returns the id of a ConstantContact component
+        def get_id_for(obj)
+          if obj.kind_of? ConstantContact::Components::Component
+            obj.id
+          elsif obj.kind_of? Hash
+            obj["id"]
+          else
+            obj
+          end
+        end 
 
 
         # Build a url from the base url and query parameters hash
@@ -34,7 +45,7 @@ module ConstantContact
               end
             end
           else
-            params = {} if params.blank?
+            params ||= {}
           end
           
           params['api_key'] = BaseService.api_key

@@ -57,7 +57,7 @@ module ConstantContact
         campaign = Campaign.new
         if props
           props.each do |key, value|
-            campaign.send("#{key}=", value)
+            campaign.send("#{key}=", value) if campaign.respond_to? key
           end
         end
         campaign
