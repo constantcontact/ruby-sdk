@@ -126,9 +126,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute client_id.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute client_id.</p>
 </div></span>
   
 </li>
@@ -154,9 +153,8 @@ Returns the value of attribute client_id.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute client_secret.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute client_secret.</p>
 </div></span>
   
 </li>
@@ -182,9 +180,8 @@ Returns the value of attribute client_secret.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute props.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute props.</p>
 </div></span>
   
 </li>
@@ -210,9 +207,8 @@ Returns the value of attribute props.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Returns the value of attribute redirect_uri.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute redirect_uri.</p>
 </div></span>
   
 </li>
@@ -248,9 +244,8 @@ Returns the value of attribute redirect_uri.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Obtain an access token.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Obtain an access token.</p>
 </div></span>
   
 </li>
@@ -273,10 +268,9 @@ Obtain an access token.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Get the URL at which the user can authenticate and authorize the requesting
-application.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get the URL at which the user can authenticate and authorize the requesting
+application.</p>
 </div></span>
   
 </li>
@@ -285,7 +279,7 @@ application.
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(opts) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(opts = {}) </a>
     
 
     
@@ -301,9 +295,8 @@ application.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Class constructor.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Class constructor.</p>
 </div></span>
   
 </li>
@@ -318,7 +311,7 @@ Class constructor.
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    - (<tt>Object</tt>) <strong>initialize</strong>(opts) 
+    - (<tt>Object</tt>) <strong>initialize</strong>(opts = {}) 
   
 
   
@@ -326,9 +319,8 @@ Class constructor.
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Class constructor
-</p>
+    
+<p>Class constructor</p>
 
 
   </div>
@@ -345,13 +337,13 @@ Class constructor
         <span class='type'>(<tt>Hash</tt>)</span>
       
       
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
       
         &mdash;
-        <div class='inline'><ul>
-<li>the options to create an OAuth2 object with
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>the options to create an OAuth2 object with</p>
+</li></ul>
 </div>
       
     </li>
@@ -371,11 +363,9 @@ Class constructor
             
           </span>
           
-            &mdash; <div class='inline'><ul>
-<li>the Constant Contact API Key
-
-</li>
-</ul>
+            &mdash; <div class='inline'><ul><li>
+<p>the Constant Contact API Key</p>
+</li></ul>
 </div>
           
         </li>
@@ -387,11 +377,9 @@ Class constructor
             
           </span>
           
-            &mdash; <div class='inline'><ul>
-<li>the Constant Contact secret key
-
-</li>
-</ul>
+            &mdash; <div class='inline'><ul><li>
+<p>the Constant Contact secret key</p>
+</li></ul>
 </div>
           
         </li>
@@ -403,11 +391,9 @@ Class constructor
             
           </span>
           
-            &mdash; <div class='inline'><ul>
-<li>the URL where Constact Contact is returning the authorization code
-
-</li>
-</ul>
+            &mdash; <div class='inline'><ul><li>
+<p>the URL where Constact Contact is returning the authorization code</p>
+</li></ul>
 </div>
           
         </li>
@@ -426,17 +412,22 @@ Class constructor
 20
 21
 22
-23</pre>
+23
+24
+25
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 19</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='rubyid_opts identifier id'>opts</span><span class='rparen token'>)</span>
-  <span class='rubyid_@client_id ivar id'>@client_id</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:api_key</span><span class='rbrack token'>]</span>
-  <span class='rubyid_@client_secret ivar id'>@client_secret</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:api_secret</span><span class='rbrack token'>]</span>
-  <span class='rubyid_@redirect_uri ivar id'>@redirect_uri</span> <span class='assign token'>=</span> <span class='rubyid_opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:redirect_url</span><span class='rbrack token'>]</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+	<span class='ivar'>@client_id</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_key</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.api_key</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='ivar'>@client_secret</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:api_secret</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.api_secret</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='ivar'>@redirect_uri</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:redirect_url</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.redirect_uri</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='kw'>if</span> <span class='ivar'>@client_id</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='ivar'>@client_id</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span> <span class='op'>||</span> <span class='ivar'>@client_secret</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='ivar'>@client_secret</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='ivar'>@redirect_uri</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='op'>||</span> <span class='ivar'>@redirect_uri</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+		<span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Either api_key, api_secret or redirect_uri is missing in explicit call or configuration.</span><span class='tstring_end'>&quot;</span></span>
+	<span class='kw'>end</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -460,9 +451,8 @@ Class constructor
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute client_id
-</p>
+    
+<p>Returns the value of attribute client_id</p>
 
 
   </div>
@@ -483,10 +473,9 @@ Returns the value of attribute client_id
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_client_id identifier id'>client_id</span>
-  <span class='rubyid_@client_id ivar id'>@client_id</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_client_id'>client_id</span>
+  <span class='ivar'>@client_id</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -505,9 +494,8 @@ Returns the value of attribute client_id
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute client_secret
-</p>
+    
+<p>Returns the value of attribute client_secret</p>
 
 
   </div>
@@ -528,10 +516,9 @@ Returns the value of attribute client_secret
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_client_secret identifier id'>client_secret</span>
-  <span class='rubyid_@client_secret ivar id'>@client_secret</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_client_secret'>client_secret</span>
+  <span class='ivar'>@client_secret</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -550,9 +537,8 @@ Returns the value of attribute client_secret
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute props
-</p>
+    
+<p>Returns the value of attribute props</p>
 
 
   </div>
@@ -573,10 +559,9 @@ Returns the value of attribute props
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_props identifier id'>props</span>
-  <span class='rubyid_@props ivar id'>@props</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_props'>props</span>
+  <span class='ivar'>@props</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -595,9 +580,8 @@ Returns the value of attribute props
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Returns the value of attribute redirect_uri
-</p>
+    
+<p>Returns the value of attribute redirect_uri</p>
 
 
   </div>
@@ -618,10 +602,9 @@ Returns the value of attribute redirect_uri
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 10</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_redirect_uri identifier id'>redirect_uri</span>
-  <span class='rubyid_@redirect_uri ivar id'>@redirect_uri</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_redirect_uri'>redirect_uri</span>
+  <span class='ivar'>@redirect_uri</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -645,9 +628,8 @@ Returns the value of attribute redirect_uri
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Obtain an access token
-</p>
+    
+<p>Obtain an access token</p>
 
 
   </div>
@@ -666,12 +648,10 @@ Obtain an access token
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>the code returned from Constant Contact after a user has granted access to
-his account
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>the code returned from Constant Contact after a user has granted access to
+his account</p>
+</li></ul>
 </div>
       
     </li>
@@ -689,9 +669,8 @@ his account
       
       
         &mdash;
-        <div class='inline'><p>
-the access token
-</p>
+        <div class='inline'>
+<p>the access token</p>
 </div>
       
     </li>
@@ -704,9 +683,6 @@ the access token
       <pre class="lines">
 
 
-48
-49
-50
 51
 52
 53
@@ -734,43 +710,45 @@ the access token
 75
 76
 77
-78</pre>
+78
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 51</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_access_token identifier id'>get_access_token</span><span class='lparen token'>(</span><span class='rubyid_code identifier id'>code</span><span class='rparen token'>)</span>
-  <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
-    <span class='symbol val'>:grant_type</span>    <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.authorization_code_grant_type'</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-    <span class='symbol val'>:client_id</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@client_id ivar id'>@client_id</span><span class='comma token'>,</span>
-    <span class='symbol val'>:client_secret</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@client_secret ivar id'>@client_secret</span><span class='comma token'>,</span>
-    <span class='symbol val'>:code</span>          <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_code identifier id'>code</span><span class='comma token'>,</span>
-    <span class='symbol val'>:redirect_uri</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@redirect_uri ivar id'>@redirect_uri</span>
-  <span class='rbrace token'>}</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_access_token'>get_access_token</span><span class='lparen'>(</span><span class='id identifier rubyid_code'>code</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+		<span class='symbol'>:grant_type</span>    <span class='op'>=&gt;</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.authorization_code_grant_type</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+		<span class='symbol'>:client_id</span>     <span class='op'>=&gt;</span> <span class='ivar'>@client_id</span><span class='comma'>,</span>
+		<span class='symbol'>:client_secret</span> <span class='op'>=&gt;</span> <span class='ivar'>@client_secret</span><span class='comma'>,</span>
+		<span class='symbol'>:code</span>          <span class='op'>=&gt;</span> <span class='id identifier rubyid_code'>code</span><span class='comma'>,</span>
+		<span class='symbol'>:redirect_uri</span>  <span class='op'>=&gt;</span> <span class='ivar'>@redirect_uri</span>
+	<span class='rbrace'>}</span>
 
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span>
-    <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.base_url'</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-    <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.token_endpoint'</span><span class='rparen token'>)</span>
-  <span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='lbracket'>[</span>
+		<span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+		<span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.token_endpoint</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
 
-  <span class='rubyid_response_body identifier id'>response_body</span> <span class='assign token'>=</span> <span class='string val'>''</span>
-  <span class='rubyid_begin begin kw'>begin</span>
-    <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_post identifier id'>post</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
-    <span class='rubyid_response_body identifier id'>response_body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='rparen token'>)</span>
-  <span class='rubyid_rescue rescue kw'>rescue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span>
-    <span class='rubyid_response_body identifier id'>response_body</span> <span class='assign token'>=</span> <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:response</span><span class='rparen token'>)</span> <span class='question op'>?</span>
-      <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_response identifier id'>response</span><span class='rparen token'>)</span> <span class='colon op'>:</span>
-      <span class='lbrace token'>{</span><span class='string val'>'error'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span> <span class='string val'>'error_description'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_e identifier id'>e</span><span class='dot token'>.</span><span class='rubyid_message identifier id'>message</span><span class='rbrace token'>}</span>
-  <span class='rubyid_end end kw'>end</span>
+	<span class='id identifier rubyid_response_body'>response_body</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
+	<span class='kw'>begin</span>
+		<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+		<span class='id identifier rubyid_response_body'>response_body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span>
+	<span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+		<span class='id identifier rubyid_response_body'>response_body</span> <span class='op'>=</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:response</span><span class='rparen'>)</span> <span class='op'>?</span>
+			<span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span> <span class='op'>:</span>
+			<span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error_description</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='rbrace'>}</span>
+	<span class='kw'>end</span>
 
-  <span class='rubyid_if if kw'>if</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error_description'</span><span class='rbrack token'>]</span>
-    <span class='rubyid_error identifier id'>error</span> <span class='assign token'>=</span> <span class='rubyid_response_body identifier id'>response_body</span><span class='lbrack token'>[</span><span class='string val'>'error_description'</span><span class='rbrack token'>]</span>
-    <span class='rubyid_raise identifier id'>raise</span> <span class='rubyid_Exceptions constant id'>Exceptions</span><span class='colon2 op'>::</span><span class='rubyid_OAuth2Exception constant id'>OAuth2Exception</span><span class='comma token'>,</span> <span class='rubyid_error identifier id'>error</span>
-  <span class='rubyid_end end kw'>end</span>
+	<span class='kw'>if</span> <span class='id identifier rubyid_response_body'>response_body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error_description</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+		<span class='id identifier rubyid_error'>error</span> <span class='op'>=</span> <span class='id identifier rubyid_response_body'>response_body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>error_description</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span>
+		<span class='id identifier rubyid_raise'>raise</span> <span class='const'>Exceptions</span><span class='op'>::</span><span class='const'>OAuth2Exception</span><span class='comma'>,</span> <span class='id identifier rubyid_error'>error</span>
+	<span class='kw'>end</span>
 
-  <span class='rubyid_response_body identifier id'>response_body</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+	<span class='id identifier rubyid_response_body'>response_body</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -787,10 +765,9 @@ the access token
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Get the URL at which the user can authenticate and authorize the requesting
-application
-</p>
+    
+<p>Get the URL at which the user can authenticate and authorize the requesting
+application</p>
 
 
   </div>
@@ -811,11 +788,9 @@ application
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>whether or not to use OAuth2 server flow, alternative is client flow
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>whether or not to use OAuth2 server flow, alternative is client flow</p>
+</li></ul>
 </div>
       
     </li>
@@ -833,9 +808,8 @@ application
       
       
         &mdash;
-        <div class='inline'><p>
-the authorization URL
-</p>
+        <div class='inline'>
+<p>the authorization URL</p>
 </div>
       
     </li>
@@ -848,9 +822,6 @@ the authorization URL
       <pre class="lines">
 
 
-29
-30
-31
 32
 33
 34
@@ -861,26 +832,28 @@ the authorization URL
 39
 40
 41
-42</pre>
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/auth/oauth2.rb', line 32</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_authorization_url identifier id'>get_authorization_url</span><span class='lparen token'>(</span><span class='rubyid_server identifier id'>server</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span><span class='rparen token'>)</span>
-  <span class='rubyid_response_type identifier id'>response_type</span> <span class='assign token'>=</span> <span class='rubyid_server identifier id'>server</span> <span class='integer val'>? </span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.response_type_code'</span><span class='rparen token'>)</span> <span class='colon op'>:</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.response_type_token'</span><span class='rparen token'>)</span>
-  <span class='rubyid_params identifier id'>params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
-    <span class='symbol val'>:response_type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_response_type identifier id'>response_type</span><span class='comma token'>,</span>
-    <span class='symbol val'>:client_id</span>     <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@client_id ivar id'>@client_id</span><span class='comma token'>,</span>
-    <span class='symbol val'>:redirect_uri</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_@redirect_uri ivar id'>@redirect_uri</span>
-  <span class='rbrace token'>}</span>
-  <span class='lbrack token'>[</span>
-    <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.base_url'</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-    <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'auth.authorization_endpoint'</span><span class='rparen token'>)</span><span class='comma token'>,</span>
-    <span class='string val'>'?'</span><span class='comma token'>,</span>
-    <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Helpers constant id'>Helpers</span><span class='dot token'>.</span><span class='rubyid_http_build_query identifier id'>http_build_query</span><span class='lparen token'>(</span><span class='rubyid_params identifier id'>params</span><span class='rparen token'>)</span>
-  <span class='rbrack token'>]</span><span class='dot token'>.</span><span class='rubyid_join identifier id'>join</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_authorization_url'>get_authorization_url</span><span class='lparen'>(</span><span class='id identifier rubyid_server'>server</span> <span class='op'>=</span> <span class='kw'>true</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_response_type'>response_type</span> <span class='op'>=</span> <span class='id identifier rubyid_server'>server</span> <span class='op'>?</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.response_type_code</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.response_type_token</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+		<span class='symbol'>:response_type</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_response_type'>response_type</span><span class='comma'>,</span>
+		<span class='symbol'>:client_id</span>     <span class='op'>=&gt;</span> <span class='ivar'>@client_id</span><span class='comma'>,</span>
+		<span class='symbol'>:redirect_uri</span>  <span class='op'>=&gt;</span> <span class='ivar'>@redirect_uri</span>
+	<span class='rbrace'>}</span>
+	<span class='lbracket'>[</span>
+		<span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+		<span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>auth.authorization_endpoint</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>?</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
+		<span class='const'>Util</span><span class='op'>::</span><span class='const'>Helpers</span><span class='period'>.</span><span class='id identifier rubyid_http_build_query'>http_build_query</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+	<span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -891,9 +864,9 @@ the authorization URL
 </div>
 
     <div id="footer">
-  Generated on 03/29/13 09:33:20 by
+  Generated on Mon Jul 29 14:48:33 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.8.6).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

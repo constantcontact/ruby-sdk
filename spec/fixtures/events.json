@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "pagination": {}
+    },
+    "results": [{
+        "id": "a07e6nqypc28eca248b",
+        "name": "Charity Auction 2013",
+        "title": "Charitable Auction",
+        "status": "DRAFT",
+        "type": "AUCTION",
+        "address": {
+            "city": "",
+            "state": "",
+            "country": "",
+            "line1": "",
+            "line2": "",
+            "line3": "",
+            "state_code": "",
+            "country_code": "",
+            "postal_code": ""
+        },
+        "description": "Help us raise money to make the world a better place!",
+        "start_date": "2013-01-01T13:00:00.000Z",
+        "end_date": "2013-01-17T03:00:00.000Z",
+        "created_date": "2012-11-18T16:03:29.470Z",
+        "time_zone_id": "US/Eastern",
+        "is_checkin_available": false,
+        "event_detail_url": "/v2/eventspot/events/a07e6nqypc28eca248b"
+    }, {
+        "id": "a07e8alsx6h752df163",
+        "name": "Test 2 Auction",
+        "title": "2nd Auction",
+        "status": "ACTIVE",
+        "location": "1 Infinity Loop Boston, MA",
+        "type": "AUCTION",
+        "address": {
+            "city": "",
+            "state": "",
+            "country": "",
+            "line1": "",
+            "line2": "",
+            "line3": "",
+            "state_code": "",
+            "country_code": "",
+            "postal_code": ""
+        },
+        "start_date": "2013-11-01T21:00:00.000Z",
+        "end_date": "2013-11-02T02:00:00.000Z",
+        "created_date": "2013-10-05T17:12:26.646Z",
+        "time_zone_id": "US/Eastern",
+        "active_date": "2013-10-05T17:37:38.296Z",
+        "is_checkin_available": false,
+        "event_detail_url": "/v2/eventspot/events/a07e8alsx6h752df163"
+    }, {
+        "id": "a07e8ajexv5063f02b4",
+        "name": "Test Auction",
+        "title": "1st Auction",
+        "status": "DRAFT",
+        "location": "1 Infinity Loop Boston, MA",
+        "type": "AUCTION",
+        "address": {
+            "city": "",
+            "state": "",
+            "country": "",
+            "line1": "",
+            "line2": "",
+            "line3": "",
+            "state_code": "",
+            "country_code": "",
+            "postal_code": ""
+        },
+        "start_date": "2013-11-01T17:00:00.000Z",
+        "end_date": "2013-11-01T22:00:00.000Z",
+        "created_date": "2013-10-05T16:58:29.019Z",
+        "time_zone_id": "US/Eastern",
+        "is_checkin_available": false,
+        "event_detail_url": "/v2/eventspot/events/a07e8ajexv5063f02b4"
+    }]
+}

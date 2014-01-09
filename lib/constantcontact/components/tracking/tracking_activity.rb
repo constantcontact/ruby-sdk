@@ -21,7 +21,6 @@ module ConstantContact
           @next = pagination['next'][pagination['next'].index('&next=') + 6, pagination['next'].length]
         end
       end
-
     end
   end
 end

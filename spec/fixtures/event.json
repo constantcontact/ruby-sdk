@@ -1,0 +1,45 @@
+{
+	"id": "a07e8ajexv5063f02b4",
+	"name": "Test Auction",
+	"title": "1st Auction",
+	"status": "DRAFT",
+	"location": "1 Infinity Loop Boston, MA",
+	"type": "AUCTION",
+	"contact": {
+		"name": "Foo Bar"
+	},
+	"start_date": "2013-11-01T17:00:00.000Z",
+	"end_date": "2013-11-01T22:00:00.000Z",
+	"created_date": "2013-10-05T16:58:29.019Z",
+	"time_zone_id": "US/Eastern",
+	"is_checkin_available": false,
+	"registration_url": "https://events.r20.constantcontact.com/register/event?oeidk=a07e8ajexv5063f02b4",
+	"theme_name": "Default",
+	"currency_type": "USD",
+	"is_virtual_event": false,
+	"notification_options": [
+		{
+			"notification_type": "SO_REGISTRATION_NOTIFICATION",
+			"is_opted_in": false
+		}
+	],
+	"is_home_page_displayed": false,
+	"is_map_displayed": true,
+	"is_calendar_displayed": true,
+	"is_listed_in_external_directory": false,
+	"are_registrants_public": false,
+	"track_information": {
+		"information_sections": [
+			"CONTACT",
+			"TIME",
+			"LOCATION"
+		],
+		"is_registration_closed_manually": false,
+		"is_ticketing_link_displayed": false,
+		"guest_limit": 0,
+		"registration_limit_count": 0,
+		"guest_display_label": "Guest(s)",
+		"is_guest_name_required": false,
+		"is_guest_anonymous_enabled": false
+	}
+}

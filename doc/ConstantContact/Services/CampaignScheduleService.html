@@ -133,9 +133,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Create a new schedule for a campaign.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new schedule for a campaign.</p>
 </div></span>
   
 </li>
@@ -158,9 +157,8 @@ Create a new schedule for a campaign.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Delete a specific schedule for a campaign.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delete a specific schedule for a campaign.</p>
 </div></span>
   
 </li>
@@ -183,9 +181,8 @@ Delete a specific schedule for a campaign.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Get a specific schedule for a campaign.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get a specific schedule for a campaign.</p>
 </div></span>
   
 </li>
@@ -208,9 +205,8 @@ Get a specific schedule for a campaign.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Get a list of schedules for a campaign.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Get a list of schedules for a campaign.</p>
 </div></span>
   
 </li>
@@ -233,9 +229,8 @@ Get a list of schedules for a campaign.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Send a test send of a campaign.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Send a test send of a campaign.</p>
 </div></span>
   
 </li>
@@ -258,9 +253,8 @@ Send a test send of a campaign.
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Update a specific schedule for a campaign.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Update a specific schedule for a campaign.</p>
 </div></span>
   
 </li>
@@ -292,9 +286,8 @@ Update a specific schedule for a campaign.
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Create a new schedule for a campaign
-</p>
+    
+<p>Create a new schedule for a campaign</p>
 
 
   </div>
@@ -313,11 +306,9 @@ Create a new schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -332,11 +323,9 @@ Create a new schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Campaign id to be scheduled
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Campaign id to be scheduled</p>
+</li></ul>
 </div>
       
     </li>
@@ -351,11 +340,9 @@ Create a new schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Schedule to be created
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Schedule to be created</p>
+</li></ul>
 </div>
       
     </li>
@@ -394,15 +381,14 @@ Create a new schedule for a campaign
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/campaign_schedule_service.rb', line 17</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_add_schedule identifier id'>add_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> 
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.campaign_schedules'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_payload identifier id'>payload</span> <span class='assign token'>=</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='dot token'>.</span><span class='rubyid_to_json identifier id'>to_json</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_post identifier id'>post</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_payload identifier id'>payload</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_Schedule constant id'>Schedule</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_add_schedule'>add_schedule</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule'>schedule</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
+				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_schedules</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_schedule'>schedule</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='const'>Components</span><span class='op'>::</span><span class='const'>Schedule</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -419,9 +405,8 @@ Create a new schedule for a campaign
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Delete a specific schedule for a campaign
-</p>
+    
+<p>Delete a specific schedule for a campaign</p>
 
 
   </div>
@@ -440,11 +425,9 @@ Delete a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -459,11 +442,9 @@ Delete a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Campaign id to delete a schedule for
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Campaign id to delete a schedule for</p>
+</li></ul>
 </div>
       
     </li>
@@ -478,11 +459,9 @@ Delete a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Schedule id to delete
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Schedule id to delete</p>
+</li></ul>
 </div>
       
     </li>
@@ -520,14 +499,13 @@ Delete a specific schedule for a campaign
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/campaign_schedule_service.rb', line 66</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_delete_schedule identifier id'>delete_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> 
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.campaign_schedule'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_delete identifier id'>delete</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_code identifier id'>code</span> <span class='eq op'>==</span> <span class='integer val'>204</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_schedule'>delete_schedule</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule_id'>schedule_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
+				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_schedule</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule_id'>schedule_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -544,9 +522,8 @@ Delete a specific schedule for a campaign
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Get a specific schedule for a campaign
-</p>
+    
+<p>Get a specific schedule for a campaign</p>
 
 
   </div>
@@ -565,11 +542,9 @@ Get a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -584,11 +559,9 @@ Get a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Campaign id to get a schedule for
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Campaign id to get a schedule for</p>
+</li></ul>
 </div>
       
     </li>
@@ -603,11 +576,9 @@ Get a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Schedule id to retrieve
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Schedule id to retrieve</p>
+</li></ul>
 </div>
       
     </li>
@@ -645,14 +616,13 @@ Get a specific schedule for a campaign
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/campaign_schedule_service.rb', line 52</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_schedule identifier id'>get_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> 
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.campaign_schedule'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule_id identifier id'>schedule_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_Schedule constant id'>Schedule</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_schedule'>get_schedule</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule_id'>schedule_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
+				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_schedule</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule_id'>schedule_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='const'>Components</span><span class='op'>::</span><span class='const'>Schedule</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -669,9 +639,8 @@ Get a specific schedule for a campaign
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Get a list of schedules for a campaign
-</p>
+    
+<p>Get a list of schedules for a campaign</p>
 
 
   </div>
@@ -690,11 +659,9 @@ Get a list of schedules for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -709,11 +676,9 @@ Get a list of schedules for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Campaign id to be scheduled
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Campaign id to be scheduled</p>
+</li></ul>
 </div>
       
     </li>
@@ -758,21 +723,20 @@ Get a list of schedules for a campaign
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/campaign_schedule_service.rb', line 31</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_get_schedules identifier id'>get_schedules</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> 
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.campaign_schedules'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_body identifier id'>body</span> <span class='assign token'>=</span> <span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_schedules'>get_schedules</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
+				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_schedules</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 
-  <span class='rubyid_schedules identifier id'>schedules</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
-  <span class='rubyid_body identifier id'>body</span><span class='dot token'>.</span><span class='rubyid_each identifier id'>each</span> <span class='rubyid_do do kw'>do</span> <span class='bitor op'>|</span><span class='rubyid_schedule identifier id'>schedule</span><span class='bitor op'>|</span>
-    <span class='rubyid_schedules identifier id'>schedules</span> <span class='lshft op'>&lt;&lt;</span> <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_Schedule constant id'>Schedule</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_end end kw'>end</span>
+	<span class='id identifier rubyid_schedules'>schedules</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+	<span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_schedule'>schedule</span><span class='op'>|</span>
+		<span class='id identifier rubyid_schedules'>schedules</span> <span class='op'>&lt;&lt;</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>Schedule</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_schedule'>schedule</span><span class='rparen'>)</span>
+	<span class='kw'>end</span>
 
-  <span class='rubyid_schedules identifier id'>schedules</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+	<span class='id identifier rubyid_schedules'>schedules</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -789,9 +753,8 @@ Get a list of schedules for a campaign
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Send a test send of a campaign
-</p>
+    
+<p>Send a test send of a campaign</p>
 
 
   </div>
@@ -810,11 +773,9 @@ Send a test send of a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -829,11 +790,9 @@ Send a test send of a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Id of campaign to send test of
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Id of campaign to send test of</p>
+</li></ul>
 </div>
       
     </li>
@@ -848,11 +807,9 @@ Send a test send of a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Test send details
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Test send details</p>
+</li></ul>
 </div>
       
     </li>
@@ -891,15 +848,14 @@ Send a test send of a campaign
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/campaign_schedule_service.rb', line 95</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_send_test identifier id'>send_test</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_test_send identifier id'>test_send</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> 
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.campaign_test_sends'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_payload identifier id'>payload</span> <span class='assign token'>=</span> <span class='rubyid_test_send identifier id'>test_send</span><span class='dot token'>.</span><span class='rubyid_to_json identifier id'>to_json</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_post identifier id'>post</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_payload identifier id'>payload</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_TestSend constant id'>TestSend</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_send_test'>send_test</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_test_send'>test_send</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
+				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_test_sends</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_test_send'>test_send</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='const'>Components</span><span class='op'>::</span><span class='const'>TestSend</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -916,9 +872,8 @@ Send a test send of a campaign
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Update a specific schedule for a campaign
-</p>
+    
+<p>Update a specific schedule for a campaign</p>
 
 
   </div>
@@ -937,11 +892,9 @@ Update a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Constant Contact OAuth2 access token
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Constant Contact OAuth2 access token</p>
+</li></ul>
 </div>
       
     </li>
@@ -956,11 +909,9 @@ Update a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Campaign id to be scheduled
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Campaign id to be scheduled</p>
+</li></ul>
 </div>
       
     </li>
@@ -975,11 +926,9 @@ Update a specific schedule for a campaign
       
       
         &mdash;
-        <div class='inline'><ul>
-<li>Schedule to retrieve
-
-</li>
-</ul>
+        <div class='inline'><ul><li>
+<p>Schedule to retrieve</p>
+</li></ul>
 </div>
       
     </li>
@@ -1018,15 +967,14 @@ Update a specific schedule for a campaign
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/campaign_schedule_service.rb', line 80</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_update_schedule identifier id'>update_schedule</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.base_url'</span><span class='rparen token'>)</span> <span class='plus op'>+</span> 
-        <span class='rubyid_sprintf identifier id'>sprintf</span><span class='lparen token'>(</span><span class='rubyid_Util constant id'>Util</span><span class='colon2 op'>::</span><span class='rubyid_Config constant id'>Config</span><span class='dot token'>.</span><span class='rubyid_get identifier id'>get</span><span class='lparen token'>(</span><span class='string val'>'endpoints.campaign_schedule'</span><span class='rparen token'>)</span><span class='comma token'>,</span> <span class='rubyid_campaign_id identifier id'>campaign_id</span><span class='comma token'>,</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='dot token'>.</span><span class='rubyid_id identifier id'>id</span><span class='rparen token'>)</span>
-  <span class='rubyid_url identifier id'>url</span> <span class='assign token'>=</span> <span class='rubyid_build_url identifier id'>build_url</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='rparen token'>)</span>
-  <span class='rubyid_payload identifier id'>payload</span> <span class='assign token'>=</span> <span class='rubyid_schedule identifier id'>schedule</span><span class='dot token'>.</span><span class='rubyid_to_json identifier id'>to_json</span>
-  <span class='rubyid_response identifier id'>response</span> <span class='assign token'>=</span> <span class='rubyid_RestClient constant id'>RestClient</span><span class='dot token'>.</span><span class='rubyid_put identifier id'>put</span><span class='lparen token'>(</span><span class='rubyid_url identifier id'>url</span><span class='comma token'>,</span> <span class='rubyid_payload identifier id'>payload</span><span class='comma token'>,</span> <span class='rubyid_get_headers identifier id'>get_headers</span><span class='lparen token'>(</span><span class='rubyid_access_token identifier id'>access_token</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-  <span class='rubyid_Components constant id'>Components</span><span class='colon2 op'>::</span><span class='rubyid_Schedule constant id'>Schedule</span><span class='dot token'>.</span><span class='rubyid_create identifier id'>create</span><span class='lparen token'>(</span><span class='rubyid_JSON constant id'>JSON</span><span class='dot token'>.</span><span class='rubyid_parse identifier id'>parse</span><span class='lparen token'>(</span><span class='rubyid_response identifier id'>response</span><span class='dot token'>.</span><span class='rubyid_body identifier id'>body</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
-<span class='rubyid_end end kw'>end</span>
-</pre>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_schedule'>update_schedule</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule'>schedule</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
+				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_schedule</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='comma'>,</span> <span class='id identifier rubyid_schedule'>schedule</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+	<span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_schedule'>schedule</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
+	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+	<span class='const'>Components</span><span class='op'>::</span><span class='const'>Schedule</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -1037,9 +985,9 @@ Update a specific schedule for a campaign
 </div>
 
     <div id="footer">
-  Generated on 03/29/13 09:33:26 by
+  Generated on Mon Jul 29 14:48:35 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.8.6).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

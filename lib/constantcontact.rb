@@ -48,6 +48,19 @@ module ConstantContact
     autoload :TrackingActivity, "constantcontact/components/tracking/tracking_activity"
     autoload :TrackingSummary, "constantcontact/components/tracking/tracking_summary"
     autoload :VerifiedEmailAddress, "constantcontact/components/account/verified_email_address"
+    autoload :Event, 'constantcontact/components/event_spot/event'
+    autoload :Fee, 'constantcontact/components/event_spot/fee'
+    autoload :Registrant, 'constantcontact/components/event_spot/registrant'
+
+    module EventSpot
+      autoload :Contact, 'constantcontact/components/event_spot/contact'
+      autoload :NotificationOption, 'constantcontact/components/event_spot/notification_option'
+      autoload :Guest, 'constantcontact/components/event_spot/guest'
+      autoload :EventTrack, 'constantcontact/components/event_spot/event_track'
+      autoload :RegistrantSection, 'constantcontact/components/event_spot/registrant_section'
+      autoload :RegistrantField, 'constantcontact/components/event_spot/registrant_field'
+      
+    end
   end
 
   module Exceptions
@@ -66,6 +79,7 @@ module ConstantContact
     autoload :EmailMarketingService, "constantcontact/services/email_marketing_service"
     autoload :ListService, "constantcontact/services/list_service"
     autoload :AccountService, "constantcontact/services/account_service"
+    autoload :EventSpotService, 'constantcontact/services/event_spot_service'
   end
 
   module Util
