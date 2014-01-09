@@ -46,6 +46,13 @@ module ConstantContact
 					:campaign_tracking_unsubscribes => 'emailmarketing/campaigns/%s/tracking/unsubscribes',
 					:campaign_tracking_link         => 'emailmarketing/campaigns/%s/tracking/clicks/%s',
 
+					:events                      => 'eventspot/events',
+					:event                       => 'eventspot/events/%s',
+					:event_fees                  => 'eventspot/events/%s/fees',
+					:event_fee                   => 'eventspot/events/%s/fees/%s',
+					:event_registrants           => 'eventspot/events/%s/registrants',
+					:event_registrant            => 'eventspot/events/%s/registrants/%s',
+
 					:contact_tracking_summary       => 'contacts/%s/tracking/reports/summary',
 					:contact_tracking_bounces       => 'contacts/%s/tracking/bounces',
 					:contact_tracking_clicks        => 'contacts/%s/tracking/clicks',

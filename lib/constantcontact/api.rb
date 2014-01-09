@@ -500,6 +500,137 @@ module ConstantContact
 		end
 
 
+		# Get a list of events
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @return [ResultSet<Event>]
+		def get_events(access_token)
+			Services::EventSpotService.get_events(access_token)
+		end
+
+
+		# Get an event
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - event id or object to be retrieved
+		# @return [Event]
+		def get_event(access_token, event)
+			Services::EventSpotService.get_event(access_token, event)
+		end
+
+
+		# Create an event
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Hash] event - Event data stored in an object which respods to to_json
+		# @return [Event]
+		def add_event(access_token, event)
+			Services::EventSpotService.add_event(access_token, event)
+		end
+
+
+		# Update an event
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event|Hash] event - Event details stored in an object that responds to to_json and has an :id attribute
+		# @return [Event]
+		def update_event(access_token, event)
+			Services::EventSpotService.update_event(access_token, event)
+		end
+
+
+		# Publish an event
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event to publish
+		# @return [Event]
+		def publish_event(access_token, event)
+			Services::EventSpotService.publish_event(access_token, event)
+		end
+
+
+		# Cancel an event
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event to cancel
+		# @return [Activity]
+		def cancel_event(access_token, event)
+			Services::EventSpotService.cancel_event(access_token, event)
+		end
+
+
+		# Delete an event
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event fee corresponds to
+		# @return [Activity]
+		def delete_event(access_token, event)
+			Services::EventSpotService.delete_event(access_token, event)
+		end
+
+
+		# Get a list of event fees
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event to get fees of
+		# @return [Activity]
+		def get_event_fees(access_token, event)
+			Services::EventSpotService.get_fees(access_token, event)
+		end
+
+
+		# Get an event fee
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event fee corresponds to
+		# @param [Fee] fee - Fee to retrieve
+		# @return [Activity]
+		def get_event_fee(access_token, event, fee)
+			Services::EventSpotService.get_fee(access_token, event, fee)
+		end
+
+
+		# Create an event fee
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event fee corresponds to
+		# @param [Hash] fee - Fee details
+		# @return [Activity]
+		def add_event_fee(access_token, event, fee)
+			Services::EventSpotService.add_fee(access_token, event, fee)
+		end
+
+
+		# Update an event fee
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event fee corresponds to
+		# @param [Fee] fee - Fee details
+		# @return [Activity]
+		def update_event_fee(access_token, event, fee)
+			Services::EventSpotService.update_fee(access_token, event, fee)
+		end
+
+
+		# Delete an event fee
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event fee corresponds to
+		# @param [Fee] fee - Fee details
+		# @return [Activity]
+		def delete_event_fee(access_token, event, fee)
+			Services::EventSpotService.delete_fee(access_token, event, fee)
+		end
+
+
+		# Get a list of event registrants
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event fee corresponds to
+		# @return [Activity]
+		def get_event_registrants(access_token, event)
+			Services::EventSpotService.get_registrants(access_token, event)
+		end
+
+
+		# Get an event registrant
+		# @param [String] access_token - Constant Contact OAuth2 access token
+		# @param [Event] event - Event registrant corresponds to
+		# @param [Registrant] registrant - registrant details
+		# @return [Activity]
+		def get_event_registrant(access_token, event, registrant)
+			Services::EventSpotService.get_registrant(access_token, event, registrant)
+		end
+
+
+
 		private
 
 
