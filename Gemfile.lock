@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    constantcontact (1.0.2)
+    constantcontact (1.0.3)
       json
       rest-client
 
