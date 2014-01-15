@@ -1,0 +1,62 @@
+{
+    "meta": {
+    "pagination": {
+    "next_link": "/v2/library/folders?next=b2Zmc2V0PTQmbGltaXQ9NA"
+    }
+    },
+    "results": [{
+    "id": "-8",
+    "name": "backgrounds",
+    "level": 1,
+    "children": [],
+    "item_count": 0,
+    "parent_id": "",
+    "modified_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z"
+    }, {
+    "id": "-1",
+    "name": "Documents",
+    "level": 0,
+    "children": [{
+    "id": "-10",
+    "name": "market_studies",
+    "level": 2,
+    "children": [],
+    "item_count": 0,
+    "parent_id": "-1",
+    "modified_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z"
+    }],
+    "item_count": 0,
+    "parent_id": "",
+    "modified_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z"
+    }, {
+    "id": "-2",
+    "name": "flowers",
+    "level": 1,
+    "children": [{
+    "id": "-7",
+    "name": "cactus",
+    "level": 2,
+    "children": [],
+    "item_count": 0,
+    "parent_id": "-2",
+    "modified_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z"
+    }],
+    "item_count": 1,
+    "parent_id": "0",
+    "modified_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z"
+    }, {
+    "id": "-3",
+    "name": "tech",
+    "level": 1,
+    "children": [],
+    "item_count": 0,
+    "parent_id": "0",
+    "modified_date": "1970-01-01T00:00:00.000Z",
+    "created_date": "1970-01-01T00:00:00.000Z"
+    }]
+}

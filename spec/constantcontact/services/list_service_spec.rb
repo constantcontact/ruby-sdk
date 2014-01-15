@@ -9,61 +9,77 @@ require 'spec_helper'
 describe ConstantContact::Services::ListService do
   describe "#get_lists" do
     it "returns an array of lists" do
-      json = load_json('lists.json')
+      json_response = load_file('lists_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json_response, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
-      lists = ConstantContact::Services::ListService.get_lists('token')
-      list = lists[0]
 
+      lists = ConstantContact::Services::ListService.get_lists('token')
       lists.should be_kind_of(Array)
-      list.should be_kind_of(ConstantContact::Components::ContactList)
+      lists.first.should be_kind_of(ConstantContact::Components::ContactList)
+      lists.first.name.should eq('General Interest')
     end
   end
 
   describe "#get_list" do
     it "returns a list" do
-      json = load_json('list.json')
+      json = load_file('list_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
-      contact = ConstantContact::Services::ListService.get_list('token', 1)
 
-      contact.should be_kind_of(ConstantContact::Components::ContactList)
+      list = ConstantContact::Services::ListService.get_list('token', 1)
+      list.should be_kind_of(ConstantContact::Components::ContactList)
+      list.name.should eq('Monthly Specials')
     end
   end
 
   describe "#add_list" do
     it "adds a list" do
-      json = load_json('list.json')
+      json = load_file('list_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:post).and_return(response)
-      list = ConstantContact::Components::ContactList.create(JSON.parse(json))
-      added = ConstantContact::Services::ListService.add_list('token', list)
+      new_list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
-      added.should respond_to(:status)
-      added.status.should eq('ACTIVE')
+      list = ConstantContact::Services::ListService.add_list('token', new_list)
+      list.should be_kind_of(ConstantContact::Components::ContactList)
+      list.status.should eq('ACTIVE')
+    end
+  end
+
+  describe "#update_list" do
+    it "updates a list" do
+      json = load_file('list_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:put).and_return(response)
+      list = ConstantContact::Components::ContactList.create(JSON.parse(json))
+
+      result = ConstantContact::Services::ListService.update_list('token', list)
+      result.should be_kind_of(ConstantContact::Components::ContactList)
+      result.status.should eq('ACTIVE')
     end
   end
 
   describe "#get_contacts_from_list" do
     it "returns an array of contacts" do
-      json_list = load_json('list.json')
-      json_contacts = load_json('contacts.json')
+      json_list = load_file('list_response.json')
+      json_contacts = load_file('contacts_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json_contacts, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
       list = ConstantContact::Components::ContactList.create(JSON.parse(json_list))
-      contacts = ConstantContact::Services::ListService.get_contacts_from_list('token', list)
-      contact = contacts.results[0]
 
+      contacts = ConstantContact::Services::ListService.get_contacts_from_list('token', list)
       contacts.should be_kind_of(ConstantContact::Components::ResultSet)
-      contact.should be_kind_of(ConstantContact::Components::Contact)
+      contacts.results.first.should be_kind_of(ConstantContact::Components::Contact)
+      contacts.results.first.fax.should eq('318-978-7575')
     end
   end
 end

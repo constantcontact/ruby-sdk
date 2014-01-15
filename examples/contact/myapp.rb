@@ -31,25 +31,7 @@ get '/cc_callback' do
 
     if @code
       begin
-        response = @oauth.get_access_token(@code)
-        @token = response['access_token']
-
-        cc = ConstantContact::Api.new(cnf['api_key'])
-
         @lists = []
-        lists = cc.get_lists(@token)
-        if lists
-          lists.each do |list|
-            # Select the first list, by default
-            selected = list == lists.first
-            @lists << {
-              'id' => list.id,
-              'name' => list.name,
-              'selected' => selected
-            }
-          end
-        end
-
         @contact = {
           'first_name'=> nil,
           'last_name' => nil,
@@ -70,14 +52,31 @@ get '/cc_callback' do
           'postal_code' => nil,
           'sub_postal_code' => nil
         }
+
+        response = @oauth.get_access_token(@code)
+        @token = response['access_token']
+
+        cc = ConstantContact::Api.new(cnf['api_key'])
+        lists = cc.get_lists(@token)
+        if lists
+          lists.each do |list|
+            # Select the first list, by default
+            selected = list == lists.first
+            @lists << {
+              'id' => list.id,
+              'name' => list.name,
+              'selected' => selected
+            }
+          end
+        end
+
       rescue => e
         message = parse_exception(e)
         @error = "An error occured when saving the contact : " + message
-        #y e.backtrace
       end
-      erb :contact, :views_directory => 'views'
+      erb :contact
     else
-      erb :callback, :views_directory => 'views'
+      erb :callback
     end
 end
 
@@ -146,16 +145,16 @@ post '/cc_callback' do
           else
             cc.add_contact(@token, contact)
           end
+
           redirect '/cc_callback'
         end
       rescue => e
         message = parse_exception(e)
         @error = "An error occured when saving the contact : " + message
-        #y e.backtrace
       end
-      erb :contact, :views_directory => 'views'
+      erb :contact
     else
-      erb :callback, :views_directory => 'views'
+      erb :callback
     end
 end
 

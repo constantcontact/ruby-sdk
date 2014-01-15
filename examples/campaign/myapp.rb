@@ -86,9 +86,9 @@ get '/cc_callback' do
         @error = "An error occured when saving the campaign : " + message
         #y e.backtrace
       end
-      erb :campaign, :views_directory => 'views'
+      erb :campaign
     else
-      erb :callback, :views_directory => 'views'
+      erb :callback
     end
 end
 
@@ -158,11 +158,10 @@ post '/cc_callback' do
       rescue => e
         message = parse_exception(e)
         @error = "An error occured when saving the campaign : " + message
-        #y e.backtrace
       end
-      erb :campaign, :views_directory => 'views'
+      erb :campaign
     else
-      erb :callback, :views_directory => 'views'
+      erb :callback
     end
 end
 

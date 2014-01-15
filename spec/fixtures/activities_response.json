@@ -1,0 +1,32 @@
+[
+{
+"id": "a07e1ilbm7shdg6ikeo",
+"type": "REMOVE_CONTACTS_FROM_LISTS",
+"status": "COMPLETE",
+"start_date": "2013-02-21T17:23:09.812Z",
+"finish_date": "2013-02-21T17:23:09.837Z",
+"created_date": "2013-02-21T17:22:42.768Z",
+"error_count": 3,
+"contact_count": 3
+},
+{
+"id": "a07e1ilbm6uhdg5w1lu",
+"type": "REMOVE_CONTACTS_FROM_LISTS",
+"status": "COMPLETE",
+"start_date": "2013-02-21T17:06:11.800Z",
+"finish_date": "2013-02-21T17:06:11.849Z",
+"created_date": "2013-02-21T17:05:11.970Z",
+"error_count": 3,
+"contact_count": 3
+},
+{
+"id": "a07e1ilba2lhdf22eqb",
+"type": "EXPORT_CONTACTS",
+"status": "COMPLETE",
+"start_date": "2013-02-20T22:30:55.945Z",
+"finish_date": "2013-02-20T22:31:18.603Z",
+"created_date": "2013-02-20T22:30:24.275Z",
+"error_count": 0,
+"contact_count": 71296
+}
+]

@@ -1,0 +1,19 @@
+{
+    "import_data":[
+    {
+    "email_addresses":[
+    "my_email@example.com"
+    ]
+    },
+    {
+    "email_addresses":[
+    "your_email@example.com"
+    ]
+    }
+    ],
+    "lists":[
+    "4",
+    "5",
+    "6"
+    ]
+}

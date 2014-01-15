@@ -1,0 +1,29 @@
+{
+"meta": {
+"pagination": {
+"next_link": "/v2/contacts/1/tracking/bounces?next=c3RhcnRBdD0zJmxpbWl0PTI"
+}
+},
+"results": [
+{
+"activity_type": "EMAIL_BOUNCE",
+"campaign_id": "1100394165287",
+"contact_id": "1",
+"email_address": "abc@example.com",
+"bounce_code": "B",
+"bounce_description": "Non-existent address",
+"bounce_message": "",
+"bounce_date": "2012-12-06T18:06:15.000Z"
+},
+{
+"activity_type": "EMAIL_BOUNCE",
+"campaign_id": "1100394165290",
+"contact_id": "1",
+"email_address": "abc@example.com",
+"bounce_code": "B",
+"bounce_description": "Non-existent address",
+"bounce_message": "",
+"bounce_date": "2012-12-06T13:06:39.990Z"
+}
+]
+}

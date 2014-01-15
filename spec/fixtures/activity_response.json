@@ -1,0 +1,10 @@
+{
+"id": "a07e1ilbm7shdg6ikeo",
+"type": "REMOVE_CONTACTS_FROM_LISTS",
+"status": "COMPLETE",
+"start_date": "2013-02-21T17:23:09.812Z",
+"finish_date": "2013-02-21T17:23:09.837Z",
+"created_date": "2013-02-21T17:22:42.768Z",
+"error_count": 3,
+"contact_count": 3
+}

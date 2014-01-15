@@ -21,16 +21,14 @@ module ConstantContact
           Components::Campaign.create(JSON.parse(response.body))
         end
 
-				# Get a set of campaigns
-				# @param [String] access_token Constant Contact OAuth2 access token
-				# @param [Hash] opts query parameters to be appended to the request
-				# @option opts [String] status email campaigns status of DRAFT, RUNNING, SENT, SCHEDULED.
-				# @option opts [String] modified_since ISO-8601 date string to return campaigns modified since then.
-				# @option opts [Integer] limit number of campaigns to return, 1 to 50.
-				# @return [ResultSet<Campaign>]
-				def get_campaigns(access_token, opts = {})
-					url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.campaigns')
-					url = build_url(url, opts)
+
+        # Get a set of campaigns
+        # @param [String] access_token Constant Contact OAuth2 access token
+        # @param [Hash] params - query parameters to be appended to the request
+        # @return [ResultSet<Campaign>]
+        def get_campaigns(access_token, params = {})
+          url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.campaigns')
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
