@@ -6,9 +6,9 @@
 
 $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require 'constantcontact'
-require 'simplecov'
+#require 'simplecov'
 
-SimpleCov.start
+#SimpleCov.start
 
 def load_file(file_name)
   json = File.read(File.join(File.dirname(__FILE__), 'fixtures', file_name))
