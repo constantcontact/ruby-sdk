@@ -85,6 +85,7 @@ B. Sinatra example :
         gem install constantcontact
 
 2. Add the following code in myapp.rb (just an example):
+
         require 'active_support'
         require 'constantcontact'
 
