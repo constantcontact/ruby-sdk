@@ -20,7 +20,8 @@ module ConstantContact
           {
             :content_type   => content_type,
             :accept         => 'application/json',
-            :authorization  => "Bearer #{access_token}"
+            :authorization  => "Bearer #{access_token}",
+            :user_agent     => "AppConnect Ruby SDK v#{ConstantContact::SDK::VERSION} (#{RUBY_DESCRIPTION})"
           }
         end
 
