@@ -21,11 +21,12 @@ Gem::Specification.new do |s|
     'README.md'
   ]
   s.files += Dir['lib/**/*.rb']
-  s.files += Dir['spec/**/*.rb']
   s.executables = []
-  s.require_paths = [ "lib", "spec" ]
-
+  s.require_paths = [ "lib" ]
+  s.test_files = Dir['spec/**/*.rb']
+  
   s.add_dependency("rest-client")
   s.add_dependency("json")
+  s.add_dependency('mime-types', ['1.25.1'])
   s.add_development_dependency("rspec")
 end
