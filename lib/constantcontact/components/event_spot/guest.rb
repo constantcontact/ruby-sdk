@@ -9,7 +9,7 @@ module ConstantContact
     module EventSpot
       class Guest < Component
         attr_accessor :guest_id, :guest_section
-        
+
         # Factory method to create an event Registrant object from a hash
         # @param [Hash] props - hash of properties to create object from
         # @return [Campaign]

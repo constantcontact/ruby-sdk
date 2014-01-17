@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Constant Contact API</title>
+		<style>
+			html {font: normal 12px/16px Arial}
+			.error {color: red; font: normal 13px/16px Verdana}
+			label {display:inline-block; width: 200px}
+		</style>
+	</head>
+
+	<body>
+	<% if @error %>
+		<p class="error">
+			<%=@error%>
+		</p>
+	<% end %>
+
+	<% if @code %>
+
+		<form id="library-form" action="" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Upload an image file to MyLibrary</legend>
+
+				<p>
+					<label for="library[file]">Image or PDF *</label>
+					<input type="file" name="library[file]" /> <br />
+					<i>
+						Upload the file 'files/logo.jpg' to one of the folders selected in the list below 
+						and you should receive the status of the POST
+					</i>
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend>Folders to add the file to</legend>
+				<% if @folders %>
+					<% for folder in @folders %>
+						<p>
+							<label for="folders[checkboxes][id-<%=folder['id']%>]"><%=folder['name']%></label>
+							<input type="checkbox" name="folders[checkboxes][id-<%=folder['id']%>]" value="1" <%=folder['selected'] ? 'checked' : ''%> />
+							<input type="hidden" value="<%=folder['id']%>" name="folders[ids][id-<%=folder['id']%>]" />
+							<input type="hidden" value="<%=folder['name']%>" name="folders[names][id-<%=folder['id']%>]" />
+						</p>
+					<% end %>
+				<% end %>
+			</fieldset>
+
+			<p>
+				<input type="hidden" value="<%=@code%>" name="code" />
+				<input type="hidden" value="<%=@user%>" name="username" />
+				<input type="hidden" value="<%=@token%>" name="token" />
+				<input type="submit" value="Upload file" />
+			</p>
+		</form>
+
+	<% else %>
+		<a href="<%=@oauth.get_authorization_url%>">Click to authorize</a>
+	<% end %>
+
+	</body>
+</html>

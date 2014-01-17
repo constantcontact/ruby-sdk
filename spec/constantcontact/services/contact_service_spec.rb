@@ -9,7 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::ContactService do
   describe "#get_contacts" do
     it "returns an array of contacts" do
-      json = load_json('contacts.json')
+      json = load_file('contacts_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json, net_http_resp, {})
@@ -24,7 +24,7 @@ describe ConstantContact::Services::ContactService do
 
   describe "#get_contact" do
     it "returns a contact" do
-      json = load_json('contact.json')
+      json = load_file('contact_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json, net_http_resp, {})
@@ -37,69 +37,71 @@ describe ConstantContact::Services::ContactService do
 
   describe "#add_contact" do
     it "adds a contact" do
-      json = load_json('contact.json')
+      json = load_file('contact_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:post).and_return(response)
-      contact = ConstantContact::Components::Contact.create(JSON.parse(json))
-      added = ConstantContact::Services::ContactService.add_contact('token', contact)
+      new_contact = ConstantContact::Components::Contact.create(JSON.parse(json))
+      contact = ConstantContact::Services::ContactService.add_contact('token', new_contact)
 
-      added.should respond_to(:status)
-      added.status.should eq('REMOVED')
+      contact.should be_kind_of(ConstantContact::Components::Contact)
+      contact.status.should eq('ACTIVE')
     end
   end
 
   describe "#delete_contact" do
     it "deletes a contact" do
-      json = load_json('contact.json')
+      contact_id = 196
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
       response = RestClient::Response.create('', net_http_resp, {})
       RestClient.stub(:delete).and_return(response)
-      contact = ConstantContact::Components::Contact.create(JSON.parse(json))
-      ConstantContact::Services::ContactService.delete_contact('token', contact).should be_true
+
+      result = ConstantContact::Services::ContactService.delete_contact('token', contact_id)
+      result.should be_true
     end
   end
 
   describe "#delete_contact_from_lists" do
     it "deletes a contact" do
-      json = load_json('contact.json')
+      contact_id = 196
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
       response = RestClient::Response.create('', net_http_resp, {})
       RestClient.stub(:delete).and_return(response)
-      contact = ConstantContact::Components::Contact.create(JSON.parse(json))
-      ConstantContact::Services::ContactService.delete_contact_from_lists('token', contact).should be_true
+
+      result = ConstantContact::Services::ContactService.delete_contact_from_lists('token', contact_id)
+      result.should be_true
     end
   end
 
   describe "#delete_contact_from_list" do
     it "deletes a contact" do
-      contact_json = load_json('contact.json')
-      list_json = load_json('list.json')
+      contact_id = 196
+      list_id = 1
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
       response = RestClient::Response.create('', net_http_resp, {})
       RestClient.stub(:delete).and_return(response)
-      contact = ConstantContact::Components::Contact.create(JSON.parse(contact_json))
-      list = ConstantContact::Components::ContactList.create(JSON.parse(list_json))
-      ConstantContact::Services::ContactService.delete_contact_from_list('token', contact, list).should be_true
+
+      result = ConstantContact::Services::ContactService.delete_contact_from_list('token', contact_id, list_id)
+      result.should be_true
     end
   end
 
   describe "#update_contact" do
     it "updates a contact" do
-      json = load_json('contact.json')
+      json = load_file('contact_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:put).and_return(response)
       contact = ConstantContact::Components::Contact.create(JSON.parse(json))
-      added = ConstantContact::Services::ContactService.update_contact('token', contact)
+      result = ConstantContact::Services::ContactService.update_contact('token', contact)
 
-      added.should respond_to(:status)
-      added.status.should eq('REMOVED')
+      result.should be_kind_of(ConstantContact::Components::Contact)
+      result.status.should eq('ACTIVE')
     end
   end
 end

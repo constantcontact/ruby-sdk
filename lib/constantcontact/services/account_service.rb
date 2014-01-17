@@ -9,12 +9,13 @@ module ConstantContact
     class AccountService < BaseService
       class << self
 
-        # Get the verified emails from account
+        # Get all verified email addresses associated with an account
         # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Hash] params - hash of query parameters/values to append to the request
         # @return [Array<VerifiedEmailAddress>]
-        def get_verified_email_addresses(access_token)
+        def get_verified_email_addresses(access_token, params)
           url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.account_verified_addresses')
-          url = build_url(url)
+          url = build_url(url, params)
           response = RestClient.get(url, get_headers(access_token))
           email_addresses = []
           JSON.parse(response.body).each do |email_address|

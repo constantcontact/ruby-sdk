@@ -1,0 +1,9 @@
+{
+"format": "HTML_AND_TEXT",
+"personal_message": "This is a test send of the email campaign message.",
+"email_addresses": [
+"address1@example.com",
+"address2@example.com",
+"address3@example.com"
+]
+}

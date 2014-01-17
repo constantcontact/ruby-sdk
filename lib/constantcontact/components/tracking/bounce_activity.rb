@@ -11,18 +11,18 @@ module ConstantContact
                     :contact_id, :email_address, :campaign_id
 
 
-			# Factory method to create a BounceActivity object from an array
-			# @param [Hash] props - hash of properties to create object from
-			# @return [BounceActivity]
-			def self.create(props)
-				obj = BounceActivity.new
-				if props
-					props.each do |key, value|
-						obj.send("#{key}=", value) if obj.respond_to? key
-					end
-				end
-				obj
-			end
-		end
-	end
+      # Factory method to create a BounceActivity object from an array
+      # @param [Hash] props - properties to create object from
+      # @return [BounceActivity]
+      def self.create(props)
+        obj = BounceActivity.new
+        if props
+          props.each do |key, value|
+            obj.send("#{key}=", value) if obj.respond_to? key
+          end
+        end
+        obj
+      end
+    end
+  end
 end

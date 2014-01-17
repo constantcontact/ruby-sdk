@@ -1,0 +1,31 @@
+    {
+    "file_type":"CSV",
+    "sort_by":"EMAIL_ADDRESS",
+    "export_date_added":true,
+    "export_added_by":true,
+    "lists":[
+    "6"
+    ],
+    "column_names": [
+    "Email Address",
+    "First Name",
+    "Middle Name",
+    "Last Name",
+    "Job Title",
+    "Company Name",
+    "Work Phone",
+    "Home Phone",
+    "Address Line 1",
+    "Address Line 2",
+    "Address Line 3",
+    "City",
+    "US State/CA Province",
+    "Country",
+    "Zip/Postal Code",
+    "Sub Zip/Postal Code",
+    "Custom field 1",
+    "Custom field 3",
+    "Custom field 6",
+    "Custom field 15"
+    ]
+    }

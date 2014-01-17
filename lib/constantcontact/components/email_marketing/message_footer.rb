@@ -12,18 +12,18 @@ module ConstantContact
                     :postal_code, :include_forward_email, :forward_email_link_text,
                     :include_subscribe_link, :subscribe_link_text
 
-			# Factory method to create a MessageFooter object from an array
-			# @param [Hash] props - hash of properties to create object from
-			# @return [MessageFooter]
-			def self.create(props)
-				obj = MessageFooter.new
-				if props
-					props.each do |key, value|
-						obj.send("#{key}=", value) if obj.respond_to? key
-					end
-				end
-				obj
-			end
-		end
-	end
+      # Factory method to create a MessageFooter object from an array
+      # @param [Hash] props - properties to create object from
+      # @return [MessageFooter]
+      def self.create(props)
+        obj = MessageFooter.new
+        if props
+          props.each do |key, value|
+            obj.send("#{key}=", value) if obj.respond_to? key
+          end
+        end
+        obj
+      end
+    end
+  end
 end
