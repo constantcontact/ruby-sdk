@@ -27,6 +27,6 @@ Gem::Specification.new do |s|
   
   s.add_dependency("rest-client")
   s.add_dependency("json")
-  s.add_dependency('mine-types', ['1.25.1'])
+  s.add_dependency('mime-types', ['1.25.1'])
   s.add_development_dependency("rspec")
 end
