@@ -96,7 +96,7 @@ module ConstantContact
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.event'), event_id)
           url = build_url(url)
-          payload = [{op: "REPLACE", path: "#/status", value: "ACTIVE"}].to_json
+          payload = [{:op => "REPLACE", :path => "#/status", :value => "ACTIVE"}].to_json
           response = RestClient.patch(url, payload, get_headers(access_token))
           Components::Event.create(JSON.parse(response.body))
         end
@@ -111,7 +111,7 @@ module ConstantContact
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.event'), event_id)
           url = build_url(url)
-          payload = [{op: "REPLACE", path: "#/status", value: "CANCELLED"}].to_json
+          payload = [{ :op => "REPLACE", :path => "#/status", :value => "CANCELLED" }].to_json
           response = RestClient.patch(url, payload, get_headers(access_token))
           Components::Event.create(JSON.parse(response.body))
         end

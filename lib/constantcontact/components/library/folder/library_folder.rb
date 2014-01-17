@@ -16,7 +16,7 @@ module ConstantContact
         obj = LibraryFolder.new
         if props
           props.each do |key, value|
-            obj.send("#{key}=", value) if obj.respond_to?(key)
+            obj.send("#{key}=", value) if obj.respond_to?("#{key}=")
           end
         end
         obj
