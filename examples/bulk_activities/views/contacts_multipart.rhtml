@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Constant Contact API</title>
+		<style>
+			html {font: normal 12px/16px Arial}
+			.error {color: red; font: normal 13px/16px Verdana}
+			label {display:inline-block; width: 200px}
+		</style>
+	</head>
+
+	<body>
+	<% if @error %>
+		<p class="error">
+			<%=@error%>
+		</p>
+	<% end %>
+
+	<% if @code %>
+
+		<form id="activity-form" action="" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Bulk contacts</legend>
+
+				<p>
+					<label for="activity[file]">File with bulk contacts (txt, csv, xls, xlsx) *</label>
+					<input type="file" name="activity[file]" /> <br />
+					<i>
+						First add contacts using one of the files/add_contacts.* files,
+						then remove them using one of the files/remove_contacts.* files
+					</i>
+				</p>
+			</fieldset>
+
+			<fieldset>
+				<legend>Lists to add bulk contacts to</legend>
+				<% if @lists %>
+					<% for list in @lists %>
+						<p>
+							<label for="lists[checkboxes][id-<%=list['id']%>]"><%=list['name']%></label>
+							<input type="checkbox" name="lists[checkboxes][id-<%=list['id']%>]" value="1" <%=list['selected'] ? 'checked' : ''%> />
+							<input type="hidden" value="<%=list['id']%>" name="lists[ids][id-<%=list['id']%>]" />
+							<input type="hidden" value="<%=list['name']%>" name="lists[names][id-<%=list['id']%>]" />
+						</p>
+					<% end %>
+				<% end %>
+			</fieldset>
+
+			<p>
+				<input type="hidden" value="<%=@code%>" name="code" />
+				<input type="hidden" value="<%=@user%>" name="username" />
+				<input type="hidden" value="<%=@token%>" name="token" />
+				<input type="submit" value="Save contacts" />
+			</p>
+		</form>
+
+	<% else %>
+		<a href="<%=@oauth.get_authorization_url%>">Click to authorize</a>
+	<% end %>
+
+	</body>
+</html>

@@ -11,10 +11,11 @@ module ConstantContact
 
         # Get lists within an account
         # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Hash] params - query parameters to be appended to the request
         # @return [Array<ContactList>]
-        def get_lists(access_token)
+        def get_lists(access_token, params = {})
           url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.lists')
-          url = build_url(url)
+          url = build_url(url, params)
           response = RestClient.get(url, get_headers(access_token))
           lists = []
           JSON.parse(response.body).each do |contact|
@@ -65,11 +66,11 @@ module ConstantContact
         # Get all contacts from an individual list
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] list_id - list id to retrieve contacts for
-        # @param [Hash] param - query parameters to attach to request
+        # @param [Hash] params - query parameters to attach to request
         # @return [Array<Contact>]
-        def get_contacts_from_list(access_token, list_id, param = nil)
+        def get_contacts_from_list(access_token, list_id, params = nil)
           url = Util::Config.get('endpoints.base_url') + sprintf(Util::Config.get('endpoints.list_contacts'), list_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
           response = RestClient.get(url, get_headers(access_token))
           contacts = []
           body = JSON.parse(response.body)

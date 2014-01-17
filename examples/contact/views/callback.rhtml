@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Constant Contact API</title>
+	</head>
+
+	<body>
+	<% if @error %>
+		<p>
+			<%=@error%>
+		</p>
+	<% end %>
+
+	<% if !@code %>
+		<a href="<%=@oauth.get_authorization_url%>">Click to authorize</a>
+	<% end %>
+	</body>
+</html>

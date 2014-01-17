@@ -6,13 +6,13 @@
 <title>
   Class: ConstantContact::Components::ContactList
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.2
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -192,33 +192,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#opt_in_default-instance_method" title="#opt_in_default (instance method)">- (Object) <strong>opt_in_default</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-    
-    
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute opt_in_default.</p>
-</div></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#status-instance_method" title="#status (instance method)">- (Object) <strong>status</strong> </a>
     
 
@@ -290,6 +263,11 @@
   
   
   
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Component.html" title="ConstantContact::Components::Component (class)">Component</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Component.html#to_hash-instance_method" title="ConstantContact::Components::Component#to_hash (method)">#to_hash</a></span>, <span class='object_link'><a href="Component.html#to_hash_value-class_method" title="ConstantContact::Components::Component.to_hash_value (method)">to_hash_value</a></span>, <span class='object_link'><a href="Component.html#to_json-instance_method" title="ConstantContact::Components::Component#to_json (method)">#to_json</a></span></p>
+
   <div id="instance_attr_details" class="attr_details">
     <h2>Instance Attribute Details</h2>
     
@@ -423,49 +401,6 @@
 </div>
     
       
-      <span id="opt_in_default=-instance_method"></span>
-      <div class="method_details ">
-  <h3 class="signature " id="opt_in_default-instance_method">
-  
-    - (<tt>Object</tt>) <strong>opt_in_default</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Returns the value of attribute opt_in_default</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-10
-11
-12</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 10</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_opt_in_default'>opt_in_default</span>
-  <span class='ivar'>@opt_in_default</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      
       <span id="status=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="status-instance_method">
@@ -547,7 +482,7 @@
       
         &mdash;
         <div class='inline'><ul><li>
-<p>array of properties to create object from</p>
+<p>properties to create object from</p>
 </li></ul>
 </div>
       
@@ -589,13 +524,13 @@
       <pre class="code"><span class="info file"># File 'lib/constantcontact/components/contacts/contact_list.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_props'>props</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>ContactList</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-	<span class='kw'>if</span> <span class='id identifier rubyid_props'>props</span>
-		<span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
-			<span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='id identifier rubyid_key'>key</span>
-		<span class='kw'>end</span>
-	<span class='kw'>end</span>
-	<span class='id identifier rubyid_obj'>obj</span>
+  <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>ContactList</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_props'>props</span>
+    <span class='id identifier rubyid_props'>props</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span>
+      <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span class='rbrace'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='id identifier rubyid_key'>key</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_obj'>obj</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -607,9 +542,9 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Jul 29 14:48:34 2013 by
+  Generated on Wed Jan 15 10:06:50 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.2 (ruby-1.9.3).
 </div>
 
   </body>

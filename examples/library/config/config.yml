@@ -1,0 +1,3 @@
+api_key: your API key
+api_secret: your API secret
+redirect_url: http://your domain/cc_callback

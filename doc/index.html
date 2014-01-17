@@ -6,13 +6,13 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.2
   
 </title>
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -70,11 +70,11 @@
 <ol>
 <li><p>Install the gem :</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_constantcontact'>constantcontact</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_constantcontact'>constantcontact</span>
 </code></pre></li>
 <li><p>Configure Rails to load the gem :</p>
 
-<pre class="code ruby"><code>Rails::Initializer.run do |config|
+<pre class="code ruby"><code class="ruby">Rails::Initializer.run do |config|
     ...
     config.gem &quot;constantcontact&quot;
     ...
@@ -84,13 +84,13 @@ end
 
 <p>or add the following in your .Gemfile :</p>
 
-<pre class="code ruby"><code>    <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>constantcontact</span><span class='tstring_end'>'</span></span>
+<pre class="code ruby"><code class="ruby">    <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>constantcontact</span><span class='tstring_end'>'</span></span>
 </code></pre>
 
 <ol>
 <li><p>Create a new action and add the following code:</p>
 
-<pre class="code ruby"><code><span class='ivar'>@oauth</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Auth</span><span class='op'>::</span><span class='const'>OAuth2</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+<pre class="code ruby"><code class="ruby"><span class='ivar'>@oauth</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Auth</span><span class='op'>::</span><span class='const'>OAuth2</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
     <span class='symbol'>:api_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your api key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
     <span class='symbol'>:api_secret</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your secret key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
     <span class='symbol'>:redirect_url</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your redirect url</span><span class='tstring_end'>'</span></span>
@@ -113,7 +113,7 @@ end
 <p>Note: &#39;your redirect url&#39; is the URL of the action you just created.</p></li>
 <li><p>Create a view for the above mentioned action with the following code:</p>
 
-<pre class="code ruby"><code>&lt;% if @error %&gt;
+<pre class="code ruby"><code class="ruby">&lt;% if @error %&gt;
     &lt;p&gt;
         &lt;%=@error%&gt;
     &lt;/p&gt;
@@ -147,13 +147,13 @@ end</p></li>
 <ol>
 <li><p>Install the gem :</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_constantcontact'>constantcontact</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_constantcontact'>constantcontact</span>
 </code></pre></li>
 <li><p>Add the following code in myapp.rb (just an example):
     require &#39;active_support&#39;
     require &#39;constantcontact&#39;</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/my_url</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/my_url</span><span class='tstring_end'>'</span></span> <span class='kw'>do</span>
     <span class='ivar'>@oauth</span> <span class='op'>=</span> <span class='const'>ConstantContact</span><span class='op'>::</span><span class='const'>Auth</span><span class='op'>::</span><span class='const'>OAuth2</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
         <span class='symbol'>:api_key</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your api key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
         <span class='symbol'>:api_secret</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>your secret key</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
@@ -180,7 +180,7 @@ end</p></li>
 <p>Note: &#39;your redirect url&#39; is the URL of the route you just created ( get &#39;/my_url&#39; ).</p></li>
 <li><p>Create a my_view.rhtml (or my_view.erb) with the following code:</p>
 
-<pre class="code ruby"><code>&lt;% if @error %&gt;
+<pre class="code ruby"><code class="ruby">&lt;% if @error %&gt;
     &lt;p&gt;
         &lt;%=@error%&gt;
     &lt;/p&gt;
@@ -205,9 +205,9 @@ and then you will be redirected back to your action and you should see the list 
 </div></div>
 
     <div id="footer">
-  Generated on Mon Jul 29 14:48:32 2013 by
+  Generated on Wed Jan 15 10:06:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.2 (ruby-1.9.3).
 </div>
 
   </body>

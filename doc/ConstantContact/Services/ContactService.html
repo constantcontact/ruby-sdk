@@ -6,13 +6,13 @@
 <title>
   Class: ConstantContact::Services::ContactService
   
-    &mdash; Documentation by YARD 0.8.3
+    &mdash; Documentation by YARD 0.8.7.2
   
 </title>
 
-  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -119,7 +119,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_contact-class_method" title="add_contact (class method)">+ (Contact) <strong>add_contact</strong>(access_token, contact, action_by_visitor = false) </a>
+      <a href="#add_contact-class_method" title="add_contact (class method)">+ (Contact) <strong>add_contact</strong>(access_token, contact, params = {}) </a>
     
 
     
@@ -239,7 +239,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_contacts-class_method" title="get_contacts (class method)">+ (ResultSet&lt;Contact&gt;) <strong>get_contacts</strong>(access_token, param = nil) </a>
+      <a href="#get_contacts-class_method" title="get_contacts (class method)">+ (ResultSet&lt;Contact&gt;) <strong>get_contacts</strong>(access_token, params = {}) </a>
     
 
     
@@ -263,7 +263,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_contact-class_method" title="update_contact (class method)">+ (Contact) <strong>update_contact</strong>(access_token, contact, action_by_visitor = false) </a>
+      <a href="#update_contact-class_method" title="update_contact (class method)">+ (Contact) <strong>update_contact</strong>(access_token, contact, params = {}) </a>
     
 
     
@@ -302,7 +302,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="add_contact-class_method">
   
-    + (<tt>Contact</tt>) <strong>add_contact</strong>(access_token, contact, action_by_visitor = false) 
+    + (<tt>Contact</tt>) <strong>add_contact</strong>(access_token, contact, params = {}) 
   
 
   
@@ -356,18 +356,18 @@
   
     <li>
       
-        <span class='name'>action_by_visitor</span>
+        <span class='name'>params</span>
       
       
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>false</tt>)</em>
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
         &mdash;
         <div class='inline'><ul><li>
-<p>is the action being taken by the visitor</p>
+<p>query params to be appended to the request</p>
 </li></ul>
 </div>
       
@@ -401,19 +401,17 @@
 53
 54
 55
-56
-57</pre>
+56</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 50</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_add_contact'>add_contact</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact'>contact</span><span class='comma'>,</span> <span class='id identifier rubyid_action_by_visitor'>action_by_visitor</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contacts</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_param'>param</span> <span class='op'>=</span> <span class='id identifier rubyid_action_by_visitor'>action_by_visitor</span> <span class='op'>?</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>action_by</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ACTION_BY_VISITOR</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span> <span class='op'>:</span> <span class='kw'>nil</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_contact'>contact</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_add_contact'>add_contact</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact'>contact</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contacts</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_contact'>contact</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -497,21 +495,21 @@
       <pre class="lines">
 
 
+63
 64
 65
 66
 67
-68
-69</pre>
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_contact'>delete_contact</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -584,7 +582,7 @@
       
         &mdash;
         <div class='inline'><ul><li>
-<p>ContactList to remove the contact from</p>
+<p>ContactList id to remove the contact from</p>
 </li></ul>
 </div>
       
@@ -612,21 +610,21 @@
       <pre class="lines">
 
 
+88
 89
 90
 91
 92
-93
-94</pre>
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_contact_from_list'>delete_contact_from_list</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='comma'>,</span> <span class='id identifier rubyid_list_id'>list_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact_list</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='comma'>,</span> <span class='id identifier rubyid_list_id'>list_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact_list</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='comma'>,</span> <span class='id identifier rubyid_list_id'>list_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -710,21 +708,21 @@
       <pre class="lines">
 
 
+75
 76
 77
 78
 79
-80
-81</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_contact_from_lists'>delete_contact_from_lists</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact_lists</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact_lists</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -820,11 +818,11 @@
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_contact'>get_contact</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
-				<span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span>
+        <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact_id'>contact_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -834,7 +832,7 @@
       <div class="method_details ">
   <h3 class="signature " id="get_contacts-class_method">
   
-    + (<tt>ResultSet&lt;Contact&gt;</tt>) <strong>get_contacts</strong>(access_token, param = nil) 
+    + (<tt>ResultSet&lt;Contact&gt;</tt>) <strong>get_contacts</strong>(access_token, params = {}) 
   
 
   
@@ -871,13 +869,13 @@
   
     <li>
       
-        <span class='name'>param</span>
+        <span class='name'>params</span>
       
       
         <span class='type'>(<tt>Hash</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>nil</tt>)</em>
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
         &mdash;
@@ -928,19 +926,19 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 16</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_contacts'>get_contacts</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_param'>param</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contacts</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_contacts'>get_contacts</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contacts</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
 
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
 
-	<span class='id identifier rubyid_contacts'>contacts</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-	<span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>results</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_contact'>contact</span><span class='op'>|</span>
-		<span class='id identifier rubyid_contacts'>contacts</span> <span class='op'>&lt;&lt;</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_contact'>contact</span><span class='rparen'>)</span>
-	<span class='kw'>end</span>
+  <span class='id identifier rubyid_contacts'>contacts</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>results</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_contact'>contact</span><span class='op'>|</span>
+    <span class='id identifier rubyid_contacts'>contacts</span> <span class='op'>&lt;&lt;</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_contact'>contact</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
 
-	<span class='const'>Components</span><span class='op'>::</span><span class='const'>ResultSet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_contacts'>contacts</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>meta</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='const'>Components</span><span class='op'>::</span><span class='const'>ResultSet</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_contacts'>contacts</span><span class='comma'>,</span> <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>meta</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -950,7 +948,7 @@
       <div class="method_details ">
   <h3 class="signature " id="update_contact-class_method">
   
-    + (<tt>Contact</tt>) <strong>update_contact</strong>(access_token, contact, action_by_visitor = false) 
+    + (<tt>Contact</tt>) <strong>update_contact</strong>(access_token, contact, params = {}) 
   
 
   
@@ -1004,18 +1002,18 @@
   
     <li>
       
-        <span class='name'>action_by_visitor</span>
+        <span class='name'>params</span>
       
       
-        <span class='type'>(<tt>Boolean</tt>)</span>
+        <span class='type'>(<tt>Hash</tt>)</span>
       
       
-        <em class="default">(defaults to: <tt>false</tt>)</em>
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
       
       
         &mdash;
         <div class='inline'><ul><li>
-<p>is the action being taken by the visitor</p>
+<p>query params to be appended to the request</p>
 </li></ul>
 </div>
       
@@ -1043,25 +1041,23 @@
       <pre class="lines">
 
 
+101
 102
 103
 104
 105
 106
-107
-108
-109</pre>
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 102</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/contact_service.rb', line 101</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update_contact'>update_contact</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact'>contact</span><span class='comma'>,</span> <span class='id identifier rubyid_action_by_visitor'>action_by_visitor</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact'>contact</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_param'>param</span> <span class='op'>=</span> <span class='id identifier rubyid_action_by_visitor'>action_by_visitor</span> <span class='op'>?</span> <span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>action_by</span><span class='tstring_end'>'</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>ACTION_BY_VISITOR</span><span class='tstring_end'>'</span></span><span class='rbrace'>}</span> <span class='op'>:</span> <span class='kw'>nil</span>
-	<span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_param'>param</span><span class='rparen'>)</span>
-	<span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_contact'>contact</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
-	<span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
-	<span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_contact'>update_contact</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_contact'>contact</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.contact</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_contact'>contact</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_contact'>contact</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='const'>Components</span><span class='op'>::</span><span class='const'>Contact</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1073,9 +1069,9 @@
 </div>
 
     <div id="footer">
-  Generated on Mon Jul 29 14:48:33 2013 by
+  Generated on Wed Jan 15 10:06:48 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.3).
+  0.8.7.2 (ruby-1.9.3).
 </div>
 
   </body>

@@ -10,11 +10,12 @@ module ConstantContact
       class << self
 
         # Get a set of activities
-        # @param [String] access_token
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Hash] params - query parameters to be appended to the url
         # @return [Array<Activity>]
-        def get_activities(access_token)
+        def get_activities(access_token, params = {})
           url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.activities')
-          url = build_url(url)
+          url = build_url(url, params)
           response = RestClient.get(url, get_headers(access_token))
 
           activities = []
@@ -48,6 +49,24 @@ module ConstantContact
                 Util::Config.get('endpoints.add_contacts_activity')
           url = build_url(url)
           payload = add_contacts.to_json
+          response = RestClient.post(url, payload, get_headers(access_token))
+          Components::Activity.create(JSON.parse(response.body))
+        end
+
+
+        # Create an Add Contacts Activity from a file. Valid file types are txt, csv, xls, xlsx
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [String] file_name - The name of the file (ie: contacts.csv)
+        # @param [String] contents - The content of the file
+        # @param [String] lists - Comma separated list of ContactList id's to add the contacts to
+        # @return [Activity]
+        def create_add_contacts_activity_from_file(access_token, file_name, contents, lists)
+          url = Util::Config.get('endpoints.base_url') +
+                Util::Config.get('endpoints.add_contacts_activity')
+          url = build_url(url)
+
+          payload = { :file_name => file_name, :lists => lists, :data => contents, :multipart => true }
+
           response = RestClient.post(url, payload, get_headers(access_token))
           Components::Activity.create(JSON.parse(response.body))
         end
@@ -96,6 +115,24 @@ module ConstantContact
             payload['import_data'] << { 'email_addresses' => [email_address] }
           end
           payload = payload.to_json
+
+          response = RestClient.post(url, payload, get_headers(access_token))
+          Components::Activity.create(JSON.parse(response.body))
+        end
+
+
+        # Create an Remove Contacts Activity from a file. Valid file types are txt, csv, xls, xlsx
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [String] file_name - The name of the file (ie: contacts.csv)
+        # @param [String] contents - The content of the file
+        # @param [String] lists - Comma separated list of ContactList id' to add the contacts too
+        # @return [Activity]
+        def add_remove_contacts_from_lists_activity_from_file(access_token, file_name, contents, lists)
+          url = Util::Config.get('endpoints.base_url') +
+                Util::Config.get('endpoints.remove_from_lists_activity')
+          url = build_url(url)
+
+          payload = { :file_name => file_name, :lists => lists, :data => contents, :multipart => true }
 
           response = RestClient.post(url, payload, get_headers(access_token))
           Components::Activity.create(JSON.parse(response.body))

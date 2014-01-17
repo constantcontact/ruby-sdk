@@ -16,18 +16,18 @@ module ConstantContact
         @email_address = email_address if email_address
       end
 
-			# Factory method to create an EmailAddress object from a json string
-			# @param [Hash] props - array of properties to create object from
-			# @return [EmailAddress]
-			def self.create(props)
-				obj = EmailAddress.new
-				if props
-					props.each do |key, value|
-						obj.send("#{key}=", value) if obj.respond_to? key
-					end
-				end
-				obj
-			end
-		end
-	end
+      # Factory method to create an EmailAddress object from a json string
+      # @param [Hash] props - properties to create object from
+      # @return [EmailAddress]
+      def self.create(props)
+        obj = EmailAddress.new
+        if props
+          props.each do |key, value|
+            obj.send("#{key}=", value) if obj.respond_to? key
+          end
+        end
+        obj
+      end
+    end
+  end
 end

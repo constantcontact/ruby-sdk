@@ -9,18 +9,18 @@ module ConstantContact
     class Note < Component
       attr_accessor :id, :note, :created_date
 
-			# Factory method to create a Note object from a json string
-			# @param [String] props - JSON string representing a contact
-			# @return Note
-			def self.create(props)
-				note = Note.new
-				if props
-					props.each do |key, value|
-						note.send("#{key}=", value)
-					end
-				end
-				note
-		  end
+      # Factory method to create a Note object from a json string
+      # @param [String] props - properties to create object from
+      # @return Note
+      def self.create(props)
+        note = Note.new
+        if props
+          props.each do |key, value|
+            note.send("#{key}=", value)
+          end
+        end
+        note
+      end
     end
-	end
+  end
 end

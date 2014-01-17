@@ -1,0 +1,59 @@
+ {
+"id": 196,
+"status": "ACTIVE",
+"fax": "318-978-7575",
+"addresses": [
+{
+"line1": "541 Brighton Ave.",
+"line2": "Unit 785",
+"line3": "",
+"city": "Cambridge",
+"address_type": "PERSONAL",
+"state_code": "MA",
+"country_code": "us",
+"postal_code": "01555",
+"sub_postal_code": ""
+},
+{
+"line1": "47 Shawmut Ave.",
+"line2": "Suite 404",
+"line3": "",
+"city": "Boston",
+"address_type": "BUSINESS",
+"state_code": "MA",
+"country_code": "us",
+"postal_code": "02158",
+"sub_postal_code": ""
+}
+],
+"notes": [],
+"confirmed": false,
+"lists": [
+{
+"id": 1,
+"status": "ACTIVE"
+}
+],
+"source": "API",
+"email_addresses": [
+{
+"status": "ACTIVE",
+"confirm_status": "NO_CONFIRMATION_REQUIRED",
+"opt_in_source": "ACTION_BY_VISITOR",
+"opt_in_date": "2013-01-23T13:48:44.108Z",
+"opt_out_date": "1969-12-31T19:00:00.000Z",
+"email_address": "rmartone@systems.com"
+}
+],
+"prefix_name": "Mr.",
+"first_name": "Ronald",
+"middle_name": "Angelo",
+"last_name": "Martone",
+"job_title": "Systems Analyst 3",
+"company_name": "System Optimzations",
+"home_phone": "617-555-1212",
+"work_phone": "318-978-8896",
+"cell_phone": "448-989-3182",
+"custom_fields": [],
+"source_details": "a48a8cd7-4e71-4ded-bec7-8e603e456968"
+}

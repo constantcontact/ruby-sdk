@@ -7,7 +7,7 @@
 module ConstantContact
   module Components
     class Component
-      
+
       def to_hash
         hash = Hash.new
         self.instance_variables.collect do |var|
@@ -15,7 +15,7 @@ module ConstantContact
         end
         hash
       end
-      
+
       def self.to_hash_value(val)
         if val.is_a? ConstantContact::Components::Component
           return val.to_hash
@@ -27,11 +27,11 @@ module ConstantContact
           return val
         end
       end
-      
-      def to_json
+
+      def to_json(val = nil)
         self.to_hash.to_json
       end
-      
+
       protected
 
       # Get the requested value from a hash, or return the default

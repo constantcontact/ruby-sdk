@@ -102,7 +102,7 @@ module ConstantContact
           if !contact.custom_fields.nil?
             contact.custom_fields.each do |custom_field|
               if custom_field.name.match('custom_field_')
-                custom_field_number = custom_field.name[13, custom_field.length]
+                custom_field_number = custom_field.name[13, custom_field.name.length]
                 used_columns << Util::Config.get('activities_columns.custom_field_' + custom_field_number)
               end
             end

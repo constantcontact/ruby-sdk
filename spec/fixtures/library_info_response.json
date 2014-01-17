@@ -1,0 +1,19 @@
+[
+{
+"max_free_file_num" : 0,
+"max_premium_space_limit" : 262144000,
+"image_root" : "https://origin.ih.constantcontact.com",
+"usage_summary" : {
+"folder_count" : 6,
+"file_count" : 637,
+"image_count" : 492,
+"document_count" : 145,
+"total_bytes_used" : 36240602,
+"image_bytes_used" : 34628484,
+"document_bytes_used" : 1612118,
+"total_bytes_remaining" : 225903398,
+"free_files_remaining" : 0
+},
+"max_upload_size_limit" : 5242880
+}
+]

@@ -9,15 +9,15 @@ module ConstantContact
     class CampaignTrackingService < BaseService
       class << self
 
-        # Get a result set of bounces for a given campaign
+        # Get bounces for a given campaign
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [String] campaign_id - Campaign id
-        # @param [Hash] param - query parameters to be appended to request
+        # @param [Hash] params - query parameters to be appended to request
         # @return [ResultSet<BounceActivity>] - Containing a results array of BounceActivity
-        def get_bounces(access_token, campaign_id, param = nil)
+        def get_bounces(access_token, campaign_id, params = {})
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.campaign_tracking_bounces'), campaign_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
@@ -34,12 +34,12 @@ module ConstantContact
         # Get clicks for a given campaign
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [String] campaign_id - Campaign id
-        # @param [Hash] param - query parameters to be appended to request
+        # @param [Hash] params - query parameters to be appended to request
         # @return [ResultSet<ClickActivity>] - Containing a results array of ClickActivity
-        def get_clicks(access_token, campaign_id, param = nil)
+        def get_clicks(access_token, campaign_id, params = {})
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.campaign_tracking_clicks'), campaign_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
@@ -56,12 +56,12 @@ module ConstantContact
         # Get forwards for a given campaign
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [String] campaign_id - Campaign id
-        # @param [Hash] param - query parameters to be appended to request
+        # @param [Hash] params - query parameters to be appended to request
         # @return [ResultSet<ForwardActivity>] - Containing a results array of ForwardActivity
-        def get_forwards(access_token, campaign_id, param = nil)
+        def get_forwards(access_token, campaign_id, params = {})
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.campaign_tracking_forwards'), campaign_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
@@ -78,12 +78,12 @@ module ConstantContact
         # Get opens for a given campaign
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [String] campaign_id - Campaign id
-        # @param [Hash] param - query parameters to be appended to request
+        # @param [Hash] params - query parameters to be appended to request
         # @return [ResultSet<OpenActivity>] - Containing a results array of OpenActivity
-        def get_opens(access_token, campaign_id, param = nil)
+        def get_opens(access_token, campaign_id, params = {})
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.campaign_tracking_opens'), campaign_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
@@ -100,12 +100,12 @@ module ConstantContact
         # Get sends for a given campaign
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [String] campaign_id - Campaign id
-        # @param [Hash] param - query parameters to be appended to request
+        # @param [Hash] params - query parameters to be appended to request
         # @return [ResultSet<SendActivity>] - Containing a results array of SendActivity
-        def get_sends(access_token, campaign_id, param = nil)
+        def get_sends(access_token, campaign_id, params = {})
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.campaign_tracking_sends'), campaign_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
@@ -122,19 +122,19 @@ module ConstantContact
         # Get unsubscribes for a given campaign
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [String] campaign_id - Campaign id
-        # @param [Hash] param - query params to be appended to request
+        # @param [Hash] params - query params to be appended to request
         # @return [ResultSet<UnsubscribeActivity>] - Containing a results array of UnsubscribeActivity
-        def get_unsubscribes(access_token, campaign_id, param = nil)
+        def get_unsubscribes(access_token, campaign_id, params = {})
           url = Util::Config.get('endpoints.base_url') +
                 sprintf(Util::Config.get('endpoints.campaign_tracking_unsubscribes'), campaign_id)
-          url = build_url(url, param)
+          url = build_url(url, params)
 
           response = RestClient.get(url, get_headers(access_token))
           body = JSON.parse(response.body)
 
           unsubscribes = []
           body['results'].each do |unsubscribe_activity|
-            unsubscribes[] = Components::UnsubscribeActivity.create(unsubscribe_activity)
+            unsubscribes << Components::UnsubscribeActivity.create(unsubscribe_activity)
           end
 
           Components::ResultSet.new(unsubscribes, body['meta'])
