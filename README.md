@@ -1,6 +1,8 @@
 Constant Contact Ruby SDK
 =========================
 
+[![Build Status](https://travis-ci.org/constantcontact/ruby-sdk.png)](https://travis-ci.org/constantcontact/ruby-sdk)
+
 In order to use the Constant Contact SDK you have to follow these steps:
 
 A. Rails example :
