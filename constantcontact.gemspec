@@ -2,11 +2,10 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'constantcontact'
 
 Gem::Specification.new do |s|
   s.name = "constantcontact"
-  s.version = ConstantContact::SDK::VERSION
+  s.version = '1.1.0'
   s.platform = Gem::Platform::RUBY
   s.authors = ["ConstantContact"]
   s.homepage = "http://www.constantcontact.com"
