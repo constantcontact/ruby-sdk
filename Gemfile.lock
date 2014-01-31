@@ -30,4 +30,4 @@ PLATFORMS
 DEPENDENCIES
   constantcontact!
   rake
-  rspec (~> 2.14, >= 2.14.1)
+  rspec (~> 2.14)
