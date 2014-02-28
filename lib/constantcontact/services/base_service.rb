@@ -50,6 +50,10 @@ module ConstantContact
               if value.respond_to? :iso8601
                 params[key] = value.iso8601
               end
+
+              if key.to_s == 'next' && value.match(/^.*?next=(.*)$/)
+                params[key] = $1
+              end
             end
           else
             params ||= {}
