@@ -26,7 +26,7 @@ module ConstantContact
               registrant.send("#{key}=", value.collect{|section| Components::EventSpot::RegistrantSection.create(section) })
             elsif key == 'promo_code_info'
               value ||= []
-              registration.promo_code_info = value.collect{|code| Components::EventSpot::PromoCode.create code }
+              registration.promo_code_info = value.collect{|code| Components::EventSpot::Promocode.create code }
             elsif key == 'guests'
               value = value["guest_info"] || []
               registrant.guests = value.collect{|guest| Components::EventSpot::Guest.create guest }

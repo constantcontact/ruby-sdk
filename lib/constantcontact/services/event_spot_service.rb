@@ -245,8 +245,245 @@ module ConstantContact
           url = build_url(url)
 
           response = RestClient.get(url, get_headers(access_token))
-         registrant = Components::Registrant.create(JSON.parse(response.body))
+          registrant = Components::Registrant.create(JSON.parse(response.body))
         end
+
+
+        # Get an array of event items for an individual event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - event id to retrieve items for
+        # @return [Array<EventItem>]
+        def get_event_items(access_token, event_id)
+          url = Util::Config.get('endpoints.base_url') + 
+                sprintf(Util::Config.get('endpoints.event_items'), event_id)
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+
+          event_items = []
+          JSON.parse(response.body).each do |event_item|
+            event_items << Components::EventItem.create(event_item)
+          end
+
+          event_items
+        end
+
+
+        # Get an individual event item
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to retrieve item for
+        # @param [Integer] item_id - id of item to be retrieved
+        # @return [EventItem]
+        def get_event_item(access_token, event_id, item_id)
+          url = Util::Config.get('endpoints.base_url') + 
+                sprintf(Util::Config.get('endpoints.event_item'), event_id, item_id)
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+          Components::EventItem.create(JSON.parse(response.body))
+        end
+
+
+        # Create a new event item for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to be associated with the event item
+        # @param [EventItem] event_item - event item to be created
+        # @return [EventItem]
+        def add_event_item(access_token, event_id, event_item)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_items'), event_id)
+          url = build_url(url)
+          payload = event_item.to_json
+          response = RestClient.post(url, payload, get_headers(access_token))
+          Components::EventItem.create(JSON.parse(response.body))
+        end
+
+
+        # Delete a specific event item for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to delete an event item for
+        # @param [Integer] item_id - id of event item to be deleted
+        # @return [Boolean]
+        def delete_event_item(access_token, event_id, item_id)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_item'), event_id, item_id)
+          url = build_url(url)
+          response = RestClient.delete(url, get_headers(access_token))
+          response.code == 204
+        end
+
+
+        # Update a specific event item for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event associated with the event item
+        # @param [EventItem] event_item - event item to be updated
+        # @return [EventItem]
+        def update_event_item(access_token, event_id, event_item)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_item'), event_id, event_item.id)
+          url = build_url(url)
+          payload = event_item.to_json
+          response = RestClient.put(url, payload, get_headers(access_token))
+          Components::EventItem.create(JSON.parse(response.body))
+        end
+
+
+        # Get an array of attributes for an individual event item
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - event id to retrieve item for
+        # @param [Integer] item_id - event item id to retrieve attributes for
+        # @return [Array<EventItemAttribute>]
+        def get_event_item_attributes(access_token, event_id, item_id)
+          url = Util::Config.get('endpoints.base_url') + 
+                sprintf(Util::Config.get('endpoints.event_item_attributes'), event_id, item_id)
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+
+          event_item_attributes = []
+          JSON.parse(response.body).each do |event_item_attribute|
+            event_item_attributes << Components::EventItemAttribute.create(event_item_attribute)
+          end
+
+          event_item_attributes
+        end
+
+
+        # Get an individual event item attribute
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to retrieve item for
+        # @param [Integer] item_id - id of item to retrieve attribute for
+        # @param [Integer] attribute_id - id of attribute to be retrieved
+        # @return [EventItemAttribute]
+        def get_event_item_attribute(access_token, event_id, item_id, attribute_id)
+          url = Util::Config.get('endpoints.base_url') + 
+                sprintf(Util::Config.get('endpoints.event_item_attribute'), event_id, item_id, attribute_id)
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+          Components::EventItemAttribute.create(JSON.parse(response.body))
+        end
+
+
+        # Create a new event item attribute for an event item
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to be associated with the event item attribute
+        # @param [Integer] item_id - id of event item to be associated with the event item attribute
+        # @param [EventItemAttribute] event_item_attribute - event item attribute to be created
+        # @return [EventItemAttribute]
+        def add_event_item_attribute(access_token, event_id, item_id, event_item_attribute)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_item_attributes'), event_id, item_id)
+          url = build_url(url)
+          payload = event_item_attribute.to_json
+          response = RestClient.post(url, payload, get_headers(access_token))
+          Components::EventItemAttribute.create(JSON.parse(response.body))
+        end
+
+
+        # Delete a specific event item for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to delete an event item attribute for
+        # @param [Integer] item_id - id of event item to delete an event item attribute for
+        # @param [Integer] attribute_id - id of attribute to be deleted
+        # @return [Boolean]
+        def delete_event_item_attribute(access_token, event_id, item_id, attribute_id)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_item_attribute'), event_id, item_id, attribute_id)
+          url = build_url(url)
+          response = RestClient.delete(url, get_headers(access_token))
+          response.code == 204
+        end
+
+
+        # Update a specific event item attribute for an event item
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event associated with the event item
+        # @param [Integer] item_id - id of event item associated with the event item attribute
+        # @param [EventItemAttribute] event_item_attribute - event item to be updated
+        # @return [EventItemAttribute]
+        def update_event_item_attribute(access_token, event_id, item_id, event_item_attribute)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_item'), event_id, item_id, event_item_attribute.id)
+          url = build_url(url)
+          payload = event_item_attribute.to_json
+          response = RestClient.put(url, payload, get_headers(access_token))
+          Components::EventItemAttribute.create(JSON.parse(response.body))
+        end
+
+
+        # Get an array of promocodes for an individual event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - event id to retrieve promocodes for
+        # @return [Array<Promocode>]
+        def get_promocodes(access_token, event_id)
+          url = Util::Config.get('endpoints.base_url') + 
+                sprintf(Util::Config.get('endpoints.event_promocodes'), event_id)
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+
+          promocodes = []
+          JSON.parse(response.body).each do |promocode|
+            promocodes << Components::Promocode.create(promocode)
+          end
+
+          promocodes
+        end
+
+
+        # Get an individual promocode
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to retrieve item for
+        # @param [Integer] promocode_id - id of item to be retrieved
+        # @return [Promocode]
+        def get_promocode(access_token, event_id, promocode_id)
+          url = Util::Config.get('endpoints.base_url') + 
+                sprintf(Util::Config.get('endpoints.event_promocode'), event_id, promocode_id)
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+          Components::Promocode.create(JSON.parse(response.body))
+        end
+
+
+        # Create a new promocode for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to be associated with the promocode
+        # @param [Promocode] promocode - promocode to be created
+        # @return [Promocode]
+        def add_promocode(access_token, event_id, promocode)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_promocodes'), event_id)
+          url = build_url(url)
+          payload = promocode.to_json
+          response = RestClient.post(url, payload, get_headers(access_token))
+          Components::Promocode.create(JSON.parse(response.body))
+        end
+
+
+        # Delete a specific promocode for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event to delete a promocode for
+        # @param [Integer] promocode_id - id of promocode to be deleted
+        # @return [Boolean]
+        def delete_promocode(access_token, event_id, promocode_id)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_promocode'), event_id, promocode_id)
+          url = build_url(url)
+          response = RestClient.delete(url, get_headers(access_token))
+          response.code == 204
+        end
+
+
+        # Update a specific promocode for an event
+        # @param [String] access_token - Constant Contact OAuth2 access token
+        # @param [Integer] event_id - id of event associated with the promocode
+        # @param [Promocode] promocode - promocode to be updated
+        # @return [Promocode]
+        def update_promocode(access_token, event_id, promocode)
+          url = Util::Config.get('endpoints.base_url') +
+                sprintf(Util::Config.get('endpoints.event_promocode'), event_id, promocode.id)
+          url = build_url(url)
+          payload = promocode.to_json
+          response = RestClient.put(url, payload, get_headers(access_token))
+          Components::Promocode.create(JSON.parse(response.body))
+        end
+
 
       end
     end

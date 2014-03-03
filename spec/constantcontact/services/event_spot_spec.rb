@@ -214,4 +214,218 @@ describe ConstantContact::Services::EventSpotService do
       retrieved.id.should_not be_empty
     end
   end
+
+  describe "#get_event_items" do
+    it "returns an array of event items" do
+      json_response = load_file('event_items_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json_response, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      results = ConstantContact::Services::EventSpotService.get_event_items('token', 1)
+      results.should be_kind_of(Array)
+      results.first.should be_kind_of(ConstantContact::Components::EventItem)
+      results.first.name.should eq('Running Belt')
+    end
+  end
+
+  describe "#get_event_item" do
+    it "returns an event item" do
+      json = load_file('event_item_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      result = ConstantContact::Services::EventSpotService.get_event_item('token', 1, 1)
+      result.should be_kind_of(ConstantContact::Components::EventItem)
+      result.name.should eq('Running Belt')
+    end
+  end
+
+  describe "#add_event_item" do
+    it "adds an event item" do
+      json = load_file('event_item_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:post).and_return(response)
+      event_item = ConstantContact::Components::EventItem.create(JSON.parse(json))
+
+      result = ConstantContact::Services::EventSpotService.add_event_item('token', 1, event_item)
+      result.should be_kind_of(ConstantContact::Components::EventItem)
+      result.name.should eq('Running Belt')
+    end
+  end
+
+  describe "#delete_event_item" do
+    it "deletes an event item" do
+      net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
+
+      response = RestClient::Response.create('', net_http_resp, {})
+      RestClient.stub(:delete).and_return(response)
+
+      result = ConstantContact::Services::EventSpotService.delete_event_item('token', 1, 1)
+      result.should be_true
+    end
+  end
+
+  describe "#update_event_item" do
+    it "updates an event item" do
+      json = load_file('event_item_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:put).and_return(response)
+      event_item = ConstantContact::Components::EventItem.create(JSON.parse(json))
+
+      result = ConstantContact::Services::EventSpotService.update_event_item('token', 1, event_item)
+      result.should be_kind_of(ConstantContact::Components::EventItem)
+      result.name.should eq('Running Belt')
+    end
+  end
+
+  describe "#get_event_item_attributes" do
+    it "returns an array of event item attributes" do
+      json_response = load_file('event_item_attributes_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json_response, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      results = ConstantContact::Services::EventSpotService.get_event_item_attributes('token', 1, 1)
+      results.should be_kind_of(Array)
+      results.first.should be_kind_of(ConstantContact::Components::EventItemAttribute)
+      results.first.name.should eq('Royal Blue')
+    end
+  end
+
+  describe "#get_event_item_attribute" do
+    it "returns an event item attribute" do
+      json = load_file('event_item_attribute_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      result = ConstantContact::Services::EventSpotService.get_event_item_attribute('token', 1, 1, 1)
+      result.should be_kind_of(ConstantContact::Components::EventItemAttribute)
+      result.name.should eq('Hi-Vis Green')
+    end
+  end
+
+  describe "#add_event_item_attribute" do
+    it "adds an event item attribute" do
+      json = load_file('event_item_attribute_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:post).and_return(response)
+      event_item_attribute = ConstantContact::Components::EventItemAttribute.create(JSON.parse(json))
+
+      result = ConstantContact::Services::EventSpotService.add_event_item_attribute('token', 1, 1, event_item_attribute)
+      result.should be_kind_of(ConstantContact::Components::EventItemAttribute)
+      result.name.should eq('Hi-Vis Green')
+    end
+  end
+
+  describe "#delete_event_item_attribute" do
+    it "deletes an event item attribute" do
+      net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
+
+      response = RestClient::Response.create('', net_http_resp, {})
+      RestClient.stub(:delete).and_return(response)
+
+      result = ConstantContact::Services::EventSpotService.delete_event_item_attribute('token', 1, 1, 1)
+      result.should be_true
+    end
+  end
+
+  describe "#update_event_item_attribute" do
+    it "updates an event item attribute" do
+      json = load_file('event_item_attribute_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:put).and_return(response)
+      event_item_attribute = ConstantContact::Components::EventItemAttribute.create(JSON.parse(json))
+
+      result = ConstantContact::Services::EventSpotService.update_event_item_attribute('token', 1, 1, event_item_attribute)
+      result.should be_kind_of(ConstantContact::Components::EventItemAttribute)
+      result.name.should eq('Hi-Vis Green')
+    end
+  end
+
+  describe "#get_promocodes" do
+    it "returns an array of promocodes" do
+      json_response = load_file('promocodes_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json_response, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      results = ConstantContact::Services::EventSpotService.get_promocodes('token', 1)
+      results.should be_kind_of(Array)
+      results.first.should be_kind_of(ConstantContact::Components::Promocode)
+      results.first.code_name.should eq('REDUCED_FEE')
+    end
+  end
+
+  describe "#get_promocode" do
+    it "returns a promocode" do
+      json = load_file('promocode_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      result = ConstantContact::Services::EventSpotService.get_promocode('token', 1, 1)
+      result.should be_kind_of(ConstantContact::Components::Promocode)
+      result.code_name.should eq('TOTAL_FEE')
+    end
+  end
+
+  describe "#add_promocode" do
+    it "adds a promocode" do
+      json = load_file('promocode_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:post).and_return(response)
+      promocode = ConstantContact::Components::Promocode.create(JSON.parse(json))
+
+      result = ConstantContact::Services::EventSpotService.add_promocode('token', 1, promocode)
+      result.should be_kind_of(ConstantContact::Components::Promocode)
+      result.code_name.should eq('TOTAL_FEE')
+    end
+  end
+
+  describe "#delete_promocode" do
+    it "deletes a promocode" do
+      net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
+
+      response = RestClient::Response.create('', net_http_resp, {})
+      RestClient.stub(:delete).and_return(response)
+
+      result = ConstantContact::Services::EventSpotService.delete_promocode('token', 1, 1)
+      result.should be_true
+    end
+  end
+
+  describe "#update_promocode" do
+    it "updates an event item" do
+      json = load_file('promocode_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json, net_http_resp, {})
+      RestClient.stub(:put).and_return(response)
+      promocode = ConstantContact::Components::Promocode.create(JSON.parse(json))
+
+      result = ConstantContact::Services::EventSpotService.update_promocode('token', 1, promocode)
+      result.should be_kind_of(ConstantContact::Components::Promocode)
+      result.code_name.should eq('TOTAL_FEE')
+    end
+  end
+
 end
