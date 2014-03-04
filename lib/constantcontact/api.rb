@@ -621,7 +621,7 @@ module ConstantContact
     # Cancel an event
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event to cancel
-    # @return [Activity]
+    # @return [Event]
     def cancel_event(access_token, event)
       Services::EventSpotService.cancel_event(access_token, event)
     end
@@ -629,8 +629,8 @@ module ConstantContact
 
     # Delete an event
     # @param [String] access_token - Constant Contact OAuth2 access token
-    # @param [Event] event - Event fee corresponds to
-    # @return [Activity]
+    # @param [Event] event - Event to delete
+    # @return [Boolean]
     def delete_event(access_token, event)
       Services::EventSpotService.delete_event(access_token, event)
     end

@@ -61,12 +61,15 @@ module ConstantContact
     autoload :LibraryFile, 'constantcontact/components/library/file/library_file'
 
     module EventSpot
+      autoload :EventAddress, 'constantcontact/components/event_spot/event_address'
       autoload :Contact, 'constantcontact/components/event_spot/contact'
       autoload :NotificationOption, 'constantcontact/components/event_spot/notification_option'
+      autoload :PaymentAddress, 'constantcontact/components/event_spot/payment_address'
       autoload :Guest, 'constantcontact/components/event_spot/guest'
       autoload :EventTrack, 'constantcontact/components/event_spot/event_track'
       autoload :RegistrantSection, 'constantcontact/components/event_spot/registrant_section'
       autoload :RegistrantField, 'constantcontact/components/event_spot/registrant_field'
+      autoload :SaleItem, 'constantcontact/components/event_spot/sale_item'
     end
   end
 

@@ -8,7 +8,7 @@ require 'spec_helper'
 
 describe ConstantContact::Services::EventSpotService do
   describe "#get_events" do
-    it "returns an array of events" do
+    it "returns a set of events" do
       json = load_file('events.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
