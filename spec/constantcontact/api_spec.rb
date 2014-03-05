@@ -374,7 +374,7 @@ describe ConstantContact::Api do
         #fees.results.collect{|f| f.should be_kind_of(ConstantContact::Components::Fee) }
 
         fees.should be_kind_of(Array) # inconsistent with oether APIs.
-        fees.collect{|f| f.should be_kind_of(ConstantContact::Components::Fee) }
+        fees.collect{|f| f.should be_kind_of(ConstantContact::Components::EventFee) }
       end
     end
 
@@ -388,9 +388,9 @@ describe ConstantContact::Api do
         RestClient.stub(:get).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
-        fee   = ConstantContact::Components::Fee.create(JSON.parse(fee_json))
+        fee   = ConstantContact::Components::EventFee.create(JSON.parse(fee_json))
         retrieved = @api.get_event_fee('token', event, fee)
-        retrieved.should be_kind_of(ConstantContact::Components::Fee)
+        retrieved.should be_kind_of(ConstantContact::Components::EventFee)
       end
     end
 
@@ -404,9 +404,9 @@ describe ConstantContact::Api do
         RestClient.stub(:post).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
-        fee   = ConstantContact::Components::Fee.create(JSON.parse(fee_json))
+        fee   = ConstantContact::Components::EventFee.create(JSON.parse(fee_json))
         added = @api.add_event_fee('token', event, fee)
-        added.should be_kind_of(ConstantContact::Components::Fee)
+        added.should be_kind_of(ConstantContact::Components::EventFee)
         added.id.should_not be_empty
       end
     end
@@ -423,9 +423,9 @@ describe ConstantContact::Api do
         RestClient.stub(:put).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
-        fee   = ConstantContact::Components::Fee.create(JSON.parse(fee_json))
+        fee   = ConstantContact::Components::EventFee.create(JSON.parse(fee_json))
         updated = @api.update_event_fee('token', event, fee)
-        updated.should be_kind_of(ConstantContact::Components::Fee)
+        updated.should be_kind_of(ConstantContact::Components::EventFee)
         updated.fee.should_not eq(fee.fee)
         updated.fee.should eq(fee.fee + 1)
       end
@@ -441,7 +441,7 @@ describe ConstantContact::Api do
         RestClient.stub(:delete).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
-        fee   = ConstantContact::Components::Fee.create(JSON.parse(fee_json))
+        fee   = ConstantContact::Components::EventFee.create(JSON.parse(fee_json))
         @api.delete_event_fee('token', event, fee).should be_true
       end
     end

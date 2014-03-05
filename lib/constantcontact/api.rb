@@ -639,7 +639,7 @@ module ConstantContact
     # Get a list of event fees
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event to get fees of
-    # @return [Activity]
+    # @return [<Array>EventFee]
     def get_event_fees(access_token, event)
       Services::EventSpotService.get_fees(access_token, event)
     end
@@ -648,8 +648,8 @@ module ConstantContact
     # Get an event fee
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @param [Fee] fee - Fee to retrieve
-    # @return [Activity]
+    # @param [EventFee] fee - Fee to retrieve
+    # @return [EventFee]
     def get_event_fee(access_token, event, fee)
       Services::EventSpotService.get_fee(access_token, event, fee)
     end
@@ -659,7 +659,7 @@ module ConstantContact
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
     # @param [Hash] fee - Fee details
-    # @return [Activity]
+    # @return [EventFee]
     def add_event_fee(access_token, event, fee)
       Services::EventSpotService.add_fee(access_token, event, fee)
     end
@@ -668,8 +668,8 @@ module ConstantContact
     # Update an event fee
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @param [Fee] fee - Fee details
-    # @return [Activity]
+    # @param [EventFee] fee - Fee details
+    # @return [EventFee]
     def update_event_fee(access_token, event, fee)
       Services::EventSpotService.update_fee(access_token, event, fee)
     end
@@ -678,8 +678,8 @@ module ConstantContact
     # Delete an event fee
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @param [Fee] fee - Fee details
-    # @return [Activity]
+    # @param [EventFee] fee - Fee details
+    # @return [Boolean]
     def delete_event_fee(access_token, event, fee)
       Services::EventSpotService.delete_fee(access_token, event, fee)
     end

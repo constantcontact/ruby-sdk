@@ -120,8 +120,8 @@ module ConstantContact
         # Create a new event fee
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] event - Valid event id
-        # @param [Fee] fee - Event fee to be created
-        # @return [Fee]
+        # @param [EventFee] fee - Event fee to be created
+        # @return [EventFee]
         def add_fee(access_token, event, fee)
           event_id = get_id_for(event)
           url = Util::Config.get('endpoints.base_url') +
@@ -129,14 +129,14 @@ module ConstantContact
           url = build_url(url)
           payload = fee.to_json
           response = RestClient.post(url, payload, get_headers(access_token))
-          Components::Fee.create(JSON.parse(response.body))
+          Components::EventFee.create(JSON.parse(response.body))
         end
 
 
-        # Get a set of event fees
+        # Get an array of event fees
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] event - Valid event id
-        # @return [ResultSet<Fee>]
+        # @return [Array<EventFee>]
         def get_fees(access_token, event)
           event_id = get_id_for(event)
           url = Util::Config.get('endpoints.base_url') +
@@ -147,7 +147,7 @@ module ConstantContact
           body = JSON.parse(response.body)
           
           fees = body.collect do |fee|
-            Components::Fee.create(fee)
+            Components::EventFee.create(fee)
           end
         end
 
@@ -156,7 +156,7 @@ module ConstantContact
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] event - Valid event id
         # @param [Integer] fee - Valid fee id
-        # @return [Fee]
+        # @return [EventFee]
         def get_fee(access_token, event, fee)
           event_id  = get_id_for(event)
           fee_id    = get_id_for(fee)
@@ -165,7 +165,7 @@ module ConstantContact
           url = build_url(url)
 
           response = RestClient.get(url, get_headers(access_token))
-         fee = Components::Fee.create(JSON.parse(response.body))
+         fee = Components::EventFee.create(JSON.parse(response.body))
         end
 
 
@@ -173,10 +173,10 @@ module ConstantContact
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] event - Valid event id
         # @param [Integer] fee - Valid fee id
-        # @return [Fee]
+        # @return [EventFee]
         def update_fee(access_token, event, fee)
           event_id  = get_id_for(event)
-          if fee.kind_of?(ConstantContact::Components::Fee)
+          if fee.kind_of?(ConstantContact::Components::EventFee)
             fee_id = fee.id
           elsif fee.kind_of?(Hash)
             fee_id = fee['id']
@@ -190,7 +190,7 @@ module ConstantContact
           payload = fee.to_json
 
           response = RestClient.put(url, payload, get_headers(access_token))
-         fee = Components::Fee.create(JSON.parse(response.body))
+         fee = Components::EventFee.create(JSON.parse(response.body))
         end
 
 
@@ -198,7 +198,7 @@ module ConstantContact
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] event - Valid event id
         # @param [Integer] fee - Valid fee id
-        # @return [Fee]
+        # @return [Boolean]
         def delete_fee(access_token, event, fee)
           event_id  = get_id_for(event)
           fee_id    = get_id_for(fee)

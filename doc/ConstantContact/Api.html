@@ -285,7 +285,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_event_fee-instance_method" title="#add_event_fee (instance method)">- (Activity) <strong>add_event_fee</strong>(access_token, event, fee) </a>
+      <a href="#add_event_fee-instance_method" title="#add_event_fee (instance method)">- (EventFee) <strong>add_event_fee</strong>(access_token, event, fee) </a>
     
 
     
@@ -525,7 +525,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#cancel_event-instance_method" title="#cancel_event (instance method)">- (Activity) <strong>cancel_event</strong>(access_token, event) </a>
+      <a href="#cancel_event-instance_method" title="#cancel_event (instance method)">- (Event) <strong>cancel_event</strong>(access_token, event) </a>
     
 
     
@@ -669,7 +669,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_event-instance_method" title="#delete_event (instance method)">- (Activity) <strong>delete_event</strong>(access_token, event) </a>
+      <a href="#delete_event-instance_method" title="#delete_event (instance method)">- (Boolean) <strong>delete_event</strong>(access_token, event) </a>
     
 
     
@@ -693,7 +693,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_event_fee-instance_method" title="#delete_event_fee (instance method)">- (Activity) <strong>delete_event_fee</strong>(access_token, event, fee) </a>
+      <a href="#delete_event_fee-instance_method" title="#delete_event_fee (instance method)">- (Boolean) <strong>delete_event_fee</strong>(access_token, event, fee) </a>
     
 
     
@@ -1464,7 +1464,7 @@ getContactsFromList call.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_event_fee-instance_method" title="#get_event_fee (instance method)">- (Activity) <strong>get_event_fee</strong>(access_token, event, fee) </a>
+      <a href="#get_event_fee-instance_method" title="#get_event_fee (instance method)">- (EventFee) <strong>get_event_fee</strong>(access_token, event, fee) </a>
     
 
     
@@ -1488,7 +1488,7 @@ getContactsFromList call.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_event_fees-instance_method" title="#get_event_fees (instance method)">- (Activity) <strong>get_event_fees</strong>(access_token, event) </a>
+      <a href="#get_event_fees-instance_method" title="#get_event_fees (instance method)">- (&lt;Array&gt;EventFee) <strong>get_event_fees</strong>(access_token, event) </a>
     
 
     
@@ -2189,7 +2189,7 @@ account specify the destination folder using the folder_id path parameter.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_event_fee-instance_method" title="#update_event_fee (instance method)">- (Activity) <strong>update_event_fee</strong>(access_token, event, fee) </a>
+      <a href="#update_event_fee-instance_method" title="#update_event_fee (instance method)">- (EventFee) <strong>update_event_fee</strong>(access_token, event, fee) </a>
     
 
     
@@ -3173,7 +3173,7 @@ xls, xlsx</p>
       <div class="method_details ">
   <h3 class="signature " id="add_event_fee-instance_method">
   
-    - (<tt>Activity</tt>) <strong>add_event_fee</strong>(access_token, event, fee) 
+    - (<tt>EventFee</tt>) <strong>add_event_fee</strong>(access_token, event, fee) 
   
 
   
@@ -3250,7 +3250,7 @@ xls, xlsx</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>EventFee</tt>)</span>
       
       
       
@@ -4319,7 +4319,7 @@ txt, csv, xls, xlsx</p>
       <div class="method_details ">
   <h3 class="signature " id="cancel_event-instance_method">
   
-    - (<tt>Activity</tt>) <strong>cancel_event</strong>(access_token, event) 
+    - (<tt>Event</tt>) <strong>cancel_event</strong>(access_token, event) 
   
 
   
@@ -4379,7 +4379,7 @@ txt, csv, xls, xlsx</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>Event</tt>)</span>
       
       
       
@@ -5010,7 +5010,7 @@ passed</p>
       <div class="method_details ">
   <h3 class="signature " id="delete_event-instance_method">
   
-    - (<tt>Activity</tt>) <strong>delete_event</strong>(access_token, event) 
+    - (<tt>Boolean</tt>) <strong>delete_event</strong>(access_token, event) 
   
 
   
@@ -5056,7 +5056,7 @@ passed</p>
       
         &mdash;
         <div class='inline'><ul><li>
-<p>Event fee corresponds to</p>
+<p>Event to delete</p>
 </li></ul>
 </div>
       
@@ -5070,7 +5070,7 @@ passed</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>Boolean</tt>)</span>
       
       
       
@@ -5102,7 +5102,7 @@ passed</p>
       <div class="method_details ">
   <h3 class="signature " id="delete_event_fee-instance_method">
   
-    - (<tt>Activity</tt>) <strong>delete_event_fee</strong>(access_token, event, fee) 
+    - (<tt>Boolean</tt>) <strong>delete_event_fee</strong>(access_token, event, fee) 
   
 
   
@@ -5159,7 +5159,7 @@ passed</p>
         <span class='name'>fee</span>
       
       
-        <span class='type'>(<tt>Fee</tt>)</span>
+        <span class='type'>(<tt>EventFee</tt>)</span>
       
       
       
@@ -5179,7 +5179,7 @@ passed</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>Boolean</tt>)</span>
       
       
       
@@ -8581,7 +8581,7 @@ address to retrieve information for</p>
       <div class="method_details ">
   <h3 class="signature " id="get_event_fee-instance_method">
   
-    - (<tt>Activity</tt>) <strong>get_event_fee</strong>(access_token, event, fee) 
+    - (<tt>EventFee</tt>) <strong>get_event_fee</strong>(access_token, event, fee) 
   
 
   
@@ -8638,7 +8638,7 @@ address to retrieve information for</p>
         <span class='name'>fee</span>
       
       
-        <span class='type'>(<tt>Fee</tt>)</span>
+        <span class='type'>(<tt>EventFee</tt>)</span>
       
       
       
@@ -8658,7 +8658,7 @@ address to retrieve information for</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>EventFee</tt>)</span>
       
       
       
@@ -8690,7 +8690,7 @@ address to retrieve information for</p>
       <div class="method_details ">
   <h3 class="signature " id="get_event_fees-instance_method">
   
-    - (<tt>Activity</tt>) <strong>get_event_fees</strong>(access_token, event) 
+    - (<tt>&lt;Array&gt;EventFee</tt>) <strong>get_event_fees</strong>(access_token, event) 
   
 
   
@@ -8750,7 +8750,7 @@ address to retrieve information for</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>&lt;Array&gt;EventFee</tt>)</span>
       
       
       
@@ -11520,7 +11520,7 @@ attribute</p>
       <div class="method_details ">
   <h3 class="signature " id="update_event_fee-instance_method">
   
-    - (<tt>Activity</tt>) <strong>update_event_fee</strong>(access_token, event, fee) 
+    - (<tt>EventFee</tt>) <strong>update_event_fee</strong>(access_token, event, fee) 
   
 
   
@@ -11577,7 +11577,7 @@ attribute</p>
         <span class='name'>fee</span>
       
       
-        <span class='type'>(<tt>Fee</tt>)</span>
+        <span class='type'>(<tt>EventFee</tt>)</span>
       
       
       
@@ -11597,7 +11597,7 @@ attribute</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>EventFee</tt>)</span>
       
       
       
@@ -12251,7 +12251,7 @@ attribute</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Mar  4 14:55:05 2014 by
+  Generated on Wed Mar  5 11:18:29 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-1.9.3).
 </div>

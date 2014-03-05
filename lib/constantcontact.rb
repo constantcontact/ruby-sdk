@@ -49,7 +49,7 @@ module ConstantContact
     autoload :TrackingSummary, 'constantcontact/components/tracking/tracking_summary'
     autoload :VerifiedEmailAddress, 'constantcontact/components/account/verified_email_address'
     autoload :Event, 'constantcontact/components/event_spot/event'
-    autoload :Fee, 'constantcontact/components/event_spot/fee'
+    autoload :EventFee, 'constantcontact/components/event_spot/event_fee'
     autoload :Registrant, 'constantcontact/components/event_spot/registrant'
     autoload :EventItem, 'constantcontact/components/event_spot/event_item'
     autoload :EventItemAttribute, 'constantcontact/components/event_spot/event_item_attribute'
