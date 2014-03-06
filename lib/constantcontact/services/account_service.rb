@@ -9,6 +9,17 @@ module ConstantContact
     class AccountService < BaseService
       class << self
 
+        # Get a summary of account information
+        # @param [String] access_token
+        # @return
+        def get_account_info(access_token)
+          url = Util::Config.get('endpoints.base_url') + Util::Config.get('endpoints.account_info')
+          url = build_url(url)
+          response = RestClient.get(url, get_headers(access_token))
+          Components::AccountInfo.create(JSON.parse(response.body))
+        end
+
+
         # Get all verified email addresses associated with an account
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Hash] params - hash of query parameters/values to append to the request

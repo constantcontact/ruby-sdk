@@ -48,6 +48,7 @@ module ConstantContact
     autoload :TrackingActivity, 'constantcontact/components/tracking/tracking_activity'
     autoload :TrackingSummary, 'constantcontact/components/tracking/tracking_summary'
     autoload :VerifiedEmailAddress, 'constantcontact/components/account/verified_email_address'
+    autoload :AccountInfo, 'constantcontact/components/account/account_info'
     autoload :Event, 'constantcontact/components/event_spot/event'
     autoload :Fee, 'constantcontact/components/event_spot/fee'
     autoload :Registrant, 'constantcontact/components/event_spot/registrant'
