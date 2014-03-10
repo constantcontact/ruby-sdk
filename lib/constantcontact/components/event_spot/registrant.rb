@@ -13,7 +13,7 @@ module ConstantContact
 
       # Factory method to create an event Registrant object from a hash
       # @param [Hash] props - hash of properties to create object from
-      # @return [Campaign]
+      # @return [Registrant]
       def self.create(props)
         obj = Registrant.new
         if props

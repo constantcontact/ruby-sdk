@@ -669,30 +669,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_event-instance_method" title="#delete_event (instance method)">- (Boolean) <strong>delete_event</strong>(access_token, event) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Delete an event.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#delete_event_fee-instance_method" title="#delete_event_fee (instance method)">- (Boolean) <strong>delete_event_fee</strong>(access_token, event, fee) </a>
     
 
@@ -1608,7 +1584,7 @@ getContactsFromList call.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_event_registrant-instance_method" title="#get_event_registrant (instance method)">- (Activity) <strong>get_event_registrant</strong>(access_token, event, registrant) </a>
+      <a href="#get_event_registrant-instance_method" title="#get_event_registrant (instance method)">- (Registrant) <strong>get_event_registrant</strong>(access_token, event, registrant) </a>
     
 
     
@@ -3264,12 +3240,12 @@ xls, xlsx</p>
       <pre class="lines">
 
 
-663
-664
-665</pre>
+654
+655
+656</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 663</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 654</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_event_fee'>add_event_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_add_fee'>add_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
@@ -3373,12 +3349,12 @@ xls, xlsx</p>
       <pre class="lines">
 
 
-731
-732
-733</pre>
+722
+723
+724</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 731</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 722</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_event_item'>add_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item'>event_item</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_add_event_item'>add_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item'>event_item</span><span class='rparen'>)</span>
@@ -3499,12 +3475,12 @@ xls, xlsx</p>
       <pre class="lines">
 
 
-783
-784
-785</pre>
+774
+775
+776</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 783</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 774</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_event_item_attribute'>add_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item_attribute'>event_item_attribute</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_add_event_item_attribute'>add_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item_attribute'>event_item_attribute</span><span class='rparen'>)</span>
@@ -3772,12 +3748,12 @@ Plus customers only, Shutterstock, Mobile</p>
       <pre class="lines">
 
 
-1005
-1006
-1007</pre>
+996
+997
+998</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1005</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 996</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_library_file'>add_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_file_type'>file_type</span><span class='comma'>,</span> <span class='id identifier rubyid_contents'>contents</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_add_library_file'>add_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_file_type'>file_type</span><span class='comma'>,</span> <span class='id identifier rubyid_contents'>contents</span><span class='rparen'>)</span>
@@ -3864,12 +3840,12 @@ Plus customers only, Shutterstock, Mobile</p>
       <pre class="lines">
 
 
-889
-890
-891</pre>
+880
+881
+882</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 889</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 880</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_library_folder'>add_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_add_library_folder'>add_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
@@ -4065,12 +4041,12 @@ Plus customers only, Shutterstock, Mobile</p>
       <pre class="lines">
 
 
-834
-835
-836</pre>
+825
+826
+827</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 834</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 825</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_promocode'>add_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode'>promocode</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_add_promocode'>add_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode'>promocode</span><span class='rparen'>)</span>
@@ -5008,98 +4984,6 @@ passed</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="delete_event-instance_method">
-  
-    - (<tt>Boolean</tt>) <strong>delete_event</strong>(access_token, event) 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Delete an event</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>event</span>
-      
-      
-        <span class='type'>(<tt>Event</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Event to delete</p>
-</li></ul>
-</div>
-      
-    </li>
-  
-</ul>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-634
-635
-636</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 634</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_event'>delete_event</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
-  <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_delete_event'>delete_event</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
   <h3 class="signature " id="delete_event_fee-instance_method">
   
     - (<tt>Boolean</tt>) <strong>delete_event_fee</strong>(access_token, event, fee) 
@@ -5193,12 +5077,12 @@ passed</p>
       <pre class="lines">
 
 
-683
-684
-685</pre>
+674
+675
+676</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 683</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 674</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_event_fee'>delete_event_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_delete_fee'>delete_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
@@ -5302,12 +5186,12 @@ passed</p>
       <pre class="lines">
 
 
-741
-742
-743</pre>
+732
+733
+734</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 741</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 732</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_event_item'>delete_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_delete_event_item'>delete_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='rparen'>)</span>
@@ -5428,12 +5312,12 @@ passed</p>
       <pre class="lines">
 
 
-794
-795
-796</pre>
+785
+786
+787</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 794</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 785</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_event_item_attribute'>delete_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_delete_event_item_attribute'>delete_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='rparen'>)</span>
@@ -5523,12 +5407,12 @@ Deleted.</p>
       <pre class="lines">
 
 
-1025
-1026
-1027</pre>
+1016
+1017
+1018</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1025</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1016</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_library_file'>delete_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_delete_library_file'>delete_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
@@ -5615,12 +5499,12 @@ Deleted.</p>
       <pre class="lines">
 
 
-916
-917
-918</pre>
+907
+908
+909</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 916</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 907</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_library_folder'>delete_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_delete_library_folder'>delete_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
@@ -5690,12 +5574,12 @@ Deleted.</p>
       <pre class="lines">
 
 
-947
-948
-949</pre>
+938
+939
+940</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 947</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 938</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_library_trash'>delete_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_delete_library_trash'>delete_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
@@ -5799,12 +5683,12 @@ Deleted.</p>
       <pre class="lines">
 
 
-844
-845
-846</pre>
+835
+836
+837</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 844</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 835</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_promocode'>delete_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode_id'>promocode_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_delete_promocode'>delete_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode_id'>promocode_id</span><span class='rparen'>)</span>
@@ -8672,12 +8556,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-653
-654
-655</pre>
+644
+645
+646</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 653</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 644</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_fee'>get_event_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_fee'>get_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
@@ -8764,12 +8648,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-643
-644
-645</pre>
+634
+635
+636</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 643</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 634</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_fees'>get_event_fees</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_fees'>get_fees</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
@@ -8873,12 +8757,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-721
-722
-723</pre>
+712
+713
+714</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 721</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 712</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_item'>get_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_event_item'>get_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='rparen'>)</span>
@@ -8999,12 +8883,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-772
-773
-774</pre>
+763
+764
+765</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 772</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 763</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_item_attribute'>get_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_event_item_attribute'>get_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_attribute_id'>attribute_id</span><span class='rparen'>)</span>
@@ -9108,12 +8992,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-761
-762
-763</pre>
+752
+753
+754</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 761</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 752</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_item_attributes'>get_event_item_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_event_item_attributes'>get_event_item_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='rparen'>)</span>
@@ -9200,12 +9084,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-711
-712
-713</pre>
+702
+703
+704</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 711</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 702</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_items'>get_event_items</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_event_items'>get_event_items</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='rparen'>)</span>
@@ -9218,7 +9102,7 @@ address to retrieve information for</p>
       <div class="method_details ">
   <h3 class="signature " id="get_event_registrant-instance_method">
   
-    - (<tt>Activity</tt>) <strong>get_event_registrant</strong>(access_token, event, registrant) 
+    - (<tt>Registrant</tt>) <strong>get_event_registrant</strong>(access_token, event, registrant) 
   
 
   
@@ -9295,7 +9179,7 @@ address to retrieve information for</p>
     <li>
       
       
-        <span class='type'>(<tt>Activity</tt>)</span>
+        <span class='type'>(<tt>Registrant</tt>)</span>
       
       
       
@@ -9309,12 +9193,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-702
-703
-704</pre>
+693
+694
+695</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 702</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 693</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_registrant'>get_event_registrant</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_registrant'>registrant</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_registrant'>get_registrant</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_registrant'>registrant</span><span class='rparen'>)</span>
@@ -9401,12 +9285,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-692
-693
-694</pre>
+683
+684
+685</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 692</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 683</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_event_registrants'>get_event_registrants</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_registrants'>get_registrants</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='rparen'>)</span>
@@ -9568,12 +9452,12 @@ address to retrieve information for</p>
       <pre class="lines">
 
 
-988
-989
-990</pre>
+979
+980
+981</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 988</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 979</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_file'>get_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_file'>get_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
@@ -9677,12 +9561,12 @@ Mobile</code></pre>
       <pre class="lines">
 
 
-967
-968
-969</pre>
+958
+959
+960</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 967</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 958</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_files'>get_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_files'>get_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -9792,12 +9676,12 @@ displayed per page of output, from 1 - 50, default = 50.</p>
       <pre class="lines">
 
 
-979
-980
-981</pre>
+970
+971
+972</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 979</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 970</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_files_by_folder'>get_library_files_by_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_files_by_folder'>get_library_files_by_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -9885,12 +9769,12 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
       <pre class="lines">
 
 
-1035
-1036
-1037</pre>
+1026
+1027
+1028</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1035</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1026</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_files_upload_status'>get_library_files_upload_status</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_files_upload_status'>get_library_files_upload_status</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
@@ -9977,12 +9861,12 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
       <pre class="lines">
 
 
-898
-899
-900</pre>
+889
+890
+891</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 898</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 889</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_folder'>get_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_folder'>get_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
@@ -10084,12 +9968,12 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
       <pre class="lines">
 
 
-880
-881
-882</pre>
+871
+872
+873</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 880</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 871</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_folders'>get_library_folders</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_folders'>get_library_folders</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -10159,12 +10043,12 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
       <pre class="lines">
 
 
-862
-863
-864</pre>
+853
+854
+855</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 862</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 853</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_info'>get_library_info</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_info'>get_library_info</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
@@ -10271,12 +10155,12 @@ DIMENSION_DESC - sorts by file dimensions (hxw), largest to smallest</code></pre
       <pre class="lines">
 
 
-939
-940
-941</pre>
+930
+931
+932</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 939</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 930</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_library_trash'>get_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_get_library_trash'>get_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
@@ -10576,12 +10460,12 @@ DIMENSION_DESC - sorts by file dimensions (hxw), largest to smallest</code></pre
       <pre class="lines">
 
 
-824
-825
-826</pre>
+815
+816
+817</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 824</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 815</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_promocode'>get_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode_id'>promocode_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_promocode'>get_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode_id'>promocode_id</span><span class='rparen'>)</span>
@@ -10668,12 +10552,12 @@ DIMENSION_DESC - sorts by file dimensions (hxw), largest to smallest</code></pre
       <pre class="lines">
 
 
-814
-815
-816</pre>
+805
+806
+807</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 814</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 805</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_get_promocodes'>get_promocodes</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_get_promocodes'>get_promocodes</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='rparen'>)</span>
@@ -10882,12 +10766,12 @@ account specify the destination folder using the folder_id path parameter.</p>
       <pre class="lines">
 
 
-1046
-1047
-1048</pre>
+1037
+1038
+1039</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1046</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1037</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_move_library_files'>move_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_move_library_files'>move_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
@@ -11611,12 +11495,12 @@ attribute</p>
       <pre class="lines">
 
 
-673
-674
-675</pre>
+664
+665
+666</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 673</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 664</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_event_fee'>update_event_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_update_fee'>update_fee</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event'>event</span><span class='comma'>,</span> <span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
@@ -11720,12 +11604,12 @@ attribute</p>
       <pre class="lines">
 
 
-751
-752
-753</pre>
+742
+743
+744</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 751</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 742</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_event_item'>update_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item'>event_item</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_update_event_item'>update_event_item</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item'>event_item</span><span class='rparen'>)</span>
@@ -11846,12 +11730,12 @@ attribute</p>
       <pre class="lines">
 
 
-805
-806
-807</pre>
+796
+797
+798</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 805</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 796</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_event_item_attribute'>update_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item_attribute'>event_item_attribute</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_update_event_item_attribute'>update_event_item_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_item_id'>item_id</span><span class='comma'>,</span> <span class='id identifier rubyid_event_item_attribute'>event_item_attribute</span><span class='rparen'>)</span>
@@ -11938,12 +11822,12 @@ attribute</p>
       <pre class="lines">
 
 
-1014
-1015
-1016</pre>
+1005
+1006
+1007</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1014</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 1005</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_library_file'>update_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_update_library_file'>update_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
@@ -12030,12 +11914,12 @@ attribute</p>
       <pre class="lines">
 
 
-907
-908
-909</pre>
+898
+899
+900</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 907</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 898</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_library_folder'>update_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>LibraryService</span><span class='period'>.</span><span class='id identifier rubyid_update_library_folder'>update_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
@@ -12231,12 +12115,12 @@ attribute</p>
       <pre class="lines">
 
 
-854
-855
-856</pre>
+845
+846
+847</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 854</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/api.rb', line 845</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_promocode'>update_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode'>promocode</span><span class='rparen'>)</span>
   <span class='const'>Services</span><span class='op'>::</span><span class='const'>EventSpotService</span><span class='period'>.</span><span class='id identifier rubyid_update_promocode'>update_promocode</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_event_id'>event_id</span><span class='comma'>,</span> <span class='id identifier rubyid_promocode'>promocode</span><span class='rparen'>)</span>
@@ -12251,7 +12135,7 @@ attribute</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Mar 10 11:44:50 2014 by
+  Generated on Mon Mar 10 16:02:45 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-1.9.3).
 </div>

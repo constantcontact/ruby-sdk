@@ -58,20 +58,6 @@ module ConstantContact
         end
 
 
-        # Delete an EventSpot event
-        # @param [String] access_token - Constant Contact OAuth2 access token
-        # @param [Integer] event - Valid event id
-        # @return [Boolean]
-        def delete_event(access_token, event)
-          event_id = get_id_for(event)
-          url = Util::Config.get('endpoints.base_url') +
-                sprintf(Util::Config.get('endpoints.event'), event_id)
-          url = build_url(url)
-          response = RestClient.delete(url, get_headers(access_token))
-          response.code == 204
-        end
-
-
         # Update a specific EventSpot event
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Event] event - Event to be updated

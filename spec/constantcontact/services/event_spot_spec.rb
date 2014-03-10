@@ -48,18 +48,6 @@ describe ConstantContact::Services::EventSpotService do
     end
   end
 
-  describe "#delete_event" do
-    it "deletes an event" do
-      json = load_file('event.json')
-      net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
-
-      response = RestClient::Response.create('', net_http_resp, {})
-      RestClient.stub(:delete).and_return(response)
-      event = ConstantContact::Components::Event.create(JSON.parse(json))
-      ConstantContact::Services::EventSpotService.delete_event('token', event).should be_true
-    end
-  end
-
   describe "#publish_event" do
     it "updates an event with status of ACTIVE" do
       json = load_file('event.json')
@@ -212,6 +200,7 @@ describe ConstantContact::Services::EventSpotService do
       retrieved = ConstantContact::Services::EventSpotService.get_registrant('token', event, registrant)
       retrieved.should be_kind_of(ConstantContact::Components::Registrant)
       retrieved.id.should_not be_empty
+      pp retrieved
     end
   end
 
