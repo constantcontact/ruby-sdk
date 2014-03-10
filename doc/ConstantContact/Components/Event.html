@@ -3079,10 +3079,7 @@
 44
 45
 46
-47
-48
-49
-50</pre>
+47</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/constantcontact/components/event_spot/event.rb', line 22</span>
@@ -3103,9 +3100,6 @@
         <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_online_meeting'>online_meeting</span> <span class='op'>=</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>EventSpot</span><span class='op'>::</span><span class='const'>OnlineMeeting</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
       <span class='kw'>elsif</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>payment_adress</span><span class='tstring_end'>'</span></span>
         <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_payment_adress'>payment_adress</span> <span class='op'>=</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>EventSpot</span><span class='op'>::</span><span class='const'>PaymentAddress</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
-      <span class='kw'>elsif</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>payment_options</span><span class='tstring_end'>'</span></span>
-        <span class='id identifier rubyid_value'>value</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-        <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_payment_options'>payment_options</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_option'>option</span><span class='op'>|</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>EventSpot</span><span class='op'>::</span><span class='const'>PaymentOption</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_option'>option</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
       <span class='kw'>elsif</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>track_information</span><span class='tstring_end'>'</span></span>
         <span class='id identifier rubyid_value'>value</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
         <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_track_information'>track_information</span> <span class='op'>=</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>EventSpot</span><span class='op'>::</span><span class='const'>EventTrack</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
@@ -3181,6 +3175,9 @@
       <pre class="lines">
 
 
+52
+53
+54
 55
 56
 57
@@ -3191,13 +3188,10 @@
 62
 63
 64
-65
-66
-67
-68</pre>
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/event_spot/event.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/components/event_spot/event.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_create_summary'>create_summary</span><span class='lparen'>(</span><span class='id identifier rubyid_props'>props</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>Event</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -3223,7 +3217,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Mar  5 11:18:31 2014 by
+  Generated on Mon Mar 10 11:44:53 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.2 (ruby-1.9.3).
 </div>

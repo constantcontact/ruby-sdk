@@ -236,16 +236,16 @@ module ConstantContact
         # @param [String] access_token - Constant Contact OAuth2 access token
         # @param [Integer] event - Valid event id
         # @param [Integer] registrant - Valid fee id
-        # @return [Fee]
+        # @return [Registrant]
         def get_registrant(access_token, event, registrant)
           event_id      = get_id_for(event)
           registrant_id  = get_id_for(registrant)
           url = Util::Config.get('endpoints.base_url') +
-                sprintf(Util::Config.get('endpoints.event_fee'), event_id, registrant_id)
+                sprintf(Util::Config.get('endpoints.event_registrant'), event_id, registrant_id)
           url = build_url(url)
 
           response = RestClient.get(url, get_headers(access_token))
-          registrant = Components::Registrant.create(JSON.parse(response.body))
+          Components::Registrant.create(JSON.parse(response.body))
         end
 
 

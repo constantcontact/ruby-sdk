@@ -35,9 +35,6 @@ module ConstantContact
               obj.online_meeting = Components::EventSpot::OnlineMeeting.create(value)
             elsif key == 'payment_adress'
               obj.payment_adress = Components::EventSpot::PaymentAddress.create(value)
-            elsif key == 'payment_options'
-              value ||= []
-              obj.payment_options = value.collect{|option| Components::EventSpot::PaymentOption.create(option) }
             elsif key == 'track_information'
               value ||= []
               obj.track_information = Components::EventSpot::EventTrack.create(value)

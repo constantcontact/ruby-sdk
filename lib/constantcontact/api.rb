@@ -685,10 +685,10 @@ module ConstantContact
     end
 
 
-    # Get a list of event registrants
+    # Get a set of event registrants
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @return [Activity]
+    # @return [ResultSet<Registrant>]
     def get_event_registrants(access_token, event)
       Services::EventSpotService.get_registrants(access_token, event)
     end
