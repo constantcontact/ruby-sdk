@@ -200,7 +200,6 @@ describe ConstantContact::Services::EventSpotService do
       retrieved = ConstantContact::Services::EventSpotService.get_registrant('token', event, registrant)
       retrieved.should be_kind_of(ConstantContact::Components::Registrant)
       retrieved.id.should_not be_empty
-      pp retrieved
     end
   end
 
