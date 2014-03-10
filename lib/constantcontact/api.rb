@@ -698,7 +698,7 @@ module ConstantContact
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event registrant corresponds to
     # @param [Registrant] registrant - registrant details
-    # @return [Activity]
+    # @return [Registrant]
     def get_event_registrant(access_token, event, registrant)
       Services::EventSpotService.get_registrant(access_token, event, registrant)
     end
