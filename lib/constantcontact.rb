@@ -49,8 +49,11 @@ module ConstantContact
     autoload :TrackingSummary, 'constantcontact/components/tracking/tracking_summary'
     autoload :VerifiedEmailAddress, 'constantcontact/components/account/verified_email_address'
     autoload :Event, 'constantcontact/components/event_spot/event'
-    autoload :Fee, 'constantcontact/components/event_spot/fee'
+    autoload :EventFee, 'constantcontact/components/event_spot/event_fee'
     autoload :Registrant, 'constantcontact/components/event_spot/registrant'
+    autoload :EventItem, 'constantcontact/components/event_spot/event_item'
+    autoload :EventItemAttribute, 'constantcontact/components/event_spot/event_item_attribute'
+    autoload :Promocode, 'constantcontact/components/event_spot/promocode'
     autoload :LibrarySummary, 'constantcontact/components/library/info/library_summary'
     autoload :UploadStatus, 'constantcontact/components/library/info/upload_status'
     autoload :MoveResults, 'constantcontact/components/library/info/move_results'
@@ -58,12 +61,22 @@ module ConstantContact
     autoload :LibraryFile, 'constantcontact/components/library/file/library_file'
 
     module EventSpot
+      autoload :EventAddress, 'constantcontact/components/event_spot/event_address'
       autoload :Contact, 'constantcontact/components/event_spot/contact'
       autoload :NotificationOption, 'constantcontact/components/event_spot/notification_option'
+      autoload :OnlineMeeting, 'constantcontact/components/event_spot/online_meeting'
+      autoload :PaymentAddress, 'constantcontact/components/event_spot/payment_address'
+      autoload :PaymentSummary, 'constantcontact/components/event_spot/payment_summary'
       autoload :Guest, 'constantcontact/components/event_spot/guest'
+      autoload :GuestSection, 'constantcontact/components/event_spot/guest_section'
       autoload :EventTrack, 'constantcontact/components/event_spot/event_track'
-      autoload :RegistrantSection, 'constantcontact/components/event_spot/registrant_section'
+      autoload :RegistrantFee, 'constantcontact/components/event_spot/registrant_fee'
       autoload :RegistrantField, 'constantcontact/components/event_spot/registrant_field'
+      autoload :RegistrantOrder, 'constantcontact/components/event_spot/registrant_order'
+      autoload :RegistrantPromoCode, 'constantcontact/components/event_spot/registrant_promo_code'
+      autoload :RegistrantPromoCodeInfo, 'constantcontact/components/event_spot/registrant_promo_code_info'
+      autoload :RegistrantSection, 'constantcontact/components/event_spot/registrant_section'
+      autoload :SaleItem, 'constantcontact/components/event_spot/sale_item'
     end
   end
 

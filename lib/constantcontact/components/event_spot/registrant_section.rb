@@ -10,23 +10,23 @@ module ConstantContact
       class RegistrantSection < Component
         attr_accessor :label, :fields
 
-        # Factory method to create an event RegistrantSection object from a hash
+        # Factory method to create a RegistrantSection object from a hash
         # @param [Hash] props - hash of properties to create object from
-        # @return [Campaign]
+        # @return [RegistrantSection]
         def self.create(props)
-          section = RegistrantSection.new
+          obj = RegistrantSection.new
           props.each do |key, value|
             key = key.to_s
             if key == 'fields'
               value ||= []
-              section.fields = value.collect do |field|
+              obj.fields = value.collect do |field|
                 Components::EventSpot::RegistrantField.create(field)
               end
             else
-              section.send("#{key}=", value) if section.respond_to? key
+              obj.send("#{key}=", value) if obj.respond_to? key
             end
           end if props
-          section
+          obj
         end
       end
     end

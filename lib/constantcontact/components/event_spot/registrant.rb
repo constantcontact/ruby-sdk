@@ -7,47 +7,45 @@
 module ConstantContact
   module Components
     class Registrant < Component
-      attr_accessor :id, :ticket_id, :registration_status, :registration_date, :attendance_status,
-        :email, :first_name, :last_name, :guest_count, :payment_status, :updated_date,
-        :sale_items, :fees, :promo_code_info, :sections, :guests
+      attr_accessor :attendance_status, :email, :first_name, :guest_count, :id, :last_name, :payment_status,
+                    :registration_date, :registration_status, :ticket_id, :updated_date,
+                    :payment_summary, :promo_code, :sections, :guests
 
       # Factory method to create an event Registrant object from a hash
       # @param [Hash] props - hash of properties to create object from
-      # @return [Campaign]
+      # @return [Registrant]
       def self.create(props)
-        registrant = Registrant.new
+        obj = Registrant.new
         if props
           props.each do |key, value|
             key = key.to_s
-            if key == 'sale_items' or key == 'fees'
-              value ||= []
-              registrant.send("#{key}=", value.collect{|item| Components::EventSpot::SaleItem.create item })
-            elsif key == 'sections' or key == 'guest_sections'
-              registrant.send("#{key}=", value.collect{|section| Components::EventSpot::RegistrantSection.create(section) })
-            elsif key == 'promo_code_info'
-              value ||= []
-              registration.promo_code_info = value.collect{|code| Components::EventSpot::PromoCode.create code }
+            if key == 'payment_summary'
+              obj.payment_summary = Components::EventSpot::PaymentSummary.create(value)
+            elsif key == 'sections'
+              obj.sections = value.collect{|section| Components::EventSpot::RegistrantSection.create(section) }
+            elsif key == 'promo_code'
+              obj.promo_code = Components::EventSpot::RegistrantPromoCode.create(value)
             elsif key == 'guests'
               value = value["guest_info"] || []
-              registrant.guests = value.collect{|guest| Components::EventSpot::Guest.create guest }
+              obj.guests = value.collect{|guest| Components::EventSpot::Guest.create(guest) }
             else
-              registrant.send("#{key}=", value) if registrant.respond_to?("#{key}=")
+              obj.send("#{key}=", value) if obj.respond_to?("#{key}=")
             end
           end
         end
-        registrant
+        obj
       end
-      
+
       # Factory method to create an event Registrant summary object from a hash
       # @param [Hash] props - hash of properties to create object from
-      # @return [Campaign]
+      # @return [Registrant]
       def self.create_summary(props)
-        registrant = Registrant.new
+        obj = Registrant.new
         props.each do |key, value|
           key = key.to_s
-          registrant.send("#{key}=", value) if registrant.respond_to?("#{key}=")
+          obj.send("#{key}=", value) if obj.respond_to?("#{key}=")
         end if props
-        registrant
+        obj
       end
     end
   end
