@@ -1,0 +1,37 @@
+[
+{
+"id":"9k7uXp6Hgyiq7BCC11zFc4PJUvBGM9P1V53KQcYO8Aw",
+"name":"Running Belt",
+"description":"Moisture Wicking, holds 2 bottles",
+"price":20.25,
+"attributes":[
+{
+"id":"9k7uXp6Hgyiq7BCC11zFc0XQU2aR_wPmDNJVddPgGWM",
+"name":"Royal Blue",
+"quantity_total":175,
+"quantity_available":175
+},
+{
+"id":"9k7uXp6Hgyiq7BCC11zFc476STDHQ_sadfwfRCYGMSU",
+"name":"Hi-Vis Green",
+"quantity_total":75,
+"quantity_available":75
+}
+],
+"per_registrant_limit":1,
+"show_quantity_available":true,
+"default_quantity_total":250
+},
+{
+"id":"9k7uXp6Hgyiq7BCC11zFc7IwqpZ7nzW2Y09fUs00t3Q",
+"name":"Golf Shirt w/logo",
+"description":"Underarmour moisture wicking material",
+"price":32.0,
+"attributes":[
+],
+"per_registrant_limit":2,
+"show_quantity_available":true,
+"default_quantity_total":300,
+"default_quantity_available":300
+}
+]

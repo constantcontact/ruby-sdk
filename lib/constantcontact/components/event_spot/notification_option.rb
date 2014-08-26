@@ -8,11 +8,11 @@ module ConstantContact
   module Components
     module EventSpot
       class NotificationOption < Component
-        attr_accessor :notification_type, :is_opted_in
+        attr_accessor :is_opted_in, :notification_type
 
         # Factory method to create an event NotificationOption object from a hash
         # @param [Hash] props - hash of properties to create object from
-        # @return [Campaign]
+        # @return [NotificationOption]
         def self.create(props)
           obj = NotificationOption.new
           props.each do |key, value|

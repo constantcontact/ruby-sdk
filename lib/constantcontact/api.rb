@@ -626,25 +626,16 @@ module ConstantContact
     # Cancel an event
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event to cancel
-    # @return [Activity]
+    # @return [Event]
     def cancel_event(access_token, event)
       Services::EventSpotService.cancel_event(access_token, event)
-    end
-
-
-    # Delete an event
-    # @param [String] access_token - Constant Contact OAuth2 access token
-    # @param [Event] event - Event fee corresponds to
-    # @return [Activity]
-    def delete_event(access_token, event)
-      Services::EventSpotService.delete_event(access_token, event)
     end
 
 
     # Get a list of event fees
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event to get fees of
-    # @return [Activity]
+    # @return [<Array>EventFee]
     def get_event_fees(access_token, event)
       Services::EventSpotService.get_fees(access_token, event)
     end
@@ -653,8 +644,8 @@ module ConstantContact
     # Get an event fee
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @param [Fee] fee - Fee to retrieve
-    # @return [Activity]
+    # @param [EventFee] fee - Fee to retrieve
+    # @return [EventFee]
     def get_event_fee(access_token, event, fee)
       Services::EventSpotService.get_fee(access_token, event, fee)
     end
@@ -664,7 +655,7 @@ module ConstantContact
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
     # @param [Hash] fee - Fee details
-    # @return [Activity]
+    # @return [EventFee]
     def add_event_fee(access_token, event, fee)
       Services::EventSpotService.add_fee(access_token, event, fee)
     end
@@ -673,8 +664,8 @@ module ConstantContact
     # Update an event fee
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @param [Fee] fee - Fee details
-    # @return [Activity]
+    # @param [EventFee] fee - Fee details
+    # @return [EventFee]
     def update_event_fee(access_token, event, fee)
       Services::EventSpotService.update_fee(access_token, event, fee)
     end
@@ -683,17 +674,17 @@ module ConstantContact
     # Delete an event fee
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @param [Fee] fee - Fee details
-    # @return [Activity]
+    # @param [EventFee] fee - Fee details
+    # @return [Boolean]
     def delete_event_fee(access_token, event, fee)
       Services::EventSpotService.delete_fee(access_token, event, fee)
     end
 
 
-    # Get a list of event registrants
+    # Get a set of event registrants
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event fee corresponds to
-    # @return [Activity]
+    # @return [ResultSet<Registrant>]
     def get_event_registrants(access_token, event)
       Services::EventSpotService.get_registrants(access_token, event)
     end
@@ -703,9 +694,161 @@ module ConstantContact
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @param [Event] event - Event registrant corresponds to
     # @param [Registrant] registrant - registrant details
-    # @return [Activity]
+    # @return [Registrant]
     def get_event_registrant(access_token, event, registrant)
       Services::EventSpotService.get_registrant(access_token, event, registrant)
+    end
+
+
+    # Get an array of event items for an individual event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - event id to retrieve items for
+    # @return [Array<EventItem>]
+    def get_event_items(access_token, event_id)
+      Services::EventSpotService.get_event_items(access_token, event_id)
+    end
+
+
+    # Get an individual event item
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to retrieve item for
+    # @param [Integer] item_id - id of item to be retrieved
+    # @return [EventItem]
+    def get_event_item(access_token, event_id, item_id)
+      Services::EventSpotService.get_event_item(access_token, event_id, item_id)
+    end
+
+
+    # Create a new event item for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to be associated with the event item
+    # @param [EventItem] event_item - event item to be created
+    # @return [EventItem]
+    def add_event_item(access_token, event_id, event_item)
+      Services::EventSpotService.add_event_item(access_token, event_id, event_item)
+    end
+
+
+    # Delete a specific event item for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to delete an event item for
+    # @param [Integer] item_id - id of event item to be deleted
+    # @return [Boolean]
+    def delete_event_item(access_token, event_id, item_id)
+      Services::EventSpotService.delete_event_item(access_token, event_id, item_id)
+    end
+
+
+    # Update a specific event item for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event associated with the event item
+    # @param [EventItem] event_item - event item to be updated
+    # @return [EventItem]
+    def update_event_item(access_token, event_id, event_item)
+      Services::EventSpotService.update_event_item(access_token, event_id, event_item)
+    end
+
+
+    # Get an array of attributes for an individual event item
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - event id to retrieve item for
+    # @param [Integer] item_id - event item id to retrieve attributes for
+    # @return [Array<EventItemAttribute>]
+    def get_event_item_attributes(access_token, event_id, item_id)
+      Services::EventSpotService.get_event_item_attributes(access_token, event_id, item_id)
+    end
+
+
+    # Get an individual event item attribute
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to retrieve item for
+    # @param [Integer] item_id - id of item to retrieve attribute for
+    # @param [Integer] attribute_id - id of attribute to be retrieved
+    # @return [EventItemAttribute]
+    def get_event_item_attribute(access_token, event_id, item_id, attribute_id)
+      Services::EventSpotService.get_event_item_attribute(access_token, event_id, item_id, attribute_id)
+    end
+
+
+    # Create a new event item attribute for an event item
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to be associated with the event item attribute
+    # @param [Integer] item_id - id of event item to be associated with the event item attribute
+    # @param [EventItemAttribute] event_item_attribute - event item attribute to be created
+    # @return [EventItemAttribute]
+    def add_event_item_attribute(access_token, event_id, item_id, event_item_attribute)
+      Services::EventSpotService.add_event_item_attribute(access_token, event_id, item_id, event_item_attribute)
+    end
+
+
+    # Delete a specific event item for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to delete an event item attribute for
+    # @param [Integer] item_id - id of event item to delete an event item attribute for
+    # @param [Integer] attribute_id - id of attribute to be deleted
+    # @return [Boolean]
+    def delete_event_item_attribute(access_token, event_id, item_id, attribute_id)
+      Services::EventSpotService.delete_event_item_attribute(access_token, event_id, item_id, attribute_id)
+    end
+
+
+    # Update a specific event item attribute for an event item
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event associated with the event item
+    # @param [Integer] item_id - id of event item associated with the event item attribute
+    # @param [EventItemAttribute] event_item_attribute - event item to be updated
+    # @return [EventItemAttribute]
+    def update_event_item_attribute(access_token, event_id, item_id, event_item_attribute)
+      Services::EventSpotService.update_event_item_attribute(access_token, event_id, item_id, event_item_attribute)
+    end
+
+
+    # Get an array of promocodes for an individual event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - event id to retrieve promocodes for
+    # @return [Array<Promocode>]
+    def get_promocodes(access_token, event_id)
+      Services::EventSpotService.get_promocodes(access_token, event_id)
+    end
+
+
+    # Get an individual promocode
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to retrieve item for
+    # @param [Integer] promocode_id - id of item to be retrieved
+    # @return [Promocode]
+    def get_promocode(access_token, event_id, promocode_id)
+      Services::EventSpotService.get_promocode(access_token, event_id, promocode_id)
+    end
+
+
+    # Create a new promocode for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to be associated with the promocode
+    # @param [Promocode] promocode - promocode to be created
+    # @return [Promocode]
+    def add_promocode(access_token, event_id, promocode)
+      Services::EventSpotService.add_promocode(access_token, event_id, promocode)
+    end
+
+
+    # Delete a specific promocode for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event to delete a promocode for
+    # @param [Integer] promocode_id - id of promocode to be deleted
+    # @return [Boolean]
+    def delete_promocode(access_token, event_id, promocode_id)
+      Services::EventSpotService.delete_promocode(access_token, event_id, promocode_id)
+    end
+
+
+    # Update a specific promocode for an event
+    # @param [String] access_token - Constant Contact OAuth2 access token
+    # @param [Integer] event_id - id of event associated with the promocode
+    # @param [Promocode] promocode - promocode to be updated
+    # @return [Promocode]
+    def update_promocode(access_token, event_id, promocode)
+      Services::EventSpotService.update_promocode(access_token, event_id, promocode)
     end
 
 

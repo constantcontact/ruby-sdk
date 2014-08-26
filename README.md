@@ -9,7 +9,7 @@ Installation
 ====
 Via bundler:
 ```ruby
-gem 'constantcontact', '~> 1.1.0'
+gem 'constantcontact', '~> 1.2.0'
 ```
 Otherwise:
 ```bash
