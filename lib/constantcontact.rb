@@ -10,9 +10,12 @@ require 'json'
 require 'cgi'
 require 'cgi/session'
 require 'cgi/session/pstore'
+require 'openssl'
+require 'base64'
 
 module ConstantContact
   autoload :Api, 'constantcontact/api'
+  autoload :WebhooksUtil, 'constantcontact/webhooks/webhooks_util'
   autoload :SDK, 'constantcontact/version'
 
   module Auth
@@ -84,6 +87,7 @@ module ConstantContact
     autoload :CtctException, 'constantcontact/exceptions/ctct_exception'
     autoload :IllegalArgumentException, 'constantcontact/exceptions/illegal_argument_exception'
     autoload :OAuth2Exception, 'constantcontact/exceptions/oauth2_exception'
+    autoload :WebhooksException, 'constantcontact/exceptions/webhooks_exception'
   end
 
   module Services
@@ -103,5 +107,15 @@ module ConstantContact
   module Util
     autoload :Config, 'constantcontact/util/config'
     autoload :Helpers, 'constantcontact/util/helpers'
+  end
+
+  module Webhooks
+    module Helpers
+      autoload :Validator, 'constantcontact/webhooks/helpers/validator'
+    end
+
+    module Models
+      autoload :BillingChangeNotification, 'constantcontact/webhooks/models/billing_change_notification'
+    end
   end
 end

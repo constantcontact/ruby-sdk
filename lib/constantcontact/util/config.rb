@@ -131,17 +131,19 @@ module ConstantContact
 
         # Errors to be returned for various exceptions
         :errors => {
-          :id_or_object => 'Only an id or %s object are allowed for this method.'
+          :id_or_object => 'Only an id or %s object are allowed for this method.',
+          :invalid_webhook => 'Invalid Webhook. The x-ctct-hmac-sha256 does not correspond to message encryption.',
+          :api_secret_missing => 'The api_secret is missing in explicit call or configuration.'
         }
       }
-        
+
       class << self
         attr_accessor :props
-      
+
          def configure 
           yield props if block_given?
         end
-      
+
         # Get a configuration property given a specified location, example usage: Config::get('auth.token_endpoint')
         # @param [String] index - location of the property to obtain
         # @return [String]
