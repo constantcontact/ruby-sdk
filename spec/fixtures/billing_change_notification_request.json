@@ -1,0 +1,4 @@
+{
+    "url":"https://api.constantcontact.com/v2/partner/accounts/<accountId>",
+    "event_type":"tier.increase"
+}

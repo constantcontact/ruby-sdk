@@ -1,12 +1,11 @@
 #
-# version.rb
+# webhooks_exception.rb
 # ConstantContact
 #
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
-  module SDK
-    # Gem version
-    VERSION = "1.3.0"
+  module Exceptions
+    class WebhooksException < Exception; end
   end
 end
