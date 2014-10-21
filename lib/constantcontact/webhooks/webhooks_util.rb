@@ -9,7 +9,7 @@ module ConstantContact
     attr_accessor :client_secret
 
     # Class constructor
-    # @param [String] :api_secret - the Constant Contact secret key
+    # @param [String] api_secret - the Constant Contact secret key
     # @return
     def initialize(api_secret = nil)
       @client_secret = api_secret || Util::Config.get('auth.api_secret')
