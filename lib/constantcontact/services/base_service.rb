@@ -22,7 +22,7 @@ module ConstantContact
             :accept         => 'application/json',
             :authorization  => "Bearer #{access_token}",
             :user_agent     => "AppConnect Ruby SDK v#{ConstantContact::SDK::VERSION} (#{RUBY_DESCRIPTION})",
-            :x_ctct_request_source_header => "sdk.ruby.#{ConstantContact::SDK::VERSION}"
+            :x_ctct_request_source => "sdk.ruby.#{ConstantContact::SDK::VERSION}"
           }
         end
 

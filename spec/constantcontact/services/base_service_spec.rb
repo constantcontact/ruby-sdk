@@ -22,8 +22,8 @@ describe ConstantContact::Services::BaseService do
       expect(headers[:user_agent]).to be_a String
       expect(headers[:user_agent].include?("Ruby SDK v#{ConstantContact::SDK::VERSION}")).to be_true
       expect(headers[:user_agent].include?(RUBY_DESCRIPTION)).to be_true
-      expect(headers[:x_ctct_request_source_header]).to be_a String
-      expect(headers[:x_ctct_request_source_header].include?(ConstantContact::SDK::VERSION)).to be_true
+      expect(headers[:x_ctct_request_source]).to be_a String
+      expect(headers[:x_ctct_request_source].include?(ConstantContact::SDK::VERSION)).to be_true
    end
  end
 end
