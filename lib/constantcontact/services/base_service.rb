@@ -12,7 +12,7 @@ module ConstantContact
 
         protected
 
-        # Return required headers for making an http request with constant contact
+        # Return required headers for making an http request with Constant Contact
         # @param [String] access_token - OAuth2 access token to be placed into the Authorization header
         # @param [String] content_type - The MIME type of the body of the request, default is 'application/json'
         # @return [Hash] - authorization headers
@@ -21,7 +21,8 @@ module ConstantContact
             :content_type   => content_type,
             :accept         => 'application/json',
             :authorization  => "Bearer #{access_token}",
-            :user_agent     => "AppConnect Ruby SDK v#{ConstantContact::SDK::VERSION} (#{RUBY_DESCRIPTION})"
+            :user_agent     => "AppConnect Ruby SDK v#{ConstantContact::SDK::VERSION} (#{RUBY_DESCRIPTION})",
+            :x_ctct_request_source_header => "sdk.ruby.#{ConstantContact::SDK::VERSION}"
           }
         end
 
