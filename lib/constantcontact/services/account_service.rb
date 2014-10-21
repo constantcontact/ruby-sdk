@@ -1,5 +1,5 @@
 #
-# email_address_service.rb
+# account_service.rb
 # ConstantContact
 #
 # Copyright (c) 2013 Constant Contact. All rights reserved.
