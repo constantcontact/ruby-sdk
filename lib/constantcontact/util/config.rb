@@ -23,6 +23,7 @@ module ConstantContact
           :add_contacts_activity          => 'activities/addcontacts',
 
           :account_verified_addresses     => 'account/verifiedemailaddresses',
+          :account_info                   => 'account/info',
 
           :contact                        => 'contacts/%s',
           :contacts                       => 'contacts',
