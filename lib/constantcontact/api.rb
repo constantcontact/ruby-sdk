@@ -17,6 +17,11 @@ module ConstantContact
     end
 
 
+    def get_account_info(access_token)
+      Services::AccountService.get_account_info(access_token)
+    end
+
+
     # Get verified addresses for the account
     # @param [String] access_token - Valid access token
     # @param [String] status - status to filter query results by
