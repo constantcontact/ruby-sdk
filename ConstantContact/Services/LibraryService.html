@@ -6,7 +6,7 @@
 <title>
   Class: ConstantContact::Services::LibraryService
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
@@ -119,7 +119,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_library_file-class_method" title="add_library_file (class method)">+ (LibraryFile) <strong>add_library_file</strong>(access_token, file_name, folder_id, description, source, file_type, contents) </a>
+      <a href="#add_library_file-class_method" title="add_library_file (class method)">+ (LibraryFile) <strong>add_library_file</strong>(file_name, folder_id, description, source, file_type, contents) </a>
     
 
     
@@ -143,7 +143,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_library_folder-class_method" title="add_library_folder (class method)">+ (LibraryFolder) <strong>add_library_folder</strong>(access_token, folder) </a>
+      <a href="#add_library_folder-class_method" title="add_library_folder (class method)">+ (LibraryFolder) <strong>add_library_folder</strong>(folder) </a>
     
 
     
@@ -167,7 +167,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_library_file-class_method" title="delete_library_file (class method)">+ (Boolean) <strong>delete_library_file</strong>(access_token, file_id) </a>
+      <a href="#delete_library_file-class_method" title="delete_library_file (class method)">+ (Boolean) <strong>delete_library_file</strong>(file_id) </a>
     
 
     
@@ -192,7 +192,7 @@ separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_library_folder-class_method" title="delete_library_folder (class method)">+ (Boolean) <strong>delete_library_folder</strong>(access_token, folder_id) </a>
+      <a href="#delete_library_folder-class_method" title="delete_library_folder (class method)">+ (Boolean) <strong>delete_library_folder</strong>(folder_id) </a>
     
 
     
@@ -216,7 +216,7 @@ separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#delete_library_trash-class_method" title="delete_library_trash (class method)">+ (Boolean) <strong>delete_library_trash</strong>(access_token) </a>
+      <a href="#delete_library_trash-class_method" title="delete_library_trash (class method)">+ (Boolean) <strong>delete_library_trash</strong> </a>
     
 
     
@@ -240,7 +240,7 @@ separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_file-class_method" title="get_library_file (class method)">+ (LibraryFile) <strong>get_library_file</strong>(access_token, file_id) </a>
+      <a href="#get_library_file-class_method" title="get_library_file (class method)">+ (LibraryFile) <strong>get_library_file</strong>(file_id) </a>
     
 
     
@@ -264,7 +264,7 @@ separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_files-class_method" title="get_library_files (class method)">+ (ResultSet&lt;LibraryFile&gt;) <strong>get_library_files</strong>(access_token, params = {}) </a>
+      <a href="#get_library_files-class_method" title="get_library_files (class method)">+ (ResultSet&lt;LibraryFile&gt;) <strong>get_library_files</strong>(params = {}) </a>
     
 
     
@@ -288,7 +288,7 @@ separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_files_by_folder-class_method" title="get_library_files_by_folder (class method)">+ (ResultSet&lt;LibraryFile&gt;) <strong>get_library_files_by_folder</strong>(access_token, folder_id, params = {}) </a>
+      <a href="#get_library_files_by_folder-class_method" title="get_library_files_by_folder (class method)">+ (ResultSet&lt;LibraryFile&gt;) <strong>get_library_files_by_folder</strong>(folder_id, params = {}) </a>
     
 
     
@@ -313,7 +313,7 @@ parameter.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_files_upload_status-class_method" title="get_library_files_upload_status (class method)">+ (Array&lt;UploadStatus&gt;) <strong>get_library_files_upload_status</strong>(access_token, file_id) </a>
+      <a href="#get_library_files_upload_status-class_method" title="get_library_files_upload_status (class method)">+ (Array&lt;UploadStatus&gt;) <strong>get_library_files_upload_status</strong>(file_id) </a>
     
 
     
@@ -338,7 +338,7 @@ file_id path parameter;  separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_folder-class_method" title="get_library_folder (class method)">+ (LibraryFolder) <strong>get_library_folder</strong>(access_token, folder_id) </a>
+      <a href="#get_library_folder-class_method" title="get_library_folder (class method)">+ (LibraryFolder) <strong>get_library_folder</strong>(folder_id) </a>
     
 
     
@@ -362,7 +362,7 @@ file_id path parameter;  separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_folders-class_method" title="get_library_folders (class method)">+ (ResultSet&lt;LibraryFolder&gt;) <strong>get_library_folders</strong>(access_token, params) </a>
+      <a href="#get_library_folders-class_method" title="get_library_folders (class method)">+ (ResultSet&lt;LibraryFolder&gt;) <strong>get_library_folders</strong>(params) </a>
     
 
     
@@ -386,7 +386,7 @@ file_id path parameter;  separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_info-class_method" title="get_library_info (class method)">+ (LibrarySummary) <strong>get_library_info</strong>(access_token) </a>
+      <a href="#get_library_info-class_method" title="get_library_info (class method)">+ (LibrarySummary) <strong>get_library_info</strong> </a>
     
 
     
@@ -410,7 +410,7 @@ file_id path parameter;  separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#get_library_trash-class_method" title="get_library_trash (class method)">+ (ResultSet&lt;LibraryFile&gt;) <strong>get_library_trash</strong>(access_token, params) </a>
+      <a href="#get_library_trash-class_method" title="get_library_trash (class method)">+ (ResultSet&lt;LibraryFile&gt;) <strong>get_library_trash</strong>(params) </a>
     
 
     
@@ -434,7 +434,7 @@ file_id path parameter;  separate multiple file IDs with a comma.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#move_library_files-class_method" title="move_library_files (class method)">+ (Array&lt;MoveResults&gt;) <strong>move_library_files</strong>(access_token, folder_id, file_id) </a>
+      <a href="#move_library_files-class_method" title="move_library_files (class method)">+ (Array&lt;MoveResults&gt;) <strong>move_library_files</strong>(folder_id, file_id) </a>
     
 
     
@@ -459,7 +459,7 @@ account specify the destination folder using the folder_id path parameter.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_library_file-class_method" title="update_library_file (class method)">+ (LibraryFile) <strong>update_library_file</strong>(access_token, file) </a>
+      <a href="#update_library_file-class_method" title="update_library_file (class method)">+ (LibraryFile) <strong>update_library_file</strong>(file) </a>
     
 
     
@@ -483,7 +483,7 @@ account specify the destination folder using the folder_id path parameter.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#update_library_folder-class_method" title="update_library_folder (class method)">+ (LibraryFolder) <strong>update_library_folder</strong>(access_token, folder) </a>
+      <a href="#update_library_folder-class_method" title="update_library_folder (class method)">+ (LibraryFolder) <strong>update_library_folder</strong>(folder) </a>
     
 
     
@@ -522,7 +522,7 @@ account specify the destination folder using the folder_id path parameter.</p>
       <div class="method_details first">
   <h3 class="signature first" id="add_library_file-class_method">
   
-    + (<tt>LibraryFile</tt>) <strong>add_library_file</strong>(access_token, file_name, folder_id, description, source, file_type, contents) 
+    + (<tt>LibraryFile</tt>) <strong>add_library_file</strong>(file_name, folder_id, description, source, file_type, contents) 
   
 
   
@@ -539,23 +539,6 @@ account specify the destination folder using the folder_id path parameter.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -685,23 +668,23 @@ Plus customers only, Shutterstock, Mobile</p>
       <pre class="lines">
 
 
-215
-216
-217
-218
-219
-220
-221
-222
-223
-224
-225
-226</pre>
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 203</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_add_library_file'>add_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_file_type'>file_type</span><span class='comma'>,</span> <span class='id identifier rubyid_contents'>contents</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_add_library_file'>add_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_name'>file_name</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='id identifier rubyid_file_type'>file_type</span><span class='comma'>,</span> <span class='id identifier rubyid_contents'>contents</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_files</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
 
@@ -709,7 +692,7 @@ Plus customers only, Shutterstock, Mobile</p>
               <span class='symbol'>:description</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='symbol'>:source</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_source'>source</span><span class='comma'>,</span> <span class='symbol'>:file_type</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_file_type'>file_type</span><span class='comma'>,</span> 
               <span class='symbol'>:data</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_contents'>contents</span><span class='comma'>,</span> <span class='symbol'>:multipart</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_location'>location</span> <span class='op'>=</span> <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='lbracket'>[</span><span class='symbol'>:location</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_end'>'</span></span>
   <span class='id identifier rubyid_location'>location</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>/</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
 <span class='kw'>end</span></pre>
@@ -721,7 +704,7 @@ Plus customers only, Shutterstock, Mobile</p>
       <div class="method_details ">
   <h3 class="signature " id="add_library_folder-class_method">
   
-    + (<tt>LibraryFolder</tt>) <strong>add_library_folder</strong>(access_token, folder) 
+    + (<tt>LibraryFolder</tt>) <strong>add_library_folder</strong>(folder) 
   
 
   
@@ -738,23 +721,6 @@ Plus customers only, Shutterstock, Mobile</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -795,22 +761,22 @@ Plus customers only, Shutterstock, Mobile</p>
       <pre class="lines">
 
 
+50
+51
+52
 53
 54
 55
-56
-57
-58
-59</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 50</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_add_library_folder'>add_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_add_library_folder'>add_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folders</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_folder'>folder</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_post'>post</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>LibraryFolder</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -821,7 +787,7 @@ Plus customers only, Shutterstock, Mobile</p>
       <div class="method_details ">
   <h3 class="signature " id="delete_library_file-class_method">
   
-    + (<tt>Boolean</tt>) <strong>delete_library_file</strong>(access_token, file_id) 
+    + (<tt>Boolean</tt>) <strong>delete_library_file</strong>(file_id) 
   
 
   
@@ -841,23 +807,6 @@ Deleted.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -898,20 +847,20 @@ Deleted.</p>
       <pre class="lines">
 
 
-248
-249
-250
-251
-252
-253</pre>
+234
+235
+236
+237
+238
+239</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 248</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 234</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_library_file'>delete_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_library_file'>delete_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_file</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -922,7 +871,7 @@ Deleted.</p>
       <div class="method_details ">
   <h3 class="signature " id="delete_library_folder-class_method">
   
-    + (<tt>Boolean</tt>) <strong>delete_library_folder</strong>(access_token, folder_id) 
+    + (<tt>Boolean</tt>) <strong>delete_library_folder</strong>(folder_id) 
   
 
   
@@ -939,23 +888,6 @@ Deleted.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -996,20 +928,20 @@ Deleted.</p>
       <pre class="lines">
 
 
-92
-93
-94
-95
-96
-97</pre>
+86
+87
+88
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 86</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_library_folder'>delete_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_library_folder'>delete_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folder</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1020,7 +952,7 @@ Deleted.</p>
       <div class="method_details ">
   <h3 class="signature " id="delete_library_trash-class_method">
   
-    + (<tt>Boolean</tt>) <strong>delete_library_trash</strong>(access_token) 
+    + (<tt>Boolean</tt>) <strong>delete_library_trash</strong> 
   
 
   
@@ -1035,28 +967,7 @@ Deleted.</p>
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
-  
-</ul>
-
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -1077,20 +988,20 @@ Deleted.</p>
       <pre class="lines">
 
 
-134
-135
-136
-137
-138
-139</pre>
+126
+127
+128
+129
+130
+131</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 134</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 126</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_delete_library_trash'>delete_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_delete_library_trash'>delete_library_trash</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folder_trash</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>==</span> <span class='int'>204</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1101,7 +1012,7 @@ Deleted.</p>
       <div class="method_details ">
   <h3 class="signature " id="get_library_file-class_method">
   
-    + (<tt>LibraryFile</tt>) <strong>get_library_file</strong>(access_token, file_id) 
+    + (<tt>LibraryFile</tt>) <strong>get_library_file</strong>(file_id) 
   
 
   
@@ -1118,23 +1029,6 @@ Deleted.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1175,20 +1069,20 @@ Deleted.</p>
       <pre class="lines">
 
 
-195
-196
-197
-198
-199
-200</pre>
+184
+185
+186
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 184</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_file'>get_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_file'>get_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_file</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>LibraryFile</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1199,7 +1093,7 @@ Deleted.</p>
       <div class="method_details ">
   <h3 class="signature " id="get_library_files-class_method">
   
-    + (<tt>ResultSet&lt;LibraryFile&gt;</tt>) <strong>get_library_files</strong>(access_token, params = {}) 
+    + (<tt>ResultSet&lt;LibraryFile&gt;</tt>) <strong>get_library_files</strong>(params = {}) 
   
 
   
@@ -1216,23 +1110,6 @@ Deleted.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1290,25 +1167,25 @@ Mobile</code></pre>
       <pre class="lines">
 
 
+148
+149
+150
+151
+152
+153
+154
+155
+156
 157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167</pre>
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 148</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_files'>get_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_files'>get_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_files</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>results</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
@@ -1324,7 +1201,7 @@ Mobile</code></pre>
       <div class="method_details ">
   <h3 class="signature " id="get_library_files_by_folder-class_method">
   
-    + (<tt>ResultSet&lt;LibraryFile&gt;</tt>) <strong>get_library_files_by_folder</strong>(access_token, folder_id, params = {}) 
+    + (<tt>ResultSet&lt;LibraryFile&gt;</tt>) <strong>get_library_files_by_folder</strong>(folder_id, params = {}) 
   
 
   
@@ -1342,23 +1219,6 @@ parameter</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1421,27 +1281,27 @@ displayed per page of output, from 1 - 50, default = 50.</p>
       <pre class="lines">
 
 
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
 177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188</pre>
+178</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 167</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_files_by_folder'>get_library_files_by_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_files_by_folder'>get_library_files_by_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
         <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_files_by_folder</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>results</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
@@ -1457,7 +1317,7 @@ displayed per page of output, from 1 - 50, default = 50.</p>
       <div class="method_details ">
   <h3 class="signature " id="get_library_files_upload_status-class_method">
   
-    + (<tt>Array&lt;UploadStatus&gt;</tt>) <strong>get_library_files_upload_status</strong>(access_token, file_id) 
+    + (<tt>Array&lt;UploadStatus&gt;</tt>) <strong>get_library_files_upload_status</strong>(file_id) 
   
 
   
@@ -1475,23 +1335,6 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1532,26 +1375,26 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
       <pre class="lines">
 
 
-261
-262
-263
-264
-265
-266
-267
-268
-269
-270
-271</pre>
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 261</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 246</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_files_upload_status'>get_library_files_upload_status</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_files_upload_status'>get_library_files_upload_status</span><span class='lparen'>(</span><span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
         <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_file_upload_status</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_statuses'>statuses</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_status'>status</span><span class='op'>|</span>
     <span class='id identifier rubyid_statuses'>statuses</span> <span class='op'>&lt;&lt;</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>UploadStatus</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_status'>status</span><span class='rparen'>)</span>
@@ -1566,7 +1409,7 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
       <div class="method_details ">
   <h3 class="signature " id="get_library_folder-class_method">
   
-    + (<tt>LibraryFolder</tt>) <strong>get_library_folder</strong>(access_token, folder_id) 
+    + (<tt>LibraryFolder</tt>) <strong>get_library_folder</strong>(folder_id) 
   
 
   
@@ -1583,23 +1426,6 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1640,20 +1466,20 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
       <pre class="lines">
 
 
+62
+63
+64
+65
 66
-67
-68
-69
-70
-71</pre>
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 62</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_folder'>get_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_folder'>get_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folder</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>LibraryFolder</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1664,7 +1490,7 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
       <div class="method_details ">
   <h3 class="signature " id="get_library_folders-class_method">
   
-    + (<tt>ResultSet&lt;LibraryFolder&gt;</tt>) <strong>get_library_folders</strong>(access_token, params) 
+    + (<tt>ResultSet&lt;LibraryFolder&gt;</tt>) <strong>get_library_folders</strong>(params) 
   
 
   
@@ -1681,23 +1507,6 @@ file_id path parameter;  separate multiple file IDs with a comma</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1751,6 +1560,8 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
       <pre class="lines">
 
 
+34
+35
 36
 37
 38
@@ -1759,17 +1570,15 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
 41
 42
 43
-44
-45
-46</pre>
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 34</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_folders'>get_library_folders</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_folders'>get_library_folders</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folders</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_folders'>folders</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>results</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_folder'>folder</span><span class='op'>|</span>
@@ -1785,7 +1594,7 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
       <div class="method_details ">
   <h3 class="signature " id="get_library_info-class_method">
   
-    + (<tt>LibrarySummary</tt>) <strong>get_library_info</strong>(access_token) 
+    + (<tt>LibrarySummary</tt>) <strong>get_library_info</strong> 
   
 
   
@@ -1800,28 +1609,7 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
-<ul class="param">
   
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
-  
-</ul>
-
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -1842,20 +1630,20 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
       <pre class="lines">
 
 
+14
 15
 16
 17
 18
-19
-20</pre>
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 14</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_info'>get_library_info</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_info'>get_library_info</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_info</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>LibrarySummary</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1866,7 +1654,7 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
       <div class="method_details ">
   <h3 class="signature " id="get_library_trash-class_method">
   
-    + (<tt>ResultSet&lt;LibraryFile&gt;</tt>) <strong>get_library_trash</strong>(access_token, params) 
+    + (<tt>ResultSet&lt;LibraryFile&gt;</tt>) <strong>get_library_trash</strong>(params) 
   
 
   
@@ -1883,23 +1671,6 @@ NAME_DESC - sorts alphabetically by folder name, z to a</code></pre>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -1958,25 +1729,25 @@ DIMENSION_DESC - sorts by file dimensions (hxw), largest to smallest</code></pre
       <pre class="lines">
 
 
+111
+112
+113
+114
+115
+116
+117
 118
 119
 120
-121
-122
-123
-124
-125
-126
-127
-128</pre>
+121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 111</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_get_library_trash'>get_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_get_library_trash'>get_library_trash</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folder_trash</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_params'>params</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_body'>body</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_body'>body</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>results</span><span class='tstring_end'>'</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
@@ -1992,7 +1763,7 @@ DIMENSION_DESC - sorts by file dimensions (hxw), largest to smallest</code></pre
       <div class="method_details ">
   <h3 class="signature " id="move_library_files-class_method">
   
-    + (<tt>Array&lt;MoveResults&gt;</tt>) <strong>move_library_files</strong>(access_token, folder_id, file_id) 
+    + (<tt>Array&lt;MoveResults&gt;</tt>) <strong>move_library_files</strong>(folder_id, file_id) 
   
 
   
@@ -2010,23 +1781,6 @@ account specify the destination folder using the folder_id path parameter.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -2085,30 +1839,30 @@ account specify the destination folder using the folder_id path parameter.</p>
       <pre class="lines">
 
 
-280
-281
-282
-283
-284
-285
-286
-287
-288
-289
-290
-291
-292</pre>
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 280</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 264</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_move_library_files'>move_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_move_library_files'>move_library_files</span><span class='lparen'>(</span><span class='id identifier rubyid_folder_id'>folder_id</span><span class='comma'>,</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
         <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_file_move</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_folder_id'>folder_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
  
   <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_file_id'>file_id</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>,</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_id'>id</span><span class='op'>|</span> <span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_result'>result</span><span class='op'>|</span>
     <span class='id identifier rubyid_results'>results</span> <span class='op'>&lt;&lt;</span> <span class='const'>Components</span><span class='op'>::</span><span class='const'>MoveResults</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span>
@@ -2123,7 +1877,7 @@ account specify the destination folder using the folder_id path parameter.</p>
       <div class="method_details ">
   <h3 class="signature " id="update_library_file-class_method">
   
-    + (<tt>LibraryFile</tt>) <strong>update_library_file</strong>(access_token, file) 
+    + (<tt>LibraryFile</tt>) <strong>update_library_file</strong>(file) 
   
 
   
@@ -2140,23 +1894,6 @@ account specify the destination folder using the folder_id path parameter.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -2197,22 +1934,22 @@ account specify the destination folder using the folder_id path parameter.</p>
       <pre class="lines">
 
 
-233
-234
-235
-236
-237
-238
-239</pre>
+220
+221
+222
+223
+224
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 233</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 220</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update_library_file'>update_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_library_file'>update_library_file</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_file</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>LibraryFile</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2223,7 +1960,7 @@ account specify the destination folder using the folder_id path parameter.</p>
       <div class="method_details ">
   <h3 class="signature " id="update_library_folder-class_method">
   
-    + (<tt>LibraryFolder</tt>) <strong>update_library_folder</strong>(access_token, folder) 
+    + (<tt>LibraryFolder</tt>) <strong>update_library_folder</strong>(folder) 
   
 
   
@@ -2240,23 +1977,6 @@ account specify the destination folder using the folder_id path parameter.</p>
 <div class="tags">
   <p class="tag_title">Parameters:</p>
 <ul class="param">
-  
-    <li>
-      
-        <span class='name'>access_token</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><ul><li>
-<p>Constant Contact OAuth2 access token</p>
-</li></ul>
-</div>
-      
-    </li>
   
     <li>
       
@@ -2297,24 +2017,24 @@ account specify the destination folder using the folder_id path parameter.</p>
       <pre class="lines">
 
 
+73
+74
+75
+76
+77
 78
 79
-80
-81
-82
-83
-84
-85</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/library_service.rb', line 73</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_update_library_folder'>update_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_update_library_folder'>update_library_folder</span><span class='lparen'>(</span><span class='id identifier rubyid_folder'>folder</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span> 
         <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.library_folder</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_folder'>folder</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_payload'>payload</span> <span class='op'>=</span> <span class='id identifier rubyid_folder'>folder</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
-  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='id identifier rubyid_access_token'>access_token</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_put'>put</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_payload'>payload</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>LibraryFolder</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -2327,9 +2047,9 @@ account specify the destination folder using the folder_id path parameter.</p>
 </div>
 
     <div id="footer">
-  Generated on Mon Oct 27 14:20:12 2014 by
+  Generated on Thu Mar 26 14:54:56 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-1.9.3).
+  0.8.7.6 (ruby-1.9.3).
 </div>
 
   </body>
