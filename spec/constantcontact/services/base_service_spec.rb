@@ -10,7 +10,8 @@ describe ConstantContact::Services::BaseService do
   describe "#get_headers" do
     it "gets a hash of headers" do
       token = 'foo'
-      headers = ConstantContact::Services::BaseService.send(:get_headers, token)
+      ConstantContact::Services::BaseService.access_token = token
+      headers = ConstantContact::Services::BaseService.send(:get_headers)
 
       expect(headers).to be_a Hash
       expect(headers[:content_type]).to be_a String

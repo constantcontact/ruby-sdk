@@ -15,7 +15,7 @@ describe ConstantContact::Services::EmailMarketingService do
       response = RestClient::Response.create(json_response, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      campaigns = ConstantContact::Services::EmailMarketingService.get_campaigns('token')
+      campaigns = ConstantContact::Services::EmailMarketingService.get_campaigns()
       campaigns.should be_kind_of(ConstantContact::Components::ResultSet)
       campaigns.results.first.should be_kind_of(ConstantContact::Components::Campaign)
       campaigns.results.first.name.should eq('1357157252225')
@@ -30,7 +30,7 @@ describe ConstantContact::Services::EmailMarketingService do
       response = RestClient::Response.create(json_response, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      campaign = ConstantContact::Services::EmailMarketingService.get_campaign('token', 1)
+      campaign = ConstantContact::Services::EmailMarketingService.get_campaign(1)
       campaign.should be_kind_of(ConstantContact::Components::Campaign)
       campaign.name.should eq('Campaign Name')
     end
@@ -45,7 +45,7 @@ describe ConstantContact::Services::EmailMarketingService do
       RestClient.stub(:post).and_return(response)
       new_campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
-      campaign = ConstantContact::Services::EmailMarketingService.add_campaign('token', new_campaign)
+      campaign = ConstantContact::Services::EmailMarketingService.add_campaign(new_campaign)
       campaign.should be_kind_of(ConstantContact::Components::Campaign)
       campaign.name.should eq('Campaign Name')
     end
@@ -60,7 +60,7 @@ describe ConstantContact::Services::EmailMarketingService do
       RestClient.stub(:delete).and_return(response)
       campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
-      result = ConstantContact::Services::EmailMarketingService.delete_campaign('token', campaign)
+      result = ConstantContact::Services::EmailMarketingService.delete_campaign(campaign)
       result.should be_true
     end
   end
@@ -74,7 +74,7 @@ describe ConstantContact::Services::EmailMarketingService do
       RestClient.stub(:put).and_return(response)
       campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
-      result = ConstantContact::Services::EmailMarketingService.update_campaign('token', campaign)
+      result = ConstantContact::Services::EmailMarketingService.update_campaign(campaign)
       result.should be_kind_of(ConstantContact::Components::Campaign)
       result.name.should eq('Campaign Name')
     end

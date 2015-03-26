@@ -34,7 +34,7 @@ get '/cc_callback' do
         response = @oauth.get_access_token(@code)
         @token = response['access_token']
 
-        cc = ConstantContact::Api.new(cnf['api_key'])
+        cc = ConstantContact::Api.new(cnf['api_key'], @token)
 
         @campaign = {
           'name'=> nil,
@@ -61,7 +61,7 @@ get '/cc_callback' do
         }
 
         @lists = []
-        lists = cc.get_lists(@token)
+        lists = cc.get_lists()
         if lists
           lists.each do |list|
             # Select the first list, by default
@@ -74,7 +74,7 @@ get '/cc_callback' do
           end
         end
 
-        response = cc.get_verified_email_addresses(@token) rescue 'Resource not found'
+        response = cc.get_verified_email_addresses() rescue 'Resource not found'
         if response
           verified_email = response.first.email_address
           @campaign['from_email'] = verified_email
@@ -104,7 +104,7 @@ post '/cc_callback' do
     @token = params[:token]
 
     if @code
-      cc = ConstantContact::Api.new(cnf['api_key'])
+      cc = ConstantContact::Api.new(cnf['api_key'], @token)
 
       @campaign = params[:campaign]
       @message = params[:message]
@@ -148,10 +148,10 @@ post '/cc_callback' do
           end
 
           campaign = ConstantContact::Components::Campaign.create(@campaign)
-          campaign = cc.add_email_campaign(@token, campaign)
+          campaign = cc.add_email_campaign(campaign)
           if campaign && !@schedule['scheduled_date'].blank?
             schedule = ConstantContact::Components::Schedule.create(@schedule)
-            cc.add_email_campaign_schedule(@token, campaign, schedule)
+            cc.add_email_campaign_schedule(campaign, schedule)
           end
           redirect '/cc_callback'
         end

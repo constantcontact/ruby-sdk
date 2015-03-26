@@ -56,8 +56,8 @@ get '/cc_callback' do
         response = @oauth.get_access_token(@code)
         @token = response['access_token']
 
-        cc = ConstantContact::Api.new(cnf['api_key'])
-        lists = cc.get_lists(@token)
+        cc = ConstantContact::Api.new(cnf['api_key'], @token)
+        lists = cc.get_lists()
         if lists
           lists.each do |list|
             # Select the first list, by default
@@ -92,7 +92,7 @@ post '/cc_callback' do
     @token = params[:token]
 
     if @code
-      cc = ConstantContact::Api.new(cnf['api_key'])
+      cc = ConstantContact::Api.new(cnf['api_key'], @token)
 
       @contact = params[:contact]
       @email = params[:email]
@@ -137,13 +137,13 @@ post '/cc_callback' do
             @contact['lists'] << {:id => list_id} if lists['checkboxes'][key]
           end
 
-          response = cc.get_contact_by_email(@token, @email['email_address']) rescue 'Resource not found'
+          response = cc.get_contact_by_email(@email['email_address']) rescue 'Resource not found'
           contact = ConstantContact::Components::Contact.create(@contact)
           if response && response.respond_to?(:results)
             contact.id = response.results.first.id.to_s
-            cc.update_contact(@token, contact)
+            cc.update_contact(contact)
           else
-            cc.add_contact(@token, contact)
+            cc.add_contact(contact)
           end
 
           redirect '/cc_callback'
