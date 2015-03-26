@@ -139,7 +139,7 @@ post '/cc_callback' do
 
           response = cc.get_contact_by_email(@email['email_address']) rescue 'Resource not found'
           contact = ConstantContact::Components::Contact.create(@contact)
-          if response && response.respond_to?(:results)
+          if response && response.respond_to?(:results) && !response.results.empty?
             contact.id = response.results.first.id.to_s
             cc.update_contact(contact)
           else
@@ -151,6 +151,7 @@ post '/cc_callback' do
       rescue => e
         message = parse_exception(e)
         @error = "An error occured when saving the contact : " + message
+        p e.backtrace
       end
       erb :contact
     else
