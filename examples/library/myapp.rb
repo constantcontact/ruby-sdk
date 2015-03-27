@@ -37,8 +37,8 @@ get '/cc_callback' do
         response = @oauth.get_access_token(@code)
         @token = response['access_token']
 
-        cc = ConstantContact::Api.new(cnf['api_key'])
-        folders = cc.get_library_folders(@token).results
+        cc = ConstantContact::Api.new(cnf['api_key'], @token)
+        folders = cc.get_library_folders().results
         if folders
           folders.each do |folder|
             # Select the first folder, by default
@@ -73,7 +73,7 @@ post '/cc_callback' do
     @token = params[:token]
 
     if @code
-      cc = ConstantContact::Api.new(cnf['api_key'])
+      cc = ConstantContact::Api.new(cnf['api_key'], @token)
 
       @library = params[:library]
       folders = params[:folders] || {}
@@ -108,10 +108,10 @@ post '/cc_callback' do
           end
           add_to_folders = add_to_folders.join(',')
 
-          file_id = cc.add_library_file(@token, file_name, add_to_folders, description, source, file_type, contents)
+          file_id = cc.add_library_file(file_name, add_to_folders, description, source, file_type, contents)
 
           if file_id
-            statuses = cc.get_library_files_upload_status(@token, file_id)
+            statuses = cc.get_library_files_upload_status(file_id)
             response = statuses.first
             @error = "File was successfully uploaded : ID=#{response.file_id}, status=#{response.status} and description=#{response.description}"
           else
