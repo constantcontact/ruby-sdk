@@ -15,7 +15,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json_response, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      activities = ConstantContact::Services::ActivityService.get_activities('token')
+      activities = ConstantContact::Services::ActivityService.get_activities()
       activities.first.should be_kind_of(ConstantContact::Components::Activity)
       activities.first.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
@@ -29,7 +29,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json_response, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      activity = ConstantContact::Services::ActivityService.get_activity('token', 'a07e1ilbm7shdg6ikeo')
+      activity = ConstantContact::Services::ActivityService.get_activity('a07e1ilbm7shdg6ikeo')
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
@@ -75,8 +75,7 @@ describe ConstantContact::Services::ActivityService do
 
       add_contact = ConstantContact::Components::AddContacts.new(contacts, lists)
 
-      activity = ConstantContact::Services::ActivityService.create_add_contacts_activity(
-        'token', add_contact)
+      activity = ConstantContact::Services::ActivityService.create_add_contacts_activity(add_contact)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('ADD_CONTACTS')
     end
@@ -93,7 +92,7 @@ describe ConstantContact::Services::ActivityService do
       RestClient.stub(:post).and_return(response)
 
       activity = ConstantContact::Services::ActivityService.create_add_contacts_activity_from_file(
-        'token', 'contacts.txt', content, lists)
+        'contacts.txt', content, lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('ADD_CONTACTS')
     end
@@ -112,8 +111,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json_clear_lists, net_http_resp, {})
       RestClient.stub(:post).and_return(response)
 
-      activity = ConstantContact::Services::ActivityService.add_clear_lists_activity(
-        'token', lists)
+      activity = ConstantContact::Services::ActivityService.add_clear_lists_activity(lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('CLEAR_CONTACTS_FROM_LISTS')
     end
@@ -130,7 +128,7 @@ describe ConstantContact::Services::ActivityService do
       email_addresses = ["djellesma@constantcontact.com"]
 
       activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity(
-        'token', email_addresses, lists)
+        email_addresses, lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
@@ -147,7 +145,7 @@ describe ConstantContact::Services::ActivityService do
       RestClient.stub(:post).and_return(response)
 
       activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity_from_file(
-        'token', 'contacts.txt', content, lists)
+        'contacts.txt', content, lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
@@ -164,8 +162,7 @@ describe ConstantContact::Services::ActivityService do
 
       export_contacts = ConstantContact::Components::ExportContacts.new(JSON.parse(json_request))
 
-      activity = ConstantContact::Services::ActivityService.add_export_contacts_activity(
-        'token', export_contacts)
+      activity = ConstantContact::Services::ActivityService.add_export_contacts_activity(export_contacts)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('EXPORT_CONTACTS')
     end
@@ -192,9 +189,7 @@ describe ConstantContact::Services::ActivityService do
         end
       end
 
-      activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity(
-        'token', email_addresses, lists)
-
+      activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity(email_addresses, lists)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
   end

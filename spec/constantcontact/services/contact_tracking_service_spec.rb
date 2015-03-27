@@ -17,7 +17,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::ContactTrackingService.get_bounces('token', contact_id, params)
+      set = ConstantContact::Services::ContactTrackingService.get_bounces(contact_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::BounceActivity)
       set.results.first.activity_type.should eq('EMAIL_BOUNCE')
@@ -34,7 +34,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::ContactTrackingService.get_clicks('token', contact_id, params)
+      set = ConstantContact::Services::ContactTrackingService.get_clicks(contact_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::ClickActivity)
       set.results.first.activity_type.should eq('EMAIL_CLICK')
@@ -51,7 +51,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::ContactTrackingService.get_forwards('token', contact_id, params)
+      set = ConstantContact::Services::ContactTrackingService.get_forwards(contact_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::ForwardActivity)
       set.results.first.activity_type.should eq('EMAIL_FORWARD')
@@ -68,7 +68,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::ContactTrackingService.get_opens('token', contact_id, params)
+      set = ConstantContact::Services::ContactTrackingService.get_opens(contact_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::OpenActivity)
       set.results.first.activity_type.should eq('EMAIL_OPEN')
@@ -85,7 +85,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::ContactTrackingService.get_sends('token', contact_id, params)
+      set = ConstantContact::Services::ContactTrackingService.get_sends(contact_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::SendActivity)
       set.results.first.activity_type.should eq('EMAIL_SEND')
@@ -102,7 +102,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::ContactTrackingService.get_unsubscribes('token', contact_id, params)
+      set = ConstantContact::Services::ContactTrackingService.get_unsubscribes(contact_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::UnsubscribeActivity)
       set.results.first.activity_type.should eq('EMAIL_UNSUBSCRIBE')
@@ -118,7 +118,7 @@ describe ConstantContact::Services::ContactTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {})
       RestClient.stub(:get).and_return(response)
 
-      summary = ConstantContact::Services::CampaignTrackingService.get_summary('token', contact_id)
+      summary = ConstantContact::Services::CampaignTrackingService.get_summary(contact_id)
       summary.should be_kind_of(ConstantContact::Components::TrackingSummary)
       summary.sends.should eq(15)
     end

@@ -7,6 +7,20 @@
 require 'spec_helper'
 
 describe ConstantContact::Services::AccountService do
+  describe "#get_account_info" do
+    it "gets a summary of account information" do
+      json_response = load_file('account_info_response.json')
+      net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
+
+      response = RestClient::Response.create(json_response, net_http_resp, {})
+      RestClient.stub(:get).and_return(response)
+
+      result = ConstantContact::Services::AccountService.get_account_info()
+      result.should be_kind_of(ConstantContact::Components::AccountInfo)
+      result.website.should eq('http://www.example.com')
+    end
+  end
+
   describe "#get_verified_email_addresses" do
     it "gets all verified email addresses associated with an account" do
       json_response = load_file('verified_email_addresses_response.json')
@@ -16,7 +30,7 @@ describe ConstantContact::Services::AccountService do
       RestClient.stub(:get).and_return(response)
 
       params = {}
-      email_addresses = ConstantContact::Services::AccountService.get_verified_email_addresses('token', params)
+      email_addresses = ConstantContact::Services::AccountService.get_verified_email_addresses(params)
 
       email_addresses.should be_kind_of(Array)
       email_addresses.first.should be_kind_of(ConstantContact::Components::VerifiedEmailAddress)

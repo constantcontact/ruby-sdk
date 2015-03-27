@@ -36,8 +36,8 @@ get '/cc_callback' do
         response = @oauth.get_access_token(@code)
         @token = response['access_token']
 
-        cc = ConstantContact::Api.new(cnf['api_key'])
-        lists = cc.get_lists(@token)
+        cc = ConstantContact::Api.new(cnf['api_key'], @token)
+        lists = cc.get_lists()
         if lists
           lists.each do |list|
             # Select the first list, by default
@@ -72,7 +72,7 @@ post '/cc_callback' do
     @token = params[:token]
 
     if @code
-      cc = ConstantContact::Api.new(cnf['api_key'])
+      cc = ConstantContact::Api.new(cnf['api_key'], @token)
 
       @activity = params[:activity]
       lists = params[:lists] || {}
@@ -105,9 +105,9 @@ post '/cc_callback' do
           add_to_lists = add_to_lists.join(',')
 
           if /remove_contacts/.match(file_name)
-            cc.add_remove_contacts_from_lists_activity_from_file(@token, file_name, contents, add_to_lists)
+            cc.add_remove_contacts_from_lists_activity_from_file(file_name, contents, add_to_lists)
           elsif /add_contacts/.match(file_name)
-            cc.add_create_contacts_activity_from_file(@token, file_name, contents, add_to_lists)
+            cc.add_create_contacts_activity_from_file(file_name, contents, add_to_lists)
           end
 
           redirect '/cc_callback'
