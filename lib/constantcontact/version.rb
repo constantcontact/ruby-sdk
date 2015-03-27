@@ -2,11 +2,11 @@
 # version.rb
 # ConstantContact
 #
-# Copyright (c) 2013 Constant Contact. All rights reserved.
+# Copyright (c) 2015 Constant Contact. All rights reserved.
 
 module ConstantContact
   module SDK
     # Gem version
-    VERSION = "1.3.2"
+    VERSION = "2.0.0"
   end
 end
