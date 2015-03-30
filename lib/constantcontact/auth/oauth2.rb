@@ -71,7 +71,7 @@ module ConstantContact
           response = RestClient.post(url, params)
           response_body = JSON.parse(response)
         rescue => e
-          response_body = e.respond_to?(:response) ?
+          response_body = e.respond_to?(:response) && e.response ?
             JSON.parse(e.response) :
             {'error' => '', 'error_description' => e.message}
         end
