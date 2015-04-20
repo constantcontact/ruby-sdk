@@ -18,6 +18,8 @@ describe ConstantContact::Services::AccountService do
       result = ConstantContact::Services::AccountService.get_account_info()
       result.should be_kind_of(ConstantContact::Components::AccountInfo)
       result.website.should eq('http://www.example.com')
+      result.organization_addresses.first.should be_kind_of(ConstantContact::Components::AccountAddress)
+      result.organization_addresses.first.city.should eq('Anytown')
     end
   end
 
