@@ -7,12 +7,16 @@
 require 'spec_helper'
 
 describe ConstantContact::Services::ActivityService do
+  before(:each) do
+    @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+  end
+
   describe "#get_activities" do
     it "gets a set of activities" do
       json_response = load_file('activities_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {})
+      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       activities = ConstantContact::Services::ActivityService.get_activities()
@@ -26,7 +30,7 @@ describe ConstantContact::Services::ActivityService do
       json_response = load_file('activity_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {})
+      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       activity = ConstantContact::Services::ActivityService.get_activity('a07e1ilbm7shdg6ikeo')
@@ -42,7 +46,7 @@ describe ConstantContact::Services::ActivityService do
       json_contacts = load_file('contacts_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_add_contacts, net_http_resp, {})
+      response = RestClient::Response.create(json_add_contacts, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
       import = ConstantContact::Components::AddContactsImportData.new
@@ -88,7 +92,7 @@ describe ConstantContact::Services::ActivityService do
       lists = 'list1, list2'
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
       activity = ConstantContact::Services::ActivityService.create_add_contacts_activity_from_file(
@@ -108,7 +112,7 @@ describe ConstantContact::Services::ActivityService do
 
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_clear_lists, net_http_resp, {})
+      response = RestClient::Response.create(json_clear_lists, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
       activity = ConstantContact::Services::ActivityService.add_clear_lists_activity(lists)
@@ -123,7 +127,7 @@ describe ConstantContact::Services::ActivityService do
       lists = 'list1, list2'
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
       email_addresses = ["djellesma@constantcontact.com"]
 
@@ -141,7 +145,7 @@ describe ConstantContact::Services::ActivityService do
       lists = 'list1, list2'
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
       activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity_from_file(
@@ -157,7 +161,7 @@ describe ConstantContact::Services::ActivityService do
       json_response = load_file('export_contacts_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {})
+      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
       export_contacts = ConstantContact::Components::ExportContacts.new(JSON.parse(json_request))
@@ -174,7 +178,7 @@ describe ConstantContact::Services::ActivityService do
       json_response = load_file('remove_contacts_from_lists_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {})
+      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
       request_object = JSON.parse(json_request)

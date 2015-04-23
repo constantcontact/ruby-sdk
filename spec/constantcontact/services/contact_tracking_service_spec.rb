@@ -7,6 +7,10 @@
 require 'spec_helper'
 
 describe ConstantContact::Services::ContactTrackingService do
+  before(:each) do
+    @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+  end
+
   describe "#get_bounces" do
     it "gets bounces for a given contact" do
       contact_id = 1
@@ -14,7 +18,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_bounces_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       set = ConstantContact::Services::ContactTrackingService.get_bounces(contact_id, params)
@@ -31,7 +35,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_clicks_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       set = ConstantContact::Services::ContactTrackingService.get_clicks(contact_id, params)
@@ -48,7 +52,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_forwards_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       set = ConstantContact::Services::ContactTrackingService.get_forwards(contact_id, params)
@@ -65,7 +69,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_opens_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       set = ConstantContact::Services::ContactTrackingService.get_opens(contact_id, params)
@@ -82,7 +86,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_sends_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       set = ConstantContact::Services::ContactTrackingService.get_sends(contact_id, params)
@@ -99,7 +103,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_unsubscribes_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       set = ConstantContact::Services::ContactTrackingService.get_unsubscribes(contact_id, params)
@@ -115,7 +119,7 @@ describe ConstantContact::Services::ContactTrackingService do
       json = load_file('contact_tracking_summary_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
       summary = ConstantContact::Services::CampaignTrackingService.get_summary(contact_id)

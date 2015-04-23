@@ -7,12 +7,16 @@
 require 'spec_helper'
 
 describe ConstantContact::Services::ContactService do
+  before(:each) do
+    @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+  end
+
   describe "#get_contacts" do
     it "returns an array of contacts" do
       json = load_file('contacts_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
       contacts = ConstantContact::Services::ContactService.get_contacts()
       contact = contacts.results[0]
@@ -27,7 +31,7 @@ describe ConstantContact::Services::ContactService do
       json = load_file('contact_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
       contact = ConstantContact::Services::ContactService.get_contact(1)
 
@@ -40,7 +44,7 @@ describe ConstantContact::Services::ContactService do
       json = load_file('contact_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
       new_contact = ConstantContact::Components::Contact.create(JSON.parse(json))
       contact = ConstantContact::Services::ContactService.add_contact(new_contact)
@@ -55,7 +59,7 @@ describe ConstantContact::Services::ContactService do
       contact_id = 196
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-      response = RestClient::Response.create('', net_http_resp, {})
+      response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
       result = ConstantContact::Services::ContactService.delete_contact(contact_id)
@@ -68,7 +72,7 @@ describe ConstantContact::Services::ContactService do
       contact_id = 196
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-      response = RestClient::Response.create('', net_http_resp, {})
+      response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
       result = ConstantContact::Services::ContactService.delete_contact_from_lists(contact_id)
@@ -82,7 +86,7 @@ describe ConstantContact::Services::ContactService do
       list_id = 1
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-      response = RestClient::Response.create('', net_http_resp, {})
+      response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
       result = ConstantContact::Services::ContactService.delete_contact_from_list(contact_id, list_id)
@@ -95,7 +99,7 @@ describe ConstantContact::Services::ContactService do
       json = load_file('contact_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {})
+      response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:put).and_return(response)
       contact = ConstantContact::Components::Contact.create(JSON.parse(json))
       result = ConstantContact::Services::ContactService.update_contact(contact)

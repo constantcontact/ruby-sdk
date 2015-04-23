@@ -7,7 +7,8 @@
 module ConstantContact
   module Components
     class AccountInfo < Component
-      attr_accessor :website, :organization_name, :first_name, :last_name, :email, :phone, :country_code, :state_code
+      attr_accessor :website, :organization_name, :first_name, :last_name, :email, :phone, :country_code, :state_code,
+                    :company_logo, :time_zone, :organization_addresses
 
       # Class constructor
       # @return [AccountInfo]
@@ -21,7 +22,13 @@ module ConstantContact
         obj = AccountInfo.new
         if props
           props.each do |key, value|
-            obj.send("#{key}=", value) if obj.respond_to? key
+            key = key.to_s
+            if key == 'organization_addresses'
+              value = value || []
+              obj.organization_addresses = value.collect{|address| Components::AccountAddress.create(address) }
+            else
+              obj.send("#{key}=", value) if obj.respond_to? key
+            end
           end
         end
         obj

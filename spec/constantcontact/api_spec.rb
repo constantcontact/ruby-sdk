@@ -8,13 +8,13 @@ require 'spec_helper'
 
 describe ConstantContact::Api do
 
-  before(:all) {
+  before(:all) do
     ConstantContact::Util::Config.configure do |config|
       config[:auth].delete :api_key
       config[:auth].delete :api_secret
       config[:auth].delete :redirect_uri
     end
-  }
+  end
 
   it "without api_key defined" do
     lambda { 
@@ -64,6 +64,7 @@ describe ConstantContact::Api do
   describe "test methods" do
     before(:each) do
       @api = ConstantContact::Api.new('api key', 'access token')
+      @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
     end
 
     describe "#get_account_info" do
@@ -71,7 +72,7 @@ describe ConstantContact::Api do
         json_response = load_file('account_info_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         result = @api.get_account_info()
@@ -85,7 +86,7 @@ describe ConstantContact::Api do
         json_response = load_file('verified_email_addresses_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         email_addresses = @api.get_verified_email_addresses()
@@ -101,7 +102,7 @@ describe ConstantContact::Api do
         json_response = load_file('contacts_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         contacts = @api.get_contacts({:limit => 60})
 
@@ -116,7 +117,7 @@ describe ConstantContact::Api do
         json_response = load_file('contact_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         contact = @api.get_contact(1)
 
@@ -129,7 +130,7 @@ describe ConstantContact::Api do
         json_response = load_file('contacts_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         contacts = @api.get_contact_by_email('rmartone@systems.com')
 
@@ -142,7 +143,7 @@ describe ConstantContact::Api do
         json_response = load_file('contact_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         new_contact = ConstantContact::Components::Contact.create(JSON.parse(json_response))
 
@@ -157,7 +158,7 @@ describe ConstantContact::Api do
         contact_id = 196
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_contact(contact_id)
@@ -170,7 +171,7 @@ describe ConstantContact::Api do
         contact_id = 196
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_contact_from_lists(contact_id)
@@ -184,7 +185,7 @@ describe ConstantContact::Api do
         list_id = 1
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_contact_from_list(contact_id, list_id)
@@ -197,7 +198,7 @@ describe ConstantContact::Api do
         json = load_file('contact_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         contact = ConstantContact::Components::Contact.create(JSON.parse(json))
         result = @api.update_contact(contact)
@@ -212,7 +213,7 @@ describe ConstantContact::Api do
         json_response = load_file('lists_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         lists = @api.get_lists()
 
@@ -227,7 +228,7 @@ describe ConstantContact::Api do
         json = load_file('list_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         list = @api.get_list(1)
@@ -241,7 +242,7 @@ describe ConstantContact::Api do
         json = load_file('list_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         new_list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
@@ -256,7 +257,7 @@ describe ConstantContact::Api do
         json = load_file('list_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
@@ -272,7 +273,7 @@ describe ConstantContact::Api do
         json_contacts = load_file('contacts_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_contacts, net_http_resp, {})
+        response = RestClient::Response.create(json_contacts, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         list = ConstantContact::Components::ContactList.create(JSON.parse(json_list))
 
@@ -293,7 +294,7 @@ describe ConstantContact::Api do
         json = load_file('events.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         
         events = @api.get_events()
@@ -307,7 +308,7 @@ describe ConstantContact::Api do
         json = load_file('event.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         event = @api.get_event(1)
 
@@ -320,7 +321,7 @@ describe ConstantContact::Api do
         json = load_file('event.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(json))
@@ -338,7 +339,7 @@ describe ConstantContact::Api do
         hash["status"] = "ACTIVE"
 
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
-        response = RestClient::Response.create(hash.to_json, net_http_resp, {})
+        response = RestClient::Response.create(hash.to_json, net_http_resp, {}, @request)
         RestClient.stub(:patch).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(json))
@@ -356,7 +357,7 @@ describe ConstantContact::Api do
         hash["status"] = "CANCELLED"
 
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
-        response = RestClient::Response.create(hash.to_json, net_http_resp, {})
+        response = RestClient::Response.create(hash.to_json, net_http_resp, {}, @request)
         RestClient.stub(:patch).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(json))
@@ -373,7 +374,7 @@ describe ConstantContact::Api do
         fees_json = load_file('fees.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(fees_json, net_http_resp, {})
+        response = RestClient::Response.create(fees_json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
         fees = @api.get_event_fees(event)
@@ -391,7 +392,7 @@ describe ConstantContact::Api do
         fee_json = load_file('fees.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
-        response = RestClient::Response.create(fee_json, net_http_resp, {})
+        response = RestClient::Response.create(fee_json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
@@ -407,7 +408,7 @@ describe ConstantContact::Api do
         fee_json = load_file('fee.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 201, 'Created')
-        response = RestClient::Response.create(fee_json, net_http_resp, {})
+        response = RestClient::Response.create(fee_json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
@@ -426,7 +427,7 @@ describe ConstantContact::Api do
         hash['fee'] += 1
 
         net_http_resp = Net::HTTPResponse.new(1.0, 201, 'Created')
-        response = RestClient::Response.create(hash.to_json, net_http_resp, {})
+        response = RestClient::Response.create(hash.to_json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
@@ -444,7 +445,7 @@ describe ConstantContact::Api do
         fee_json = load_file('fees.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
@@ -459,7 +460,7 @@ describe ConstantContact::Api do
         registrants_json = load_file('registrants.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 201, 'Created')
-        response = RestClient::Response.create(registrants_json, net_http_resp, {})
+        response = RestClient::Response.create(registrants_json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
@@ -475,7 +476,7 @@ describe ConstantContact::Api do
         registrant_json = load_file('registrant.json')
 
         net_http_resp = Net::HTTPResponse.new(1.0, 201, 'Created')
-        response = RestClient::Response.create(registrant_json, net_http_resp, {})
+        response = RestClient::Response.create(registrant_json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         event = ConstantContact::Components::Event.create(JSON.parse(event_json))
@@ -491,7 +492,7 @@ describe ConstantContact::Api do
         json_response = load_file('event_items_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         results = @api.get_event_items(1)
@@ -506,7 +507,7 @@ describe ConstantContact::Api do
         json = load_file('event_item_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         result = @api.get_event_item(1, 1)
@@ -520,7 +521,7 @@ describe ConstantContact::Api do
         json = load_file('event_item_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         event_item = ConstantContact::Components::EventItem.create(JSON.parse(json))
 
@@ -534,7 +535,7 @@ describe ConstantContact::Api do
       it "deletes an event item" do
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_event_item(1, 1)
@@ -547,7 +548,7 @@ describe ConstantContact::Api do
         json = load_file('event_item_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         event_item = ConstantContact::Components::EventItem.create(JSON.parse(json))
 
@@ -562,7 +563,7 @@ describe ConstantContact::Api do
         json_response = load_file('event_item_attributes_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         results = @api.get_event_item_attributes(1, 1)
@@ -577,7 +578,7 @@ describe ConstantContact::Api do
         json = load_file('event_item_attribute_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         result = @api.get_event_item_attribute(1, 1, 1)
@@ -591,7 +592,7 @@ describe ConstantContact::Api do
         json = load_file('event_item_attribute_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         event_item_attribute = ConstantContact::Components::EventItemAttribute.create(JSON.parse(json))
 
@@ -605,7 +606,7 @@ describe ConstantContact::Api do
       it "deletes an event item attribute" do
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_event_item_attribute(1, 1, 1)
@@ -618,7 +619,7 @@ describe ConstantContact::Api do
         json = load_file('event_item_attribute_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         event_item_attribute = ConstantContact::Components::EventItemAttribute.create(JSON.parse(json))
 
@@ -633,7 +634,7 @@ describe ConstantContact::Api do
         json_response = load_file('promocodes_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         results = @api.get_promocodes(1)
@@ -648,7 +649,7 @@ describe ConstantContact::Api do
         json = load_file('promocode_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         result = @api.get_promocode(1, 1)
@@ -662,7 +663,7 @@ describe ConstantContact::Api do
         json = load_file('promocode_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         promocode = ConstantContact::Components::Promocode.create(JSON.parse(json))
 
@@ -676,7 +677,7 @@ describe ConstantContact::Api do
       it "deletes a promocode" do
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_promocode(1, 1)
@@ -689,7 +690,7 @@ describe ConstantContact::Api do
         json = load_file('promocode_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         promocode = ConstantContact::Components::Promocode.create(JSON.parse(json))
 
@@ -704,7 +705,7 @@ describe ConstantContact::Api do
         json_response = load_file('email_campaigns_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         campaigns = @api.get_email_campaigns({:limit => 2})
@@ -719,7 +720,7 @@ describe ConstantContact::Api do
         json_response = load_file('email_campaign_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         campaign = @api.get_email_campaign(1)
@@ -733,7 +734,7 @@ describe ConstantContact::Api do
         json = load_file('email_campaign_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         new_campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
@@ -748,7 +749,7 @@ describe ConstantContact::Api do
         json = load_file('email_campaign_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
         campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
@@ -762,7 +763,7 @@ describe ConstantContact::Api do
         json = load_file('email_campaign_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
@@ -778,7 +779,7 @@ describe ConstantContact::Api do
         json = load_file('schedule_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         new_schedule = ConstantContact::Components::Schedule.create(JSON.parse(json))
 
@@ -794,7 +795,7 @@ describe ConstantContact::Api do
         json = load_file('schedules_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         schedules = @api.get_email_campaign_schedules(campaign_id)
@@ -811,7 +812,7 @@ describe ConstantContact::Api do
         json = load_file('schedule_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         schedule = @api.get_email_campaign_schedule(campaign_id, schedule_id)
@@ -826,7 +827,7 @@ describe ConstantContact::Api do
         schedule_id = 1
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_email_campaign_schedule(campaign_id, schedule_id)
@@ -840,7 +841,7 @@ describe ConstantContact::Api do
         json = load_file('schedule_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         schedule = ConstantContact::Components::Schedule.create(JSON.parse(json))
 
@@ -857,7 +858,7 @@ describe ConstantContact::Api do
         json_response = load_file('test_send_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         test_send = ConstantContact::Components::TestSend.create(JSON.parse(json_request))
 
@@ -874,7 +875,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_bounces_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_email_campaign_bounces(campaign_id, params)
@@ -891,7 +892,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_clicks_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_email_campaign_clicks(campaign_id, params)
@@ -908,7 +909,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_forwards_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_email_campaign_forwards(campaign_id, params)
@@ -925,7 +926,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_opens_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_email_campaign_opens(campaign_id, params)
@@ -942,7 +943,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_sends_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_email_campaign_sends(campaign_id, params)
@@ -959,7 +960,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_unsubscribes_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_email_campaign_unsubscribes(campaign_id, params)
@@ -975,7 +976,7 @@ describe ConstantContact::Api do
         json = load_file('campaign_tracking_summary_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         summary = @api.get_email_campaign_summary_report(campaign_id)
@@ -991,7 +992,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_bounces_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_contact_bounces(contact_id, params)
@@ -1008,7 +1009,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_clicks_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_contact_clicks(contact_id, params)
@@ -1025,7 +1026,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_forwards_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_contact_forwards(contact_id, params)
@@ -1042,7 +1043,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_opens_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_contact_opens(contact_id, params)
@@ -1059,7 +1060,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_sends_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_contact_sends(contact_id, params)
@@ -1076,7 +1077,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_unsubscribes_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         set = @api.get_contact_unsubscribes(contact_id, params)
@@ -1092,7 +1093,7 @@ describe ConstantContact::Api do
         json = load_file('contact_tracking_summary_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         summary = @api.get_contact_summary_report(contact_id)
@@ -1106,7 +1107,7 @@ describe ConstantContact::Api do
         json_response = load_file('activities_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         activities = @api.get_activities()
@@ -1120,7 +1121,7 @@ describe ConstantContact::Api do
         json_response = load_file('activity_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         activity = @api.get_activity('a07e1ilbm7shdg6ikeo')
@@ -1136,7 +1137,7 @@ describe ConstantContact::Api do
         json_contacts = load_file('contacts_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_add_contacts, net_http_resp, {})
+        response = RestClient::Response.create(json_add_contacts, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         import = ConstantContact::Components::AddContactsImportData.new
@@ -1182,7 +1183,7 @@ describe ConstantContact::Api do
         lists = 'list1, list2'
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         activity = @api.add_create_contacts_activity_from_file('contacts.txt', content, lists)
@@ -1201,7 +1202,7 @@ describe ConstantContact::Api do
 
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_clear_lists, net_http_resp, {})
+        response = RestClient::Response.create(json_clear_lists, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         activity = @api.add_clear_lists_activity(lists)
@@ -1216,7 +1217,7 @@ describe ConstantContact::Api do
         lists = 'list1, list2'
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         email_addresses = ["djellesma@constantcontact.com"]
 
@@ -1234,7 +1235,7 @@ describe ConstantContact::Api do
         lists = 'list1, list2'
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         activity = @api.add_remove_contacts_from_lists_activity_from_file('contacts.txt', content, lists)
@@ -1249,7 +1250,7 @@ describe ConstantContact::Api do
         json_response = load_file('export_contacts_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         export_contacts = ConstantContact::Components::ExportContacts.new(JSON.parse(json_request))
 
@@ -1264,7 +1265,7 @@ describe ConstantContact::Api do
         json_response = load_file('library_info_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         info = @api.get_library_info()
@@ -1278,7 +1279,7 @@ describe ConstantContact::Api do
         json_response = load_file('library_folders_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         folders = @api.get_library_folders({:limit => 2})
@@ -1293,7 +1294,7 @@ describe ConstantContact::Api do
         json = load_file('library_folder_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
         new_folder = ConstantContact::Components::LibraryFolder.create(JSON.parse(json))
 
@@ -1308,7 +1309,7 @@ describe ConstantContact::Api do
         json = load_file('library_folder_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         folder = @api.get_library_folder(6)
@@ -1322,7 +1323,7 @@ describe ConstantContact::Api do
         json = load_file('library_folder_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         folder = ConstantContact::Components::LibraryFolder.create(JSON.parse(json))
 
@@ -1337,7 +1338,7 @@ describe ConstantContact::Api do
         folder_id = 6
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_library_folder(folder_id)
@@ -1350,7 +1351,7 @@ describe ConstantContact::Api do
         json = load_file('library_trash_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         files = @api.get_library_trash({:sort_by => 'SIZE_DESC'})
@@ -1364,7 +1365,7 @@ describe ConstantContact::Api do
       it "permanently deletes all files in the Trash folder" do
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_library_trash()
@@ -1377,7 +1378,7 @@ describe ConstantContact::Api do
         json_response = load_file('library_files_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         files = @api.get_library_files({:type => 'ALL'})
@@ -1393,7 +1394,7 @@ describe ConstantContact::Api do
         json_response = load_file('library_files_by_folder_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_response, net_http_resp, {})
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         files = @api.get_library_files_by_folder(folder_id, {:limit => 10})
@@ -1408,7 +1409,7 @@ describe ConstantContact::Api do
         json = load_file('library_file_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         file = @api.get_library_file(6)
@@ -1428,7 +1429,7 @@ describe ConstantContact::Api do
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
         net_http_resp.add_field('Location', '"https://api.d1.constantcontact.com/v2/library/files/123456789')
 
-        response = RestClient::Response.create("", net_http_resp, {})
+        response = RestClient::Response.create("", net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
         response = @api.add_library_file(file_name, folder_id, description, source, file_type, contents)
@@ -1442,7 +1443,7 @@ describe ConstantContact::Api do
         json = load_file('library_file_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
         file = ConstantContact::Components::LibraryFile.create(JSON.parse(json))
 
@@ -1457,7 +1458,7 @@ describe ConstantContact::Api do
         file_id = '6, 7'
         net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-        response = RestClient::Response.create('', net_http_resp, {})
+        response = RestClient::Response.create('', net_http_resp, {}, @request)
         RestClient.stub(:delete).and_return(response)
 
         result = @api.delete_library_file(file_id)
@@ -1471,7 +1472,7 @@ describe ConstantContact::Api do
         json = load_file('library_files_upload_status_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:get).and_return(response)
 
         statuses = @api.get_library_files_upload_status(file_id)
@@ -1488,7 +1489,7 @@ describe ConstantContact::Api do
         json = load_file('library_files_move_results_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json, net_http_resp, {})
+        response = RestClient::Response.create(json, net_http_resp, {}, @request)
         RestClient.stub(:put).and_return(response)
 
         results = @api.move_library_files(folder_id, file_id)
