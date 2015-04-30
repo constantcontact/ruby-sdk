@@ -27,6 +27,12 @@ ConstantContact::Util::Config.configure do |config|
 end
 ```        
 
+## Documentation
+
+SDK Documentation is hosted at http://constantcontact.github.io/.net-sdk
+
+API Documentation is located at http://developer.constantcontact.com/docs/developer-guides/api-documentation-index.html
+
 Getting Started
 ====
 AppConnect requires an OAuth access token which will give your app access to Constant Contact data and services for the accout that granted that access token.
