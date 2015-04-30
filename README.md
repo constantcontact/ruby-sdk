@@ -27,9 +27,9 @@ ConstantContact::Util::Config.configure do |config|
 end
 ```        
 
-## Documentation
-
-SDK Documentation is hosted at http://constantcontact.github.io/.net-sdk
+Documentation
+=====
+SDK Documentation is hosted at http://constantcontact.github.io/ruby-sdk
 
 API Documentation is located at http://developer.constantcontact.com/docs/developer-guides/api-documentation-index.html
 
