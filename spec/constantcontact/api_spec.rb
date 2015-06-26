@@ -1132,43 +1132,87 @@ describe ConstantContact::Api do
 
     describe "#add_create_contacts_activity" do
       it "adds an AddContacts activity to add contacts in bulk" do
-        json_add_contacts = load_file('add_contacts_response.json')
-        json_lists = load_file('lists_response.json')
-        json_contacts = load_file('contacts_response.json')
+        json_request = load_file('add_contacts_request.json')
+        json_response = load_file('add_contacts_response.json')
         net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-        response = RestClient::Response.create(json_add_contacts, net_http_resp, {}, @request)
+        response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
         RestClient.stub(:post).and_return(response)
 
-        import = ConstantContact::Components::AddContactsImportData.new
+        contacts = []
+
+        # first contact
+        import = ConstantContact::Components::AddContactsImportData.new({
+            :first_name     => "John",
+            :last_name      => "Smith",
+            :birthday_month => "1",
+            :birthday_day   => "25",
+            :anniversary    => "03/12/2005",
+            :job_title      => "",
+            :company_name   => "My Company",
+            :home_phone     => "5555551212"
+        })
+
+        # add emails
+        import.add_email("user1@example.com")
+
+        # add addresses
         address = ConstantContact::Components::Address.create(
-          :line1 => "1601 Trapelo Rd",
-          :city => "Waltham",
-          :state => "MA"
+          :line1        => "123 Partridge Lane",
+          :line2        => "Apt. 3",
+          :city         => "Anytown",
+          :address_type => "PERSONAL",
+          :state_code   => "NH",
+          :country_code => "US",
+          :postal_code  => "02145"
         )
         import.add_address(address)
 
+        contacts << import
+
+        # second contact
+        import = ConstantContact::Components::AddContactsImportData.new({
+          :first_name     => "Jane",
+          :last_name      => "Doe",
+          :job_title      => "",
+          :company_name   => "Acme, Inc.",
+          :home_phone     => "5555551213"
+        })
+
+        # add emails
+        import.add_email("user2@example.com")
+
+        # add addresses
+        address = ConstantContact::Components::Address.create(
+          :line1        => "456 Jones Road",
+          :city         => "AnyTownShip",
+          :address_type => "PERSONAL",
+          :state_code   => "DE",
+          :country_code => "US",
+          :postal_code  => "01234"
+        )
+        import.add_address(address)
+
+        # add custom fields
         custom_field = ConstantContact::Components::CustomField.create(
-          :name => "custom_field_1",
-          :value => "my custom value"
+          :name  => "custom_field_6",
+          :value => "Blue Jeans"
         )
         import.add_custom_field(custom_field)
-        import.add_email("abc@def.com")
 
-        contacts = []
+        custom_field = ConstantContact::Components::CustomField.create(
+          :name  => "custom_field_12",
+          :value => "Special Order"
+        )
+        import.add_custom_field(custom_field)
+
         contacts << import
-        contacts_objects = JSON.parse(json_contacts)
-        contacts_objects['results'].each do |contact|
-          contacts << ConstantContact::Components::Contact.create(contact)
-        end
 
-        lists = []
-        lists_objects = JSON.parse(json_lists)
-        lists_objects.each do |list|
-          lists << ConstantContact::Components::ContactList.create(list)
-        end
+        lists = ['4', '5', '6']
 
         add_contact = ConstantContact::Components::AddContacts.new(contacts, lists)
+
+        json_request.gsub(/\:\s/, ':').gsub(/\n\s{1,}/, '').gsub(/\n\}/, '}').should eq(JSON.generate(add_contact))
 
         activity = @api.add_create_contacts_activity(add_contact)
         activity.should be_kind_of(ConstantContact::Components::Activity)

@@ -8,15 +8,16 @@ module ConstantContact
   module Components
     class AddContactsImportData < Component
       attr_accessor :first_name, :middle_name, :last_name, :job_title, :company_name,
-                    :work_phone, :home_phone, :email_addresses, :addresses, :custom_fields
+                    :work_phone, :home_phone, :birthday_month, :birthday_day, :anniversary,
+                    :email_addresses, :addresses, :custom_fields
 
 
       # Constructor to create an AddContactsImportData object from the given hash
       # @param [Hash] props - properties to create object from
       # @return [AddContactsImportData]
       def initialize(props = {})
-        instance_variables.each do |property, value|
-          send("#{property}=", get_value(props, property)) if obj.respond_to? property
+        props.each do |key, value|
+          send("#{key}=", value) if respond_to? key
         end
       end
 
