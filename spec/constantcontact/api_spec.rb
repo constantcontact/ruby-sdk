@@ -1212,7 +1212,7 @@ describe ConstantContact::Api do
 
         add_contact = ConstantContact::Components::AddContacts.new(contacts, lists)
 
-        json_request.gsub(/\:\s/, ':').gsub(/\n\s{1,}/, '').gsub(/\n\}/, '}').should eq(JSON.generate(add_contact))
+        JSON.parse(json_request).should eq(JSON.parse(JSON.generate(add_contact)))
 
         activity = @api.add_create_contacts_activity(add_contact)
         activity.should be_kind_of(ConstantContact::Components::Activity)
