@@ -1,0 +1,74 @@
+{
+    "import_data": [{
+        "first_name": "John",
+        "last_name": "Smith",
+        "birthday_month":"1",
+        "birthday_day":"25",
+        "anniversary":"03/12/2005",
+        "job_title": "",
+        "company_name": "My Company",
+        "home_phone": "5555551212",
+        "email_addresses": [
+            "user1@example.com"
+        ],
+        "addresses": [{
+            "line1": "123 Partridge Lane",
+            "line2": "Apt. 3",
+            "city": "Anytown",
+            "address_type": "PERSONAL",
+            "state_code": "NH",
+            "country_code": "US",
+            "postal_code": "02145"
+        }]
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "Doe",
+        "job_title": "",
+        "company_name": "Acme, Inc.",
+        "home_phone": "5555551213",
+        "email_addresses": [
+            "user2@example.com"
+        ],
+        "addresses": [{
+            "line1": "456 Jones Road",
+            "city": "AnyTownShip",
+            "address_type": "PERSONAL",
+            "state_code": "DE",
+            "country_code": "US",
+            "postal_code": "01234"
+        }],
+        "custom_fields": [{
+            "name": "custom_field_6",
+            "value": "Blue Jeans"
+        },
+        {
+            "name": "custom_field_12",
+            "value": "Special Order"
+        }]
+    }],
+    "lists": [
+        "4",
+        "5",
+        "6"
+    ],
+    "column_names": [
+        "EMAIL",
+        "FIRST NAME",
+        "LAST NAME",
+        "BIRTHDAY_DAY",
+        "BIRTHDAY_MONTH",
+        "ANNIVERSARY",
+        "JOB TITLE",
+        "COMPANY NAME",
+        "HOME PHONE",
+        "ADDRESS LINE 1",
+        "ADDRESS LINE 2",
+        "CITY",
+        "STATE",
+        "COUNTRY",
+        "ZIP/POSTAL CODE",
+        "CUSTOM FIELD 6",
+        "CUSTOM FIELD 12"
+    ]
+}

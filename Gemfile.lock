@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    constantcontact (2.0.1)
+    constantcontact (2.1.0)
       json (~> 1.8, >= 1.8.1)
       mime-types (~> 2.4, >= 2.4.1)
       rest-client (~> 1.6, >= 1.6.7)
