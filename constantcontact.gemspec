@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors = ["ConstantContact"]
   s.homepage = "http://www.constantcontact.com"
   s.summary = %q{Constant Contact SDK for Ruby}
-  s.email = "apisupport@constantcontact.com"
+  s.email = "webservices@constantcontact.com"
   s.description = "Ruby library for interactions with Constant Contact v2 API"
   s.license = "MIT"
 
