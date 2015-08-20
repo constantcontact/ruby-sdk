@@ -39,6 +39,7 @@ module ConstantContact
     autoload :Note, 'constantcontact/components/contacts/note'
     autoload :ClickThroughDetails, 'constantcontact/components/email_marketing/click_through_details'
     autoload :Campaign, 'constantcontact/components/email_marketing/campaign'
+    autoload :CampaignPreview, 'constantcontact/components/email_marketing/campaign_preview'
     autoload :MessageFooter, 'constantcontact/components/email_marketing/message_footer'
     autoload :Schedule, 'constantcontact/components/email_marketing/schedule'
     autoload :TestSend, 'constantcontact/components/email_marketing/test_send'

@@ -5,7 +5,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name = "constantcontact"
-  s.version = '2.1.0'
+  s.version = '2.2.0'
   s.platform = Gem::Platform::RUBY
   s.authors = ["ConstantContact"]
   s.homepage = "http://www.constantcontact.com"

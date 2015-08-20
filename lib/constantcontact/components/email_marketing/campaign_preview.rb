@@ -1,20 +1,21 @@
 #
-# address.rb
+# campaign_preview.rb
 # ConstantContact
 #
 # Copyright (c) 2013 Constant Contact. All rights reserved.
 
 module ConstantContact
   module Components
-    class Address < Component
-      attr_accessor :id, :line1, :line2, :line3, :city, :address_type, :state, :state_code,
-                    :country_code, :postal_code, :sub_postal_code
+    class CampaignPreview < Component
+      attr_accessor :from_email, :preview_email_content, :preview_text_content, 
+                    :reply_to_email, :subject 
 
-      # Factory method to create an Address object from a json string
+
+      # Factory method to create a CampaignPreview object from an array
       # @param [Hash] props - properties to create object from
-      # @return [Address]
+      # @return [CampaignPreview]
       def self.create(props)
-        obj = Address.new
+        obj = CampaignPreview.new
         if props
           props.each do |key, value|
             obj.send("#{key}=", value) if obj.respond_to? key
@@ -22,6 +23,7 @@ module ConstantContact
         end
         obj
       end
+
     end
   end
 end

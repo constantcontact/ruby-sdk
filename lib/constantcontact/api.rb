@@ -191,6 +191,14 @@ module ConstantContact
     end
 
 
+    # Get the preview of an existing campaign
+    # @param [Integer] campaign_id - Valid campaign id
+    # @return [CampaignPreview]
+    def get_email_campaign_preview(campaign_id)
+      Services::EmailMarketingService.get_campaign_preview(campaign_id)
+    end
+
+
     # Delete an individual campaign
     # @param [Mixed] campaign - Id of a campaign or a Campaign object
     # @raise IllegalArgumentException - if a Campaign object or campaign id is not passed
