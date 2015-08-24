@@ -1,5 +1,5 @@
 #
-# email_campaign.rb
+# campaign.rb
 # ConstantContact
 #
 # Copyright (c) 2013 Constant Contact. All rights reserved.
@@ -16,7 +16,7 @@ module ConstantContact
                     :click_through_details, :permalink_url
 
 
-      # Factory method to create an EmailCampaign object from an array
+      # Factory method to create a Campaign object from an array
       # @param [Hash] props - properties to create object from
       # @return [Campaign]
       def self.create(props)

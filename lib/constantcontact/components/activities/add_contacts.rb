@@ -90,7 +90,7 @@ module ConstantContact
                 used_columns << Util::Config.get('activities_columns.city')
               end
 
-              if !address.state_code.nil?
+              if !address.state_code.nil? || !address.state.nil?
                 used_columns << Util::Config.get('activities_columns.state')
               end
 
