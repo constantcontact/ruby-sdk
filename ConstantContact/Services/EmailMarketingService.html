@@ -191,6 +191,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#get_campaign_preview-class_method" title="get_campaign_preview (class method)">+ (CampaignPreview) <strong>get_campaign_preview</strong>(campaign_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get the preview of the given campaign.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#get_campaigns-class_method" title="get_campaigns (class method)">+ (ResultSet&lt;Campaign&gt;) <strong>get_campaigns</strong>(params = {}) </a>
     
 
@@ -394,16 +418,16 @@
       <pre class="lines">
 
 
-58
-59
-60
-61
-62
-63
-64</pre>
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/email_marketing_service.rb', line 58</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/email_marketing_service.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_campaign'>delete_campaign</span><span class='lparen'>(</span><span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span>
@@ -494,6 +518,89 @@
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='const'>Components</span><span class='op'>::</span><span class='const'>Campaign</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="get_campaign_preview-class_method">
+  
+    + (<tt>CampaignPreview</tt>) <strong>get_campaign_preview</strong>(campaign_id) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Get the preview of the given campaign</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>campaign_id</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><ul><li>
+<p>Valid campaign id</p>
+</li></ul>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>CampaignPreview</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/email_marketing_service.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_campaign_preview'>get_campaign_preview</span><span class='lparen'>(</span><span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span>
+        <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.campaign_preview</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_campaign_id'>campaign_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='id identifier rubyid_build_url'>build_url</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_response'>response</span> <span class='op'>=</span> <span class='const'>RestClient</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='comma'>,</span> <span class='id identifier rubyid_get_headers'>get_headers</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='const'>Components</span><span class='op'>::</span><span class='const'>CampaignPreview</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_body'>body</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -659,17 +766,17 @@
       <pre class="lines">
 
 
-70
-71
-72
-73
-74
-75
-76
-77</pre>
+82
+83
+84
+85
+86
+87
+88
+89</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/email_marketing_service.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/constantcontact/services/email_marketing_service.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update_campaign'>update_campaign</span><span class='lparen'>(</span><span class='id identifier rubyid_campaign'>campaign</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'>Util</span><span class='op'>::</span><span class='const'>Config</span><span class='period'>.</span><span class='id identifier rubyid_get'>get</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>endpoints.base_url</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span> <span class='op'>+</span>
@@ -689,7 +796,7 @@
 </div>
 
     <div id="footer">
-  Generated on Fri Jun 26 10:09:27 2015 by
+  Generated on Thu Aug 20 19:42:49 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-1.9.3).
 </div>
