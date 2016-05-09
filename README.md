@@ -72,7 +72,7 @@ Create a view for the above mentioned action with the following code:
 <% end %>
 
 <% if @contacts.present? %>
-  <% @contacts.each do |contact| %>
+  <% @contacts.results.each do |contact| %>
     <p>Contact name: <%= "#{contact.first_name} #{contact.last_name}" %></p>
   <% end %>
 <% end %>
@@ -122,7 +122,7 @@ Create a my_view.erb with the following code:
 
 <% if @code %>
   <% if @contacts %>
-    <% @contacts.each do |contact| %>
+    <% @contacts.results.each do |contact| %>
       <p>\Contact name: <%= "#{contact.first_name} #{contact.last_name}" %></p>
     <% end %>
   <% end %>
