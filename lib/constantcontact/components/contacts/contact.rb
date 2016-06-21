@@ -11,7 +11,7 @@ module ConstantContact
       attr_accessor :id, :status, :first_name, :middle_name, :last_name, :confirmed, :email_addresses,
                     :prefix_name, :job_title, :addresses, :company_name, :home_phone,
                     :work_phone, :cell_phone, :fax, :custom_fields, :lists,
-                    :source_details, :notes, :source
+                    :source_details, :notes, :source, :created_date, :modified_date
 
 
       # Factory method to create a Contact object from a json string
