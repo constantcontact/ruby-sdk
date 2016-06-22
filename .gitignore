@@ -2,3 +2,4 @@
 .ruby-*
 .yardoc
 *.gem
+Gemfile.lock
