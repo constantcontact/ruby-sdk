@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::AccountService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_account_info" do
@@ -19,7 +20,7 @@ describe ConstantContact::Services::AccountService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      result = ConstantContact::Services::AccountService.get_account_info()
+      result = ConstantContact::Services::AccountService.new(@client).get_account_info()
       result.should be_kind_of(ConstantContact::Components::AccountInfo)
       result.website.should eq('http://www.example.com')
       result.organization_addresses.first.should be_kind_of(ConstantContact::Components::AccountAddress)
@@ -36,7 +37,7 @@ describe ConstantContact::Services::AccountService do
       RestClient.stub(:get).and_return(response)
 
       params = {}
-      email_addresses = ConstantContact::Services::AccountService.get_verified_email_addresses(params)
+      email_addresses = ConstantContact::Services::AccountService.new(@client).get_verified_email_addresses(params)
 
       email_addresses.should be_kind_of(Array)
       email_addresses.first.should be_kind_of(ConstantContact::Components::VerifiedEmailAddress)

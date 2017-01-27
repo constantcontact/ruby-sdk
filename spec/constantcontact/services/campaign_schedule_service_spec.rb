@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::CampaignScheduleService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#add_schedule" do
@@ -21,7 +22,7 @@ describe ConstantContact::Services::CampaignScheduleService do
       RestClient.stub(:post).and_return(response)
       new_schedule = ConstantContact::Components::Schedule.create(JSON.parse(json))
 
-      schedule = ConstantContact::Services::CampaignScheduleService.add_schedule(
+      schedule = ConstantContact::Services::CampaignScheduleService.new(@client).add_schedule(
         campaign_id, new_schedule)
       schedule.should be_kind_of(ConstantContact::Components::Schedule)
       schedule.scheduled_date.should eq('2013-05-10T11:07:43.626Z')
@@ -37,7 +38,7 @@ describe ConstantContact::Services::CampaignScheduleService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      schedules = ConstantContact::Services::CampaignScheduleService.get_schedules(
+      schedules = ConstantContact::Services::CampaignScheduleService.new(@client).get_schedules(
         campaign_id)
       schedules.first.should be_kind_of(ConstantContact::Components::Schedule)
       schedules.first.scheduled_date.should eq('2012-12-16T11:07:43.626Z')
@@ -55,7 +56,7 @@ describe ConstantContact::Services::CampaignScheduleService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      schedule = ConstantContact::Services::CampaignScheduleService.get_schedule(
+      schedule = ConstantContact::Services::CampaignScheduleService.new(@client).get_schedule(
         campaign_id, schedule_id)
       schedule.should be_kind_of(ConstantContact::Components::Schedule)
       schedule.scheduled_date.should eq('2013-05-10T11:07:43.626Z')
@@ -71,7 +72,7 @@ describe ConstantContact::Services::CampaignScheduleService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::CampaignScheduleService.delete_schedule(
+      result = ConstantContact::Services::CampaignScheduleService.new(@client).delete_schedule(
         campaign_id, schedule_id)
       result.should be_true
     end
@@ -87,7 +88,7 @@ describe ConstantContact::Services::CampaignScheduleService do
       RestClient.stub(:put).and_return(response)
       schedule = ConstantContact::Components::Schedule.create(JSON.parse(json))
 
-      result = ConstantContact::Services::CampaignScheduleService.update_schedule(
+      result = ConstantContact::Services::CampaignScheduleService.new(@client).update_schedule(
         campaign_id, schedule)
       result.should be_kind_of(ConstantContact::Components::Schedule)
       result.scheduled_date.should eq('2013-05-10T11:07:43.626Z')
@@ -105,7 +106,7 @@ describe ConstantContact::Services::CampaignScheduleService do
       RestClient.stub(:post).and_return(response)
       test_send = ConstantContact::Components::TestSend.create(JSON.parse(json_request))
 
-      result = ConstantContact::Services::CampaignScheduleService.send_test(
+      result = ConstantContact::Services::CampaignScheduleService.new(@client).send_test(
         campaign_id, test_send)
       result.should be_kind_of(ConstantContact::Components::TestSend)
       result.personal_message.should eq('This is a test send of the email campaign message.')

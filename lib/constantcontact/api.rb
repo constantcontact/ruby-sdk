@@ -6,26 +6,40 @@
 
 module ConstantContact
   class Api
+    
+    attr_accessor :api_key, :access_token
+    
     # Class constructor
     # @param [String] api_key - Constant Contact API Key
     # @param [String] access_token - Constant Contact OAuth2 access token
     # @return
     def initialize(api_key = nil, access_token = nil)
-      Services::BaseService.api_key = api_key || Util::Config.get('auth.api_key')
-      Services::BaseService.access_token = access_token
-      if Services::BaseService.api_key.nil? || Services::BaseService.api_key == ''
+      @api_key = api_key || Util::Config.get('auth.api_key')
+      @access_token = access_token
+      if @api_key.nil? || @api_key == ''
         raise ArgumentError.new(Util::Config.get('errors.api_key_missing'))
       end
-      if Services::BaseService.access_token.nil? || Services::BaseService.access_token == ''
+      if @access_token.nil? || @access_token == ''
         raise ArgumentError.new(Util::Config.get('errors.access_token_missing'))
       end
+      
+      @account_service = Services::AccountService.new(self)
+      @activity_service = Services::ActivityService.new(self)
+      @campaign_tracking_service = Services::CampaignTrackingService.new(self)
+      @campaign_schedule_service = Services::CampaignScheduleService.new(self)
+      @contact_service = Services::ContactService.new(self)
+      @contact_tracking_service = Services::ContactTrackingService.new(self)
+      @email_marketing_service = Services::EmailMarketingService.new(self)
+      @event_spot_service = Services::EventSpotService.new(self)
+      @library_service = Services::LibraryService.new(self)
+      @list_service = Services::ListService.new(self)
     end
 
 
     # Get a summary of account information
     # @return [AccountInfo]
     def get_account_info()
-      Services::AccountService.get_account_info()
+      @account_service.get_account_info()
     end
 
 
@@ -35,7 +49,7 @@ module ConstantContact
     def get_verified_email_addresses(status = nil)
       params = {}
       params['status'] = status if status
-      Services::AccountService.get_verified_email_addresses(params)
+      @account_service.get_verified_email_addresses(params)
     end
 
 
@@ -49,7 +63,7 @@ module ConstantContact
     #    status - a contact status to filter results by. Must be one of ACTIVE, OPTOUT, REMOVED, UNCONFIRMED.
     # @return [ResultSet<Contact>] a ResultSet of Contacts
     def get_contacts(params = {})
-      Services::ContactService.get_contacts(params)
+      @contact_service.get_contacts(params)
     end
 
 
@@ -57,7 +71,7 @@ module ConstantContact
     # @param [Integer] contact_id - Id of the contact to retrieve
     # @return [Contact]
     def get_contact(contact_id)
-      Services::ContactService.get_contact(contact_id)
+      @contact_service.get_contact(contact_id)
     end
 
 
@@ -65,7 +79,7 @@ module ConstantContact
     # @param [String] email - contact email address to search for
     # @return [ResultSet<Contact>] a ResultSet of Contacts
     def get_contact_by_email(email)
-      Services::ContactService.get_contacts({'email' => email})
+      @contact_service.get_contacts({'email' => email})
     end
 
 
@@ -76,7 +90,7 @@ module ConstantContact
     def add_contact(contact, action_by_visitor = false)
       params = {}
       params['action_by'] = 'ACTION_BY_VISITOR' if action_by_visitor
-      Services::ContactService.add_contact(contact, params)
+      @contact_service.add_contact(contact, params)
     end
 
 
@@ -86,7 +100,7 @@ module ConstantContact
     # @return [Boolean]
     def delete_contact(contact)
       contact_id = to_id(contact, 'Contact')
-      Services::ContactService.delete_contact(contact_id)
+      @contact_service.delete_contact(contact_id)
     end
 
 
@@ -96,7 +110,7 @@ module ConstantContact
     # @return [Boolean]
     def delete_contact_from_lists(contact)
       contact_id = to_id(contact, 'Contact')
-      Services::ContactService.delete_contact_from_lists(contact_id)
+      @contact_service.delete_contact_from_lists(contact_id)
     end
 
 
@@ -108,7 +122,7 @@ module ConstantContact
     def delete_contact_from_list(contact, list)
       contact_id = to_id(contact, 'Contact')
       list_id = to_id(list, 'ContactList')
-      Services::ContactService.delete_contact_from_list(contact_id, list_id)
+      @contact_service.delete_contact_from_list(contact_id, list_id)
     end
 
 
@@ -119,7 +133,7 @@ module ConstantContact
     def update_contact(contact, action_by_visitor = false)
       params = {}
       params['action_by'] = 'ACTION_BY_VISITOR' if action_by_visitor
-      Services::ContactService.update_contact(contact, params)
+      @contact_service.update_contact(contact, params)
     end
 
 
@@ -129,7 +143,7 @@ module ConstantContact
     #     - modified_since - ISO-8601 formatted timestamp.
     # @return [Array<ContactList>] Array of ContactList objects
     def get_lists(params = {})
-      Services::ListService.get_lists(params)
+      @list_service.get_lists(params)
     end
 
 
@@ -137,7 +151,7 @@ module ConstantContact
     # @param [Integer] list_id - Id of the list to retrieve
     # @return [ContactList]
     def get_list(list_id)
-      Services::ListService.get_list(list_id)
+      @list_service.get_list(list_id)
     end
 
 
@@ -145,7 +159,7 @@ module ConstantContact
     # @param [ContactList] list - List to add
     # @return [ContactList]
     def add_list(list)
-      Services::ListService.add_list(list)
+      @list_service.add_list(list)
     end
 
 
@@ -153,7 +167,7 @@ module ConstantContact
     # @param [ContactList] list - ContactList to update
     # @return [ContactList]
     def update_list(list)
-      Services::ListService.update_list(list)
+      @list_service.update_list(list)
     end
 
 
@@ -166,7 +180,7 @@ module ConstantContact
     def get_contacts_from_list(list, param = nil)
       list_id = to_id(list, 'ContactList')
       param = determine_param(param)
-      Services::ListService.get_contacts_from_list(list_id, param)
+      @list_service.get_contacts_from_list(list_id, param)
     end
 
 
@@ -179,7 +193,7 @@ module ConstantContact
     #     email - the contact by email address to retrieve information for
     # @return [ResultSet<Campaign>]
     def get_email_campaigns(params = {})
-      Services::EmailMarketingService.get_campaigns(params)
+      @email_marketing_service.get_campaigns(params)
     end
 
 
@@ -187,7 +201,7 @@ module ConstantContact
     # @param [Integer] campaign_id - Valid campaign id
     # @return [Campaign]
     def get_email_campaign(campaign_id)
-      Services::EmailMarketingService.get_campaign(campaign_id)
+      @email_marketing_service.get_campaign(campaign_id)
     end
 
 
@@ -195,7 +209,7 @@ module ConstantContact
     # @param [Integer] campaign_id - Valid campaign id
     # @return [CampaignPreview]
     def get_email_campaign_preview(campaign_id)
-      Services::EmailMarketingService.get_campaign_preview(campaign_id)
+      @email_marketing_service.get_campaign_preview(campaign_id)
     end
 
 
@@ -205,7 +219,7 @@ module ConstantContact
     # @return [Boolean]
     def delete_email_campaign(campaign)
       campaign_id = to_id(campaign, 'Campaign')
-      Services::EmailMarketingService.delete_campaign(campaign_id)
+      @email_marketing_service.delete_campaign(campaign_id)
     end
 
 
@@ -213,7 +227,7 @@ module ConstantContact
     # @param [Campaign] campaign - Campaign to be created
     # @return [Campaign] - created campaign
     def add_email_campaign(campaign)
-      Services::EmailMarketingService.add_campaign(campaign)
+      @email_marketing_service.add_campaign(campaign)
     end
 
 
@@ -221,7 +235,7 @@ module ConstantContact
     # @param [Campaign] campaign - Campaign to be updated
     # @return [Campaign] - updated campaign
     def update_email_campaign(campaign)
-      Services::EmailMarketingService.update_campaign(campaign)
+      @email_marketing_service.update_campaign(campaign)
     end
 
 
@@ -231,7 +245,7 @@ module ConstantContact
     # @return [Campaign] - updated campaign
     def add_email_campaign_schedule(campaign, schedule)
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignScheduleService.add_schedule(campaign_id, schedule)
+      @campaign_schedule_service.add_schedule(campaign_id, schedule)
     end
 
 
@@ -240,7 +254,7 @@ module ConstantContact
     # @return [Array<Schedule>]
     def get_email_campaign_schedules(campaign)
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignScheduleService.get_schedules(campaign_id)
+      @campaign_schedule_service.get_schedules(campaign_id)
     end
 
 
@@ -252,7 +266,7 @@ module ConstantContact
     def get_email_campaign_schedule(campaign, schedule)
       campaign_id = to_id(campaign, 'Campaign')
       schedule_id = to_id(schedule, 'Schedule')
-      Services::CampaignScheduleService.get_schedule(campaign_id, schedule_id)
+      @campaign_schedule_service.get_schedule(campaign_id, schedule_id)
     end
 
 
@@ -262,7 +276,7 @@ module ConstantContact
     # @return [Schedule]
     def update_email_campaign_schedule(campaign, schedule)
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignScheduleService.update_schedule(campaign_id, schedule)
+      @campaign_schedule_service.update_schedule(campaign_id, schedule)
     end
 
 
@@ -274,7 +288,7 @@ module ConstantContact
     def delete_email_campaign_schedule(campaign, schedule)
       campaign_id = to_id(campaign, 'Campaign')
       schedule_id = to_id(schedule, 'Schedule')
-      Services::CampaignScheduleService.delete_schedule(campaign_id, schedule_id)
+      @campaign_schedule_service.delete_schedule(campaign_id, schedule_id)
     end
 
 
@@ -284,7 +298,7 @@ module ConstantContact
     # @return [TestSend]
     def send_email_campaign_test(campaign, test_send)
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignScheduleService.send_test(campaign_id, test_send)
+      @campaign_schedule_service.send_test(campaign_id, test_send)
     end
 
 
@@ -298,7 +312,7 @@ module ConstantContact
     # @return [ResultSet<SendActivity>]
     def get_email_campaign_sends(campaign, params = {})
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_sends(campaign_id, params)
+      @campaign_tracking_service.get_sends(campaign_id, params)
     end
 
 
@@ -312,7 +326,7 @@ module ConstantContact
     # @return [ResultSet<BounceActivity>]
     def get_email_campaign_bounces(campaign, params = {})
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_bounces(campaign_id, params)
+      @campaign_tracking_service.get_bounces(campaign_id, params)
     end
 
 
@@ -326,7 +340,7 @@ module ConstantContact
     # @return [ResultSet<ClickActivity>]
     def get_email_campaign_clicks(campaign, params = {})
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_clicks(campaign_id, params)
+      @campaign_tracking_service.get_clicks(campaign_id, params)
     end
 
 
@@ -340,7 +354,7 @@ module ConstantContact
     # @return [ResultSet<OpenActivity>]
     def get_email_campaign_opens(campaign, params = {})
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_opens(campaign_id, params)
+      @campaign_tracking_service.get_opens(campaign_id, params)
     end
 
 
@@ -354,7 +368,7 @@ module ConstantContact
     # @return [ResultSet<ForwardActivity>]
     def get_email_campaign_forwards(campaign, params = {})
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_forwards(campaign_id, params)
+      @campaign_tracking_service.get_forwards(campaign_id, params)
     end
 
 
@@ -368,7 +382,7 @@ module ConstantContact
     # @return [ResultSet<UnsubscribeActivity>] - Containing a results array of UnsubscribeActivity
     def get_email_campaign_unsubscribes(campaign, params = {})
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_unsubscribes(campaign_id, params)
+      @campaign_tracking_service.get_unsubscribes(campaign_id, params)
     end
 
 
@@ -377,7 +391,7 @@ module ConstantContact
     # @return [TrackingSummary]
     def get_email_campaign_summary_report(campaign)
       campaign_id = to_id(campaign, 'Campaign')
-      Services::CampaignTrackingService.get_summary(campaign_id)
+      @campaign_tracking_service.get_summary(campaign_id)
     end
 
 
@@ -391,7 +405,7 @@ module ConstantContact
     # @return [ResultSet<SendActivity>]
     def get_contact_sends(contact, params = {})
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_sends(contact_id, params)
+      @contact_tracking_service.get_sends(contact_id, params)
     end
 
 
@@ -405,7 +419,7 @@ module ConstantContact
     # @return [ResultSet<BounceActivity>]
     def get_contact_bounces(contact, params = {})
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_bounces(contact_id, params)
+      @contact_tracking_service.get_bounces(contact_id, params)
     end
 
 
@@ -419,7 +433,7 @@ module ConstantContact
     # @return [ResultSet<ClickActivity>]
     def get_contact_clicks(contact, params = {})
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_clicks(contact_id, params)
+      @contact_tracking_service.get_clicks(contact_id, params)
     end
 
 
@@ -433,7 +447,7 @@ module ConstantContact
     # @return [ResultSet<OpenActivity>]
     def get_contact_opens(contact, params = {})
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_opens(contact_id, params)
+      @contact_tracking_service.get_opens(contact_id, params)
     end
 
 
@@ -447,7 +461,7 @@ module ConstantContact
     # @return [ResultSet<ForwardActivity>]
     def get_contact_forwards(contact, params = {})
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_forwards(contact_id, params)
+      @contact_tracking_service.get_forwards(contact_id, params)
     end
 
 
@@ -461,7 +475,7 @@ module ConstantContact
     # @return [UnsubscribeActivity] - Containing a results array of UnsubscribeActivity
     def get_contact_unsubscribes(contact, params = {})
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_unsubscribes(contact_id, params)
+      @contact_tracking_service.get_unsubscribes(contact_id, params)
     end
 
 
@@ -470,7 +484,7 @@ module ConstantContact
     # @return [TrackingSummary]
     def get_contact_summary_report(contact)
       contact_id = to_id(contact, 'Contact')
-      Services::ContactTrackingService.get_summary(contact_id)
+      @contact_tracking_service.get_summary(contact_id)
     end
 
 
@@ -482,7 +496,7 @@ module ConstantContact
     #            EXPORT_CONTACTS
     # @return [Array<Activity>]
     def get_activities(params = {})
-      Services::ActivityService.get_activities(params)
+      @activity_service.get_activities(params)
     end
 
 
@@ -490,7 +504,7 @@ module ConstantContact
     # @param [String] activity_id - Activity id
     # @return [Activity]
     def get_activity(activity_id)
-      Services::ActivityService.get_activity(activity_id)
+      @activity_service.get_activity(activity_id)
     end
 
 
@@ -498,7 +512,7 @@ module ConstantContact
     # @param [AddContacts] add_contacts - Add Contacts Activity
     # @return [Activity]
     def add_create_contacts_activity(add_contacts)
-      Services::ActivityService.create_add_contacts_activity(add_contacts)
+      @activity_service.create_add_contacts_activity(add_contacts)
     end
 
 
@@ -508,7 +522,7 @@ module ConstantContact
     # @param [String] lists - Comma separated list of ContactList id's to add the contacts to
     # @return [Activity]
     def add_create_contacts_activity_from_file(file_name, contents, lists)
-      Services::ActivityService.create_add_contacts_activity_from_file(file_name, contents, lists)
+      @activity_service.create_add_contacts_activity_from_file(file_name, contents, lists)
     end
 
 
@@ -516,7 +530,7 @@ module ConstantContact
     # @param [Array<Lists>] lists - Add Contacts Activity
     # @return [Activity]
     def add_clear_lists_activity(lists)
-      Services::ActivityService.add_clear_lists_activity(lists)
+      @activity_service.add_clear_lists_activity(lists)
     end
 
 
@@ -525,7 +539,7 @@ module ConstantContact
     # @param [Array<Lists>] lists - lists to remove the provided email addresses from
     # @return [Activity]
     def add_remove_contacts_from_lists_activity(email_addresses, lists)
-      Services::ActivityService.add_remove_contacts_from_lists_activity(email_addresses, lists)
+      @activity_service.add_remove_contacts_from_lists_activity(email_addresses, lists)
     end
 
 
@@ -535,7 +549,7 @@ module ConstantContact
     # @param [String] lists - Comma separated list of ContactList id' to add the contacts too
     # @return [Activity]
     def add_remove_contacts_from_lists_activity_from_file(file_name, contents, lists)
-      Services::ActivityService.add_remove_contacts_from_lists_activity_from_file(file_name, contents, lists)
+      @activity_service.add_remove_contacts_from_lists_activity_from_file(file_name, contents, lists)
     end
 
 
@@ -543,14 +557,14 @@ module ConstantContact
     # @param [<Array>Contacts] export_contacts - Contacts to be exported
     # @return [Activity]
     def add_export_contacts_activity(export_contacts)
-      Services::ActivityService.add_export_contacts_activity(export_contacts)
+      @activity_service.add_export_contacts_activity(export_contacts)
     end
 
 
     # Get a list of events
     # @return [ResultSet<Event>]
     def get_events()
-      Services::EventSpotService.get_events()
+      @event_spot_service.get_events()
     end
 
 
@@ -558,7 +572,7 @@ module ConstantContact
     # @param [Event] event - event id or object to be retrieved
     # @return [Event]
     def get_event(event)
-      Services::EventSpotService.get_event(event)
+      @event_spot_service.get_event(event)
     end
 
 
@@ -566,7 +580,7 @@ module ConstantContact
     # @param [Hash] event - Event data stored in an object which respods to to_json
     # @return [Event]
     def add_event(event)
-      Services::EventSpotService.add_event(event)
+      @event_spot_service.add_event(event)
     end
 
 
@@ -574,7 +588,7 @@ module ConstantContact
     # @param [Event|Hash] event - Event details stored in an object that responds to to_json and has an :id attribute
     # @return [Event]
     def update_event(event)
-      Services::EventSpotService.update_event(event)
+      @event_spot_service.update_event(event)
     end
 
 
@@ -582,7 +596,7 @@ module ConstantContact
     # @param [Event] event - Event to publish
     # @return [Event]
     def publish_event(event)
-      Services::EventSpotService.publish_event(event)
+      @event_spot_service.publish_event(event)
     end
 
 
@@ -590,7 +604,7 @@ module ConstantContact
     # @param [Event] event - Event to cancel
     # @return [Event]
     def cancel_event(event)
-      Services::EventSpotService.cancel_event(event)
+      @event_spot_service.cancel_event(event)
     end
 
 
@@ -598,7 +612,7 @@ module ConstantContact
     # @param [Event] event - Event to get fees of
     # @return [<Array>EventFee]
     def get_event_fees(event)
-      Services::EventSpotService.get_fees(event)
+      @event_spot_service.get_fees(event)
     end
 
 
@@ -607,7 +621,7 @@ module ConstantContact
     # @param [EventFee] fee - Fee to retrieve
     # @return [EventFee]
     def get_event_fee(event, fee)
-      Services::EventSpotService.get_fee(event, fee)
+      @event_spot_service.get_fee(event, fee)
     end
 
 
@@ -616,7 +630,7 @@ module ConstantContact
     # @param [Hash] fee - Fee details
     # @return [EventFee]
     def add_event_fee(event, fee)
-      Services::EventSpotService.add_fee(event, fee)
+      @event_spot_service.add_fee(event, fee)
     end
 
 
@@ -625,7 +639,7 @@ module ConstantContact
     # @param [EventFee] fee - Fee details
     # @return [EventFee]
     def update_event_fee(event, fee)
-      Services::EventSpotService.update_fee(event, fee)
+      @event_spot_service.update_fee(event, fee)
     end
 
 
@@ -634,7 +648,7 @@ module ConstantContact
     # @param [EventFee] fee - Fee details
     # @return [Boolean]
     def delete_event_fee(event, fee)
-      Services::EventSpotService.delete_fee(event, fee)
+      @event_spot_service.delete_fee(event, fee)
     end
 
 
@@ -642,7 +656,7 @@ module ConstantContact
     # @param [Event] event - Event fee corresponds to
     # @return [ResultSet<Registrant>]
     def get_event_registrants(event)
-      Services::EventSpotService.get_registrants(event)
+      @event_spot_service.get_registrants(event)
     end
 
 
@@ -651,7 +665,7 @@ module ConstantContact
     # @param [Registrant] registrant - registrant details
     # @return [Registrant]
     def get_event_registrant(event, registrant)
-      Services::EventSpotService.get_registrant(event, registrant)
+      @event_spot_service.get_registrant(event, registrant)
     end
 
 
@@ -659,7 +673,7 @@ module ConstantContact
     # @param [Integer] event_id - event id to retrieve items for
     # @return [Array<EventItem>]
     def get_event_items(event_id)
-      Services::EventSpotService.get_event_items(event_id)
+      @event_spot_service.get_event_items(event_id)
     end
 
 
@@ -668,7 +682,7 @@ module ConstantContact
     # @param [Integer] item_id - id of item to be retrieved
     # @return [EventItem]
     def get_event_item(event_id, item_id)
-      Services::EventSpotService.get_event_item(event_id, item_id)
+      @event_spot_service.get_event_item(event_id, item_id)
     end
 
 
@@ -677,7 +691,7 @@ module ConstantContact
     # @param [EventItem] event_item - event item to be created
     # @return [EventItem]
     def add_event_item(event_id, event_item)
-      Services::EventSpotService.add_event_item(event_id, event_item)
+      @event_spot_service.add_event_item(event_id, event_item)
     end
 
 
@@ -686,7 +700,7 @@ module ConstantContact
     # @param [Integer] item_id - id of event item to be deleted
     # @return [Boolean]
     def delete_event_item(event_id, item_id)
-      Services::EventSpotService.delete_event_item(event_id, item_id)
+      @event_spot_service.delete_event_item(event_id, item_id)
     end
 
 
@@ -695,7 +709,7 @@ module ConstantContact
     # @param [EventItem] event_item - event item to be updated
     # @return [EventItem]
     def update_event_item(event_id, event_item)
-      Services::EventSpotService.update_event_item(event_id, event_item)
+      @event_spot_service.update_event_item(event_id, event_item)
     end
 
 
@@ -704,7 +718,7 @@ module ConstantContact
     # @param [Integer] item_id - event item id to retrieve attributes for
     # @return [Array<EventItemAttribute>]
     def get_event_item_attributes(event_id, item_id)
-      Services::EventSpotService.get_event_item_attributes(event_id, item_id)
+      @event_spot_service.get_event_item_attributes(event_id, item_id)
     end
 
 
@@ -714,7 +728,7 @@ module ConstantContact
     # @param [Integer] attribute_id - id of attribute to be retrieved
     # @return [EventItemAttribute]
     def get_event_item_attribute(event_id, item_id, attribute_id)
-      Services::EventSpotService.get_event_item_attribute(event_id, item_id, attribute_id)
+      @event_spot_service.get_event_item_attribute(event_id, item_id, attribute_id)
     end
 
 
@@ -724,7 +738,7 @@ module ConstantContact
     # @param [EventItemAttribute] event_item_attribute - event item attribute to be created
     # @return [EventItemAttribute]
     def add_event_item_attribute(event_id, item_id, event_item_attribute)
-      Services::EventSpotService.add_event_item_attribute(event_id, item_id, event_item_attribute)
+      @event_spot_service.add_event_item_attribute(event_id, item_id, event_item_attribute)
     end
 
 
@@ -734,7 +748,7 @@ module ConstantContact
     # @param [Integer] attribute_id - id of attribute to be deleted
     # @return [Boolean]
     def delete_event_item_attribute(event_id, item_id, attribute_id)
-      Services::EventSpotService.delete_event_item_attribute(event_id, item_id, attribute_id)
+      @event_spot_service.delete_event_item_attribute(event_id, item_id, attribute_id)
     end
 
 
@@ -744,7 +758,7 @@ module ConstantContact
     # @param [EventItemAttribute] event_item_attribute - event item to be updated
     # @return [EventItemAttribute]
     def update_event_item_attribute(event_id, item_id, event_item_attribute)
-      Services::EventSpotService.update_event_item_attribute(event_id, item_id, event_item_attribute)
+      @event_spot_service.update_event_item_attribute(event_id, item_id, event_item_attribute)
     end
 
 
@@ -752,7 +766,7 @@ module ConstantContact
     # @param [Integer] event_id - event id to retrieve promocodes for
     # @return [Array<Promocode>]
     def get_promocodes(event_id)
-      Services::EventSpotService.get_promocodes(event_id)
+      @event_spot_service.get_promocodes(event_id)
     end
 
 
@@ -761,7 +775,7 @@ module ConstantContact
     # @param [Integer] promocode_id - id of item to be retrieved
     # @return [Promocode]
     def get_promocode(event_id, promocode_id)
-      Services::EventSpotService.get_promocode(event_id, promocode_id)
+      @event_spot_service.get_promocode(event_id, promocode_id)
     end
 
 
@@ -770,7 +784,7 @@ module ConstantContact
     # @param [Promocode] promocode - promocode to be created
     # @return [Promocode]
     def add_promocode(event_id, promocode)
-      Services::EventSpotService.add_promocode(event_id, promocode)
+      @event_spot_service.add_promocode(event_id, promocode)
     end
 
 
@@ -779,7 +793,7 @@ module ConstantContact
     # @param [Integer] promocode_id - id of promocode to be deleted
     # @return [Boolean]
     def delete_promocode(event_id, promocode_id)
-      Services::EventSpotService.delete_promocode(event_id, promocode_id)
+      @event_spot_service.delete_promocode(event_id, promocode_id)
     end
 
 
@@ -788,14 +802,14 @@ module ConstantContact
     # @param [Promocode] promocode - promocode to be updated
     # @return [Promocode]
     def update_promocode(event_id, promocode)
-      Services::EventSpotService.update_promocode(event_id, promocode)
+      @event_spot_service.update_promocode(event_id, promocode)
     end
 
 
     # Retrieve MyLibrary usage information
     # @return [LibrarySummary]
     def get_library_info()
-      Services::LibraryService.get_library_info()
+      @library_service.get_library_info()
     end
 
 
@@ -812,7 +826,7 @@ module ConstantContact
     #     limit -  Specifies the number of results displayed per page of output, from 1 - 50, default = 50.
     # @return [ResultSet<LibraryFolder>]
     def get_library_folders(params = {})
-      Services::LibraryService.get_library_folders(params)
+      @library_service.get_library_folders(params)
     end
 
 
@@ -820,7 +834,7 @@ module ConstantContact
     # @param [LibraryFolder] folder - Library Folder to be created
     # @return [LibraryFolder]
     def add_library_folder(folder)
-      Services::LibraryService.add_library_folder(folder)
+      @library_service.add_library_folder(folder)
     end
 
 
@@ -828,7 +842,7 @@ module ConstantContact
     # @param [String] folder_id - The ID for the folder to return
     # @return [LibraryFolder]
     def get_library_folder(folder_id)
-      Services::LibraryService.get_library_folder(folder_id)
+      @library_service.get_library_folder(folder_id)
     end
 
 
@@ -836,7 +850,7 @@ module ConstantContact
     # @param [LibraryFolder] folder - MyLibrary folder to be updated
     # @return [LibraryFolder]
     def update_library_folder(folder)
-      Services::LibraryService.update_library_folder(folder)
+      @library_service.update_library_folder(folder)
     end
 
 
@@ -844,7 +858,7 @@ module ConstantContact
     # @param [String] folder_id - The ID for the MyLibrary folder to delete
     # @return [Boolean]
     def delete_library_folder(folder_id)
-      Services::LibraryService.delete_library_folder(folder_id)
+      @library_service.delete_library_folder(folder_id)
     end
 
 
@@ -866,14 +880,14 @@ module ConstantContact
     #     limit -  Specifies the number of results displayed per page of output, from 1 - 50, default = 50.
     # @return [ResultSet<LibraryFile>]
     def get_library_trash(params = {})
-      Services::LibraryService.get_library_trash(params)
+      @library_service.get_library_trash(params)
     end
 
 
     # Permanently deletes all files in the Trash folder
     # @return [Boolean]
     def delete_library_trash()
-      Services::LibraryService.delete_library_trash()
+      @library_service.delete_library_trash()
     end
 
 
@@ -892,7 +906,7 @@ module ConstantContact
     #     limit -  Specifies the number of results displayed per page of output, from 1 - 1000, default = 50.
     # @return [ResultSet<LibraryFile>]
     def get_library_files(params = {})
-      Services::LibraryService.get_library_files(params)
+      @library_service.get_library_files(params)
     end
 
 
@@ -903,7 +917,7 @@ module ConstantContact
     #     limit - Specifies the number of results displayed per page of output, from 1 - 50, default = 50.
     # @return [ResultSet<LibraryFile>]
     def get_library_files_by_folder(folder_id, params = {})
-      Services::LibraryService.get_library_files_by_folder(folder_id, params)
+      @library_service.get_library_files_by_folder(folder_id, params)
     end
 
 
@@ -911,7 +925,7 @@ module ConstantContact
     # @param [String] file_id - Specifies the MyLibrary file for which to retrieve information
     # @return [LibraryFile]
     def get_library_file(file_id)
-      Services::LibraryService.get_library_file(file_id)
+      @library_service.get_library_file(file_id)
     end
 
 
@@ -927,7 +941,7 @@ module ConstantContact
     # @param [String] contents - The content of the file
     # @return [LibraryFile]
     def add_library_file(file_name, folder_id, description, source, file_type, contents)
-      Services::LibraryService.add_library_file(file_name, folder_id, description, source, file_type, contents)
+      @library_service.add_library_file(file_name, folder_id, description, source, file_type, contents)
     end
 
 
@@ -935,7 +949,7 @@ module ConstantContact
     # @param [LibraryFile] file - Library File to be updated
     # @return [LibraryFile]
     def update_library_file(file)
-      Services::LibraryService.update_library_file(file)
+      @library_service.update_library_file(file)
     end
 
 
@@ -945,7 +959,7 @@ module ConstantContact
     # @param [String] file_id - Specifies the MyLibrary file to delete
     # @return [Boolean]
     def delete_library_file(file_id)
-      Services::LibraryService.delete_library_file(file_id)
+      @library_service.delete_library_file(file_id)
     end
 
 
@@ -954,7 +968,7 @@ module ConstantContact
     # @param [String] file_id - Specifies the files for which to retrieve upload status information
     # @return [Array<UploadStatus>]
     def get_library_files_upload_status(file_id)
-      Services::LibraryService.get_library_files_upload_status(file_id)
+      @library_service.get_library_files_upload_status(file_id)
     end
 
 
@@ -964,7 +978,7 @@ module ConstantContact
     # @param [String] file_id - Specifies the files to move, in a string of comma separated file ids (e.g. 8,9)
     # @return [Array<MoveResults>]
     def move_library_files(folder_id, file_id)
-      Services::LibraryService.move_library_files(folder_id, file_id)
+      @library_service.move_library_files(folder_id, file_id)
     end
 
 

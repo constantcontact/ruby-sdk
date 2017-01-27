@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::EmailMarketingService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_campaigns" do
@@ -19,7 +20,7 @@ describe ConstantContact::Services::EmailMarketingService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      campaigns = ConstantContact::Services::EmailMarketingService.get_campaigns()
+      campaigns = ConstantContact::Services::EmailMarketingService.new(@client).get_campaigns()
       campaigns.should be_kind_of(ConstantContact::Components::ResultSet)
       campaigns.results.first.should be_kind_of(ConstantContact::Components::Campaign)
       campaigns.results.first.name.should eq('1357157252225')
@@ -34,7 +35,7 @@ describe ConstantContact::Services::EmailMarketingService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      campaign = ConstantContact::Services::EmailMarketingService.get_campaign(1)
+      campaign = ConstantContact::Services::EmailMarketingService.new(@client).get_campaign(1)
       campaign.should be_kind_of(ConstantContact::Components::Campaign)
       campaign.name.should eq('Campaign Name')
     end
@@ -48,7 +49,7 @@ describe ConstantContact::Services::EmailMarketingService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      campaign_preview = ConstantContact::Services::EmailMarketingService.get_campaign_preview(1)
+      campaign_preview = ConstantContact::Services::EmailMarketingService.new(@client).get_campaign_preview(1)
       campaign_preview.should be_kind_of(ConstantContact::Components::CampaignPreview)
       campaign_preview.subject.should eq('Subject Test')
     end
@@ -63,7 +64,7 @@ describe ConstantContact::Services::EmailMarketingService do
       RestClient.stub(:post).and_return(response)
       new_campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
-      campaign = ConstantContact::Services::EmailMarketingService.add_campaign(new_campaign)
+      campaign = ConstantContact::Services::EmailMarketingService.new(@client).add_campaign(new_campaign)
       campaign.should be_kind_of(ConstantContact::Components::Campaign)
       campaign.name.should eq('Campaign Name')
     end
@@ -78,7 +79,7 @@ describe ConstantContact::Services::EmailMarketingService do
       RestClient.stub(:delete).and_return(response)
       campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
-      result = ConstantContact::Services::EmailMarketingService.delete_campaign(campaign)
+      result = ConstantContact::Services::EmailMarketingService.new(@client).delete_campaign(campaign)
       result.should be_true
     end
   end
@@ -92,7 +93,7 @@ describe ConstantContact::Services::EmailMarketingService do
       RestClient.stub(:put).and_return(response)
       campaign = ConstantContact::Components::Campaign.create(JSON.parse(json))
 
-      result = ConstantContact::Services::EmailMarketingService.update_campaign(campaign)
+      result = ConstantContact::Services::EmailMarketingService.new(@client).update_campaign(campaign)
       result.should be_kind_of(ConstantContact::Components::Campaign)
       result.name.should eq('Campaign Name')
     end

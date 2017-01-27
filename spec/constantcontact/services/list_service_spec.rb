@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::ListService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_lists" do
@@ -19,7 +20,7 @@ describe ConstantContact::Services::ListService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      lists = ConstantContact::Services::ListService.get_lists()
+      lists = ConstantContact::Services::ListService.new(@client).get_lists()
       lists.should be_kind_of(Array)
       lists.first.should be_kind_of(ConstantContact::Components::ContactList)
       lists.first.name.should eq('General Interest')
@@ -34,7 +35,7 @@ describe ConstantContact::Services::ListService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      list = ConstantContact::Services::ListService.get_list(1)
+      list = ConstantContact::Services::ListService.new(@client).get_list(1)
       list.should be_kind_of(ConstantContact::Components::ContactList)
       list.name.should eq('Monthly Specials')
     end
@@ -49,7 +50,7 @@ describe ConstantContact::Services::ListService do
       RestClient.stub(:post).and_return(response)
       new_list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
-      list = ConstantContact::Services::ListService.add_list(new_list)
+      list = ConstantContact::Services::ListService.new(@client).add_list(new_list)
       list.should be_kind_of(ConstantContact::Components::ContactList)
       list.status.should eq('ACTIVE')
     end
@@ -64,7 +65,7 @@ describe ConstantContact::Services::ListService do
       RestClient.stub(:put).and_return(response)
       list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
-      result = ConstantContact::Services::ListService.update_list(list)
+      result = ConstantContact::Services::ListService.new(@client).update_list(list)
       result.should be_kind_of(ConstantContact::Components::ContactList)
       result.status.should eq('ACTIVE')
     end
@@ -80,7 +81,7 @@ describe ConstantContact::Services::ListService do
       RestClient.stub(:get).and_return(response)
       list = ConstantContact::Components::ContactList.create(JSON.parse(json_list))
 
-      contacts = ConstantContact::Services::ListService.get_contacts_from_list(list)
+      contacts = ConstantContact::Services::ListService.new(@client).get_contacts_from_list(list)
       contacts.should be_kind_of(ConstantContact::Components::ResultSet)
       contacts.results.first.should be_kind_of(ConstantContact::Components::Contact)
       contacts.results.first.fax.should eq('318-978-7575')

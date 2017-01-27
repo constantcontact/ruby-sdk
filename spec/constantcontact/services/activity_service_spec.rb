@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::ActivityService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_activities" do
@@ -19,7 +20,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      activities = ConstantContact::Services::ActivityService.get_activities()
+      activities = ConstantContact::Services::ActivityService.new(@client).get_activities()
       activities.first.should be_kind_of(ConstantContact::Components::Activity)
       activities.first.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
@@ -33,7 +34,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      activity = ConstantContact::Services::ActivityService.get_activity('a07e1ilbm7shdg6ikeo')
+      activity = ConstantContact::Services::ActivityService.new(@client).get_activity('a07e1ilbm7shdg6ikeo')
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
@@ -123,7 +124,7 @@ describe ConstantContact::Services::ActivityService do
 
       JSON.parse(json_request).should eq(JSON.parse(JSON.generate(add_contact)))
 
-      activity = ConstantContact::Services::ActivityService.create_add_contacts_activity(add_contact)
+      activity = ConstantContact::Services::ActivityService.new(@client).create_add_contacts_activity(add_contact)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('ADD_CONTACTS')
     end
@@ -139,7 +140,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
-      activity = ConstantContact::Services::ActivityService.create_add_contacts_activity_from_file(
+      activity = ConstantContact::Services::ActivityService.new(@client).create_add_contacts_activity_from_file(
         'contacts.txt', content, lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('ADD_CONTACTS')
@@ -159,7 +160,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json_clear_lists, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
-      activity = ConstantContact::Services::ActivityService.add_clear_lists_activity(lists)
+      activity = ConstantContact::Services::ActivityService.new(@client).add_clear_lists_activity(lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('CLEAR_CONTACTS_FROM_LISTS')
     end
@@ -175,7 +176,7 @@ describe ConstantContact::Services::ActivityService do
       RestClient.stub(:post).and_return(response)
       email_addresses = ["djellesma@constantcontact.com"]
 
-      activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity(
+      activity = ConstantContact::Services::ActivityService.new(@client).add_remove_contacts_from_lists_activity(
         email_addresses, lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
@@ -192,7 +193,7 @@ describe ConstantContact::Services::ActivityService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
-      activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity_from_file(
+      activity = ConstantContact::Services::ActivityService.new(@client).add_remove_contacts_from_lists_activity_from_file(
         'contacts.txt', content, lists)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
@@ -210,7 +211,7 @@ describe ConstantContact::Services::ActivityService do
 
       export_contacts = ConstantContact::Components::ExportContacts.new(JSON.parse(json_request))
 
-      activity = ConstantContact::Services::ActivityService.add_export_contacts_activity(export_contacts)
+      activity = ConstantContact::Services::ActivityService.new(@client).add_export_contacts_activity(export_contacts)
       activity.should be_kind_of(ConstantContact::Components::Activity)
       activity.type.should eq('EXPORT_CONTACTS')
     end
@@ -237,7 +238,7 @@ describe ConstantContact::Services::ActivityService do
         end
       end
 
-      activity = ConstantContact::Services::ActivityService.add_remove_contacts_from_lists_activity(email_addresses, lists)
+      activity = ConstantContact::Services::ActivityService.new(@client).add_remove_contacts_from_lists_activity(email_addresses, lists)
       activity.type.should eq('REMOVE_CONTACTS_FROM_LISTS')
     end
   end

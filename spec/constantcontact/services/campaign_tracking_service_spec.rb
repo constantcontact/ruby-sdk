@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::CampaignTrackingService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_bounces" do
@@ -21,7 +22,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::CampaignTrackingService.get_bounces(campaign_id, params)
+      set = ConstantContact::Services::CampaignTrackingService.new(@client).get_bounces(campaign_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::BounceActivity)
       set.results.first.activity_type.should eq('EMAIL_BOUNCE')
@@ -38,7 +39,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::CampaignTrackingService.get_clicks(campaign_id, params)
+      set = ConstantContact::Services::CampaignTrackingService.new(@client).get_clicks(campaign_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::ClickActivity)
       set.results.first.activity_type.should eq('EMAIL_CLICK')
@@ -55,7 +56,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::CampaignTrackingService.get_forwards(campaign_id, params)
+      set = ConstantContact::Services::CampaignTrackingService.new(@client).get_forwards(campaign_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::ForwardActivity)
       set.results.first.activity_type.should eq('EMAIL_FORWARD')
@@ -72,7 +73,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::CampaignTrackingService.get_opens(campaign_id, params)
+      set = ConstantContact::Services::CampaignTrackingService.new(@client).get_opens(campaign_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::OpenActivity)
       set.results.first.activity_type.should eq('EMAIL_OPEN')
@@ -89,7 +90,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::CampaignTrackingService.get_sends(campaign_id, params)
+      set = ConstantContact::Services::CampaignTrackingService.new(@client).get_sends(campaign_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::SendActivity)
       set.results.first.activity_type.should eq('EMAIL_SEND')
@@ -106,7 +107,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      set = ConstantContact::Services::CampaignTrackingService.get_unsubscribes(campaign_id, params)
+      set = ConstantContact::Services::CampaignTrackingService.new(@client).get_unsubscribes(campaign_id, params)
       set.should be_kind_of(ConstantContact::Components::ResultSet)
       set.results.first.should be_kind_of(ConstantContact::Components::UnsubscribeActivity)
       set.results.first.activity_type.should eq('EMAIL_UNSUBSCRIBE')
@@ -122,7 +123,7 @@ describe ConstantContact::Services::CampaignTrackingService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      summary = ConstantContact::Services::CampaignTrackingService.get_summary(campaign_id)
+      summary = ConstantContact::Services::CampaignTrackingService.new(@client).get_summary(campaign_id)
       summary.should be_kind_of(ConstantContact::Components::TrackingSummary)
       summary.sends.should eq(15)
     end

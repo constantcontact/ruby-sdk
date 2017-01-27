@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::ContactService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_contacts" do
@@ -18,7 +19,7 @@ describe ConstantContact::Services::ContactService do
 
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
-      contacts = ConstantContact::Services::ContactService.get_contacts()
+      contacts = ConstantContact::Services::ContactService.new(@client).get_contacts()
       contact = contacts.results[0]
 
       contacts.should be_kind_of(ConstantContact::Components::ResultSet)
@@ -33,7 +34,7 @@ describe ConstantContact::Services::ContactService do
 
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
-      contact = ConstantContact::Services::ContactService.get_contact(1)
+      contact = ConstantContact::Services::ContactService.new(@client).get_contact(1)
 
       contact.should be_kind_of(ConstantContact::Components::Contact)
     end
@@ -47,7 +48,7 @@ describe ConstantContact::Services::ContactService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
       new_contact = ConstantContact::Components::Contact.create(JSON.parse(json))
-      contact = ConstantContact::Services::ContactService.add_contact(new_contact)
+      contact = ConstantContact::Services::ContactService.new(@client).add_contact(new_contact)
 
       contact.should be_kind_of(ConstantContact::Components::Contact)
       contact.status.should eq('ACTIVE')
@@ -62,7 +63,7 @@ describe ConstantContact::Services::ContactService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::ContactService.delete_contact(contact_id)
+      result = ConstantContact::Services::ContactService.new(@client).delete_contact(contact_id)
       result.should be_true
     end
   end
@@ -75,7 +76,7 @@ describe ConstantContact::Services::ContactService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::ContactService.delete_contact_from_lists(contact_id)
+      result = ConstantContact::Services::ContactService.new(@client).delete_contact_from_lists(contact_id)
       result.should be_true
     end
   end
@@ -89,7 +90,7 @@ describe ConstantContact::Services::ContactService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::ContactService.delete_contact_from_list(contact_id, list_id)
+      result = ConstantContact::Services::ContactService.new(@client).delete_contact_from_list(contact_id, list_id)
       result.should be_true
     end
   end
@@ -102,7 +103,7 @@ describe ConstantContact::Services::ContactService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:put).and_return(response)
       contact = ConstantContact::Components::Contact.create(JSON.parse(json))
-      result = ConstantContact::Services::ContactService.update_contact(contact)
+      result = ConstantContact::Services::ContactService.new(@client).update_contact(contact)
 
       result.should be_kind_of(ConstantContact::Components::Contact)
       result.status.should eq('ACTIVE')
