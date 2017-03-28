@@ -134,3 +134,58 @@ Create a my_view.erb with the following code:
 The first time you access the action in browser you should see the "Click to authorize" link.
 Follow the link, go through all the Constant Contact steps required 
 and then you will be redirected back to your action and you should see the list of contacts.
+
+Example
+=====
+Add a new contact using the Ruby SDK
+```
+#gem install constantcontact
+
+require 'yaml' 
+require 'constantcontact'
+
+class ContactExample
+
+  def initialize()
+    cnf = YAML::load(File.open('config/config.yml'))
+    @cc = ConstantContact::Api.new(cnf['api_key'], cnf['oauth_token'])
+  end
+
+  def add_contact( contact_json )
+    @cc.add_contact( contact_json ) 
+  end
+
+  def get_lists
+    @cc.get_lists()
+  end
+
+end
+class AddContactTest
+  def do()
+    contact_example = ContactExample.new
+    contact_list = contact_example.get_lists[0].id
+    puts "Add what email address?"
+    email_address = gets.chomp
+    puts "Adding #{email_address} to Contact List #{contact_list}" 
+
+    list_to_add_to = ConstantContact::Components::ContactList.new
+    list_to_add_to.id = contact_list
+
+    new_contact = ConstantContact::Components::Contact.new
+    new_contact.add_email(ConstantContact::Components::EmailAddress.new(email_address))
+    new_contact.add_list(list_to_add_to)
+    new_contact.first_name = 'Example'
+    new_contact.last_name = 'User'
+
+    #input = "{ 'email_addresses':[{'email_address':'#{email_address}'}], 'lists':[{'id':'#{contact_list}'}], first_name':'Example', 'last_name':'User'}"
+    #puts input
+    puts new_contact.to_json
+
+    puts contact_example.add_contact( new_contact ).to_json
+
+  rescue RestClient::BadRequest => e
+    puts "#{e.http_code} - #{e.http_body}"
+  end
+end
+AddContactTest.new.do
+```
