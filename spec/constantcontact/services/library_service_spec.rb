@@ -9,6 +9,7 @@ require 'spec_helper'
 describe ConstantContact::Services::LibraryService do
   before(:each) do
     @request = double('http request', :user => nil, :password => nil, :url => 'http://example.com', :redirection_history => nil)
+    @client = ConstantContact::Api.new('explicit_api_key', "access_token")
   end
 
   describe "#get_library_info" do
@@ -19,7 +20,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      info = ConstantContact::Services::LibraryService.get_library_info()
+      info = ConstantContact::Services::LibraryService.new(@client).get_library_info()
       info.should be_kind_of(ConstantContact::Components::LibrarySummary)
       info.usage_summary['folder_count'].should eq(6)
     end
@@ -33,7 +34,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      folders = ConstantContact::Services::LibraryService.get_library_folders({:limit => 2})
+      folders = ConstantContact::Services::LibraryService.new(@client).get_library_folders({:limit => 2})
       folders.should be_kind_of(ConstantContact::Components::ResultSet)
       folders.results.first.should be_kind_of(ConstantContact::Components::LibraryFolder)
       folders.results.first.name.should eq('backgrounds')
@@ -49,7 +50,7 @@ describe ConstantContact::Services::LibraryService do
       RestClient.stub(:post).and_return(response)
       new_folder = ConstantContact::Components::LibraryFolder.create(JSON.parse(json))
 
-      folder = ConstantContact::Services::LibraryService.add_library_folder(new_folder)
+      folder = ConstantContact::Services::LibraryService.new(@client).add_library_folder(new_folder)
       folder.should be_kind_of(ConstantContact::Components::LibraryFolder)
       folder.name.should eq('wildflowers')
     end
@@ -63,7 +64,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      folder = ConstantContact::Services::LibraryService.get_library_folder(6)
+      folder = ConstantContact::Services::LibraryService.new(@client).get_library_folder(6)
       folder.should be_kind_of(ConstantContact::Components::LibraryFolder)
       folder.name.should eq('wildflowers')
     end
@@ -78,7 +79,7 @@ describe ConstantContact::Services::LibraryService do
       RestClient.stub(:put).and_return(response)
       folder = ConstantContact::Components::LibraryFolder.create(JSON.parse(json))
 
-      response = ConstantContact::Services::LibraryService.update_library_folder(folder)
+      response = ConstantContact::Services::LibraryService.new(@client).update_library_folder(folder)
       response.should be_kind_of(ConstantContact::Components::LibraryFolder)
       response.name.should eq('wildflowers')
     end
@@ -92,7 +93,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::LibraryService.delete_library_folder(folder_id)
+      result = ConstantContact::Services::LibraryService.new(@client).delete_library_folder(folder_id)
       result.should be_true
     end
   end
@@ -105,7 +106,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      files = ConstantContact::Services::LibraryService.get_library_trash({:sort_by => 'SIZE_DESC'})
+      files = ConstantContact::Services::LibraryService.new(@client).get_library_trash({:sort_by => 'SIZE_DESC'})
       files.should be_kind_of(ConstantContact::Components::ResultSet)
       files.results.first.should be_kind_of(ConstantContact::Components::LibraryFile)
       files.results.first.name.should eq('menu_form.pdf')
@@ -119,7 +120,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::LibraryService.delete_library_trash()
+      result = ConstantContact::Services::LibraryService.new(@client).delete_library_trash()
       result.should be_true
     end
   end
@@ -132,7 +133,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      files = ConstantContact::Services::LibraryService.get_library_files({:type => 'ALL'})
+      files = ConstantContact::Services::LibraryService.new(@client).get_library_files({:type => 'ALL'})
       files.should be_kind_of(ConstantContact::Components::ResultSet)
       files.results.first.should be_kind_of(ConstantContact::Components::LibraryFile)
       files.results.first.name.should eq('IMG_0341.JPG')
@@ -148,7 +149,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      files = ConstantContact::Services::LibraryService.get_library_files_by_folder(folder_id, {:limit => 10})
+      files = ConstantContact::Services::LibraryService.new(@client).get_library_files_by_folder(folder_id, {:limit => 10})
       files.should be_kind_of(ConstantContact::Components::ResultSet)
       files.results.first.should be_kind_of(ConstantContact::Components::LibraryFile)
       files.results.first.name.should eq('IMG_0341.JPG')
@@ -163,7 +164,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      file = ConstantContact::Services::LibraryService.get_library_file(6)
+      file = ConstantContact::Services::LibraryService.new(@client).get_library_file(6)
       file.should be_kind_of(ConstantContact::Components::LibraryFile)
       file.name.should eq('IMG_0261.JPG')
     end
@@ -183,7 +184,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create("", net_http_resp, {}, @request)
       RestClient.stub(:post).and_return(response)
 
-      response = ConstantContact::Services::LibraryService.add_library_file(file_name, folder_id, description, source, file_type, contents)
+      response = ConstantContact::Services::LibraryService.new(@client).add_library_file(file_name, folder_id, description, source, file_type, contents)
       response.should be_kind_of(String)
       response.should eq('123456789')
     end
@@ -198,7 +199,7 @@ describe ConstantContact::Services::LibraryService do
       RestClient.stub(:put).and_return(response)
       file = ConstantContact::Components::LibraryFile.create(JSON.parse(json))
 
-      response = ConstantContact::Services::LibraryService.update_library_file(file)
+      response = ConstantContact::Services::LibraryService.new(@client).update_library_file(file)
       response.should be_kind_of(ConstantContact::Components::LibraryFile)
       response.name.should eq('IMG_0261.JPG')
     end
@@ -212,7 +213,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create('', net_http_resp, {}, @request)
       RestClient.stub(:delete).and_return(response)
 
-      result = ConstantContact::Services::LibraryService.delete_library_file(file_id)
+      result = ConstantContact::Services::LibraryService.new(@client).delete_library_file(file_id)
       result.should be_true
     end
   end
@@ -226,7 +227,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:get).and_return(response)
 
-      statuses = ConstantContact::Services::LibraryService.get_library_files_upload_status(file_id)
+      statuses = ConstantContact::Services::LibraryService.new(@client).get_library_files_upload_status(file_id)
       statuses.should be_kind_of(Array)
       statuses.first.should be_kind_of(ConstantContact::Components::UploadStatus)
       statuses.first.status.should eq('Active')
@@ -243,7 +244,7 @@ describe ConstantContact::Services::LibraryService do
       response = RestClient::Response.create(json, net_http_resp, {}, @request)
       RestClient.stub(:put).and_return(response)
 
-      results = ConstantContact::Services::LibraryService.move_library_files(folder_id, file_id)
+      results = ConstantContact::Services::LibraryService.new(@client).move_library_files(folder_id, file_id)
       results.should be_kind_of(Array)
       results.first.should be_kind_of(ConstantContact::Components::MoveResults)
       results.first.uri.should eq('https://api.d1.constantcontact.com/v2/library/files/9')

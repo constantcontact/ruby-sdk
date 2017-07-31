@@ -30,7 +30,6 @@ describe ConstantContact::Api do
 
   context "with middle-ware configuration" do
     before(:all) do
-      ConstantContact::Services::BaseService.api_key = nil
       ConstantContact::Util::Config.configure do |config|
         config[:auth][:api_key] = "config_api_key"
         config[:auth][:api_secret] = "config_api_secret"
@@ -42,13 +41,12 @@ describe ConstantContact::Api do
       proc.should raise_error(ArgumentError, ConstantContact::Util::Config.get('errors.access_token_missing'))
     end
     it "has the correct implicit api key" do
-      ConstantContact::Services::BaseService.api_key.should == "config_api_key"
+      ConstantContact::Api.new(nil, "access_token").api_key.should == "config_api_key"
     end
   end
 
   context "with middle-ware configuration" do
     before(:all) do
-      ConstantContact::Services::BaseService.api_key = nil
       ConstantContact::Util::Config.configure do |config|
         config[:auth][:api_key] = "config_api_key"
         config[:auth][:api_secret] = "config_api_secret"
@@ -57,7 +55,7 @@ describe ConstantContact::Api do
       ConstantContact::Api.new('explicit_api_key', 'access_token')
     end
     it "has the correct explicit api key" do
-      ConstantContact::Services::BaseService.api_key.should == "explicit_api_key"
+      ConstantContact::Api.new('explicit_api_key', "access_token").api_key.should == "explicit_api_key"
     end
   end
 
