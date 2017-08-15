@@ -17,7 +17,7 @@ describe ConstantContact::Services::LibraryService do
       json_response = load_file('library_info_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       info = ConstantContact::Services::LibraryService.new(@client).get_library_info()
@@ -31,7 +31,7 @@ describe ConstantContact::Services::LibraryService do
       json_response = load_file('library_folders_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       folders = ConstantContact::Services::LibraryService.new(@client).get_library_folders({:limit => 2})
@@ -46,7 +46,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_folder_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:post).and_return(response)
       new_folder = ConstantContact::Components::LibraryFolder.create(JSON.parse(json))
 
@@ -61,7 +61,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_folder_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       folder = ConstantContact::Services::LibraryService.new(@client).get_library_folder(6)
@@ -75,7 +75,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_folder_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:put).and_return(response)
       folder = ConstantContact::Components::LibraryFolder.create(JSON.parse(json))
 
@@ -90,11 +90,11 @@ describe ConstantContact::Services::LibraryService do
       folder_id = 6
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-      response = RestClient::Response.create('', net_http_resp, {}, @request)
+      response = RestClient::Response.create('', net_http_resp, @request)
       RestClient.stub(:delete).and_return(response)
 
       result = ConstantContact::Services::LibraryService.new(@client).delete_library_folder(folder_id)
-      result.should be_true
+      expect(result).to eq true
     end
   end
 
@@ -103,7 +103,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_trash_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       files = ConstantContact::Services::LibraryService.new(@client).get_library_trash({:sort_by => 'SIZE_DESC'})
@@ -117,11 +117,11 @@ describe ConstantContact::Services::LibraryService do
     it "permanently deletes all files in the Trash folder" do
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-      response = RestClient::Response.create('', net_http_resp, {}, @request)
+      response = RestClient::Response.create('', net_http_resp, @request)
       RestClient.stub(:delete).and_return(response)
 
       result = ConstantContact::Services::LibraryService.new(@client).delete_library_trash()
-      result.should be_true
+      expect(result).to eq true
     end
   end
 
@@ -130,7 +130,7 @@ describe ConstantContact::Services::LibraryService do
       json_response = load_file('library_files_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       files = ConstantContact::Services::LibraryService.new(@client).get_library_files({:type => 'ALL'})
@@ -146,7 +146,7 @@ describe ConstantContact::Services::LibraryService do
       json_response = load_file('library_files_by_folder_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       files = ConstantContact::Services::LibraryService.new(@client).get_library_files_by_folder(folder_id, {:limit => 10})
@@ -161,7 +161,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_file_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       file = ConstantContact::Services::LibraryService.new(@client).get_library_file(6)
@@ -181,7 +181,7 @@ describe ConstantContact::Services::LibraryService do
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
       net_http_resp.add_field('Location', 'https://api.d1.constantcontact.com/v2/library/files/123456789')
 
-      response = RestClient::Response.create("", net_http_resp, {}, @request)
+      response = RestClient::Response.create("", net_http_resp, @request)
       RestClient.stub(:post).and_return(response)
 
       response = ConstantContact::Services::LibraryService.new(@client).add_library_file(file_name, folder_id, description, source, file_type, contents)
@@ -195,7 +195,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_file_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:put).and_return(response)
       file = ConstantContact::Components::LibraryFile.create(JSON.parse(json))
 
@@ -210,11 +210,11 @@ describe ConstantContact::Services::LibraryService do
       file_id = '6, 7'
       net_http_resp = Net::HTTPResponse.new(1.0, 204, 'No Content')
 
-      response = RestClient::Response.create('', net_http_resp, {}, @request)
+      response = RestClient::Response.create('', net_http_resp, @request)
       RestClient.stub(:delete).and_return(response)
 
       result = ConstantContact::Services::LibraryService.new(@client).delete_library_file(file_id)
-      result.should be_true
+      expect(result).to eq true
     end
   end
 
@@ -224,7 +224,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_files_upload_status_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       statuses = ConstantContact::Services::LibraryService.new(@client).get_library_files_upload_status(file_id)
@@ -241,7 +241,7 @@ describe ConstantContact::Services::LibraryService do
       json = load_file('library_files_move_results_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:put).and_return(response)
 
       results = ConstantContact::Services::LibraryService.new(@client).move_library_files(folder_id, file_id)

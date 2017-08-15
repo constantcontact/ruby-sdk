@@ -11,7 +11,7 @@ describe ConstantContact::SDK do
   let(:dummy_class) { Class.new { include ConstantContact::SDK } }
   
   it "should respond to VERSION" do
-    expect((dummy_class.const_get("VERSION") rescue nil)).to be_true
+    expect((dummy_class.const_get("VERSION") rescue nil)).to be_truthy
   end
   
   it "should have a VERSION of type string" do

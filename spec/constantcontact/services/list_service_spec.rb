@@ -17,7 +17,7 @@ describe ConstantContact::Services::ListService do
       json_response = load_file('lists_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       lists = ConstantContact::Services::ListService.new(@client).get_lists()
@@ -32,7 +32,7 @@ describe ConstantContact::Services::ListService do
       json = load_file('list_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       list = ConstantContact::Services::ListService.new(@client).get_list(1)
@@ -46,7 +46,7 @@ describe ConstantContact::Services::ListService do
       json = load_file('list_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:post).and_return(response)
       new_list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
@@ -61,7 +61,7 @@ describe ConstantContact::Services::ListService do
       json = load_file('list_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json, net_http_resp, {}, @request)
+      response = RestClient::Response.create(json, net_http_resp, @request)
       RestClient.stub(:put).and_return(response)
       list = ConstantContact::Components::ContactList.create(JSON.parse(json))
 
@@ -77,7 +77,7 @@ describe ConstantContact::Services::ListService do
       json_contacts = load_file('contacts_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_contacts, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_contacts, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
       list = ConstantContact::Components::ContactList.create(JSON.parse(json_list))
 

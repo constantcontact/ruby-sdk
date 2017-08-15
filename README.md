@@ -5,11 +5,15 @@ The Ruby SDK for AppConnect allows you to leverage the AppConnect v2 APIs.
 
 [![Build Status](https://travis-ci.org/constantcontact/ruby-sdk.png)](https://travis-ci.org/constantcontact/ruby-sdk)
 
+Requirements
+====
+The Constant Contact Ruby SDK requires Ruby 2.2+.
+
 Installation
 ====
 Via bundler:
 ```ruby
-gem 'constantcontact', '~> 3.0.0'
+gem 'constantcontact', '~> 4.0.0'
 ```
 Otherwise:
 ```bash

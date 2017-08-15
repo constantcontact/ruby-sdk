@@ -23,10 +23,10 @@ describe ConstantContact::Services::BaseService do
       expect(headers[:authorization]).to be_a String
       expect(headers[:authorization]).to eq("Bearer #{token}")
       expect(headers[:user_agent]).to be_a String
-      expect(headers[:user_agent].include?("Ruby SDK v#{ConstantContact::SDK::VERSION}")).to be_true
-      expect(headers[:user_agent].include?(RUBY_DESCRIPTION)).to be_true
+      expect(headers[:user_agent].include?("Ruby SDK v#{ConstantContact::SDK::VERSION}")).to be_truthy
+      expect(headers[:user_agent].include?(RUBY_DESCRIPTION)).to be_truthy
       expect(headers[:x_ctct_request_source]).to be_a String
-      expect(headers[:x_ctct_request_source].include?(ConstantContact::SDK::VERSION)).to be_true
+      expect(headers[:x_ctct_request_source].include?(ConstantContact::SDK::VERSION)).to be_truthy
     end
   end
 
@@ -35,8 +35,8 @@ describe ConstantContact::Services::BaseService do
       components = ConstantContact::Services::BaseService.new(@client).send(:build_url, "http://testing.com", :arg1 => 'abc', :arg2 => 123).split('&')
       expect(components[0]).to eq('http://testing.com?api_key=api+key')
       expect(components.length).to eq(3)
-      expect(components.include?('arg1=abc')).to be_true
-      expect(components.include?('arg2=123')).to be_true
+      expect(components.include?('arg1=abc')).to be_truthy
+      expect(components.include?('arg2=123')).to be_truthy
     end
 
     it "does not parse the next param when not in next_link format" do
