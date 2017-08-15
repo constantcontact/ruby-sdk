@@ -17,7 +17,7 @@ describe ConstantContact::Services::AccountService do
       json_response = load_file('account_info_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       result = ConstantContact::Services::AccountService.new(@client).get_account_info()
@@ -33,7 +33,7 @@ describe ConstantContact::Services::AccountService do
       json_response = load_file('verified_email_addresses_response.json')
       net_http_resp = Net::HTTPResponse.new(1.0, 200, 'OK')
 
-      response = RestClient::Response.create(json_response, net_http_resp, {}, @request)
+      response =RestClient::Response.create(json_response, net_http_resp, @request)
       RestClient.stub(:get).and_return(response)
 
       params = {}
