@@ -142,7 +142,7 @@ and then you will be redirected back to your action and you should see the list 
 Example
 =====
 Add a new contact using the Ruby SDK
-```
+```ruby
 #gem install constantcontact
 
 require 'yaml' 
